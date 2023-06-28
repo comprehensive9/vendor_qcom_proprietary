@@ -49,7 +49,7 @@ calibration_path = /mnt/vendor/persist/qvr/
 sensor_orientation = 2 -1 3
 
 # tracking camera properties
-tracking_camera_id                  = 1,0
+tracking_camera_id                  = 0,2
 tracking_camera_sensor              = ov7251_stereo
 tracking_camera_driver              = native_pair
 tracking_camera_res                 = 1280 480 60 60
@@ -78,7 +78,7 @@ tracking_6dof_camera_names = tracking,ctrl-tracking
 tracking_camera_gamma_blacklevel_cfg     = 0.5:0
 
 # ctrl camera properties
-ctrl-tracking_camera_id                  = 3,2
+ctrl-tracking_camera_id                  = 1,3
 ctrl-tracking_camera_sensor              = ov7251_stereo
 ctrl-tracking_camera_driver              = native_pair
 ctrl-tracking_camera_res                 = 1280 480 60 60
@@ -103,91 +103,6 @@ ctrl-tracking_camera_default_frame_format     = y8
 ctrl-tracking_camera_stereo_sync_align_mid_exp = true
 ctrl-tracking_camera_stereo_sync_discrete_aec = true
 ctrl-tracking_camera_gamma_blacklevel_cfg = 0.5:0
-
-
-# RGB left camera properties
-rgb-left_camera_id                  = 5
-rgb-left_camera_sensor              = imx471
-rgb-left_camera_driver              = native
-rgb-left_camera_res                 = 1748 1748 90 90 91.8
-rgb-left_camera_quarter_res         = 1748 1748 90 90 91.8
-rgb-left_camera_frame_rdi_mode      = false
-rgb-left_camera_frame_rdi_bit_depth = 10
-rgb-left_camera_rdi_frame_format    = raw10
-rgb-left_camera_auto_exposure       = true
-rgb-left_camera_hvx_mode            = false
-rgb-left_camera_hvx_algo            = qvrcam_receiver
-rgb-left_camera_master_only         = false
-rgb-left_camera_control_protected   = false
-rgb-left_camera_privileged_client   = 0
-rgb-left_camera_frame_logging_mode  = disabled
-rgb-left_camera_hvx_sensor          = imx471
-rgb-left_camera_default_flash_mode    = off
-rgb-left_camera_enable_yuv_ipe_bypass = true
-rgb-left_camera_enable_lsc          = true
-rgb-left_camera_default_resolution_mode  = quarter
-rgb-left_camera_resolution_mode  = quarter
-rgb-left_camera_hvx_stereo_slave_camera_id = -1
-rgb-left_camera_supported_formats        = yuv420
-rgb-left_camera_default_frame_format     = yuv420
-
-# RGB right camera properties
-rgb-right_camera_id                  = 4
-rgb-right_camera_sensor              = imx471
-rgb-right_camera_driver              = native
-rgb-right_camera_res                 = 1748 1748 90 90 91.8
-rgb-right_camera_quarter_res         = 1748 1748 90 90 91.8
-rgb-right_camera_frame_rdi_mode      = false
-rgb-right_camera_frame_rdi_bit_depth = 10
-rgb-right_camera_rdi_frame_format    = raw10
-rgb-right_camera_auto_exposure       = true
-rgb-right_camera_hvx_mode            = false
-rgb-right_camera_hvx_algo            = qvrcam_receiver
-rgb-right_camera_master_only         = false
-rgb-right_camera_control_protected   = false
-rgb-right_camera_privileged_client   = 0
-rgb-right_camera_frame_logging_mode  = disabled
-rgb-right_camera_hvx_sensor          = imx471
-rgb-right_camera_default_flash_mode  = off
-rgb-right_camera_enable_yuv_ipe_bypass   = true
-rgb-right_camera_enable_lsc          = true
-rgb-right_camera_default_resolution_mode  = quarter
-rgb-right_camera_resolution_mode  = quarter
-rgb-right_camera_hvx_stereo_slave_camera_id = -1
-rgb-right_camera_supported_formats        = yuv420
-rgb-right_camera_default_frame_format     = yuv420
-
-# RGB sync camera properties
-rgb_camera_id                      = 5,4
-rgb_camera_sensor                  = imx471_stereo
-rgb_camera_driver                  = native_pair
-rgb_camera_calibration_name        = rgb-left,rgb-right
-rgb_camera_res                     = 3496 1748 90 90 90
-rgb_camera_quarter_res             = 3496 1748 90 90 90
-rgb_camera_frame_rdi_mode          = false
-rgb_camera_frame_rdi_bit_depth     = 10
-rgb_camera_rdi_frame_format        = raw10
-rgb_camera_auto_exposure           = true
-rgb_camera_hvx_mode                = false
-rgb_camera_hvx_algo                = qvrcam_receiver
-rgb_camera_master_only             = false
-rgb_camera_control_protected       = false
-rgb_camera_privileged_client       = 0
-# camera logging (disabled, continuous, oneshot)
-rgb_camera_frame_logging_mode      = disabled
-rgb_camera_hvx_sensor              = s5kjd1sp
-rgb_camera_default_flash_mode      = off
-rgb_camera_enable_yuv_ipe_bypass   = true
-rgb_camera_enable_lsc              = true
-rgb_camera_hvx_stereo_slave_camera_id = -1
-rgb_camera_default_resolution_mode    = quarter
-rgb_camera_resolution_mode    = quarter
-rgb_camera_supported_formats          = yuv420
-rgb_camera_default_frame_format       = yuv420
-rgb_camera_enable_partial_frame_read  = true
-rgb_camera_timing_quarter_res_buffer_fill_duration_us = 9670
-rgb_camera_timing_quarter_res_buffer_fill_offset_us   = 250
-rgb_camera_additional_cam_stream = native_downsample 616 616 90 yuv420
 
 # 6dof pose logging (disabled, continuous, oneshot)
 tracking_6dof_pose_logging_mode    = disabled

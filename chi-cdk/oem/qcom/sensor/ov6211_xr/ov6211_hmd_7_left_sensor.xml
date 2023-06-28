@@ -14,7 +14,7 @@
     <!--Name of the sensor -->
     <sensorName>ov6211_xr</sensorName>
     <!--8-bit or 10-bit write slave address -->
-    <slaveAddress>0x50</slaveAddress>
+    <slaveAddress>0xC0</slaveAddress>
     <!--Register address / data size in bytes -->
     <regAddrType range="[1,4]">2</regAddrType>
     <!--Register address / data size in bytes -->
@@ -192,9 +192,9 @@
       <resSettings>
         <regSetting>
           <!-- properly configure sensor address -->
-          <slaveAddr>0x50</slaveAddr>
-          <registerAddr>0x3005</registerAddr>
-          <registerData>0x0a</registerData>
+          <slaveAddr>0xC0</slaveAddr>
+          <registerAddr>0x0103</registerAddr>
+          <registerData>0x01</registerData>
           <regAddrType range="[1,4]">2</regAddrType>
           <regDataType range="[1,4]">1</regDataType>
           <operation>WRITE</operation>
@@ -1277,9 +1277,9 @@
       <resSettings>
         <regSetting>
           <!-- properly configure sensor address -->
-          <slaveAddr>0x50</slaveAddr>
-          <registerAddr>0x3005</registerAddr>
-          <registerData>0x0a</registerData>
+          <slaveAddr>0xC0</slaveAddr>
+          <registerAddr>0x0103</registerAddr>
+          <registerData>0x01</registerData>
           <regAddrType range="[1,4]">2</regAddrType>
           <regDataType range="[1,4]">1</regDataType>
           <operation>WRITE</operation>
@@ -2463,10 +2463,10 @@
             operation and delay in micro seconds -->
     <regSetting>
       <!-- set i2c address: ov6211 camera -->
-      <slaveAddr>0x50</slaveAddr>
+      <slaveAddr>0xC0</slaveAddr>
       <!--Register address that is accessed -->
-      <registerAddr>0x3005</registerAddr>
-      <registerData>0xa</registerData>
+      <registerAddr>0x0103</registerAddr>
+      <registerData>0x1</registerData>
       <!--Register address / data size in bytes -->
       <regAddrType range="[1,4]">2</regAddrType>
       <!--Register address / data size in bytes -->

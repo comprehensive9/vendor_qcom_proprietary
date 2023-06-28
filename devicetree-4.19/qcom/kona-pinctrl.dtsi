@@ -897,12 +897,12 @@
 		cnss_pins {
 			cnss_wlan_en_active: cnss_wlan_en_active {
 				mux {
-					pins = "gpio20","gpio115";
+					pins = "gpio20";
 					function = "gpio";
 				};
 
 				config {
-					pins = "gpio20","gpio115";
+					pins = "gpio20";
 					drive-strength = <16>;
 					output-high;
 					bias-pull-up;

@@ -34,11 +34,11 @@
       <chromatixName>liteon_ov7251</chromatixName>
       <!--Position of the sensor module.
           Valid values are: REAR, FRONT, REAR_AUX, FRONT_AUX, EXTERNAL -->
-      <position>REAR</position>
+      <position>REAR_AUX</position>
       <!--Mount Angle -->
       <!--CSI Information -->
       <CSIInfo description="CSI Information">
-          <laneAssign>0x3210</laneAssign>
+          <laneAssign>0x0</laneAssign>
           <isComboMode>0</isComboMode>
       </CSIInfo>
       <!--Lens information -->
@@ -58,9 +58,9 @@
         <!--Maximum Roll Degree. Valid values are: 0, 90, 180, 270, 360 -->
         <maxRollDegree>270</maxRollDegree>
         <!--Maximum Pitch Degree. Valid values are: 0 to 359 -->
-        <maxPitchDegree>360</maxPitchDegree>
+        <maxPitchDegree>270</maxPitchDegree>
         <!--Maximum Yaw Degree. Valid values are: 0 to 359 -->
-        <maxYawDegree>360</maxYawDegree>
+        <maxYawDegree>270</maxYawDegree>
       </lensInfo>
     </moduleConfiguration>
   </moduleGroup>

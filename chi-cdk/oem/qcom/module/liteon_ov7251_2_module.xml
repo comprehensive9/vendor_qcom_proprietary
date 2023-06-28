@@ -39,7 +39,7 @@
       <!--CSI Information -->
       <CSIInfo description="CSI Information">
           <laneAssign>0x0</laneAssign>
-          <isComboMode>1</isComboMode>
+          <isComboMode>0</isComboMode>
       </CSIInfo>
       <!--Lens information -->
       <lensInfo description="Lens Information">
