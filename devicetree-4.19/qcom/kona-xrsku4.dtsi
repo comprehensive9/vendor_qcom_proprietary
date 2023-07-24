@@ -354,9 +354,9 @@
 
 		interrupt-parent = <&tlmm>;
 		interrupt-names = "nordicspi_irq";
-		nordic,irq-gpio = <&tlmm 68 0>;
-		nordic,irq_pin = <&tlmm 68 0x00>;
-		interrupts = <68 1>;
+		nordic,irq-gpio = <&tlmm 64 0>;
+		nordic,irq_pin = <&tlmm 64 0x00>;
+		interrupts = <64 1>;
 	};
 };
 

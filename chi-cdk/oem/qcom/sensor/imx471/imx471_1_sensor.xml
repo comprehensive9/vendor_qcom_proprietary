@@ -250,7 +250,7 @@
     <resolutionData>
       <!--Color filter arrangement of the sensor
           Supported filter arrangements are: BAYER_BGGR, BAYER_GBRG, BAYER_GRBG, BAYER_RGGB, BAYER_Y, YUV_UYVY, YUV_YUYV -->
-      <colorFilterArrangement>BAYER_RGGB</colorFilterArrangement>
+      <colorFilterArrangement>BAYER_BGGR</colorFilterArrangement>
       <!--Stream information -->
       <streamInfo>
         <!--Information for a stream data -->
@@ -773,7 +773,7 @@
     <resolutionData>
       <!--Color filter arrangement of the sensor
           Supported filter arrangements are: BAYER_BGGR, BAYER_GBRG, BAYER_GRBG, BAYER_RGGB, BAYER_Y, YUV_UYVY, YUV_YUYV -->
-      <colorFilterArrangement>BAYER_RGGB</colorFilterArrangement>
+      <colorFilterArrangement>BAYER_BGGR</colorFilterArrangement>
       <!--Stream information -->
       <streamInfo>
         <!--Information for a stream data -->
@@ -1329,6 +1329,22 @@
       <!--If operation is WRITE, registerData is the data value to be written into the specified register address
           If operation is READ, registerData is the number of bytes to be read from the specified register address -->
       <registerData>0x1</registerData>
+      <!--Register address / data size in bytes -->
+      <regAddrType range="[1,4]">2</regAddrType>
+      <!--Register address / data size in bytes -->
+      <regDataType range="[1,4]">1</regDataType>
+      <!--Type of the operation
+          Valid values are: WRITE, READ, POLL -->
+      <operation>WRITE</operation>
+      <!--Delay in micro seconds. Delay is 0 if not explicitly provided -->
+      <delayUs>0</delayUs>
+    </regSetting>
+    <regSetting>
+      <!--Register address that is accessed -->
+      <registerAddr>0x0101</registerAddr>
+      <!--If operation is WRITE, registerData is the data value to be written into the specified register address
+          If operation is READ, registerData is the number of bytes to be read from the specified register address -->
+      <registerData>0x3</registerData>
       <!--Register address / data size in bytes -->
       <regAddrType range="[1,4]">2</regAddrType>
       <!--Register address / data size in bytes -->
