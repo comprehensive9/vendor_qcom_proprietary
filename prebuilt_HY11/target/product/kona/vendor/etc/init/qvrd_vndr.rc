@@ -15,6 +15,9 @@ service qvrd_vndr /vendor/bin/hw/qvrservice
     socket qvrservice_vndr stream 0666 system system
     socket qvrservice_vndr_camera stream 0666 system system
     capabilities SYS_NICE
+    critical
+    onrestart class_restart hal
+    onrestart class_restart early_hal
 
 on boot
     chown system system /sys/module/drm/parameters/vblankoffdelay
