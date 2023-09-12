@@ -9,4 +9,8 @@
 <Configuration>
    <SFConfig>
   </SFConfig>
+  <MapServiceCfg>
+  <MapSaverCfg minKeyframes="16" />
+  </MapServiceCfg>
 </Configuration>
+
