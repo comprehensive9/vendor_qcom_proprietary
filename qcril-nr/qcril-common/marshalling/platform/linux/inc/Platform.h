@@ -1,0 +1,6 @@
+#ifndef __QCRIL_PLATFORM_H_INCLUDED
+#define __QCRIL_PLATFORM_H_INCLUDED
+
+#define TMPLT_STATIC
+
+#endif

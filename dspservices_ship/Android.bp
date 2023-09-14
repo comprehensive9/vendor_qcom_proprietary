@@ -1,0 +1,7 @@
+/* Build header library that is available on vendor
+** Used by Clients and internal modules*/
+cc_library_headers {
+    name: "libfastrpc_vendor_headers",
+    export_include_dirs: ["inc"],
+    vendor_available: true,
+}

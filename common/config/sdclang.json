@@ -1,0 +1,233 @@
+{
+    "default": {
+        "FORCE_SDCLANG_OFF": false,
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/8.0/bin",
+        "SDCLANG_FLAGS": ""
+    },
+    "lito": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all  -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "bengal": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all  -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "bengal_32": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all  -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "bengal_32go": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all  -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "monaco_go_aon": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all  -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "monaco_go": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all  -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "monaco": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all  -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "kona": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all  -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "lahaina": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all  -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "taro": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all  -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "holi": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all  -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unknown-warning-option"
+    },
+    "sm6150_au": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all  -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "sm6150": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all  -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "trinket": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all  -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "msmnile": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "msmnile_tb": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all  -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "msmnile_au": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all  -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+   "msmnile_tb": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all  -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "msmnile_gvmq": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all  -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "msmnile_gvmgh": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all  -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "sdmshrike_au": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all  -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "msm8998": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unknown-warning-option"
+    },
+    "apq8098_latv": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/8.0/bin",
+        "SDCLANG_FLAGS": ""
+    },
+    "msm8998_32": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/8.0/bin",
+        "SDCLANG_FLAGS": ""
+    },
+    "sdm845": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unknown-warning-option"
+    },
+    "sdm660_64": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unknown-warning-option"
+    },
+    "sdm660_32": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/8.0/bin",
+        "SDCLANG_FLAGS": ""
+    },
+    "sdm630_64": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/8.0/bin",
+        "SDCLANG_FLAGS": ""
+    },
+    "sdm630_32": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/8.0/bin",
+        "SDCLANG_FLAGS": ""
+    },
+    "sdm710": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unknown-warning-option"
+    },
+    "msm8996": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/8.0/bin",
+        "SDCLANG_FLAGS": ""
+    },
+    "msm8953_64": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "msm8953_32": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "msm8937_64": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "msm8937_32": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "msm8937_32go": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "msm8937_lily": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "sdm429w_law": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "msm8909": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/8.0/bin",
+        "SDCLANG_FLAGS": ""
+    },
+    "msm8909go": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/8.0/bin",
+        "SDCLANG_FLAGS": ""
+    },
+    "atoll": {
+        "SDCLANG": true,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all  -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "qssi": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "qssi_32": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+    "qssi_32go": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/10.0/bin",
+        "SDCLANG_FLAGS": "-Wno-reorder-init-list -Wno-implicit-fallthrough -Wno-c99-designator -Wno-implicit-int-float-conversion -Wno-int-in-bool-context -Wno-alloca -Wno-dangling-gsl -Wno-pointer-compare -Wno-final-dtor-non-final-class -Wno-incomplete-setjmp-declaration -Wno-sizeof-array-div -Wno-xor-used-as-pow -fsplit-lto-unit -Wno-c++17-extensions -flax-vector-conversions=all -Wno-tautological-overlap-compare -Wno-range-loop-analysis -Wno-invalid-partial-specialization -Wno-deprecated-copy -Wno-misleading-indentation -Wno-zero-as-null-pointer-constant -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -Wno-bool-operation -Wno-unused-comparison -Wno-string-compare -Wno-wrong-info -Wno-thread-safety-analysis -Wno-unsequenced -Wno-unknown-warning-option"
+    },
+     "cuttlestone_x86_phone": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "prebuilts/clang/host/linux-x86/clang-r377782/bin",
+        "SDCLANG_FLAGS": ""
+    }
+}

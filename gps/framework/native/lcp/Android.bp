@@ -1,0 +1,49 @@
+
+cc_library_shared {
+
+    name: "libizat_client_api",
+    owner: "qti",
+    proprietary: true,
+    vendor: true,
+
+
+
+    srcs: [
+        "izat_api/IzatRemoteApi.cpp",
+        "izat_api/izat_remote_api.cpp",
+    ],
+
+    static_libs: [
+        "libloc_mq_client",
+        "libloc_base_util"
+    ],
+
+    shared_libs: [
+        "liblog",
+        "libgps.utils",
+    ],
+
+    header_libs: [
+        "libutils_headers",
+        "libgps.utils_headers",
+        "libloc_core_headers",
+        "libloc_mq_client_headers",
+        "libloc_base_util_headers",
+        "izat_remote_api_headers",
+        "izat_remote_api_prop_headers",
+        "libloc_pla_headers",
+        "liblocation_api_headers",
+    ],
+
+    cflags: GNSS_CFLAGS,
+}
+
+cc_library_headers {
+
+    name: "izat_remote_api_prop_headers",
+    vendor: true,
+    export_include_dirs: [
+        "izat_api",
+        "utils/inc",
+    ],
+}

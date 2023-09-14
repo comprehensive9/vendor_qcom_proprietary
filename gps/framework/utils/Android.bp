@@ -1,0 +1,13 @@
+cc_library_headers {
+
+    name: "libloc_base_util_headers",
+    vendor: true,
+    export_include_dirs: [".", "base_util",],
+}
+
+cc_library_headers {
+
+    name: "libloc_mq_client_headers",
+    vendor: true,
+    export_include_dirs: [".", "mq_client"],
+}

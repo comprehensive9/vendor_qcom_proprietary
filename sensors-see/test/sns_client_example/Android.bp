@@ -1,0 +1,69 @@
+cc_binary {
+    name: "sns_client_example",
+    clang: true,
+    owner: "qti",
+    proprietary: true,
+    srcs: [
+        "src/*.c",
+    ],
+    local_include_dirs: ["./"],
+    header_libs: [
+        "libnanopb_headers",
+        "libqmi_cci_headers",
+        "libqmi_encdec_headers",
+        "libqmi_common_headers",
+        "libssc_headers",
+    ],
+    cflags: [
+        "-std=c11",
+        "-DSSC_TARGET_X86",
+        "-DPB_FIELD_16BIT",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-missing-field-initializers",
+        "-Wno-maybe-uninitialized",
+    ],
+    shared_libs: [
+        "libdiag",
+        "liblog",
+        "libdl",
+        "libcutils",
+        "libqmi_common_so",
+        "libqmi_cci",
+        "libqmi_encdec",
+        "libnanopb",
+        "libsns_api",
+    ],
+}
+
+cc_binary {
+    name: "sns_client_test_cpp",
+    defaults: ["sns_proto_lib_name-lite"],
+    clang: true,
+    owner: "qti",
+    proprietary: true,
+    srcs: [
+        "src/sns_client_test.cpp",
+    ],
+    local_include_dirs: ["./"],
+    cflags: [
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-missing-field-initializers",
+        "-Wno-maybe-uninitialized",
+    ],
+    header_libs: [
+        "libsensorlog_headers",
+        "libssc_headers",
+    ],
+    shared_libs: [
+        "libutils",
+        "libsensorslog",
+        "libcutils",
+        "liblog",
+        "libssc",
+        "libsnsapi",
+    ],
+}

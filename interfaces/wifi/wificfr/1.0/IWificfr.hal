@@ -1,0 +1,50 @@
+/*
+ * Copyright (c) 2021 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.hardware.wifi.wificfr@1.0;
+
+import types;
+import IWificfrDataCallback;
+interface IWificfr {
+    /*
+     * Function     : csiCaptureStart
+     * Description  : starts the CSI capture on given interface.
+     * Input params : none
+     * Return       : CaptureStatus
+     *
+     */
+    csiCaptureStart() generates (CaptureStatus status);
+
+    /*
+     * Function     : csiCaptureStop
+     * Description  : stops the CSI capture on given interface.
+     * Input params : none
+     * Return       : CaptureStatus
+     *
+     */
+    csiCaptureStop() generates (CaptureStatus status);
+
+  /**
+   * Notifies csi capture data
+   *
+   * @param callback An instance of the IWifiCfrDataCallback HIDL interface
+   *        object.
+   * @return status CaptureStatus of the operation.
+   */
+  registerEventCallback(IWificfrDataCallback callback)
+      generates (CaptureStatus status);
+
+  /**
+   * Unregister IWifiCfrDataEventCallback callback if client is no more interested in
+   * events.
+   *
+   * @param callback: Same instance of the IWificfrDataCallback HIDL interface object
+   *                 passed during registration.
+   * @return status CaptureStatus of the operation.
+   */
+  unregisterEventCallback(IWificfrDataCallback callback)
+      generates (CaptureStatus status);
+};

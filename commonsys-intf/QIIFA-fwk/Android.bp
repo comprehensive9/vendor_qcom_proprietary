@@ -1,0 +1,23 @@
+python_binary_host {
+  name: "qiifa_py2",
+  main: "qiifa_main.py",
+  srcs: ["qiifa_main.py","plugin_interface.py","qiifa_util/util.py", "qiifa_util/__init__.py",
+         "plugins/**/*.py",
+         ],
+  version: {
+    py2: {enabled: true,},
+    py3: {enabled: false,},
+  },
+}
+
+python_binary_host {
+  name: "qiifa_py3",
+  main: "qiifa_main.py",
+  srcs: ["qiifa_main.py","plugin_interface.py","qiifa_util/util.py", "qiifa_util/__init__.py",
+         "plugins/**/*.py",
+         ],
+  version: {
+    py2: {enabled: false,},
+    py3: {enabled: true,},
+  },
+}

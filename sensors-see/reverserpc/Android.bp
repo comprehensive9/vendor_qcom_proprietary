@@ -1,0 +1,21 @@
+cc_library_shared {
+    name: "libsns_registry_skel",
+    local_include_dirs: ["inc"],
+    header_libs: ["libfastrpcshippable_headers",],
+    srcs: [
+        "src/sns_registry_imp.c",
+        "src/sns_registry_skel.c",
+    ],
+    shared_libs: [
+        "libcutils",
+        "liblog",
+        "libutils",
+    ],
+    cflags: [
+        "-Werror",
+        "-Wall",
+        "-fexceptions",
+    ],
+    proprietary: true,
+    owner: "qti",
+}

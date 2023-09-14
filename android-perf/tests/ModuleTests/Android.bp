@@ -1,0 +1,65 @@
+
+
+cc_binary {
+    name: "perflock_native_test",
+
+    srcs: ["mp-ctl/perflock_native_test.cpp"],
+
+    shared_libs: [
+        "libcutils",
+        "libdl",
+        "libutils",
+        "liblog",
+        "libqti-util",
+        "libperfgluelayer",
+        "libqti-perfd",
+    ],
+
+    include_dirs: [
+        "vendor/qcom/proprietary/android-perf/perf-hal",
+        "vendor/qcom/proprietary/android-perf/perf-util",
+        "vendor/qcom/proprietary/android-perf/mp-ctl",
+        "vendor/qcom/proprietary/android-perf/tests",
+    ],
+
+    header_libs: ["libcutils_headers"],
+
+    cflags: [
+        "-Wall",
+        "-DQTI_DEBUG=0",
+    ],
+
+    proprietary: true,
+}
+
+cc_binary {
+    name: "perflock_native_stress_test",
+
+    srcs: ["mp-ctl/perflock_native_stress_test.cpp"],
+
+    shared_libs: [
+        "libcutils",
+        "libdl",
+        "libutils",
+        "liblog",
+        "libqti-util",
+        "libperfgluelayer",
+        "libqti-perfd",
+    ],
+
+    include_dirs: [
+        "vendor/qcom/proprietary/android-perf/perf-hal",
+        "vendor/qcom/proprietary/android-perf/perf-util",
+        "vendor/qcom/proprietary/android-perf/mp-ctl",
+        "vendor/qcom/proprietary/android-perf/tests",
+    ],
+
+    header_libs: ["libcutils_headers"],
+
+    cflags: [
+        "-Wall",
+        "-DQTI_DEBUG=0",
+    ],
+
+    proprietary: true,
+}

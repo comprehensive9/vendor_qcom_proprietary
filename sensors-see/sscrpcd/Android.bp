@@ -1,0 +1,18 @@
+cc_binary {
+    name: "sscrpcd",
+    srcs: [
+        "src/sscrpcd.cpp",
+    ],
+    shared_libs: [
+        "liblog",
+        "libdl",
+    ],
+    header_libs: [
+        "vendor_common_inc",
+        "libfastrpcshippable_headers",
+    ],
+    init_rc: ["vendor.sensors.sscrpcd.rc"],
+    proprietary: true,
+    owner: "qti",
+}
+

@@ -1,0 +1,6 @@
+#TIME_SERVICES
+TIME_SERVICES := time_daemon
+TIME_SERVICES += TimeService
+TIME_SERVICES += libtime_genoff
+
+PRODUCT_PACKAGES += $(TIME_SERVICES)

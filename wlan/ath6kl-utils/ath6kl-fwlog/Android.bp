@@ -1,0 +1,15 @@
+cc_binary {
+    name: "ath6kl-fwlog-record",
+
+    proprietary: true,
+    local_include_dirs: ["."],
+    shared_libs: [
+        "libc",
+        "libcutils",
+    ],
+    srcs: ["ath6kl-fwlog-record.c"],
+    /*cflags: CFLAGS,*/
+    sanitize: {
+	integer_overflow: true,
+    },
+}

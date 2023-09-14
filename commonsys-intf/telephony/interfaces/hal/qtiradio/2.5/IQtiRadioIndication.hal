@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ */
+
+package vendor.qti.hardware.radio.qtiradio@2.5;
+
+import @2.2::IQtiRadioIndication;
+
+/*
+ * Interface declaring unsolicited qtiradio indications
+ */
+interface IQtiRadioIndication extends @2.2::IQtiRadioIndication {
+    /*
+     * Unsol msg to indicate change in NR Config.
+     *
+     * @param NrConfig as per types.hal to indicate NSA/SA/NSA+SA.
+     *
+     */
+    oneway onNrConfigChange(NrConfig config);
+
+};

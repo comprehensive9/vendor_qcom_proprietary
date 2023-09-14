@@ -1,0 +1,20 @@
+# Copyright (c) 2020-2021 Qualcomm Technologies, Inc.
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+[Unit]
+Description=slpi Init Service
+After=firmware.mount
+After=persist-prop.service
+Requires=firmware.mount
+StartLimitBurst=10
+
+[Service]
+Type=forking
+Restart=on-failure
+RemainAfterExit=yes
+ExecStart= /bin/sh -c " if [ \"$(/bin/ls -A /firmware)\" ]; then /bin/echo 1 > /sys/kernel/boot_slpi/boot; /bin/echo \"init_slpi: slpi firmware found\" > /dev/kmsg; else /bin/echo \"init_slpi: slpi firmware not found\" > /dev/kmsg; exit 1; fi "
+ExecStop= /bin/sh -c " if [ \"$(/bin/ls -A /firmware)\" ]; then /bin/echo 0 > /sys/kernel/boot_slpi/boot; else /bin/echo \"init_slpi: slpi firmware not found\" > /dev/kmsg; exit 1; fi "
+
+[Install]
+WantedBy=multi-user.target

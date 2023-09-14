@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) 2021 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.display.color@1.6;
+
+import @1.5::types;
+
+/*
+ * Color mode information struct
+ */
+struct ColorModeInfo {
+    uint32_t flags;
+    string mode_name;
+    uint32_t num_features;
+    int32_t white_point;
+    string dynamic_range;
+    string color_gamut;
+    string pic_quality;
+    int32_t render_intent;
+    bool is_merge;
+};

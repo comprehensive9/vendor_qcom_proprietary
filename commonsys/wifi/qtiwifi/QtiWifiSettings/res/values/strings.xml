@@ -1,0 +1,13 @@
+<!--
+    Copyright (c) 2021 Qualcomm Technologies, Inc.
+    All Rights Reserved.
+    Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+
+<resources>
+    <string name="app_name">QtiWifiSettingsApp</string>
+
+    <!-- Alert dialogs strings -->
+    <string name="title_qtiwifi_notloaded">Error</string>
+    <string name="message_qtiwifi_notloaded">QtiWifi services are not available. The application will quit</string>
+</resources>

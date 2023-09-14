@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.hardware.perf@2.2;
+
+import @2.1::IPerf;
+
+interface IPerf extends @2.1::IPerf {
+
+    perfLockAcqAndRelease(int32_t pl_handle, uint32_t duration, vec<int32_t> boostsList, vec<int32_t> reserved) generates (int32_t ret);
+    oneway perfEvent(uint32_t eventId, string userDataStr, vec<int32_t> reserved);
+    perfGetFeedback(uint32_t featureId, string userDataStr, vec<int32_t> reserved) generates (int32_t ret);
+
+};
+

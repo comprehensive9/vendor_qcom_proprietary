@@ -1,0 +1,19 @@
+android_app {
+
+    name: "QCC-TR-UI",
+    owner: "qti",
+    proprietary: true,
+    
+    static_libs: [
+	"android-support-v7-appcompat",
+    ],
+    srcs: [
+        "./**/*.java",
+        "./**/I*.aidl",
+    ],
+    optimize: {
+        enabled: false,
+    },
+	certificate: "platform",
+    sdk_version: "system_current",
+}

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2020 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".FeatureOperationActivity">
+
+    <TextView
+        android:id="@+id/ftPageTextView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Connection Operations"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/ftOperationtextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:text="@string/textview_ftscreen"
+        android:textColor="#1B1A1A"
+        android:textSize="20sp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ftPageTextView"/>
+
+    <Spinner
+        android:id="@+id/ftOperationSpinner"
+        android:layout_width="249dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="120dp"
+        android:background="@android:drawable/btn_dropdown"
+        android:entries="@array/ftoperations_array"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ftOperationtextView" />
+
+    <Button
+        android:id="@+id/ftOperationButton"
+        android:layout_width="115dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="118dp"
+        android:text="@string/button_mainscreen"
+        app:layout_constraintLeft_toRightOf="@id/ftOperationSpinner"
+        app:layout_constraintTop_toBottomOf="@id/ftOperationtextView" />
+
+    <Button
+        android:id="@+id/doneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_done"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="220dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/ftOperationSpinner"/>
+
+    <TextView
+        android:id="@+id/ftStatustext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="290dp"
+        android:textAlignment="center"
+        android:text="@string/status_text"
+        android:textColor="#1B1A1A"
+        android:textSize="20sp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ftPageTextView"/>
+
+
+    <LinearLayout
+        android:id="@+id/FTStatusLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="325dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ftStatustext"
+        android:orientation="vertical">
+
+
+        <ListView
+           android:id="@+id/ftStatusListView"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/FTPageLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/ft_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:visibility="visible">
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.viewpager.widget.ViewPager>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

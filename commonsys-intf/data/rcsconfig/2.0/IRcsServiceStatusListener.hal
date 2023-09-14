@@ -1,0 +1,14 @@
+/*********************************************************************
+Copyright (c) 2020 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+**********************************************************************/
+
+package vendor.qti.ims.rcsconfig@2.0;
+
+interface IRcsServiceStatusListener {
+    /**
+     * Callback triggered due to change in capabilities on modem.
+     */
+    oneway onUceStatusUpdate(UceCapabilityInfo capinfo);
+};

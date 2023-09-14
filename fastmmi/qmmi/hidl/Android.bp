@@ -1,0 +1,28 @@
+
+
+cc_binary {
+    name: "vendor.qti.hardware.factory@1.0-service",
+    init_rc: ["vendor.qti.hardware.factory@1.0-service.rc"],
+    proprietary: true,
+    relative_install_path: "hw",
+    owner: "qti",
+    srcs: [
+        "service.cpp",
+        "Factory.cpp",
+        "socket.cpp",
+    ],
+
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libdl",
+        "libbase",
+        "libutils",
+        "libhardware",
+        "libhidlbase",
+        "libbinder",
+        "vendor.qti.hardware.factory@1.0",
+        "vendor.qti.hardware.factory@1.1",
+    ],
+
+}

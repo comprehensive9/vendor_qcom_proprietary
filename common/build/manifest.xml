@@ -1,0 +1,10 @@
+<config>
+  <image_tree>
+    <name>LA.QSSI.11.0.r1</name>
+    <build_id>LA.QSSI.11.0.r1-18000-qssi.0-1</build_id>
+    <branch_point_revision/>
+    <revision>18000</revision>
+    <spin>1</spin>
+    <client>qssi.0</client>
+  </image_tree>
+</config>

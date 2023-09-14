@@ -1,0 +1,13 @@
+cc_binary {
+    name: "diag_mdlog",
+
+    srcs: ["diag_mdlog.c"],
+
+    header_libs: ["libdiag_headers", "libcutils_headers", "vendor_common_inc", "oemaids_headers",],
+    cflags: ["-DTARGET_FS_CONFIG_GEN"],
+
+    shared_libs: ["libdiag", "liblog",],
+
+    owner: "qti",
+    proprietary: true,
+}

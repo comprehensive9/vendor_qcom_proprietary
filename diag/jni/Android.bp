@@ -1,0 +1,22 @@
+cc_library {
+    name: "libdiagjni",
+
+    srcs: [
+        "diag_lsm_jni.cpp",
+        "diag_dci_jni.cpp",
+    ],
+
+    local_include_dirs: ["include"],
+
+    header_libs: ["libdiag_headers", "jni_headers", "vendor_common_inc", "libtime_genoff_headers",],
+
+    shared_libs: [
+        "libcutils",
+        "liblog",
+	"libdiag",
+	"libtime_genoff",
+    ],
+
+    owner: "qti",
+    proprietary: true,
+}

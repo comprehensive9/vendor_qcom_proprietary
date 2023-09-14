@@ -1,0 +1,17 @@
+
+prebuilt_etc {
+
+    name: "com.qualcomm.location.xml",
+    owner: "qti",
+    system_ext_specific: true,
+    src: "com.qualcomm.location.xml",
+    sub_dir: "permissions",
+}
+
+prebuilt_etc {
+
+    name: "privapp-permissions-com.qualcomm.location.xml",
+    src: "privapp-permissions-com.qualcomm.location.xml",
+    system_ext_specific: true,
+    sub_dir: "permissions",
+}

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2020 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContactInfo">
+
+    <LinearLayout
+
+android:id="@+id/linearLayout2"
+
+android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+<RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="119dp">
+
+                <ImageView
+                    android:id="@+id/icon"
+                    android:layout_width="54dp"
+                    android:layout_height="72dp"
+                    android:paddingTop="10dip"
+                    android:paddingRight="10dip"
+                    android:src="@drawable/icon"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="0dp" />
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+
+android:layout_marginTop="50dp"
+                    android:layout_marginBottom="16dp"
+
+android:layout_toRightOf="@id/icon"
+
+android:text="Abcd"
+                    android:textSize="30sp"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="101dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    tools:ignore="MissingConstraints"
+                    tools:text="55555" />
+
+
+</RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+<RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableLayout
+
+android:id="@+id/tableLayout"
+
+android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/AvailabilityFetch"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/subscribepollingtext" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/optionsBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/options_capability_discovery" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/Done"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/donetext" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <LinearLayout
+                        android:id="@+id/StatusView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/CmdStatusView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Cmd Status: " />
+
+                        <TextView
+                            android:id="@+id/SubscribeStatus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Subscribe Status:" />
+
+                        <TextView
+                            android:id="@+id/notifyStatus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Notify Received" />
+                    </LinearLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+
+android:layout_height="match_parent"
+>
+
+
+<LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+
+android:orientation="vertical">
+
+
+<ProgressBar
+                            android:id="@+id/contactInfoProgressBar"
+                            style="?android:attr/progressBarStyleHorizontal"
+
+android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+
+<ListView
+                            android:id="@+id/CapabilityInfo"
+                            android:layout_width="match_parent"
+
+android:layout_height="match_parent"
+
+android:layout_weight="1">
+
+                        </ListView>
+
+</LinearLayout>
+
+                </TableRow>
+            </TableLayout>
+
+
+</RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

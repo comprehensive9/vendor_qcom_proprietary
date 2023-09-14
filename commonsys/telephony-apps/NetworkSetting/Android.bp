@@ -1,0 +1,23 @@
+
+android_app {
+    name: "NetworkSetting",
+
+    srcs: ["**/*.java"] + [
+        "src/com/qualcomm/qti/networksetting/INetworkQueryService.aidl",
+        "src/com/qualcomm/qti/networksetting/INetworkQueryServiceCallback.aidl",
+    ],
+    resource_dirs: ["res"],
+    libs: [
+        "telephony-common",
+        "qcrilhook",
+        "ims-common",
+        "telephony-ext",
+        "qti-telephony-utils",
+    ],
+
+    platform_apis: true,
+    system_ext_specific: true,
+
+    certificate: "platform",
+
+}

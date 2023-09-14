@@ -1,0 +1,19 @@
+[
+  {
+    "abi_type": "vndk",
+    "enabled": "true"
+  },
+  {
+    "abi_type": "sphal",
+    "enabled": "true"
+  },
+  {
+    "abi_type": "commonsysintf",
+    "enabled": "false"
+  },
+  {
+    "abi_type": "techpackage",
+    "enabled": "false",
+    "techpacakages_json_file_list": []
+  }
+]

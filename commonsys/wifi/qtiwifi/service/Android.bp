@@ -1,0 +1,44 @@
+//=============================================
+//  QtiWifi Service APK
+//=============================================
+android_app {
+    name: "QtiWifiService",
+
+    platform_apis: true,
+
+    srcs: ["java/**/*.java"],
+    resource_dirs: ["res"],
+    static_libs: ["android-support-v13",
+                 "qtiwifi_manager",
+                 "vendor.qti.hardware.wifi.wificfr-V1.0-java",
+                 "vendor.qti.hardware.wifi.supplicant-V2.0-java",
+                 "vendor.qti.hardware.wifi.supplicant-V2.1-java",
+                 "vendor.qti.hardware.wifi.supplicant-V2.2-java"
+                 ],
+    libs: [
+          "android.hardware.wifi.supplicant-V1.0-java",
+          "android.hardware.wifi.supplicant-V1.1-java",
+          "android.hardware.wifi.supplicant-V1.2-java",
+          "android.hardware.wifi.supplicant-V1.3-java",
+          "android.hidl.manager-V1.0-java",
+          "android.hidl.base-V1.0-java"
+          ],
+
+    certificate: "platform",
+
+    privileged: true,
+
+    system_ext_specific: true,
+}
+
+prebuilt_etc {
+    name: "qti_supplicant_interface.xml",
+
+    //this will install the file in /system_ext/etc/permissions
+
+    src: "qti_supplicant_interface.xml",
+    sub_dir: "permissions",
+    system_ext_specific: true,
+
+}
+

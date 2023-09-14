@@ -1,0 +1,41 @@
+// To build this module please change "enabled: false" below to "enabled: true"
+
+cc_binary {
+    name: "qsh_location_test",
+    clang: true,
+    owner: "qti",
+    proprietary: true,
+    enabled: false,
+    srcs: [
+        "src/*.c",
+        "api/*.c",
+    ],
+    local_include_dirs: ["./", "api/"],
+    header_libs: [
+        "libnanopb_headers",
+        "libqmi_cci_headers",
+        "libqmi_encdec_headers",
+        "libqmi_common_headers",
+    ],
+    cflags: [
+        "-std=c11",
+        "-DSSC_TARGET_X86",
+        "-DPB_FIELD_16BIT",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-missing-field-initializers",
+        "-Wno-maybe-uninitialized",
+    ],
+    shared_libs: [
+        "libdiag",
+        "liblog",
+        "libdl",
+        "libcutils",
+        "libqmi_common_so",
+        "libqmi_cci",
+        "libqmi_encdec",
+        "libnanopb",
+        "libsns_api",
+    ],
+}

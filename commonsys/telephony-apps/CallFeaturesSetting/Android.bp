@@ -1,0 +1,14 @@
+
+
+android_app {
+    name: "CallFeaturesSetting",
+
+    srcs: ["**/*.java"],
+    resource_dirs: ["res"],
+
+    certificate: "platform",
+    sdk_version: "system_current",
+    product_specific: true,
+
+}
+

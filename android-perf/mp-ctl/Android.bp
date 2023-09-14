@@ -1,0 +1,77 @@
+
+
+cc_library_shared {
+    name: "libqti-perfd",
+
+    srcs: [
+        "ActiveRequestList.cpp",
+        "ResourceQueues.cpp",
+        "OptsHandler.cpp",
+        "RestoreHandler.cpp",
+        "OptsData.cpp",
+        "ResourceInfo.cpp",
+        "Request.cpp",
+        "Target.cpp",
+        "TargetInit.cpp",
+        "MpctlUtils.cpp",
+        "PerfController.cpp",
+        "BoostConfigReader.cpp",
+        "HintExtHandler.cpp",
+    ],
+
+    header_libs: [
+        "libcutils_headers",
+        "libThermal_headers",
+        "display_intf_headers",
+        "qti_powerhal_headers",
+    ],
+
+    shared_libs: [
+        "libcutils",
+        "liblog",
+        "libutils",
+        "libxml2",
+        "libqti-util",
+        "libhidlbase",
+        "vendor.qti.hardware.perf@2.0",
+        "libbase",
+        "libthermalclient",
+        "libqti-perfd-client",
+        "libperfconfig",
+        "libperfgluelayer",
+        "libdisplayconfig.qti",
+        "libperfioctl",
+        "vendor.qti.memory.pasrmanager@1.1",
+    ],
+
+    cflags: [
+        "-DSERVER",
+        "-DCLIENT",
+        "-DPERFD",
+        "-g0",
+        "-Wall",
+        "-Wno-unused-variable",
+        "-Wno-unused-parameter",
+        "-Wno-unused-function",
+        "-DOEM_PROFILE_RESTORE_ON_FAIL=0",
+        "-DVENDOR_DIR=\"/vendor/etc\"",
+        "-DPROFILE_MANAGER",
+        "-DQC_DEBUG=0",
+    ],
+
+    cppflags: [
+        "-fexceptions",
+    ],
+
+    include_dirs: [
+        "external/libxml2/include",
+        "vendor/qcom/proprietary/android-perf/perf-util",
+        "vendor/qcom/proprietary/android-perf/mp-ctl-client",
+        "vendor/qcom/proprietary/android-perf/mp-ctl",
+        "vendor/qcom/proprietary/android-perf/perf-hal",
+        "vendor/qcom/proprietary/android-perf/ioctl",
+    ],
+
+    proprietary: true,
+
+}

@@ -1,0 +1,39 @@
+cc_library_shared {
+
+    srcs: [
+        "client.cpp",
+        "PerfThreadPool.cpp",
+    ],
+
+    header_libs: [
+        "libcutils_headers",
+    ],
+
+    shared_libs: [
+        "libcutils",
+        "libutils",
+        "liblog",
+        "vendor.qti.hardware.perf@2.0",
+        "vendor.qti.hardware.perf@2.2",
+        "libhidlbase",
+    ],
+
+    cflags: [
+        "-DCLIENT",
+        "-g0",
+        "-Wall",
+        "-Wno-unused-variable",
+        "-Wno-unused-parameter",
+        "-Wno-unused-function",
+        "-DQC_DEBUG=0",
+    ],
+
+    cppflags: [
+        "-fexceptions",
+    ],
+
+    name: "libqti-perfd-client_system",
+    system_ext_specific: true,
+    owner: "qti",
+
+}

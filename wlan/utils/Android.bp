@@ -1,0 +1,36 @@
+cc_binary {
+    name: "pktlogconf",
+    proprietary: true,
+    clang: true,
+    vendor: true,
+    local_include_dirs: ["uapi/linux"] + ["target/inc"],
+    srcs: ["pktlog/pktlogconf.c"],
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+    sanitize: {
+        integer_overflow: true,
+    },
+}
+cc_binary {
+    name: "athdiag",
+    proprietary: true,
+    local_include_dirs: ["uapi/linux"] + ["target/inc"],
+    cflags: [
+        "-Wall",
+        "-Werror"
+    ],
+    shared_libs: ["libc","libcutils",],
+    srcs: ["athdiag/athdiag.c"],
+    sanitize: {
+        integer_overflow: true,
+    },
+}
+
+prebuilt_etc {
+    name: "init.vendor.wlan.rc",
+    src: "init.vendor.wlan.rc",
+    vendor: true,
+    sub_dir: "init",
+}

@@ -1,0 +1,51 @@
+
+
+cc_library_shared {
+    name: "libqti_performance",
+    system_ext_specific: true,
+
+    cflags: [
+        "-Wno-unused-parameter",
+        "-Wno-int-to-pointer-cast",
+        "-Wno-non-virtual-dtor",
+        "-Wno-maybe-uninitialized",
+        "-Wno-parentheses",
+    ],
+    arch: {
+        arm: {
+            cflags: ["-DPACKED=\"_attribute__((packed))\""],
+        },
+        arm64: {
+            cflags: ["-DPACKED=\"\""],
+        },
+    },
+
+    cppflags: ["-Wno-conversion-null"],
+
+    srcs: ["com_qualcomm_qti_Performance.cpp"],
+
+    header_libs: [
+        "libcutils_headers",
+        "libnativehelper_header_only",
+    ],
+
+    shared_libs: [
+        "libnativehelper",
+        "liblog",
+        "libcutils",
+        "liblog",
+        "libutils",
+        "libbase",
+        "vendor.qti.hardware.iop@2.0",
+        "libhidlbase",
+        "libqti-perfd-client_system",
+        "libdl"
+    ],
+
+    include_dirs: [
+        "vendor/qcom/proprietary/commonsys/android-perf/mp-ctl-client",
+    ],
+
+    owner: "qti",
+
+}

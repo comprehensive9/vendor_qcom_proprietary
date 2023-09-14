@@ -1,0 +1,17 @@
+# Copyright (c) 2020 Qualcomm Technologies, Inc.
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+#
+
+on property:vendor.bluetooth.dun.status=running
+    start vendor.bt-dun
+
+on property:vendor.bluetooth.dun.status=stopped
+    stop vendor.bt-dun
+
+service vendor.bt-dun /system_ext/bin/dun-server /dev/smd7 /dev/rfcomm0
+    class late_start
+    user bluetooth
+    group bluetooth net_bt_admin inet
+    disabled
+    oneshot

@@ -1,0 +1,16 @@
+android_app {
+    name: "QDCMMobileApp",
+
+    srcs: ["**/*.java"],
+
+    static_libs: ["android-support-v4"],
+
+    required: ["com.qti.snapdragon.sdk.display"],
+
+    libs: ["com.qti.snapdragon.sdk.display"],
+
+    certificate: "platform",
+    owner: "qti",
+    product_specific: true,
+    sdk_version: "system_current",
+}

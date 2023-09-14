@@ -1,0 +1,4 @@
+service secureprocessor-1-0 /vendor/bin/hw/vendor.qti.hardware.secureprocessor@1.0
+    class hal
+    user system
+    group system

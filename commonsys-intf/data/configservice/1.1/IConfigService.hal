@@ -1,0 +1,29 @@
+/*********************************************************************
+Copyright (c) 2021 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+**********************************************************************/
+
+package vendor.qti.ims.configservice@1.1;
+
+import @1.0::IConfigService;
+
+interface IConfigService extends @1.0::IConfigService {
+
+    /**
+     * Sends RCS settings data to modem
+     *
+     * @param   settingsData       struct corresponding to v1.1 #SettingsData, containing type of
+     *                             SettingsId and key value pair for specifying individual
+     *                             SettingsKeys and their values.
+     *          userData           user data/request ID.
+     * @return
+     *          status             status code as per v1.1 #RequestStatus
+     *
+     * The response status for request is provided through
+     * IConfigServiceListener::onCommandStatus_1_1()
+     */
+    setSettingsValue_1_1(SettingsData settingsData, uint32_t userData) generates (int32_t status);
+
+
+};

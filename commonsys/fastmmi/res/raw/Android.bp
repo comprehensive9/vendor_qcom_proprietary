@@ -1,0 +1,17 @@
+
+
+//prebuilt_etc {
+//    name: "qualsound.wav",
+//
+//    src: "qualsound.wav",
+//    sub_dir: "mmi",
+//
+//}
+
+prebuilt_etc {
+    name: "fonts.ttf",
+
+    src: "DroidSansFallback.ttf",
+    sub_dir: "mmi",
+    system_ext_specific: true,
+}

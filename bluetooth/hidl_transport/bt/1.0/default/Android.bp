@@ -1,0 +1,14 @@
+//If you want to use the legacy way(by using NV) of set the BT address
+//You can set the value to 0
+BT_QSOC_GET_ITEMS_FROM_PROPERTY = ["0"]
+BT_QSOC_GET_ITEMS_FROM_PERSIST = ["1"]
+
+cc_library_shared {
+    name: "libbtnv",
+    vendor: true,
+    compile_multilib: "both",
+
+    local_include_dirs: ["."],
+
+    srcs: ["bt_nv.cpp"],
+}

@@ -1,0 +1,209 @@
+
+cc_library_headers {
+
+    name: "libgarden_headers",
+    vendor: true,
+
+    export_include_dirs: [
+        "garden_framework",
+        "locationapi_api",
+        "android",
+    ],
+}
+
+cc_library_headers {
+
+    name: "libgarden_case_headers",
+    vendor: true,
+
+    export_include_dirs: [
+        "gnss_case",
+        "gnss_multiclient_case",
+        "flp_case",
+        "geofence_case",
+    ],
+}
+
+cc_library_shared {
+
+    name: "libgarden",
+    owner: "qti",
+    proprietary: true,
+    vendor: true,
+
+
+
+    srcs: [
+        "garden_framework/GardenFramework.cpp",
+        "garden_framework/GardenUtil.cpp",
+        "garden_framework/GnssCbBase.cpp",
+        "locationapi_api/GnssLocationAPI.cpp",
+        "locationapi_api/GnssLocationAPIClient.cpp",
+        "locationapi_api/FlpLocationAPIClient.cpp",
+        "locationapi_api/GeofenceLocationAPIClient.cpp",
+        "locationapi_api/GnssMultiClientLocationAPIClient.cpp",
+        "android/HidlAPI.cpp",
+    ],
+
+    cflags: [
+        "-DDEBUG",
+        "-D_ANDROID_",
+        "-fno-short-enums",
+        "-fexceptions",
+        "-DLOCHIDL",
+    ],
+
+    header_libs: [
+        "libgarden_headers",
+        "libgps.utils_headers",
+        "libloc_core_headers",
+        "libloc_pla_headers",
+        "liblbs_core_headers",
+        "libgarden_case_headers",
+        "liblocation_api_headers",
+        "libdataitems_headers",
+        "izat_remote_api_prop_headers",
+        "izat_remote_api_headers",
+        "vendor_common_inc",
+    ],
+
+    shared_libs: [
+        "libdl",
+        "libgps.utils",
+        "libloc_core",
+        "liblocation_api",
+        "liblog",
+        "libdataitems",
+        "libutils",
+        "android.hardware.gnss@1.0",
+        "android.hardware.gnss@1.1",
+        "android.hardware.gnss@2.0",
+        "android.hardware.gnss@2.1",
+        "android.hardware.gnss.visibility_control@1.0",
+        "android.hardware.gnss.measurement_corrections@1.0",
+        "android.hardware.gnss.measurement_corrections@1.1",
+        "vendor.qti.gnss@3.0",
+        "libhidlbase",
+        "vendor.qti.gnss@1.0",
+        "vendor.qti.gnss@1.1",
+        "vendor.qti.gnss@1.2",
+        "vendor.qti.gnss@2.1",
+        "vendor.qti.gnss@3.0",
+        "vendor.qti.gnss@4.0",
+    ],
+}
+
+cc_library_shared {
+
+    name: "libgarden_haltests_e2e",
+    owner: "qti",
+    proprietary: true,
+
+
+
+    srcs: [
+        "gnss_case/GnssCase.cpp",
+        "gnss_case/GnssCb.cpp",
+        "gnss_multiclient_case/GnssMultiClientCase.cpp",
+        "gnss_multiclient_case/GnssMultiClientCb.cpp",
+        "gnss_multiclient_case/GnssMultiClientHidlIGnss.cpp",
+        "gnss_multiclient_case/GnssMultiClientHidlIGnssCb.cpp",
+        "gnss_multiclient_case/GnssMultiClientHidlILocHidlGnss.cpp",
+        "gnss_multiclient_case/GnssMultiClientHidlILocHidlGnssCb.cpp",
+        "gnss_multiclient_case/GnssMultiClientFileTest.cpp",
+        "gnss_multiclient_case/GnssMultiClientCaseUtils.cpp",
+        "geofence_case/GeofenceCb.cpp",
+        "geofence_case/GeofenceCase.cpp",
+        "flp_case/FlpCase.cpp",
+        "flp_case/FlpCb.cpp",
+    ],
+
+    cflags: [
+        "-DDEBUG",
+        "-D_ANDROID_",
+        "-fno-short-enums",
+        "-fexceptions",
+    ],
+
+    header_libs: [
+        "libgarden_headers",
+        "libgarden_case_headers",
+        "libgps.utils_headers",
+        "libloc_core_headers",
+        "libloc_pla_headers",
+        "liblbs_core_headers",
+        "liblocation_api_headers",
+        "libdataitems_headers",
+        "izat_remote_api_prop_headers",
+        "izat_remote_api_headers",
+        "vendor_common_inc",
+    ],
+
+    shared_libs: [
+        "libgarden",
+        "libdl",
+        "libgps.utils",
+        "libloc_core",
+        "liblocation_api",
+        "liblog",
+        "libutils",
+        "android.hardware.gnss@1.0",
+        "android.hardware.gnss@1.1",
+        "android.hardware.gnss@2.0",
+        "android.hardware.gnss@2.1",
+        "android.hardware.gnss.visibility_control@1.0",
+        "android.hardware.gnss.measurement_corrections@1.0",
+        "android.hardware.gnss.measurement_corrections@1.1",
+        "vendor.qti.gnss@1.0",
+        "vendor.qti.gnss@1.1",
+        "vendor.qti.gnss@2.1",
+        "vendor.qti.gnss@3.0",
+        "vendor.qti.gnss@4.0",
+        "libhidlbase",
+    ],
+}
+
+cc_binary {
+
+    name: "garden_app",
+    proprietary: true,
+    owner: "qti",
+    vendor: true,
+
+
+
+    cflags: GNSS_CFLAGS + [
+        "-DDEBUG",
+        "-D_ANDROID_",
+        "-fno-short-enums",
+        "-fexceptions",
+    ],
+
+    srcs: ["main.cpp"],
+
+    header_libs: [
+        "libutils_headers",
+        "libgarden_headers",
+        "libgarden_case_headers",
+        "libloc_core_headers",
+        "libgps.utils_headers",
+        "libloc_pla_headers",
+        "liblbs_core_headers",
+        "liblocation_api_headers",
+        "libdataitems_headers",
+        "izat_remote_api_prop_headers",
+        "izat_remote_api_headers",
+        "vendor_common_inc",
+    ],
+
+    shared_libs: [
+        "libgarden",
+        "libgarden_haltests_e2e",
+        "libdl",
+        "libgps.utils",
+        "liblocation_api",
+        "libloc_core",
+        "liblog",
+        "libutils",
+    ],
+}

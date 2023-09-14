@@ -1,0 +1,21 @@
+cc_binary {
+    name: "btconfig",
+    vendor: true,
+
+    cflags: ["-Wno-unused-variable",
+             "-Wno-sometimes-uninitialized",
+             "-Wno-format",
+    ],
+
+    srcs: ["btconfig.c"],
+
+    shared_libs: [
+        "libcutils",
+        "libutils",
+        "libdl",
+    ],
+
+    sanitize: {
+        integer_overflow: true,
+    },
+}

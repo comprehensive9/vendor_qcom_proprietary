@@ -1,0 +1,53 @@
+
+cc_library_shared {
+
+    name: "libdataitems",
+    owner: "qti",
+    proprietary: true,
+    vendor: true,
+
+
+
+    cflags: ["-D_ANDROID_"] + GNSS_CFLAGS,
+
+    include_dirs: [
+        "system/core/include",
+    ],
+
+    local_include_dirs: [
+        "inc/internal",
+        "inc",
+    ],
+
+    header_libs: [
+        "libgps.utils_headers",
+        "libloc_core_headers",
+        "liblbs_core_headers",
+        "libloc_base_util_headers",
+        "izat_remote_api_headers",
+        "libloc_pla_headers",
+        "liblocation_api_headers",
+        "vendor_common_inc",
+    ],
+
+    shared_libs: [
+        "libutils",
+        "libcutils",
+        "libgps.utils",
+        "liblog",
+    ],
+
+    static_libs: ["libloc_base_util"],
+
+    srcs: [
+        "src/DataItemsFactory.cpp",
+        "src/DataItemConcreteTypes.cpp",
+    ],
+}
+
+cc_library_headers {
+
+    name: "libdataitems_headers",
+    vendor: true,
+    export_include_dirs: ["inc"],
+}

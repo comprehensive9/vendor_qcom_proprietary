@@ -1,0 +1,116 @@
+
+cc_prebuilt_library_shared{
+    name : "libadsprpc",
+        strip:{
+               none: true,
+        },
+        multilib:{
+            lib32:{
+                   srcs : ["./vendor/lib/libadsprpc.so"],
+                },
+            lib64:{
+                   srcs : ["./vendor/lib64/libadsprpc.so"],
+                },
+        },
+        shared_libs: [
+                      "libhidlbase",
+                      "libhardware",
+                      "libutils",
+                      "vendor.qti.hardware.dsp@1.0",
+                      "liblog",
+                      "libc",
+                      "libcutils",
+                      "libion",
+                      "libc++",
+                      "libm",
+                      "libdl",
+        ],
+        owner: "qcom",
+        proprietary : true,
+        soc_specific : true,
+}
+
+cc_prebuilt_library_shared{
+    name : "libqcbor",
+        strip:{
+               none: true,
+        },
+        multilib:{
+            lib32:{
+                   srcs : ["./vendor/lib/libqcbor.so"],
+                },
+            lib64:{
+                   srcs : ["./vendor/lib64/libqcbor.so"],
+                },
+        },
+        shared_libs: [
+                      "liblog",
+                      "libutils",
+                      "libcutils",
+                      "libc++",
+                      "libc",
+                      "libm",
+                      "libdl",
+        ],
+        owner: "qcom",
+        proprietary : true,
+        soc_specific : true,
+}
+
+cc_prebuilt_library_shared{
+    name : "libsdsprpc",
+        strip:{
+               none: true,
+        },
+        multilib:{
+            lib32:{
+                   srcs : ["./vendor/lib/libsdsprpc.so"],
+                },
+            lib64:{
+                   srcs : ["./vendor/lib64/libsdsprpc.so"],
+                },
+        },
+        shared_libs: [
+                      "libhidlbase",
+                      "libhardware",
+                      "libutils",
+                      "vendor.qti.hardware.dsp@1.0",
+                      "liblog",
+                      "libc",
+                      "libcutils",
+                      "libion",
+                      "libc++",
+                      "libm",
+                      "libdl",
+        ],
+        owner: "qcom",
+        proprietary : true,
+        soc_specific : true,
+}
+
+cc_prebuilt_library_shared{
+    name : "libminkdescriptor",
+        strip:{
+               none: true,
+        },
+        multilib:{
+            lib32:{
+                   srcs : ["./vendor/lib/libminkdescriptor.so"],
+                },
+            lib64:{
+                   srcs : ["./vendor/lib64/libminkdescriptor.so"],
+                },
+        },
+        shared_libs: [
+                      "liblog",
+                      "libutils",
+                      "libqcbor",
+                      "libc++",
+                      "libc",
+                      "libm",
+                      "libdl",
+        ],
+        owner: "qcom",
+        proprietary : true,
+        soc_specific : true,
+}

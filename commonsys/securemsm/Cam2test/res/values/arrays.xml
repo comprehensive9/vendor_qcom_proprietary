@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--=============================================================================
+Copyright (c) 2020 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+=============================================================================-->
+<resources>
+    <string-array name="default_format">
+        <item>Choose Camera First</item>
+    </string-array>
+    <string-array name="default_format_value">
+        <item>null</item>
+    </string-array>
+
+    <string-array name="default_resolution">
+        <item>Choose Format First</item>
+    </string-array>
+    <string-array name="default_resolution_value">
+        <item>null</item>
+    </string-array>
+
+    <string-array name="default_fps">
+        <item>Choose Camera First</item>
+    </string-array>
+    <string-array name="default_fps_value">
+        <item>null</item>
+    </string-array>
+
+    <string-array name="destination">
+        <item>qti-tee</item>
+        <item>mlvm</item>
+    </string-array>
+    <string-array name="destination_values">
+        <item>qti-tee</item>
+        <item>mlvm</item>
+    </string-array>
+
+    <string-array name="mode">
+        <item>@string/mode_secure_capture</item>
+        <item>@string/mode_secure_preview</item>
+        <item>@string/mode_preview</item>
+        <item>@string/mode_capture</item>
+    </string-array>
+    <string-array name="mode_values">
+        <item>@string/mode_secure_capture</item>
+        <item>@string/mode_secure_preview</item>
+        <item>@string/mode_preview</item>
+        <item>@string/mode_capture</item>
+    </string-array>
+
+    <string-array name="configs">
+        <item>@string/config_1</item>
+        <item>@string/config_2</item>
+    </string-array>
+    <string-array name="config_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="default_mode_1">
+        <item>@string/mode_secure_capture</item>
+    </string-array>
+    <string-array name="default_mode_2">
+        <item>@string/mode_preview</item>
+    </string-array>
+</resources>

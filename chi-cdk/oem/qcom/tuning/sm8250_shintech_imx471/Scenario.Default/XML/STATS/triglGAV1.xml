@@ -1,0 +1,2721 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2023 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<triglGAV1
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\XSD\stats\awb\modtrigladjv1.xsd">
+  <moduleID>
+    <moduleID type="int" range="[1,1000]">201</moduleID>
+    <subModuleID type="int" range="[1,1000]">1</subModuleID>
+  </moduleID>
+  <module_version>
+    <major_revision>1</major_revision>
+    <minor_revision>0</minor_revision>
+    <incr_revision>0</incr_revision>
+  </module_version>
+  <enableFlag>1</enableFlag>
+  <triglData>
+    <vertexIdx>0 23 2</vertexIdx>
+    <sideIdx>1 6 255</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>22 0 23</vertexIdx>
+    <sideIdx>2 0 5</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>12 0 22</vertexIdx>
+    <sideIdx>255 1 3</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>28 12 22</vertexIdx>
+    <sideIdx>8 2 7</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>22 3 1</vertexIdx>
+    <sideIdx>5 255 7</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>3 22 23</vertexIdx>
+    <sideIdx>4 1 26</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>14 2 23</vertexIdx>
+    <sideIdx>255 0 26</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>22 28 1</vertexIdx>
+    <sideIdx>3 11 4</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>16 12 28</vertexIdx>
+    <sideIdx>255 3 12</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>28 29 8</vertexIdx>
+    <sideIdx>10 13 12</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>28 29 13</vertexIdx>
+    <sideIdx>9 18 11</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>28 1 13</vertexIdx>
+    <sideIdx>7 255 10</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>28 16 8</vertexIdx>
+    <sideIdx>8 14 9</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>29 8 25</vertexIdx>
+    <sideIdx>9 17 19</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>20 16 8</vertexIdx>
+    <sideIdx>15 12 17</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>6 16 20</vertexIdx>
+    <sideIdx>255 14 23</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>30 25 20</vertexIdx>
+    <sideIdx>24 17 30</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>25 20 8</vertexIdx>
+    <sideIdx>16 14 13</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>26 13 29</vertexIdx>
+    <sideIdx>21 10 20</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>29 25 31</vertexIdx>
+    <sideIdx>13 25 20</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>26 31 29</vertexIdx>
+    <sideIdx>27 19 18</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>17 26 13</vertexIdx>
+    <sideIdx>28 18 255</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>9 21 17</vertexIdx>
+    <sideIdx>31 29 255</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>20 6 18</vertexIdx>
+    <sideIdx>15 255 30</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>25 30 19</vertexIdx>
+    <sideIdx>16 36 25</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>25 31 19</vertexIdx>
+    <sideIdx>19 33 24</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>14 3 23</vertexIdx>
+    <sideIdx>255 5 6</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>31 26 7</vertexIdx>
+    <sideIdx>20 28 33</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>7 26 17</vertexIdx>
+    <sideIdx>27 21 29</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>21 7 17</vertexIdx>
+    <sideIdx>32 28 22</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>30 18 20</vertexIdx>
+    <sideIdx>35 23 16</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>19 9 21</vertexIdx>
+    <sideIdx>255 22 32</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>19 7 21</vertexIdx>
+    <sideIdx>33 29 31</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>31 7 19</vertexIdx>
+    <sideIdx>27 32 25</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>24 4 18</vertexIdx>
+    <sideIdx>39 255 35</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>24 30 18</vertexIdx>
+    <sideIdx>38 30 34</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>30 19 5</vertexIdx>
+    <sideIdx>24 255 38</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>27 5 24</vertexIdx>
+    <sideIdx>41 38 40</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>30 24 5</vertexIdx>
+    <sideIdx>35 37 36</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>10 4 24</vertexIdx>
+    <sideIdx>255 34 40</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>27 10 24</vertexIdx>
+    <sideIdx>42 39 37</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>11 27 5</vertexIdx>
+    <sideIdx>43 37 255</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>15 10 27</vertexIdx>
+    <sideIdx>255 40 43</sideIdx>
+  </triglData>
+  <triglData>
+    <vertexIdx>15 27 11</vertexIdx>
+    <sideIdx>42 41 255</sideIdx>
+  </triglData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.548575163</rg>
+      <bg type="float" range="[0.0,15000.0]">0.713574648</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.348644018</rg>
+      <bg type="float" range="[0.0,15000.0]">0.551968157</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.5098771</rg>
+      <bg type="float" range="[0.0,15000.0]">0.779455245</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.304901123</rg>
+      <bg type="float" range="[0.0,15000.0]">0.6242974</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.881916463</rg>
+      <bg type="float" range="[0.0,15000.0]">0.441932619</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.7938022</rg>
+      <bg type="float" range="[0.0,15000.0]">0.252552</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.6809647</rg>
+      <bg type="float" range="[0.0,15000.0]">0.5019303</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.5045259</rg>
+      <bg type="float" range="[0.0,15000.0]">0.314958483</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.599216342</rg>
+      <bg type="float" range="[0.0,15000.0]">0.461022615</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.406983644</rg>
+      <bg type="float" range="[0.0,15000.0]">0.290330768</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">1.04322088</rg>
+      <bg type="float" range="[0.0,15000.0]">0.3848489</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">1.035751</rg>
+      <bg type="float" range="[0.0,15000.0]">0.1761066</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.6158252</rg>
+      <bg type="float" range="[0.0,15000.0]">0.623200059</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.426431835</rg>
+      <bg type="float" range="[0.0,15000.0]">0.449363142</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.1898323</rg>
+      <bg type="float" range="[0.0,15000.0]">0.9913456</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">1.345434</rg>
+      <bg type="float" range="[0.0,15000.0]">0.1560305</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.628115654</rg>
+      <bg type="float" range="[0.0,15000.0]">0.552279949</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.440935463</rg>
+      <bg type="float" range="[0.0,15000.0]">0.3760622</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.750475764</rg>
+      <bg type="float" range="[0.0,15000.0]">0.442271829</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.6251392</rg>
+      <bg type="float" range="[0.0,15000.0]">0.275179416</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.640360057</rg>
+      <bg type="float" range="[0.0,15000.0]">0.481378</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.455485255</rg>
+      <bg type="float" range="[0.0,15000.0]">0.3027431</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.4486096</rg>
+      <bg type="float" range="[0.0,15000.0]">0.6327714</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.4073891</rg>
+      <bg type="float" range="[0.0,15000.0]">0.7018763</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.8276923</rg>
+      <bg type="float" range="[0.0,15000.0]">0.3253907</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.5927453</rg>
+      <bg type="float" range="[0.0,15000.0]">0.4084444</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.5031</rg>
+      <bg type="float" range="[0.0,15000.0]">0.3756767</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">1.038624</rg>
+      <bg type="float" range="[0.0,15000.0]">0.2563921</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.5211285</rg>
+      <bg type="float" range="[0.0,15000.0]">0.5362816</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.5345256</rg>
+      <bg type="float" range="[0.0,15000.0]">0.464171082</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.6878075</rg>
+      <bg type="float" range="[0.0,15000.0]">0.358725637</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">254</start>
+          <end type="float" range="[-100.0,15000.0]">274</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">294</start>
+          <end type="float" range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">326</start>
+          <end type="float" range="[-100.0,15000.0]">348</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">352</start>
+          <end type="float" range="[-100.0,15000.0]">370</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData>
+    <vertexPt>
+      <rg type="float" range="[0.0,15000.0]">0.5479227</rg>
+      <bg type="float" range="[0.0,15000.0]">0.392060548</bg>
+    </vertexPt>
+    <gainAdjData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">195</start>
+          <end type="float" range="[-100.0,15000.0]">244</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">264</start>
+          <end type="float" range="[-100.0,15000.0]">284</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">328</start>
+          <end type="float" range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">341</start>
+          <end type="float" range="[-100.0,15000.0]">374</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">381</start>
+          <end type="float" range="[-100.0,15000.0]">408</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <auxInfoData>
+    <numOfStartPosition>4</numOfStartPosition>
+    <startTriangleIdx>5 19 38 41</startTriangleIdx>
+  </auxInfoData>
+  <cctAdjGainData>
+    <triggerPt>
+      <start type="float" range="[-100.0,15000.0]">0</start>
+      <end type="float" range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">953</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">1500</start>
+          <end type="float" range="[-100.0,15000.0]">12000</end>
+        </triggerPt>
+        <triggerData>
+          <red type="float" range="[0.0,9999.9]">1</red>
+          <green type="float" range="[0.0,9999.9]">1</green>
+          <blue type="float" range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </cctAdjGainData>
+</triglGAV1>

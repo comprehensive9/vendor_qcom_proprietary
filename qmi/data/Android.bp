@@ -1,0 +1,40 @@
+
+
+cc_library_headers {
+    name: "libdataqmiservices_headers",
+    export_include_dirs: ["."],
+
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_library_static {
+    name: "libdataqmiservices",
+
+    cflags: ["-Wno-missing-field-initializers"],
+
+    header_libs: ["libqmi_common_headers",
+                  "libqmi_cci_headers",
+                  "libqmi_legacy_headers",
+                  "libdataqmiservices_headers"],
+
+    export_header_lib_headers: ["libdataqmiservices_headers"],
+
+    local_include_dirs: ["."],
+
+    srcs: ["wireless_data_service_common_v01.c",
+           "wireless_data_service_v01.c",
+           "wireless_data_administrative_service_v01.c",
+           "data_system_determination_v01.c",
+           "data_port_mapper_v01.c",
+           "data_common_v01.c",
+           "data_filter_service_v01.c",
+           "quality_of_service_v01.c",
+           "over_the_top_v01.c",
+           "application_traffic_pairing_v01.c",
+           "authentication_service_v01.c"],
+
+    owner: "qti",
+    proprietary: true,
+
+}

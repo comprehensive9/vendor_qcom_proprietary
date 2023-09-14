@@ -1,0 +1,22 @@
+subdirs = [
+    "*"
+]
+
+prebuilt_etc {
+
+    name: "android.hardware.light.xml",
+
+    src: "android.hardware.light.xml",
+    sub_dir: "permissions",
+    proprietary: true,
+
+}
+
+prebuilt_etc {
+    name: "vendor.qti.hardware.factory.xml",
+
+    src: "vendor.qti.hardware.factory.xml",
+    sub_dir: "permissions",
+    proprietary: true,
+
+}

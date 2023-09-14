@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2021 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+ -->
+
+<permissions>
+ <library name="android.hardware.wifi.supplicant.V1_0.ISupplicant"
+          file="/system/framework/android.hardware.wifi.supplicant-V1.0-java.jar"/>
+ <library name="android.hardware.wifi.supplicant.V1_1.ISupplicant"
+          file="/system/framework/android.hardware.wifi.supplicant-V1.1-java.jar"/>
+ <library name="android.hardware.wifi.supplicant.V1_2.ISupplicant"
+          file="/system/framework/android.hardware.wifi.supplicant-V1.2-java.jar"/>
+ <library name="android.hardware.wifi.supplicant.V1_3.ISupplicant"
+          file="/system/framework/android.hardware.wifi.supplicant-V1.3-java.jar"/>
+ <library name="android.hidl.manager.V1_0.IServiceManager"
+          file="/system/framework/android.hidl.manager-V1.0-java.jar"/>
+ <library name="android.hidl.manager.V1_0.IServiceNotification"
+          file="/system/framework/android.hidl.manager-V1.0-java.jar"/>
+ <library name="android.hidl.base.V1_0.IBase"
+          file="/system/framework/android.hidl.base-V1.0-java.jar"/>
+</permissions>

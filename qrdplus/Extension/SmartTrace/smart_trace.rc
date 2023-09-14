@@ -1,0 +1,8 @@
+on property:sys.smtrace.cmd=*
+   exec u:r:su:s0 -- /system/bin/sh /system_ext/bin/binder_trace_dump.sh
+
+on property:sys.perfetto.cmd=START
+   exec u:r:vendor_smtrace_tracing:s0 -- /vendor/bin/sh /vendor/bin/tracing_config.sh disable
+   exec u:r:vendor_perfetto_dump:s0 -- /system/bin/sh /system_ext/bin/perfetto_dump.sh start
+   exec u:r:vendor_smtrace_tracing:s0 -- /vendor/bin/sh /vendor/bin/tracing_config.sh restore
+   exec u:r:vendor_perfetto_dump:s0 -- /system/bin/sh /system_ext/bin/perfetto_dump.sh stop

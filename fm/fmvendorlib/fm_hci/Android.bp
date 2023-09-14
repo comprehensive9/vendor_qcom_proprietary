@@ -1,0 +1,29 @@
+
+
+cc_library_shared {
+    name: "ftm_fm_lib",
+    vendor: true,
+
+    srcs: [
+        "fm_hci.cpp",
+        "radio_helium_hal.c",
+        "radio_helium_hal_cmds.c",
+    ],
+
+    shared_libs: [
+        "libdl",
+        "libcutils",
+        "libbase",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "vendor.qti.hardware.fm@1.0",
+    ],
+
+    cflags: ["-Wno-unused-parameter"],
+
+    include_dirs: [
+        "vendor/qcom/proprietary/fm/fmvendorlib/helium",
+    ],
+
+}

@@ -1,0 +1,11 @@
+
+prebuilt_etc {
+    name: "init.qti.fm.sh",
+
+    init_rc: ["init.qti.fm.rc"],
+
+    src: "init.qti.fm.sh",
+
+    vendor: true,
+
+}

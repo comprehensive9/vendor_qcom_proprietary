@@ -1,0 +1,73 @@
+
+
+prebuilt_etc {
+    name: "pass.png",
+
+    src: "pass.png",
+    sub_dir: "mmi",
+
+}
+
+prebuilt_etc {
+    name: "fail.png",
+
+    src: "fail.png",
+    sub_dir: "mmi",
+
+}
+
+prebuilt_etc {
+    name: "pageup.png",
+
+    src: "pageup.png",
+    sub_dir: "mmi",
+
+}
+
+prebuilt_etc {
+    name: "pagedown.png",
+
+    src: "pagedown.png",
+    sub_dir: "mmi",
+
+}
+
+prebuilt_etc {
+    name: "report.png",
+
+    src: "report.png",
+    sub_dir: "mmi",
+
+}
+
+prebuilt_etc {
+    name: "runall.png",
+
+    src: "runall.png",
+    sub_dir: "mmi",
+
+}
+
+prebuilt_etc {
+    name: "reboot.png",
+
+    src: "reboot.png",
+    sub_dir: "mmi",
+
+}
+
+prebuilt_etc {
+    name: "reset.png",
+
+    src: "reset.png",
+    sub_dir: "mmi",
+
+}
+
+prebuilt_etc {
+    name: "poweroff.png",
+
+    src: "poweroff.png",
+    sub_dir: "mmi",
+
+}

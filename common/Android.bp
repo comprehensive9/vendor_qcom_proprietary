@@ -1,0 +1,6 @@
+cc_library_headers {
+    name: "vendor_common_inc",
+    export_include_dirs: ["inc"],
+    vendor_available:true,
+    host_supported: true,
+}

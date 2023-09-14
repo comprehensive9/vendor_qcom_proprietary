@@ -1,0 +1,17 @@
+/*===================================================================================
+  Copyright (c) 2020 Qualcomm Technologies, Inc.
+  All Rights Reserved.
+  Confidential and Proprietary - Qualcomm Technologies, Inc.
+  ===================================================================================*/
+
+/*===================================================================================
+FILE:  CTouchInput.idl
+
+DESCRIPTION:  This file specifies the UID that is specific to the
+TouchInput. And, it is used to register the TouchInput with the
+TUI Core Service whenever TouchInput connects to TUI Core Service
+using MinkIPC.
+
+=====================================================================================*/
+
+const uint32 CTouchInput_UID = 1;

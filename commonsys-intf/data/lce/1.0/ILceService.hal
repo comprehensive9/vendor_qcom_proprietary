@@ -1,0 +1,90 @@
+/*
+ * Copyright (c) 2021 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.hardware.data.lce@1.0;
+
+import ILceIndication;
+
+/**
+ * Interface declaring link capacity estimate service.
+ */
+interface ILceService {
+    /**
+     * Requests the last report sent by modem. Client can request for the last report sent by
+     * modem. This call will provide an async indication via the callback registered during
+     * setReportingCriteria. If setReportingCriteria has not been called nothing happens.
+     *
+     * @param callback The async class for sending indications and responses back to client.
+     */
+    @entry
+    @callflow(next={"setLinkCapacityReportingCriteria"})
+    oneway setCallback(ILceIndication callback);
+
+    /**
+     * Sets the link capacity reporting criteria.
+     *
+     * The resulting reporting criteria are the AND of all the supplied criteria.
+     *
+     * Note: Reporting criteria must be individually set for each RAT.
+     *
+     * Note: If reportinPeriod is set hysteresisMs and thresholds* params are ignored.
+     *
+     * Response callback is @1.0::ILceIndication.linkEstimation().
+     *
+     * @param reportingPeriod Period at which the uplink throughput information is calculated in
+           miliseconds.
+     * @param hysteresisMs A hysteresis time in milliseconds to prevent flapping. A value of 0
+     *     disables hysteresis.
+     * @param thresholdsDownlinkKbps A vector of trigger thresholds in kbps for downlink reports. A
+     *     vector size of 0 disables the use of DL thresholds for reporting.
+     * @param thresholdsUplinkKbps A vector of trigger thresholds in kbps for uplink reports. A
+     *     vector size of 0 disables the use of UL thresholds for reporting.
+     * @param accessNetwork The type of network for which to apply these thresholds.
+     *
+     * @return status Returns OK or REPORTING_CRITERIA_TYPE_MISMATCH if previous criteria used a
+     *      different reporting type {THRESHOLD, TIME}.
+     */
+    @callflow(next={"*"})
+    setLinkCapacityReportingCriteria(uint32_t reportingPeriod,
+                                     uint32_t hysteresisMs,
+                                     vec<uint32_t> thresholdsDownlinkKbps,
+                                     vec<uint32_t> thresholdsUplinkKbps,
+                                     AccessNetwork accessNetwork)
+        generates (StatusCode status);
+
+     /**
+     * Requests the last report sent by modem. Client can request for the last report sent by
+     * modem. This call will provide an async indication via the callback registered during
+     * setReportingCriteria. If setReportingCriteria has not been called nothing happens.
+     *
+     * @param accessNetwork The type of network for which to queuery estimation report.
+     *
+     * @return status Returns OK or REPORTING_CRITERIA_NOT_SET if
+     *      setLinkCapacityReportingCriteria() hasn't been called.
+     */
+    @callflow(next={"*"})
+    getLastEstimationReport() generates (StatusCode status);
+
+    /**
+     * Sets the link capacity reporting criteria.
+     *
+     * @param action The action {START, STOP} to be performed.
+     *
+     */
+    @callflow(next={"*"})
+    oneway performReportingAction(Action action);
+
+    /**
+     * Called by the client to deinitialize the effect and free up
+     * all the currently allocated resources. It is recommended to close
+     * the effect on the client side as soon as it is becomes unused.
+     *
+     * @return status OK in case the success. INVALID_STATE if the effect was already closed.
+     *
+     */
+    @exit
+    close() generates (StatusCode status);
+};

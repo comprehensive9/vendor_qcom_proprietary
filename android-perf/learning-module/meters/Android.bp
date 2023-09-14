@@ -1,0 +1,33 @@
+
+
+cc_library_shared {
+    name: "libmeters",
+    srcs: ["reference/ReferenceMeter.cpp"],
+
+    header_libs: ["libutils_headers"],
+
+    shared_libs: [
+        "liblog",
+        "libc",
+        "libcutils",
+        "liblearningmodule",
+    ],
+
+    cflags: ["-Wno-unused-parameter"],
+
+    cppflags: [
+        "-fexceptions",
+    ],
+
+    include_dirs: [
+        "vendor/qcom/proprietary/android-perf/learning-module/framework/inc/utils",
+        "vendor/qcom/proprietary/android-perf/learning-module/framework/inc/metameters",
+        "vendor/qcom/proprietary/android-perf/mp-ctl",
+    ],
+
+    compile_multilib: "first",
+
+    owner: "qti",
+
+    proprietary: true,
+}

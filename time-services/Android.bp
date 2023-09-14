@@ -1,0 +1,65 @@
+//#############################################################################
+// @file vendor/qcom-proprietary/time_services/Android.bp
+// @brief Makefile for building the time services on Android.
+//#############################################################################
+
+//################### Time services Static & Shared library ###################
+
+cc_library {
+    name: "libtime_genoff",
+
+    local_include_dirs: ["."],
+
+    header_libs: ["libcutils_headers", "vendor_common_inc",],
+
+    srcs: ["time_genoff_qmi.c"],
+
+    shared_libs: ["libc"] + [
+        "libcutils",
+        "liblog",
+    ],
+
+    owner: "qti",
+    proprietary: true,
+
+}
+
+//##################### Time services daemon  #################################
+
+cc_binary {
+    name: "time_daemon",
+
+    srcs: [
+        "time_daemon_qmi.c",
+        "time_service_v01.c",
+        "wlan_time_service_v01.c",
+    ],
+
+    local_include_dirs: ["."],
+
+    header_libs: ["libcutils_headers", "libqmi_common_headers", "libqmi_cci_headers", "vendor_common_inc",],
+
+    shared_libs: ["libc"] + ["liblog"] + ["libcutils"] + ["libqmi_cci"] + ["libqmi_common_so"],
+
+    init_rc: ["init.time_daemon.rc"],
+
+    proprietary: true,
+    owner: "qti",
+
+}
+
+android_app {
+    name: "TimeService",
+
+    optimize: {
+    enabled: false,
+    },
+
+    srcs: ["**/*.java"],
+
+    certificate: "platform",
+    proprietary: true,
+    owner: "qti",
+
+    sdk_version: "system_current",
+}

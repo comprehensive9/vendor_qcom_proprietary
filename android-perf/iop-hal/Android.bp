@@ -1,0 +1,64 @@
+
+prebuilt_etc {
+    name: "init.pixel.vendor.qti.hardware.iop@2.0-service.rc",
+    src: "init.pixel.vendor.qti.hardware.iop@2.0-service.rc",
+    sub_dir: "init",
+    device_specific: true,
+}
+
+soong_config_module_type {
+    name: "Iop_opts_cc_defaults",
+    module_type: "cc_defaults",
+    config_namespace: "perf",
+    bool_variables: ["QMAA_ENABLE_PERF_STUB_HALS"],
+    properties: ["srcs","exclude_srcs"],
+    }
+
+Iop_opts_cc_defaults {
+    name: "Iop_opts_defaults",
+    soong_config_variables: {
+        QMAA_ENABLE_PERF_STUB_HALS: {
+            srcs: [
+                "Iop_Stub.cpp",
+            ],
+            exclude_srcs : [
+                "Iop.cpp"
+                ],
+            },
+        }
+    }
+
+cc_binary {
+    name: "vendor.qti.hardware.iop@2.0-service",
+    relative_install_path: "hw",
+    proprietary: true,
+    init_rc: ["vendor.qti.hardware.iop@2.0-service.rc"],
+    defaults: ["Iop_opts_defaults"],
+
+    header_libs: ["libcutils_headers"],
+
+    srcs: [
+        "service.cpp",
+        "Iop.cpp"
+    ],
+
+    include_dirs: [
+        "vendor/qcom/proprietary/android-perf/mp-ctl",
+        "vendor/qcom/proprietary/android-perf/mp-ctl-client",
+        "vendor/qcom/proprietary/android-perf/io-p-client",
+    ],
+
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libdl",
+        "libbase",
+        "libutils",
+        "libhardware_legacy",
+        "libhardware",
+        "libhidlbase",
+        "libqti-perfd-client",
+        "vendor.qti.hardware.iop@2.0",
+    ],
+
+}

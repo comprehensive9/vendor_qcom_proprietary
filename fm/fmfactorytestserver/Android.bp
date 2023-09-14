@@ -1,0 +1,19 @@
+
+cc_binary {
+    name: "fmfactorytestserver",
+
+    srcs: [
+        "fmfactorytestserver.cpp",
+        "FmRadioController_qcom.cpp",
+        "QcomFmIoctlsInterface.cpp",
+    ],
+
+    shared_libs: [
+        "libcutils",
+        "liblog",
+        "libutils",
+    ],
+    proprietary: true,
+    owner: "qti",
+
+}

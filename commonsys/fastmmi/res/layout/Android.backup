@@ -1,0 +1,425 @@
+
+
+prebuilt_etc {
+    name: "header.xml",
+
+    src: "header.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "footer.xml",
+
+    src: "footer.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "footer_fail.xml",
+
+    src: "footer_fail.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "main.xml",
+
+    src: "main.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "main_wear.xml",
+
+    src: "main_wear.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_common.xml",
+
+    src: "layout_common.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_cb.xml",
+
+    src: "layout_cb.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_battery.xml",
+
+    src: "layout_battery.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_bluetooth.xml",
+
+    src: "layout_bluetooth.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_button_backlight.xml",
+
+    src: "layout_button_backlight.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_camera_back.xml",
+
+    src: "layout_camera_back.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_camera_front.xml",
+
+    src: "layout_camera_front.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_confirm.xml",
+
+    src: "layout_confirm.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_cpu.xml",
+
+    src: "layout_cpu.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_emmc.xml",
+
+    src: "layout_emmc.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_feedback.xml",
+
+    src: "layout_feedback.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_flashlight.xml",
+
+    src: "layout_flashlight.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_fm.xml",
+
+    src: "layout_fm.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_gps.xml",
+
+    src: "layout_gps.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_gsensor.xml",
+
+    src: "layout_gsensor.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_gyroscope.xml",
+
+    src: "layout_gyroscope.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_handset.xml",
+
+    src: "layout_handset.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_headset.xml",
+
+    src: "layout_headset.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_headset_key.xml",
+
+    src: "layout_headset_key.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_key.xml",
+
+    src: "layout_key.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_keypad.xml",
+
+    src: "layout_keypad.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_lcd.xml",
+
+    src: "layout_lcd.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_lcd_backlight.xml",
+
+    src: "layout_lcd_backlight.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_led_blue.xml",
+
+    src: "layout_led_blue.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_led_green.xml",
+
+    src: "layout_led_green.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_led_red.xml",
+
+    src: "layout_led_red.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_loudspeaker.xml",
+
+    src: "layout_loudspeaker.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_lsensor.xml",
+
+    src: "layout_lsensor.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_hsensor.xml",
+
+    src: "layout_hsensor.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_memory.xml",
+
+    src: "layout_memory.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_msensor.xml",
+
+    src: "layout_msensor.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_nfc.xml",
+
+    src: "layout_nfc.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_pcba.xml",
+
+    src: "layout_pcba.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_primary_mic.xml",
+
+    src: "layout_primary_mic.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_psensor.xml",
+
+    src: "layout_psensor.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_reboot.xml",
+
+    src: "layout_reboot.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_report.xml",
+
+    src: "layout_report.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_sdcard.xml",
+
+    src: "layout_sdcard.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_simcard1.xml",
+
+    src: "layout_simcard1.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_simcard2.xml",
+
+    src: "layout_simcard2.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_system_info.xml",
+
+    src: "layout_system_info.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_touch.xml",
+
+    src: "layout_touch.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_vibrator.xml",
+
+    src: "layout_vibrator.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_wifi.xml",
+
+    src: "layout_wifi.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "home_extra_function.xml",
+
+    src: "home_extra_function.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_telephone.xml",
+
+    src: "layout_telephone.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_indicator.xml",
+
+    src: "layout_indicator.xml",
+    sub_dir: "mmi/layout",
+
+}
+
+prebuilt_etc {
+    name: "layout_power.xml",
+
+    src: "layout_power.xml",
+    sub_dir: "mmi/layout",
+
+}

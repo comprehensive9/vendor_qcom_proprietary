@@ -1,0 +1,19 @@
+
+<!--
+   Copyright (c) 2003-2010,2017,2020 Qualcomm Technologies, Inc.
+   All rights reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+ -->
+
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">6dp</dimen>
+    <dimen name="activity_margin_left">16dp</dimen>
+    <dimen name="textsize_large">22dp</dimen>
+    <dimen name="textsize_headers">18dp</dimen>
+    <dimen name="textsize_medium">16dp</dimen>
+    <dimen name="textsize_small">14dp</dimen>
+    
+</resources>

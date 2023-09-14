@@ -1,0 +1,65 @@
+/********************************:*************************************
+Copyright (c) 2020 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+**********************************************************************/
+
+package vendor.qti.ims.rcsconfig@2.1;
+
+import @2.0::types;
+
+/**
+ * Status codes for updateAppTokenFetchStatus API
+ */
+enum StatusCode : uint32_t {
+    /** Operation succeeded */
+    SUCCESS = 0,
+    /** Operation failed */
+    FAILED,
+    /** Operation initiated and in progress */
+    IN_PROGRESS,
+    /** Client is not authorised to perform operation */
+    SECURITY_FAILURE,
+    /** Invalid/unknown uri/parameter provided for operation */
+    ILLEGAL_PARAM,
+    /** Client permissions or other internal error condition */
+    ILLEGAL_STATE,
+    /** Indicates the Login Engine is not installed/available */
+    NULL_CURSOR,
+    /** Oem Client not available */
+    APP_NOT_AVAILABLE
+};
+
+/**
+ * Supported Token types
+ */
+enum TokenType : uint32_t {
+    /** APP token*/
+    IMS_APP_TOKEN = 0,
+    /** Auth token */
+    IMS_AUTH_TOKEN = 1,
+    /** Client token */
+    IMS_CLIENT_TOKEN = 2
+};
+
+/**
+ * Token Request Trigger Reasons
+ */
+enum TokenRequestReason : uint32_t {
+    /** No Reason */
+    REASON_DO_NOT_EXIST           = 0,
+    /** Token doesn't exist */
+    REASON_RCS_TOKEN_DO_NOT_EXIST = 1,
+    /** Sim swap happened */
+    REASON_SIM_SWAP               = 2,
+    /** Token exist but it is invalid */
+    REASON_INVALID_TOKEN          = 3,
+    /** Token exist but it expired */
+    REASON_EXPIRED_TOKEN          = 4,
+    /** Client has changed */
+    REASON_CLIENT_CHANGE          = 5,
+    /** Device upgrade took place */
+    REASON_DEVICE_UPGRADE         = 6,
+    /** Factory reset happened */
+    REASON_FACTORY_RESET          = 7
+};

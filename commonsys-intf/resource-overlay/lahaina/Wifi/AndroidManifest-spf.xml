@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2022 Qualcomm Technologies, Inc.
+     All Rights Reserved.
+     Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.wifi.resources.overlay.lahaina">
+    <overlay android:targetPackage="com.android.wifi.resources"
+        android:targetName = "WifiCustomization"
+        android:isStatic="true"
+        android:priority="500" />
+</manifest>

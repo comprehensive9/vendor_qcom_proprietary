@@ -1,0 +1,2545 @@
+{
+    "compatibility-matrix": {
+        "@version": "6.0",
+        "@type": "framework",
+        "@level": "8",
+        "hal": [
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.atrace",
+                "version": "1.0",
+                "interface": {
+                    "name": "IAtraceDevice",
+                    "instance": "default"
+                },
+                "hash_info": [
+                    {
+                        "intf": "IAtraceDevice",
+                        "version": "1.0",
+                        "hash": "438dc52ab820befb7a11e953e82110f0d8c91cdf96ef62be921efc64f5a3d580",
+                        "name": "android.hardware.atrace"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "20b9f81bb0b1f812f150ec94d42648b01087f2344ea91df0416bce0fb6cdfbd4",
+                        "name": "android.hardware.atrace"
+                    }
+                ]
+            },
+            {
+                "@format": "hidl",
+                "@optional": "false",
+                "name": "android.hardware.audio",
+                "version": [
+                    "6.0",
+                    "7.0-1"
+                ],
+                "interface": {
+                    "name": "IDevicesFactory",
+                    "instance": "default"
+                },
+                "hash_info": [
+                    {
+                        "intf": "IDevice",
+                        "version": "6.0",
+                        "hash": "7241bd4596a927cd46d4b82f5e29e2cbe57f194aa1b25555f1d1d352e8b15c61",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "IDevicesFactory",
+                        "version": "6.0",
+                        "hash": "2402876cbc23c0de3690a665eca84fd3857d1808dba5cad25ce272f81ecef8c9",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "IPrimaryDevice",
+                        "version": "6.0",
+                        "hash": "bca5379d5065e2e08b6ad7308ffc8a71a972fc0698bec678ea32eea786d01cb5",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "IStream",
+                        "version": "6.0",
+                        "hash": "fd1f1b29f26b42e886220f04a08086c00e5ade9d7b53f095438e578ab9d42a93",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "IStreamIn",
+                        "version": "6.0",
+                        "hash": "2df5d5866b37776f25079c0e54b54350a2abe4e025a59c9e02a7d3abe8ca00e8",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "IStreamOut",
+                        "version": "6.0",
+                        "hash": "164826a380f4c1700183003f62d7532e367b67381c30ea44f946c0cf00008f85",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "IStreamOutCallback",
+                        "version": "6.0",
+                        "hash": "997fdaad7a9d17ee7e01feb7031a753e2365e72ad30b11d950e9183fabdf3844",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "IStreamOutEventCallback",
+                        "version": "6.0",
+                        "hash": "e7ca0db9a1098210f327a9b152fa6afe6bf019c41e5264c64829d04d50c0a526",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "IStreamOutEventCallback",
+                        "version": "6.0",
+                        "hash": "aa2211abd803e03d05ea11c18749db068f785fe026f8d99bce64bd764f63d194",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "6.0",
+                        "hash": "822369cf4dc16a6f6b9622bcf86cbdc0b692dc82193fc15e967767175cbfdd8f",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "IDevice",
+                        "version": "7.0",
+                        "hash": "59fa68432e374c8d3b7ec098a91a1e023a2c728110bb733237c551afa5929725",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "IDevicesFactory",
+                        "version": "7.0",
+                        "hash": "2207948ca127b801c94f667c99dfd139f150b50671e1408d3e855d03efbf631d",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "IPrimaryDevice",
+                        "version": "7.0",
+                        "hash": "1d201e15c553cd44c62864ac8d7039351ddf048a7ee61e380f6efb0904442eb8",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "IStream",
+                        "version": "7.0",
+                        "hash": "38afa920e6d36013b5a800e8c82eefeebd24602de24441e2f8ce5b3bdf62d3af",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "IStreamIn",
+                        "version": "7.0",
+                        "hash": "77d84330418abba5a92b0cdc4e27fa7c85c27344eaf7eeef441b8e88829ee475",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "IStreamOut",
+                        "version": "7.0",
+                        "hash": "40c5c43e923da23497c0e3d5a1c2d699b423a0268e1e971f918e4854e1c39951",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "IStreamOutCallback",
+                        "version": "7.0",
+                        "hash": "54cbc3c637fe8d4b889ccb5690e5e3069ca8efd9c6607ce1d021a3f47576c67e",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "IStreamOutEventCallback",
+                        "version": "7.0",
+                        "hash": "8036ae0a68a698a79207218018de5f41aed344723f644112ffc99e20e5e2e9ff",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "7.0",
+                        "hash": "84978dbd15d4fa8be6073d0974755f7718ee0cde519ce71449fb734f53cee46b",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "IDevice",
+                        "version": "7.1",
+                        "hash": "75d10baa98d661fb455622a1b0c76b53f0b19a906c6fb058daadfed5db77ed3f",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "IDevicesFactory",
+                        "version": "7.1",
+                        "hash": "3a69d224c3351bdc5651c77cd588d5a36bb65a34abd423901a9cf63ac5916f20",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "IPrimaryDevice",
+                        "version": "7.1",
+                        "hash": "4569e703efb9ab0f4fc02bcca866a77d4352e292fbf715927cba31e6eba51ad6",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "IStreamOut",
+                        "version": "7.1",
+                        "hash": "ec11690878547a55eb1d6a286f83e227d8328c2cf1d069316b55b4e4084fd9a2",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "IStreamOutLatencyModeCallback",
+                        "version": "7.1",
+                        "hash": "786b8619580d7cfae70f02136307e141481714fcc76c6b700e655568f1bf0733",
+                        "name": "android.hardware.audio"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "7.1",
+                        "hash": "bfbf383768881eb06f99db76ce79135e37b2b105a90d67bf7468f8df05180bf4",
+                        "name": "android.hardware.audio"
+                    }
+                ]
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.audio.core",
+                "interface": [
+                    {
+                        "name": "IConfig",
+                        "instance": "default"
+                    },
+                    {
+                        "name": "IModule",
+                        "instance": "default"
+                    }
+                ]
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.audio.effect",
+                "version": [
+                    "6.0",
+                    "7.0"
+                ],
+                "interface": {
+                    "name": "IEffectsFactory",
+                    "instance": "default"
+                },
+                "hash_info": [
+                    {
+                        "intf": "IAcousticEchoCancelerEffect",
+                        "version": "6.0",
+                        "hash": "525bec6b44f1103869c269a128d51b8dccd73af5340ba863c8886c68357c7faf",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IAutomaticGainControlEffect",
+                        "version": "6.0",
+                        "hash": "8d76bbe3719d051a8e9a1dcf9244f37f5b0a491feb249fa48391edf7cb4f3131",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IBassBoostEffect",
+                        "version": "6.0",
+                        "hash": "461b1114cb35d89f87e5694e0792ba53c112a7fa9a14d9b95188cf9c4764be23",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IDownmixEffect",
+                        "version": "6.0",
+                        "hash": "8bc597d166e07e9eba633267fc2872c4c53d13d3f0025b778c98e13324a165de",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IEffect",
+                        "version": "6.0",
+                        "hash": "9ee022c81e79da6051fde0836c1c1c4d5414e0c9a6cccc0ce17a90346ceb1391",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IEffectBufferProviderCallback",
+                        "version": "6.0",
+                        "hash": "75c99a70577d543359910a0b378bcbf5a0d6076712e58e6864cd8803f76c8684",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IEffectsFactory",
+                        "version": "6.0",
+                        "hash": "b138d519696f23af2c7cb92c532178c35f4b3a5c1b689260b1c308fe00249f8b",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IEnvironmentalReverbEffect",
+                        "version": "6.0",
+                        "hash": "dd377f404a8e71f6191d295e10067db629b0f0c28e594af906f2bea5d87fe2cc",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IEqualizerEffect",
+                        "version": "6.0",
+                        "hash": "455e085e136767302ec34d02b51a085c310e79bf500b76dda7c96a7f3637f11a",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "ILoudnessEnhancerEffect",
+                        "version": "6.0",
+                        "hash": "24b5e107a0cbd2b322f764a4d5f7fb8b5d8c337a060b9a4a26b9af050c57b5d0",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "INoiseSuppressionEffect",
+                        "version": "6.0",
+                        "hash": "4aae0a13f53a8ce20fad372de2d1d864a0bae194b0f1b1d2c090367af8615af2",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IPresetReverbEffect",
+                        "version": "6.0",
+                        "hash": "5237c42d3913ef569f07bec802568084b615155d05a7951e75085da54856508c",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IVirtualizerEffect",
+                        "version": "6.0",
+                        "hash": "282193799d60bff27a84c65a36218c1e7d8f582f5828e2e059383d1b90aa56bd",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IVisualizerEffect",
+                        "version": "6.0",
+                        "hash": "0868e00f7c5ee16723bda1a8f57099763d04100ae7126a1c2d3a9a87c844a7e8",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "6.0",
+                        "hash": "817930d58412d662cb45e641c50cb62c727e4a3e3ffe7029a53cad9677b97d58",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IAcousticEchoCancelerEffect",
+                        "version": "7.0",
+                        "hash": "842b4485a00005fb938f674b12445cb592cd1636f56c7cc447966119070811bd",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IAutomaticGainControlEffect",
+                        "version": "7.0",
+                        "hash": "b62a85e5d745dc35b5a60464c6b33a5bb7a2b8b95863a1374aee77ea29cf8f49",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IBassBoostEffect",
+                        "version": "7.0",
+                        "hash": "c8d5e30848191713db7cffccc482e4427816f33c98a24734c8769962f79f855b",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IDownmixEffect",
+                        "version": "7.0",
+                        "hash": "7d021ecdf5bb6a61eb9ad193585d4986d1a64cb7fb4b52f219d7380145f2c6f1",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IEffect",
+                        "version": "7.0",
+                        "hash": "7fee1e7c7bb3d513a524c8963d1f8f7c2ad856f26c745b4ebc286b40d503264a",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IEffectBufferProviderCallback",
+                        "version": "7.0",
+                        "hash": "7596050ccc00234458dcb4e692056ed3c16f3618c11d7b17cb749cfd5713705d",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IEffectsFactory",
+                        "version": "7.0",
+                        "hash": "f2e41467bcf1140a11b219c2e8f77981b955c2941befe66e1cc685b7863ae4c9",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IEnvironmentalReverbEffect",
+                        "version": "7.0",
+                        "hash": "af66fb4addbc477f9fea65fb63475203122a9189624ca8d14e757bc7826d60a4",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IEqualizerEffect",
+                        "version": "7.0",
+                        "hash": "2878d007ed55e1a4149ddcd29606962c948d8610642276f91dffd5ed32281824",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "ILoudnessEnhancerEffect",
+                        "version": "7.0",
+                        "hash": "0260ef9e2a3e077de366ebebc0c117c7ee13f46a1eabd4abd66cc6245d0bed98",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "INoiseSuppressionEffect",
+                        "version": "7.0",
+                        "hash": "3586bbc3a7cbe30f9aff0a522524eea9b78eea78280f09c35d43dbab48a1193e",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IPresetReverbEffect",
+                        "version": "7.0",
+                        "hash": "a7d74d7e7e0b1e3b739f233b7776bf01e868856a536f5cdac0f307e9c2850e64",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IVirtualizerEffect",
+                        "version": "7.0",
+                        "hash": "b4cbc1f2d38787f2ad069a8e4d10c0896287531a2596f0de0283e390b0ecf05d",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "IVisualizerEffect",
+                        "version": "7.0",
+                        "hash": "2b5681e1ea6a2db0dc1e84edb96d3de2f7daf306046543e7956be76dcb8f20fb",
+                        "name": "android.hardware.audio.effect"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "7.0",
+                        "hash": "fa1e2d78e66fd662de93cb479ffd55947fe54f51cb53915814b3d3e3036c86a5",
+                        "name": "android.hardware.audio.effect"
+                    }
+                ]
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.audio.effect",
+                "interface": {
+                    "name": "IFactory",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.authsecret",
+                "interface": {
+                    "name": "IAuthSecret",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.authsecret",
+                "version": "1.0",
+                "interface": {
+                    "name": "IAuthSecret",
+                    "instance": "default"
+                },
+                "hash_info": [
+                    {
+                        "intf": "IAuthSecret",
+                        "version": "1.0",
+                        "hash": "42a06dc288f61b0690580f3d37b30b663c31d74d50bb58d0772386b550d5faab",
+                        "name": "android.hardware.authsecret"
+                    }
+                ]
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.automotive.audiocontrol",
+                "interface": {
+                    "name": "IAudioControl",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.automotive.can",
+                "version": "1.0",
+                "interface": [
+                    {
+                        "name": "ICanBus",
+                        "regex-instance": ".*"
+                    },
+                    {
+                        "name": "ICanController",
+                        "regex-instance": ".*"
+                    }
+                ],
+                "hash_info": [
+                    {
+                        "intf": "ICanBus",
+                        "version": "1.0",
+                        "hash": "949a2582c9efa3f6f631f56120eae3f02313f251dbf9246c327e419cdf0652a2",
+                        "name": "android.hardware.automotive.can"
+                    },
+                    {
+                        "intf": "ICanController",
+                        "version": "1.0",
+                        "hash": "43cddb1907a30343bced68946884416ea25ab14ae2df4709357528b2bedba84c",
+                        "name": "android.hardware.automotive.can"
+                    },
+                    {
+                        "intf": "ICanErrorListener",
+                        "version": "1.0",
+                        "hash": "272e826492b27b0dbdeda408e84a41ae43e98f29e57995b6452ded270aae4eee",
+                        "name": "android.hardware.automotive.can"
+                    },
+                    {
+                        "intf": "ICanMessageListener",
+                        "version": "1.0",
+                        "hash": "07e387bd8bc0e4df5f372515ed960a0b1ae74ea7231d4490a0bb09b07046e4f1",
+                        "name": "android.hardware.automotive.can"
+                    },
+                    {
+                        "intf": "ICloseHandle",
+                        "version": "1.0",
+                        "hash": "2166132d6c247630a193217b4338074f634d6691b1ed6796cb26b3812e90b46e",
+                        "name": "android.hardware.automotive.can"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "83355471a3b6d7f777d3f129714585ffb77d9b6f8a3d0365741969631efb81b2",
+                        "name": "android.hardware.automotive.can"
+                    }
+                ]
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.automotive.evs",
+                "interface": {
+                    "name": "IEvsEnumerator",
+                    "instance": "default",
+                    "regex-instance": "[a-z]+/[0-9]+"
+                }
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.automotive.evs",
+                "version": "1.0-1",
+                "interface": {
+                    "name": "IEvsEnumerator",
+                    "instance": "default",
+                    "regex-instance": "[a-z]+/[0-9]+"
+                },
+                "hash_info": [
+                    {
+                        "intf": "IEvsCamera",
+                        "version": "1.0",
+                        "hash": "f2904a4c108ad1b93eb2fa4e43b82bd01ce1ff26156316e49d1d9fc80dfecaad",
+                        "name": "android.hardware.automotive.evs"
+                    },
+                    {
+                        "intf": "IEvsCameraStream",
+                        "version": "1.0",
+                        "hash": "94cba6ad04c83aa840de2ed52b74ba2126a26dd960225e61ac36703315279a80",
+                        "name": "android.hardware.automotive.evs"
+                    },
+                    {
+                        "intf": "IEvsDisplay",
+                        "version": "1.0",
+                        "hash": "5ea36fb043d9e3b413219de3dfd7b046b48af4fda39f167f3528652e986cb76d",
+                        "name": "android.hardware.automotive.evs"
+                    },
+                    {
+                        "intf": "IEvsEnumerator",
+                        "version": "1.0",
+                        "hash": "b15c5d8f28be4f0469c11d184ebca616895f109d553a6c31018789d8c1bc0ac5",
+                        "name": "android.hardware.automotive.evs"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "3b17c1fdfc389e0abe626c37054954b07201127d890c2bc05d47613ec1f4de4f",
+                        "name": "android.hardware.automotive.evs"
+                    },
+                    {
+                        "intf": "IEvsCamera",
+                        "version": "1.0",
+                        "hash": "1b6d0927615ddbf4c56a993fa1845bca15543e315fb6f48c77276e2fa2918ac5",
+                        "name": "android.hardware.automotive.evs"
+                    },
+                    {
+                        "intf": "IEvsCameraStream",
+                        "version": "1.0",
+                        "hash": "3901859d36b7b4d32910d61cd1e8982b0ffeb8fb77b457ac6349e8bf1abcd595",
+                        "name": "android.hardware.automotive.evs"
+                    },
+                    {
+                        "intf": "IEvsDisplay",
+                        "version": "1.0",
+                        "hash": "578f640c653726d58f99c84a7e1bb63862e21ef7cbb4f7d95c3cc62de00dca35",
+                        "name": "android.hardware.automotive.evs"
+                    },
+                    {
+                        "intf": "IEvsEnumerator",
+                        "version": "1.0",
+                        "hash": "f5bc6aa840db933cb9fd36668b06d3e2021cf5384bb70e459f22e2f2f921fba5",
+                        "name": "android.hardware.automotive.evs"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "d3a344b7bd4c0d2658ae7209f55a979b8f53f361fd00f4fca29d5baa56d11fd2",
+                        "name": "android.hardware.automotive.evs"
+                    },
+                    {
+                        "intf": "IEvsCamera",
+                        "version": "1.1",
+                        "hash": "50bfbeef15d7451bd07e4ad460fbcb7ff80521b89bb8049035c0d458b4125ae4",
+                        "name": "android.hardware.automotive.evs"
+                    },
+                    {
+                        "intf": "IEvsCameraStream",
+                        "version": "1.1",
+                        "hash": "89ff5ab18b3069f21a57f559b290caa50670f0ae1b74178f630183aef39b496b",
+                        "name": "android.hardware.automotive.evs"
+                    },
+                    {
+                        "intf": "IEvsDisplay",
+                        "version": "1.1",
+                        "hash": "4c67f768067a0aceac74381f6f62e778ab3b6a18f47db3c9b98c58190ef5619d",
+                        "name": "android.hardware.automotive.evs"
+                    },
+                    {
+                        "intf": "IEvsEnumerator",
+                        "version": "1.1",
+                        "hash": "87958d728d7c0ee9b9391ab4a072b097914921a7b38f7dc3df427f933a5b528e",
+                        "name": "android.hardware.automotive.evs"
+                    },
+                    {
+                        "intf": "IEvsUltrasonicsArray",
+                        "version": "1.1",
+                        "hash": "f53b4e8de6209c6d0fa9036005671b34a2f98328b51423d3a5137a43bf42c84d",
+                        "name": "android.hardware.automotive.evs"
+                    },
+                    {
+                        "intf": "IEvsUltrasonicsArrayStream",
+                        "version": "1.1",
+                        "hash": "0460bacbde906a846a3d71b2b7b33d6927cac3ff072e523ffac7853577464406",
+                        "name": "android.hardware.automotive.evs"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.1",
+                        "hash": "f27cf8283e7b953d33dd258734749d2fca9cc63502ea41353060ffa78d8ce9f6",
+                        "name": "android.hardware.automotive.evs"
+                    }
+                ]
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.automotive.occupant_awareness",
+                "interface": {
+                    "name": "IOccupantAwareness",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.automotive.remoteaccess",
+                "interface": {
+                    "name": "IRemoteAccess",
+                    "regex-instance": ".*"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.automotive.vehicle",
+                "interface": {
+                    "name": "IVehicle",
+                    "regex-instance": ".*"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.biometrics.face",
+                "version": "2",
+                "interface": {
+                    "name": "IFace",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.biometrics.fingerprint",
+                "version": "2",
+                "interface": {
+                    "name": "IFingerprint",
+                    "instance": [
+                        "default",
+                        "virtual"
+                    ]
+                }
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.bluetooth",
+                "version": "1.0-1",
+                "interface": {
+                    "name": "IBluetoothHci",
+                    "instance": "default"
+                },
+                "hash_info": [
+                    {
+                        "intf": "IBluetoothHci",
+                        "version": "1.0",
+                        "hash": "347ce746815607567f5f3b53e4800998ca5ab9355141f0880fc0cf0c1fc5c355",
+                        "name": "android.hardware.bluetooth"
+                    },
+                    {
+                        "intf": "IBluetoothHciCallbacks",
+                        "version": "1.0",
+                        "hash": "835f41be2281bfb22f3e33c6fa870bde7bc21e37e5cfbaf9a36fff170632f754",
+                        "name": "android.hardware.bluetooth"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "a8dfd0dbe463a3cdbcf1d985b38a28b3d93ba2ae5a1d1db4aaef4c38a5781b91",
+                        "name": "android.hardware.bluetooth"
+                    },
+                    {
+                        "intf": "IBluetoothHci",
+                        "version": "1.1",
+                        "hash": "362fd1c21641c2224f3b80c30d9797b988fa3f344243d531ba73c553779a5763",
+                        "name": "android.hardware.bluetooth"
+                    },
+                    {
+                        "intf": "IBluetoothHciCallbacks",
+                        "version": "1.1",
+                        "hash": "40ab2c6866c18d32baf6e49e3053949e79601f56963a791e93e68b9ee18f718d",
+                        "name": "android.hardware.bluetooth"
+                    }
+                ]
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.bluetooth.audio",
+                "version": "2",
+                "interface": {
+                    "name": "IBluetoothAudioProviderFactory",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.boot",
+                "interface": {
+                    "name": "IBootControl",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.broadcastradio",
+                "interface": {
+                    "name": "IBroadcastRadio",
+                    "regex-instance": ".*"
+                }
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.camera.provider",
+                "version": "2.4-7",
+                "interface": {
+                    "name": "ICameraProvider",
+                    "regex-instance": "[^/]+/[0-9]+"
+                },
+                "hash_info": [
+                    {
+                        "intf": "ICameraProvider",
+                        "version": "2.4",
+                        "hash": "f7e299d85033ac52d1095a35784fcfeaff43603f58c751e4153c85bbade3b330",
+                        "name": "android.hardware.camera.provider"
+                    },
+                    {
+                        "intf": "ICameraProviderCallback",
+                        "version": "2.4",
+                        "hash": "a501ca1aecd09f1b9fd70a9af84205430dbd49a808e8fa395d363b9902e6f58c",
+                        "name": "android.hardware.camera.provider"
+                    },
+                    {
+                        "intf": "ICameraProvider",
+                        "version": "2.4",
+                        "hash": "3902efc42097cba55f0655aa389e052ea70164e99ced1a6d1ef53dafc13f7650",
+                        "name": "android.hardware.camera.provider"
+                    },
+                    {
+                        "intf": "ICameraProvider",
+                        "version": "2.4",
+                        "hash": "05d1ee760d81cdd2dc7a70ce0241af9fa830edae33b4be83d9bf5fffe05ddc6f",
+                        "name": "android.hardware.camera.provider"
+                    },
+                    {
+                        "intf": "ICameraProvider",
+                        "version": "2.5",
+                        "hash": "0fb39a7809ad1c52b3efbbed5ef4749b06c2a4f1f19cdc3efa2e3d9b28f1205c",
+                        "name": "android.hardware.camera.provider"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "2.5",
+                        "hash": "f5777403d65135a5407723671bc7a864cdca83aea13ee3ce2894b95e6588ca3a",
+                        "name": "android.hardware.camera.provider"
+                    },
+                    {
+                        "intf": "ICameraProvider",
+                        "version": "2.4",
+                        "hash": "bceee81ec1b59324abd05932b5620fda5a6589597c9cb3953ba7f3ea02cccd3e",
+                        "name": "android.hardware.camera.provider"
+                    },
+                    {
+                        "intf": "ICameraProviderCallback",
+                        "version": "2.4",
+                        "hash": "2ce820dc4f3c6d85721b65150ed2157c6e2e2055f866fb6c6ba4790f14408d66",
+                        "name": "android.hardware.camera.provider"
+                    },
+                    {
+                        "intf": "ICameraProvider",
+                        "version": "2.6",
+                        "hash": "93cd94e47b22007bbf436c2f5c2703bb7b2859d1b714d6ae15520db55667ba6c",
+                        "name": "android.hardware.camera.provider"
+                    },
+                    {
+                        "intf": "ICameraProviderCallback",
+                        "version": "2.6",
+                        "hash": "8f8d9463508ff9cae88eb35c429fd0e2dbca0ca8f5de7fdf836cc0c4370becb6",
+                        "name": "android.hardware.camera.provider"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "2.6",
+                        "hash": "1edf7aef68ef3bd577a1175b1462fb82e3e39f01c6915dda61fba121028df283",
+                        "name": "android.hardware.camera.provider"
+                    },
+                    {
+                        "intf": "ICameraProvider",
+                        "version": "2.7",
+                        "hash": "98ff825a7d37e5ab983502d13cec1f2e5a9cac9b674b6ff1a52bcf540f4e315e",
+                        "name": "android.hardware.camera.provider"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "2.7",
+                        "hash": "51fd14005859b16be55872660c34f5d423c77a2abcc5d4bdd5a537c40f32516b",
+                        "name": "android.hardware.camera.provider"
+                    }
+                ]
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.camera.provider",
+                "interface": {
+                    "name": "ICameraProvider",
+                    "regex-instance": "[^/]+/[0-9]+"
+                }
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.cas",
+                "version": "1.1-2",
+                "interface": {
+                    "name": "IMediaCasService",
+                    "instance": "default"
+                },
+                "hash_info": [
+                    {
+                        "intf": "ICas",
+                        "version": "1.1",
+                        "hash": "44c88954b3c201b26f64fcdb6f278024ab3aae864a9e1ec70e8a74274ae9d6aa",
+                        "name": "android.hardware.cas"
+                    },
+                    {
+                        "intf": "ICasListener",
+                        "version": "1.1",
+                        "hash": "25012d1778f7396f967bbc0231397d544bde421ba5b98706c9e48ac790612683",
+                        "name": "android.hardware.cas"
+                    },
+                    {
+                        "intf": "IMediaCasService",
+                        "version": "1.1",
+                        "hash": "dffacdbe0bcf8443013de5bdc56a83479ad979d4919ed15a5585539f46091f07",
+                        "name": "android.hardware.cas"
+                    },
+                    {
+                        "intf": "ICas",
+                        "version": "1.2",
+                        "hash": "c1aa508d00b66ed5feefea398fd5edf28fa651ac89773adad7dfda4e0a73a952",
+                        "name": "android.hardware.cas"
+                    },
+                    {
+                        "intf": "ICasListener",
+                        "version": "1.2",
+                        "hash": "9811f867def49b420d8c707f7e38d3bdd64f835244e1d2a5e9762ab9835672dc",
+                        "name": "android.hardware.cas"
+                    },
+                    {
+                        "intf": "IMediaCasService",
+                        "version": "1.2",
+                        "hash": "f18695dd36ee205640b8326a17453858a7b4596653aaa6ef0016b0aef1bd4dac",
+                        "name": "android.hardware.cas"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.2",
+                        "hash": "4d85e814f94949dae4dc6cb82bbd7d6bb24ffafda6ddb2eac928d2a4fc2e21ce",
+                        "name": "android.hardware.cas"
+                    }
+                ]
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.confirmationui",
+                "version": "1.0",
+                "interface": {
+                    "name": "IConfirmationUI",
+                    "instance": "default"
+                },
+                "hash_info": [
+                    {
+                        "intf": "IConfirmationResultCallback",
+                        "version": "1.0",
+                        "hash": "1a46aeae45b7a0e47f79b7207300532986f9d9cd7060779afc7a529f54d712ab",
+                        "name": "android.hardware.confirmationui"
+                    },
+                    {
+                        "intf": "IConfirmationUI",
+                        "version": "1.0",
+                        "hash": "6d8347ff3cd7de471065ac3e8e68385073630cdeebe9f8fa58cb91cf44436c95",
+                        "name": "android.hardware.confirmationui"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "a3ff916784dce87a56c757ab5c86433f0cdf562280999a5f978a6e8a0f3f19e7",
+                        "name": "android.hardware.confirmationui"
+                    }
+                ]
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.contexthub",
+                "interface": {
+                    "name": "IContextHub",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.drm",
+                "interface": {
+                    "name": "IDrmFactory",
+                    "regex-instance": ".*"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.dumpstate",
+                "interface": {
+                    "name": "IDumpstateDevice",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.gatekeeper",
+                "version": "1.0",
+                "interface": {
+                    "name": "IGatekeeper",
+                    "instance": "default"
+                },
+                "hash_info": [
+                    {
+                        "intf": "IGatekeeper",
+                        "version": "1.0",
+                        "hash": "c9d318df7922bde3b265927b521ff5a965002826fc0cabfcaef52a56760f2d34",
+                        "name": "android.hardware.gatekeeper"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "da13bd69282fb275767abb18704c57ff8038e6c139ad17157dc702810f70d06a",
+                        "name": "android.hardware.gatekeeper"
+                    },
+                    {
+                        "intf": "IGatekeeper",
+                        "version": "1.0",
+                        "hash": "9679f27a42f75781c8993ef163ed92808a1928de186639834841d0b8e326e63d",
+                        "name": "android.hardware.gatekeeper"
+                    }
+                ]
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.gatekeeper",
+                "interface": {
+                    "name": "IGatekeeper",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.gnss",
+                "version": "2",
+                "interface": {
+                    "name": "IGnss",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.gnss.measurement_corrections",
+                "interface": {
+                    "name": "IMeasurementCorrectionsInterface",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.gnss.visibility_control",
+                "interface": {
+                    "name": "IGnssVisibilityControl",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.graphics.allocator",
+                "interface": {
+                    "name": "IAllocator",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.graphics.composer3",
+                "interface": {
+                    "name": "IComposer",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "hidl",
+                "@optional": "false",
+                "name": "android.hardware.graphics.mapper",
+                "version": [
+                    "2.1",
+                    "3.0",
+                    "4.0"
+                ],
+                "interface": {
+                    "name": "IMapper",
+                    "instance": "default"
+                },
+                "hash_info": [
+                    {
+                        "intf": "IMapper",
+                        "version": "2.1",
+                        "hash": "dd83be076b6b3f10ed62ab34d8c8b95f2415961fb785200eb842e7bfb2b0ee92",
+                        "name": "android.hardware.graphics.mapper"
+                    },
+                    {
+                        "intf": "IMapper",
+                        "version": "3.0",
+                        "hash": "033e096cb65e5093ee1d0e473892b9a487911d4611dbb65ebecb5cef18338923",
+                        "name": "android.hardware.graphics.mapper"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "3.0",
+                        "hash": "7183d9d9acfa41a61a64bdfed548e98299265a7bb1821a3ed204173b5c2cfd4a",
+                        "name": "android.hardware.graphics.mapper"
+                    },
+                    {
+                        "intf": "IMapper",
+                        "version": "4.0",
+                        "hash": "4d674afdc4447f614c8cc466ed45c5955a0192fa3d3c70884b11dd3c88f0b468",
+                        "name": "android.hardware.graphics.mapper"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "4.0",
+                        "hash": "b58a5e83a8ab04ff6e500f6afc17a1129a1f3de044b296b4b6bd34a085220f87",
+                        "name": "android.hardware.graphics.mapper"
+                    }
+                ]
+            },
+            {
+                "@format": "aidl",
+                "@optional": "false",
+                "name": "android.hardware.health",
+                "interface": {
+                    "name": "IHealth",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.health.storage",
+                "interface": {
+                    "name": "IStorage",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.identity",
+                "version": "1-4",
+                "interface": {
+                    "name": "IIdentityCredentialStore",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.input.processor",
+                "interface": {
+                    "name": "IInputProcessor",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.ir",
+                "interface": {
+                    "name": "IConsumerIr",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.light",
+                "version": "2",
+                "interface": {
+                    "name": "ILights",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.media.c2",
+                "version": "1.0-2",
+                "interface": {
+                    "name": "IComponentStore",
+                    "regex-instance": [
+                        "default[0-9]*",
+                        "vendor[0-9]*_software"
+                    ]
+                },
+                "hash_info": [
+                    {
+                        "intf": "IComponent",
+                        "version": "1.0",
+                        "hash": "7faa207e2507c6a2617e5ec2554b83383ebe392b6e627dddf2e3b0eae5715ba8",
+                        "name": "android.hardware.media.c2"
+                    },
+                    {
+                        "intf": "IComponentInterface",
+                        "version": "1.0",
+                        "hash": "389d06e4a4ecf60f828a260045b0c327a5ae883ee0856a3c054556dd22b1f450",
+                        "name": "android.hardware.media.c2"
+                    },
+                    {
+                        "intf": "IComponentListener",
+                        "version": "1.0",
+                        "hash": "5ee0c02265c5505ade189796bef46697df4e0563e3544bb0c934855b34694b07",
+                        "name": "android.hardware.media.c2"
+                    },
+                    {
+                        "intf": "IComponentStore",
+                        "version": "1.0",
+                        "hash": "43d70bcdc63b3d042bac3c3297f5d941dfabbd08f3ceb96b6016cc14f6e34ba3",
+                        "name": "android.hardware.media.c2"
+                    },
+                    {
+                        "intf": "IConfigurable",
+                        "version": "1.0",
+                        "hash": "d36f747f9c9a8f2f21db2f8323c2d755dd08b34ce813932d7339979f7d490dab",
+                        "name": "android.hardware.media.c2"
+                    },
+                    {
+                        "intf": "IInputSink",
+                        "version": "1.0",
+                        "hash": "21aa259585caaa27b6470ebcd8509aabde0ef5d039160aa6425d589cb787488b",
+                        "name": "android.hardware.media.c2"
+                    },
+                    {
+                        "intf": "IInputSurface",
+                        "version": "1.0",
+                        "hash": "b9422a9aca84df1ff9623dc12c0562abce97716e28d63a965f2bfb88f9ad9607",
+                        "name": "android.hardware.media.c2"
+                    },
+                    {
+                        "intf": "IInputSurfaceConnection",
+                        "version": "1.0",
+                        "hash": "0a786a19e6753f9774a7ca7781c2a2edfe5c0b5fa112355dfa0e50ebedeb08b9",
+                        "name": "android.hardware.media.c2"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "7d3c292ca75ec3e22a8fd4ae72d2edb0659d280257e763786e766f3429954dd1",
+                        "name": "android.hardware.media.c2"
+                    },
+                    {
+                        "intf": "IComponent",
+                        "version": "1.1",
+                        "hash": "df9c79c4fdde2821550c6d5c3d07f5ec0adfb1b702561ce543c906ddef698703",
+                        "name": "android.hardware.media.c2"
+                    },
+                    {
+                        "intf": "IComponentStore",
+                        "version": "1.1",
+                        "hash": "a3eddd9bbdc87e8c22764070037dd1154f1cf006e6fba93364c4f85d4c134a19",
+                        "name": "android.hardware.media.c2"
+                    },
+                    {
+                        "intf": "IComponent",
+                        "version": "1.2",
+                        "hash": "61e5d73d12d558a3115e5b1e2e740fbe149235c36c607881f053f2f443cafdf5",
+                        "name": "android.hardware.media.c2"
+                    },
+                    {
+                        "intf": "IComponentStore",
+                        "version": "1.2",
+                        "hash": "fcd17fb86c1b5570c8b55d855fd2ab93e4a2c6629d9ba9374372928469aad961",
+                        "name": "android.hardware.media.c2"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.2",
+                        "hash": "8b149e213e77f4be50dcaf68ab55b8220ca62abd9443969e7f46a197b5adddfc",
+                        "name": "android.hardware.media.c2"
+                    }
+                ]
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.media.omx",
+                "version": "1.0",
+                "interface": [
+                    {
+                        "name": "IOmx",
+                        "instance": "default"
+                    },
+                    {
+                        "name": "IOmxStore",
+                        "instance": "default"
+                    }
+                ],
+                "hash_info": [
+                    {
+                        "intf": "IGraphicBufferSource",
+                        "version": "1.0",
+                        "hash": "8bc2f5fdcad68856eb61a62fe4cc043fa064bb7f1dab95a71d1918ec1eef7b55",
+                        "name": "android.hardware.media.omx"
+                    },
+                    {
+                        "intf": "IOmx",
+                        "version": "1.0",
+                        "hash": "0d3de9cd89d4718ea3b772f2d8b93be004feb3abb7e7dc5402e37047cc730d05",
+                        "name": "android.hardware.media.omx"
+                    },
+                    {
+                        "intf": "IOmxBufferSource",
+                        "version": "1.0",
+                        "hash": "32002e1c358c64de106c977a6dc6af7da27be4803a5bb66fd6f891a5ba0a1617",
+                        "name": "android.hardware.media.omx"
+                    },
+                    {
+                        "intf": "IOmxNode",
+                        "version": "1.0",
+                        "hash": "81ad8d8bb1cf6f41923cf11dd39354a8fe433db284a234cc675de7e75a82224c",
+                        "name": "android.hardware.media.omx"
+                    },
+                    {
+                        "intf": "IOmxObserver",
+                        "version": "1.0",
+                        "hash": "494c0c8bf6065edc82ec127228ed19dd2243dc1c2f7d601c7c6be7b7015c1713",
+                        "name": "android.hardware.media.omx"
+                    },
+                    {
+                        "intf": "IOmxStore",
+                        "version": "1.0",
+                        "hash": "252c2fc50c78fd6de8365e5b60e5115119ace107db0b94b0b26815cbf3d2b64a",
+                        "name": "android.hardware.media.omx"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "148c1b50b0958988373145ffdf5fa0e1b6534e0a2034a570e74b15c127cf7c5e",
+                        "name": "android.hardware.media.omx"
+                    },
+                    {
+                        "intf": "IOmxStore",
+                        "version": "1.0",
+                        "hash": "09342041e17c429fce0034b9096d17849122111436a5f0053e7e59500e1cb89c",
+                        "name": "android.hardware.media.omx"
+                    }
+                ]
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.memtrack",
+                "interface": {
+                    "name": "IMemtrack",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.net.nlinterceptor",
+                "interface": {
+                    "name": "IInterceptor",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.neuralnetworks",
+                "version": "1.0-3",
+                "interface": {
+                    "name": "IDevice",
+                    "regex-instance": ".*"
+                },
+                "hash_info": [
+                    {
+                        "intf": "IDevice",
+                        "version": "1.0",
+                        "hash": "93eb3757ceaf21590fa4cd1d4a7dfe3b3794af5396100a6d25630879352abce9",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IExecutionCallback",
+                        "version": "1.0",
+                        "hash": "f66f9a38541bf92001d3adcce678cd7e3da2262124befb460b1c9aea9492813b",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IPreparedModel",
+                        "version": "1.0",
+                        "hash": "953607822954435874f4b81686440a604e2a88cdd2d9164c6293f3d5772510d7",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IPreparedModelCallback",
+                        "version": "1.0",
+                        "hash": "73e03573494ba96f0e711ab7f1956c5b2d54c3da690cd7ecf4d6d0f287447730",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "246a56d37d57a47224562c9d077b4a2886ce6242b9311bd98a17325944c280d7",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IDevice",
+                        "version": "1.0",
+                        "hash": "5804ca86611d72e5481f022b3a0c1b334217f2e4988dad25730c42af2d1f4d1c",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IExecutionCallback",
+                        "version": "1.0",
+                        "hash": "12e8dca4ab7d8aadd0ef8f1b438021938e2396139e85db2ed65783b08800aa52",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "86b77e06da756a76aa3685be88765852dd982a86d8c90b8b4fc1130ed4184c8f",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IDevice",
+                        "version": "1.1",
+                        "hash": "7698dc2382a2eeb43541840e3ee624f34108efdfb976b2bfa7c13ef15fb8c4c4",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.1",
+                        "hash": "72cc6126632456e8fbb8776fe50150c3c4dd5d09145653193affb70785211dfa",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IPreparedModel",
+                        "version": "1.0",
+                        "hash": "574e8f1499436fb4075894dcae0b36682427956ecb114f17f1fe22d116a83c6b",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "1e3576c07006d82ba5bc6ddbf87c101414d361c41afe7a82713750844c488725",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.1",
+                        "hash": "eb754b58c93e5591613208b4c972811288b0fa16a82430d602f107c91a908b22",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IBurstCallback",
+                        "version": "1.2",
+                        "hash": "5f6b6b99ffd0d51a5713174a3030a2a69273bcd476fc1b5ce814491437685857",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IBurstContext",
+                        "version": "1.2",
+                        "hash": "19877e466ad8c6ed42b38050b77bd010cf7800ff365fdc8574f45bbfda03a758",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IDevice",
+                        "version": "1.2",
+                        "hash": "b83317b66721241887d2770b5ae95fd5af1e77c5daa7530ecb08fae8892f2b43",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IExecutionCallback",
+                        "version": "1.2",
+                        "hash": "92714960d1a53fc2ec557302b41c7cc93d2636d8364a44bd0f85be0c92927ff8",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IPreparedModel",
+                        "version": "1.2",
+                        "hash": "36e1064c869965dee533c537cefbe87e54db8bd8cd45be7e0e93e00e8a43863a",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IPreparedModelCallback",
+                        "version": "1.2",
+                        "hash": "e1c734d1545e1a4ae749ff1dd9704a8e594c59aea7c8363159dc258e93e0df3b",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.2",
+                        "hash": "d18bba0b6c8d2d1da3cfb52b14f556d2e04eb91551d97ee60a3524cf993a3e0e",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IPreparedModel",
+                        "version": "1.0",
+                        "hash": "eb2fa0c883c2185d514be0b84c179b283753ef0c1b77b45b4f359bd23bba8b75",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "92e101b30e47bdf526a01c52cecfbe730def5997b8260ab497eb949eb2a6dcdf",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.1",
+                        "hash": "5f6d3097ba84cb63c430787123f4de1b31c11f90b531b98eae9a8623a5ae962a",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.1",
+                        "hash": "c2711d8748ccbcc858d5d5ec1abf145d9ab4c0b27db8ca215d7c39665a9b6652",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IDevice",
+                        "version": "1.2",
+                        "hash": "fb382e986c10b8fbb797a8546e8f9ea6d1107bfe6f3fb7e57f6bbbf1f807a906",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IPreparedModel",
+                        "version": "1.2",
+                        "hash": "40e71cd693de5b832325c5d8f081f2ff20a7ba2b89d401cee5b4b3eb0e241681",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.2",
+                        "hash": "ee1a0dee5be00a6fe2d4d3270068c78016dcb194d768fe07ed894ea20904037f",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.2",
+                        "hash": "9c53b727cfa9efde38ebe3914e1e95939cff29c072a1b8c8f419d24853b98831",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IBuffer",
+                        "version": "1.3",
+                        "hash": "65c16331e57f6dd68b3971f06f78fe9e3209afb60630c31705aa355f9a52bf0d",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IDevice",
+                        "version": "1.3",
+                        "hash": "278817920bfd5292a7713f97f1832cca53de3de640f7670e413d97c6e7fd581c",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IExecutionCallback",
+                        "version": "1.3",
+                        "hash": "127ba11efb8220dc3aec9a8f441b59eaf1c68d7f03f577833e1824de75a36b17",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IFencedExecutionCallback",
+                        "version": "1.3",
+                        "hash": "6e904be0ddca5ae1de8eba020e6c38ed935ea7d80cd08f47787f137a0ca58555",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IPreparedModel",
+                        "version": "1.3",
+                        "hash": "ee9dc34b9925b8367b1111c72bd6d9d375432735e451572ca5a665d8516a7744",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IPreparedModelCallback",
+                        "version": "1.3",
+                        "hash": "eee3430cc86c97c7b407495863d8fb61da6f1a64b7721e77b9b4909b11b174e9",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.3",
+                        "hash": "acf84925f8ee0a651f2ec547ac334034de266479b93af5434f6c1f25e66aba96",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.3",
+                        "hash": "e9080d04218e98512b63aace9ff3da52f0130238391f15cbbf7df396a3ec9072",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.3",
+                        "hash": "583dc88b41e702e940fd954edda1beb8b4151eab55a5c6d7e69e2781bce84b59",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IDevice",
+                        "version": "1.2",
+                        "hash": "cd84ab19c590e0e73dd2307b591a3093ee18147ef95e6d5418644463a6620076",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "f729ee6a5f136b25d79ea6895d24700fce413df555baaecf2c39e4440d15d043",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.2",
+                        "hash": "38c1a3eb5c3dfa4cc40b7cf4be0e9850440e2c57197fba7407081679b358aa22",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.3",
+                        "hash": "550619f876cadbea1f718edce120f0e1dd4a6f4bd4c28b59d479677dc86b0aec",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IDevice",
+                        "version": "1.3",
+                        "hash": "c3fec5bd470984402997f78a74b6511efc4063b270f2bd9ee7b78f48b683a1bb",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "IPreparedModel",
+                        "version": "1.3",
+                        "hash": "0fdfad62c2ec33b52e6687004e5a1971c02d10b93ee4d26df5ccff7ce032494a",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.2",
+                        "hash": "ca62a2a95d173ed323309e5e00f653ad3cceec82a6e5e4976a249cb5aafe2515",
+                        "name": "android.hardware.neuralnetworks"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.3",
+                        "hash": "fa76bced6b1b71c40fc706c508a9011284c57f57831cd0cf5f45653ed4ea463e",
+                        "name": "android.hardware.neuralnetworks"
+                    }
+                ]
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.neuralnetworks",
+                "version": "1-4",
+                "interface": {
+                    "name": "IDevice",
+                    "regex-instance": ".*"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.nfc",
+                "interface": {
+                    "name": "INfc",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.oemlock",
+                "interface": {
+                    "name": "IOemLock",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.oemlock",
+                "version": "1.0",
+                "interface": {
+                    "name": "IOemLock",
+                    "instance": "default"
+                },
+                "hash_info": [
+                    {
+                        "intf": "IOemLock",
+                        "version": "1.0",
+                        "hash": "4b65763663a94a3920134011691f8fbb42ccb7b7795589efddc049a9106047d6",
+                        "name": "android.hardware.oemlock"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "e02cd3722cb5e8fa51179f5defacb4f7866f903c9c7c51dc01a3148473a71525",
+                        "name": "android.hardware.oemlock"
+                    }
+                ]
+            },
+            {
+                "@format": "aidl",
+                "@optional": "false",
+                "name": "android.hardware.power",
+                "version": "2-4",
+                "interface": {
+                    "name": "IPower",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.power.stats",
+                "interface": {
+                    "name": "IPowerStats",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.radio",
+                "version": "1.2",
+                "interface": {
+                    "name": "ISap",
+                    "instance": "slot1"
+                },
+                "hash_info": [
+                    {
+                        "intf": "ISap",
+                        "version": "1.2",
+                        "hash": "2d86929794795e5c70f4fdb5073485fd05835c9c6f496116687c3d9f32e6df3e",
+                        "name": "android.hardware.radio"
+                    },
+                    {
+                        "intf": "IRadio",
+                        "version": "1.2",
+                        "hash": "ab132c990a62f0aca35871c092c22fb9c85d478e22124ef6a4d0a2302da76a9f",
+                        "name": "android.hardware.radio"
+                    },
+                    {
+                        "intf": "IRadioIndication",
+                        "version": "1.2",
+                        "hash": "cda752aeabaabc20486a82ac57a3dd107785c006094a349bc5e224e8aa22a17c",
+                        "name": "android.hardware.radio"
+                    },
+                    {
+                        "intf": "IRadioResponse",
+                        "version": "1.2",
+                        "hash": "da8c6ae991c6a4b284cc6e445332e064e28ee8a09482ed5afff9d159ec6694b7",
+                        "name": "android.hardware.radio"
+                    },
+                    {
+                        "intf": "ISap",
+                        "version": "1.2",
+                        "hash": "b65332996eb39ba63300a1011404141fa59ce5c252bc17afae637be6eeca5f55",
+                        "name": "android.hardware.radio"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.2",
+                        "hash": "a9361522cc97ef66209d39ba324095b2f08344054bb4d3481e803eee0480623a",
+                        "name": "android.hardware.radio"
+                    },
+                    {
+                        "intf": "IRadio",
+                        "version": "1.2",
+                        "hash": "1d19720d4fd38b1095f0f555a4bd92b3b12c9b1d0f560b0e9a474cd6dcc20db6",
+                        "name": "android.hardware.radio"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.2",
+                        "hash": "cd1757867a5e3a3faa362e785239515870d1a3c9ce756c6f0cf0f0fd8aac2547",
+                        "name": "android.hardware.radio"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.2",
+                        "hash": "722b3595548ed7f1953b6e0143dc842d4d6e290ff009a134eb518d7c17a09347",
+                        "name": "android.hardware.radio"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.2",
+                        "hash": "a785a57447a81e9c130eef6904c3a5c256076c6a04588c40620ebd6fa2660d77",
+                        "name": "android.hardware.radio"
+                    },
+                    {
+                        "intf": "IRadio",
+                        "version": "1.2",
+                        "hash": "2b5afef68e3e2ff1dab63e4f2ee57337ef2635ec812f49080cadfce966d33b52",
+                        "name": "android.hardware.radio"
+                    }
+                ]
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.radio.config",
+                "interface": {
+                    "name": "IRadioConfig",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.radio.data",
+                "interface": {
+                    "name": "IRadioData",
+                    "instance": [
+                        "slot1",
+                        "slot2",
+                        "slot3"
+                    ]
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.radio.messaging",
+                "interface": {
+                    "name": "IRadioMessaging",
+                    "instance": [
+                        "slot1",
+                        "slot2",
+                        "slot3"
+                    ]
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.radio.modem",
+                "interface": {
+                    "name": "IRadioModem",
+                    "instance": [
+                        "slot1",
+                        "slot2",
+                        "slot3"
+                    ]
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.radio.network",
+                "version": "2",
+                "interface": {
+                    "name": "IRadioNetwork",
+                    "instance": [
+                        "slot1",
+                        "slot2",
+                        "slot3"
+                    ]
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.radio.sim",
+                "interface": {
+                    "name": "IRadioSim",
+                    "instance": [
+                        "slot1",
+                        "slot2",
+                        "slot3"
+                    ]
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.radio.voice",
+                "interface": {
+                    "name": "IRadioVoice",
+                    "instance": [
+                        "slot1",
+                        "slot2",
+                        "slot3"
+                    ]
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.rebootescrow",
+                "interface": {
+                    "name": "IRebootEscrow",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.renderscript",
+                "version": "1.0",
+                "interface": {
+                    "name": "IDevice",
+                    "instance": "default"
+                },
+                "hash_info": [
+                    {
+                        "intf": "IContext",
+                        "version": "1.0",
+                        "hash": "6983a2cafe39d5c57dfdc1743055fb0f757a0df8c78e00423d5e1810836927e1",
+                        "name": "android.hardware.renderscript"
+                    },
+                    {
+                        "intf": "IDevice",
+                        "version": "1.0",
+                        "hash": "7f9417a0ccf78ea042ec7a8ac8e3750346d4d9d7e5ae01b1b35fde303f47c24d",
+                        "name": "android.hardware.renderscript"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "fc6f325b266b32353f7d1534fbe58e0d368265a12b77fa396fb556e8c443f739",
+                        "name": "android.hardware.renderscript"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "b9fbb6e2e061ed0960939d48b785e9700210add1f13ed32ecd688d0f1ca20ef7",
+                        "name": "android.hardware.renderscript"
+                    }
+                ]
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.secure_element",
+                "version": "1.0-2",
+                "interface": {
+                    "name": "ISecureElement",
+                    "regex-instance": [
+                        "SIM[1-9][0-9]*",
+                        "eSE[1-9][0-9]*"
+                    ]
+                },
+                "hash_info": [
+                    {
+                        "intf": "ISecureElement",
+                        "version": "1.0",
+                        "hash": "bd7699f07ba5392310fefd33ea964e01f4f4a66015146845c85055004823cc81",
+                        "name": "android.hardware.secure_element"
+                    },
+                    {
+                        "intf": "ISecureElementHalCallback",
+                        "version": "1.0",
+                        "hash": "a65aa82bbe48d81a9ae9e86247bb1b89fd2d3138d4053d7a5b716c71149b7dee",
+                        "name": "android.hardware.secure_element"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "2984c069f48ba35cd1bf49b0e17daad0d418fef52cb7a4a84dba0043114063d4",
+                        "name": "android.hardware.secure_element"
+                    },
+                    {
+                        "intf": "ISecureElement",
+                        "version": "1.1",
+                        "hash": "08d439c463e4044fa78874037d8e8379aa3cabecde32f08a775897eea5a538af",
+                        "name": "android.hardware.secure_element"
+                    },
+                    {
+                        "intf": "ISecureElementHalCallback",
+                        "version": "1.1",
+                        "hash": "b53ac9d61c24efb16a2d63a861cef20680f6d57adb244a03b9778c675550628b",
+                        "name": "android.hardware.secure_element"
+                    },
+                    {
+                        "intf": "ISecureElement",
+                        "version": "1.2",
+                        "hash": "c2cc192edcc222a12b524fb0e0e7f17ef2b48d6b1c0be7b60bc114601793d7a9",
+                        "name": "android.hardware.secure_element"
+                    }
+                ]
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.security.dice",
+                "interface": {
+                    "name": "IDiceDevice",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.security.keymint",
+                "version": "1-2",
+                "interface": {
+                    "name": "IKeyMintDevice",
+                    "instance": [
+                        "default",
+                        "strongbox"
+                    ]
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.security.keymint",
+                "version": "1-2",
+                "interface": {
+                    "name": "IRemotelyProvisionedComponent",
+                    "instance": [
+                        "default",
+                        "strongbox"
+                    ]
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.security.secureclock",
+                "interface": {
+                    "name": "ISecureClock",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.security.sharedsecret",
+                "interface": {
+                    "name": "ISharedSecret",
+                    "instance": [
+                        "default",
+                        "strongbox"
+                    ]
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.sensors",
+                "interface": {
+                    "name": "ISensors",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.soundtrigger3",
+                "interface": {
+                    "name": "ISoundTriggerHw",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.tetheroffload.config",
+                "version": "1.0",
+                "interface": {
+                    "name": "IOffloadConfig",
+                    "instance": "default"
+                },
+                "hash_info": [
+                    {
+                        "intf": "IOffloadConfig",
+                        "version": "1.0",
+                        "hash": "d8aae01606bfd34bf2fb9a59cadc016f46f318e56cddb8f15a945c5b3c1222bc",
+                        "name": "android.hardware.tetheroffload.config"
+                    }
+                ]
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.tetheroffload.control",
+                "version": "1.1",
+                "interface": {
+                    "name": "IOffloadControl",
+                    "instance": "default"
+                },
+                "hash_info": [
+                    {
+                        "intf": "IOffloadControl",
+                        "version": "1.1",
+                        "hash": "fd43298c43f70130c747a642ee43b0c242ac0cebffb377faa24f2725f0aa6caf",
+                        "name": "android.hardware.tetheroffload.control"
+                    },
+                    {
+                        "intf": "ITetheringOffloadCallback",
+                        "version": "1.1",
+                        "hash": "ead4ec8713a2cb40906fe31ba793d21a6b1190143c446690d16a6ea686aa2fea",
+                        "name": "android.hardware.tetheroffload.control"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.1",
+                        "hash": "e34b4c7bec5e032c14804707ca924dd6b99ed5ba139da7505fe7d698d0fe178f",
+                        "name": "android.hardware.tetheroffload.control"
+                    }
+                ]
+            },
+            {
+                "@format": "hidl",
+                "@optional": "false",
+                "name": "android.hardware.thermal",
+                "version": "2.0",
+                "interface": {
+                    "name": "IThermal",
+                    "instance": "default"
+                },
+                "hash_info": [
+                    {
+                        "intf": "IThermal",
+                        "version": "2.0",
+                        "hash": "bd88b48639cae30982021024e22371076c76faa8466e38ca598529452b618eae",
+                        "name": "android.hardware.thermal"
+                    },
+                    {
+                        "intf": "IThermalChangedCallback",
+                        "version": "2.0",
+                        "hash": "cc4d2ef36da776c475ad054f0f3416d8a8865def9d9e2129f10074b28e36d203",
+                        "name": "android.hardware.thermal"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "2.0",
+                        "hash": "b47f90302595874dfddb19bd05a054727bf18b3a930bc810ea14957b859ae8bf",
+                        "name": "android.hardware.thermal"
+                    }
+                ]
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.tv.cec",
+                "version": "1.0-1",
+                "interface": {
+                    "name": "IHdmiCec",
+                    "instance": "default"
+                },
+                "hash_info": [
+                    {
+                        "intf": "IHdmiCec",
+                        "version": "1.0",
+                        "hash": "938850621c3c5ef426a4b88e752ba99b3559037e782a3d938604f3aef5cc0f1b",
+                        "name": "android.hardware.tv.cec"
+                    },
+                    {
+                        "intf": "IHdmiCecCallback",
+                        "version": "1.0",
+                        "hash": "e75b6eea711d36fac678bce072b3cec6544b27fa9f4cd903999404e5c110ca10",
+                        "name": "android.hardware.tv.cec"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "6e25f8dbfadb668e1d4ec80eb9acd95d8bc9e0a240c36d27e662adb440314b95",
+                        "name": "android.hardware.tv.cec"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "905a4af79c8329b39d8b11b08f015137216bb078b427b6986f32884a04bc1bec",
+                        "name": "android.hardware.tv.cec"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "3d01e29e8129186f7567c4f9c8bee7480a0768e587b1be9b28adb0a6cbec6bf2",
+                        "name": "android.hardware.tv.cec"
+                    },
+                    {
+                        "intf": "IHdmiCec",
+                        "version": "1.1",
+                        "hash": "63dfdb433ac73fb2bf4a44d2ade7b7e289e155835206d1939640d6c88d208994",
+                        "name": "android.hardware.tv.cec"
+                    },
+                    {
+                        "intf": "IHdmiCecCallback",
+                        "version": "1.1",
+                        "hash": "b9682587677ce9c872e04f0e9fd6c9c78a56ae795c07cbf8c50100e0351d4c44",
+                        "name": "android.hardware.tv.cec"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.1",
+                        "hash": "4c4243db0fad48931622b07c5ada346ed7b8e49ace30da88fde754c976e430c2",
+                        "name": "android.hardware.tv.cec"
+                    }
+                ]
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.tv.input",
+                "version": "1.0",
+                "interface": {
+                    "name": "ITvInput",
+                    "instance": "default"
+                },
+                "hash_info": [
+                    {
+                        "intf": "ITvInput",
+                        "version": "1.0",
+                        "hash": "0cafa3c8388e9631916d2d800f78decbcec2904f11415b32c71a31d9a51ebf79",
+                        "name": "android.hardware.tv.input"
+                    },
+                    {
+                        "intf": "ITvInputCallback",
+                        "version": "1.0",
+                        "hash": "dee83e5c864fbbee8f02448d0800be32f06856386b9f907bc5d952208c9434f9",
+                        "name": "android.hardware.tv.input"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "07aab30410b612381234dca6d453d4ab96f2e536368715717c6e28101b9851b5",
+                        "name": "android.hardware.tv.input"
+                    }
+                ]
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.tv.input",
+                "interface": {
+                    "name": "ITvInput",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.tv.tuner",
+                "interface": {
+                    "name": "ITuner",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.usb",
+                "interface": {
+                    "name": "IUsb",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.usb.gadget",
+                "version": "1.0-2",
+                "interface": {
+                    "name": "IUsbGadget",
+                    "instance": "default"
+                },
+                "hash_info": [
+                    {
+                        "intf": "IUsbGadget",
+                        "version": "1.0",
+                        "hash": "8ddfa7542772cc7bca19972b2d856264efa31914bfd098aeb7c2079d950194cb",
+                        "name": "android.hardware.usb.gadget"
+                    },
+                    {
+                        "intf": "IUsbGadgetCallback",
+                        "version": "1.0",
+                        "hash": "ad0a620cda08f01b151c30cb7afa23b0637cc84340cf8dec00ac8e32cf54a8db",
+                        "name": "android.hardware.usb.gadget"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "51fc20f223561ac3a32ace3217837ef3860265bd91c8b7ae3859532caef9bc39",
+                        "name": "android.hardware.usb.gadget"
+                    },
+                    {
+                        "intf": "IUsbGadget",
+                        "version": "1.1",
+                        "hash": "7746fda1fbf9c7c132bae701cc5a161309e4f5e7f3e8065811045975ee86196d",
+                        "name": "android.hardware.usb.gadget"
+                    },
+                    {
+                        "intf": "IUsbGadget",
+                        "version": "1.2",
+                        "hash": "f2a87e56164145160b3b3a097dba2ccc1b0ffc2fb87e8c984adfe59f47b5ecf7",
+                        "name": "android.hardware.usb.gadget"
+                    },
+                    {
+                        "intf": "IUsbGadgetCallback",
+                        "version": "1.2",
+                        "hash": "c539325b22bce686876f062b16292038555ae2857e8d34aa63a975df18e113b1",
+                        "name": "android.hardware.usb.gadget"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.2",
+                        "hash": "95e23dbfcfb38d390f236e5fff77dd518ba272a85551df6ecb4707fe466e60bd",
+                        "name": "android.hardware.usb.gadget"
+                    }
+                ]
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.uwb",
+                "interface": {
+                    "name": "IUwb",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.vibrator",
+                "version": "1-2",
+                "interface": {
+                    "name": "IVibrator",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.vibrator",
+                "version": "1-2",
+                "interface": {
+                    "name": "IVibratorManager",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.weaver",
+                "version": "1.0",
+                "interface": {
+                    "name": "IWeaver",
+                    "instance": "default"
+                },
+                "hash_info": [
+                    {
+                        "intf": "IWeaver",
+                        "version": "1.0",
+                        "hash": "9bc43413b80cd0c59a022e93da1448dcb82dd10c6dd31932df4659e4bdcb1368",
+                        "name": "android.hardware.weaver"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.0",
+                        "hash": "7728b0393a2ed9796537d4165c7d95407e9d8cb447a647b545fdfe06a28689e7",
+                        "name": "android.hardware.weaver"
+                    }
+                ]
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.weaver",
+                "interface": {
+                    "name": "IWeaver",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.wifi",
+                "interface": {
+                    "name": "IWifi",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "hidl",
+                "@optional": "true",
+                "name": "android.hardware.wifi",
+                "version": "1.3-6",
+                "interface": {
+                    "name": "IWifi",
+                    "instance": "default"
+                },
+                "hash_info": [
+                    {
+                        "intf": "IWifi",
+                        "version": "1.3",
+                        "hash": "f19832856a3f53ced5ef91d3cc630a57fb7f4d4ce15f364dbed09099b89f6830",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifiChip",
+                        "version": "1.3",
+                        "hash": "64be084b6e1ef330b75fa916593dc0b94b0ec7a16d5cfaa5a31e6c9143c8288d",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifiStaIface",
+                        "version": "1.3",
+                        "hash": "3bef30e8b61ab050c0f6fd26572712be5ebb7707d624c9aa6c74bbb9d6a5b4a9",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.3",
+                        "hash": "f3dbd8dd0d6333c005610288a4785d0ef79a72a7bbe6d0a46d46fa89fc886f1e",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifiStaIface",
+                        "version": "1.3",
+                        "hash": "5751f230e86a36111e7c5b995577cbf89d8df76c8e6c7641199198f3db3a93f7",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifi",
+                        "version": "1.4",
+                        "hash": "3e01d4446cd69fd1c48f8572efd97487bc179564b32bd795800b97bbe10be37b",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifiApIface",
+                        "version": "1.4",
+                        "hash": "84757251ff195b447dc511c0d3f055a684d4fed7847eb4d65a2455eb914059d2",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifiChip",
+                        "version": "1.4",
+                        "hash": "2e07983a70a1b963bee8aece050e5ea503a3dde31e21a9f8352cf17e9113d347",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifiChipEventCallback",
+                        "version": "1.4",
+                        "hash": "08c1912be480c08aa77f6d56bb083d66cd13eca11e01c2d3e727bcb3a1e4f79b",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifiNanIface",
+                        "version": "1.4",
+                        "hash": "ff66371a467d1f3caacea15d93f39b7b767b0d6b8cd41d040337cdabf2514b87",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifiRttController",
+                        "version": "1.4",
+                        "hash": "10bd6f19198c281ee2052641048e970ad66b732e4f6ffe79a0f697ea15761e0f",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifiRttControllerEventCallback",
+                        "version": "1.4",
+                        "hash": "fcd92a4c898360185dd659f0a1e3001c25eb40b59c3457fd235acf3a8c407525",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.4",
+                        "hash": "d878c406d9c1cc67f9d9a3a66b16dcbd7d944e0ed520745fc9ad21d95031e839",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifi",
+                        "version": "1.5",
+                        "hash": "bb7b8f653452f2044e1db587ceb415edf72201ab9c1d547564c3f75bfab65a83",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifiApIface",
+                        "version": "1.5",
+                        "hash": "c66c3ea1b375e69d7ad820d67950305a463b5a50908c4fddcbbdbab8bbac3951",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifiChip",
+                        "version": "1.5",
+                        "hash": "a1193d37f7e13222bf79ef4b73dbad15b0f0a330d03356d12226dcda20de44a7",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifiEventCallback",
+                        "version": "1.5",
+                        "hash": "d78f1c169cf7e92ddf49e0b6a2b6d5566730e8085a56aefd9140c76b107bb35d",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifiNanIface",
+                        "version": "1.5",
+                        "hash": "45ab93378f02a8bc3a658853ce4d3fdc1e9fa2c1d1c545821d490bf0f4d96cec",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifiNanIfaceEventCallback",
+                        "version": "1.5",
+                        "hash": "b20261b97359a8b8784700d4278aa00a8666fcd9fc259c3a8386ba34bad5ec83",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifiStaIface",
+                        "version": "1.5",
+                        "hash": "b154b9fe8b94cf64392766bfd932c023edf658ba8ecc4b952f8424058120e5bd",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.5",
+                        "hash": "ee214c95481f61aefc1255987c92be6c3b4519be327467b1692630572060b489",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifi",
+                        "version": "1.6",
+                        "hash": "1de444305084b815a1cf45b41d8bd7fa8dc960da89c2d548f38feaa662d8f310",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifiChip",
+                        "version": "1.6",
+                        "hash": "e8cf2570d2f3d8cf7a7251e85a87cbf633d0bff3c28e1c9bbf339dea04b254fa",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifiNanIface",
+                        "version": "1.6",
+                        "hash": "e05c047de0a7f2cc8f166a1c808b78e8565ff866fb69991fc3bbfa9141871d5b",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifiNanIfaceEventCallback",
+                        "version": "1.6",
+                        "hash": "b7ce2d87841585551b082fca6d099622e63b7099e0d8013f687ea1a1dc35c4dc",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifiRttController",
+                        "version": "1.6",
+                        "hash": "8c51742b2540b005edb16d2003b87f8e8220e113b234ddbb133f95e86837e9aa",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifiRttControllerEventCallback",
+                        "version": "1.6",
+                        "hash": "537f0bcfaf9d91b3136984f5e85d6ea559771726d6624a1d17c151b9c9f4b2f9",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "IWifiStaIface",
+                        "version": "1.6",
+                        "hash": "1bac6a7c8136dfb0414fe5639eec115aa2d12927e64a0642a43fb53225f099b2",
+                        "name": "android.hardware.wifi"
+                    },
+                    {
+                        "intf": "types",
+                        "version": "1.6",
+                        "hash": "0a800e010e8eb6eecdfdc96f04fd2ae2f417a79a74a7c0eec3a9f539199bccd4",
+                        "name": "android.hardware.wifi"
+                    }
+                ]
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.wifi.hostapd",
+                "interface": {
+                    "name": "IHostapd",
+                    "instance": "default"
+                }
+            },
+            {
+                "@format": "aidl",
+                "@optional": "true",
+                "name": "android.hardware.wifi.supplicant",
+                "interface": {
+                    "name": "ISupplicant",
+                    "instance": "default"
+                }
+            }
+        ]
+    }
+}

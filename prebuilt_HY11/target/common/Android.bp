@@ -1,0 +1,14 @@
+
+java_import{
+    name                : "vendor.qti.data.factory-V2.2-java",
+    owner               : "qcom",
+    jars                : ["./obj/JAVA_LIBRARIES/vendor.qti.data.factory-V2.2-java_intermediates/classes.jar"],
+    compile_dex         : true,
+}
+
+java_import{
+    name                : "vendor.qti.data.factory-V2.3-java",
+    owner               : "qcom",
+    jars                : ["./obj/JAVA_LIBRARIES/vendor.qti.data.factory-V2.3-java_intermediates/classes.jar"],
+    compile_dex         : true,
+}

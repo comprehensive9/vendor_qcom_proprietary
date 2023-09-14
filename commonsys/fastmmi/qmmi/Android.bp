@@ -1,0 +1,24 @@
+android_app {
+    name: "Qmmi",
+
+    srcs: ["**/*.java"],
+    certificate: "platform",
+    platform_apis: true,
+
+    static_libs: [
+        "vendor.qti.hardware.sensorscalibrate-V1.0-java",
+        "android.hidl.manager-V1.0-java",
+        "vendor.qti.hardware.factory-V1.1-java",
+        "vendor.qti.hardware.fingerprint-V1.0-java",
+        "android.hardware.light-java",
+        "android-support-v4",
+    ],
+
+    jni_libs: ["libmmi_jni"],
+
+    optimize: {
+        enabled: false,
+    },
+
+    system_ext_specific: true,
+}

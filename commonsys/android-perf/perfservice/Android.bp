@@ -1,0 +1,43 @@
+
+prebuilt_etc {
+    name: "perfservice.policy",
+    sub_dir: "seccomp_policy",
+    arch: {
+        arm: {
+            src: "seccomp_policy/perfservice-arm.policy",
+        },
+        arm64: {
+            src: "seccomp_policy/perfservice-arm64.policy",
+        },
+        x86: {
+            src: "seccomp_policy/perfservice-x86.policy",
+        },
+    },
+    system_ext_specific: true,
+}
+
+cc_binary {
+    name: "perfservice",
+    system_ext_specific: true,
+    required: ["perfservice.policy"],
+
+    srcs: [
+        "IPerfManager.cpp",
+        "PerfService.cpp",
+        "main_PerfService.cpp",
+    ],
+
+    shared_libs: [
+        "liblog",
+        "libutils",
+        "libbinder",
+        "libavservices_minijail",
+    ],
+
+    include_dirs: [
+        "vendor/qcom/proprietary/commonsys/android-perf/mp-ctl-client",
+    ],
+
+    owner: "qti",
+    init_rc: ["perfservice.rc"],
+}

@@ -1,0 +1,37 @@
+// @file sns_formatter_notify.proto
+//
+// Defines standard message types for the formatter_notify sensor
+//
+// Copyright (c) 2022 Qualcomm Technologies, Inc.
+// All Rights Reserved.
+// Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+//Formatter notify sensor sends formatter notification event,
+//And sports offload HAL is expected to trigger an action
+
+// Formatter_Notify Sensor Attribute Requirements:
+// SNS_STD_SENSOR_ATTRID_TYPE: "formatter_notify"
+// SNS_STD_SENSOR_ATTRID_STREAM_TYPE: SNS_STD_SENSOR_STREAM_TYPE_ON_CHANGE
+
+syntax = "proto2";
+import "nanopb.proto";
+import "sns_std_type.proto";
+import "sns_std_sensor.proto";
+
+enum sns_formatter_notify_msgid
+{
+   option (nanopb_enumopt).long_names = false;
+   SNS_FORMATTER_NOTIFY_MSGID_SNS_FORMATTER_NOTIFY_EVENT    = 1028;
+}
+
+enum sns_formatter_notify_event_type
+{
+  option (nanopb_enumopt).long_names = false;
+  SNS_FORMATTER_NOTIFY_EVENT_FLUSH    = 1;
+}
+
+message sns_formatter_notify_event
+{
+  // formatter_notify state
+  required sns_formatter_notify_event_type state = 1 [default = SNS_FORMATTER_NOTIFY_EVENT_FLUSH];
+}

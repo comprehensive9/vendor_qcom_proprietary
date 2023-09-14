@@ -1,0 +1,76 @@
+sensor_drivers:
+- com.qti.sensormodule.shinetech_imx471_xr_2:
+    - sensor/imx471/imx471_0_sensor.xml
+    - module/shinetech_imx471_2_module.xml
+
+- com.qti.sensormodule.shinetech_imx471_xr_3:
+    - sensor/imx471/imx471_1_sensor.xml
+    - module/shinetech_imx471_3_module.xml
+
+- com.qti.sensormodule.sunny_ov8856_xr_2:
+    - sensor/ov8856_xr/ov8856_hmd_0_sensor.xml
+    - module/sunny_ov8856_xr_2_module.xml
+
+- com.qti.sensormodule.sunny_ov8856_xr_3:
+    - sensor/ov8856_xr/ov8856_hmd_1_sensor.xml
+    - module/sunny_ov8856_xr_3_module.xml
+    
+- com.qti.sensormodule.cmk_s5kjd1sp_xr_2:
+    - sensor/s5kjd1sp_xr/s5kjd1sp_hmd_0_sensor.xml
+    - module/cmk_s5kjd1sp_xr_2_module.xml
+    - eeprom/p24c64e_s5kjd1sp_eeprom.xml
+
+- com.qti.sensormodule.cmk_s5kjd1sp_xr_3:
+    - sensor/s5kjd1sp_xr/s5kjd1sp_hmd_1_sensor.xml
+    - module/cmk_s5kjd1sp_xr_3_module.xml
+    - eeprom/p24c64e_s5kjd1sp_eeprom.xml
+
+- com.qti.sensormodule.7in_ov6211_xr_8:
+    - sensor/ov6211_xr/ov6211_hmd_8_right_sensor.xml
+    - module/liteon_ov6211_8_right_module.xml
+
+- com.qti.sensormodule.7in_ov6211_xr_7:
+    - sensor/ov6211_xr/ov6211_hmd_7_left_sensor.xml
+    - module/liteon_ov6211_7_left_module.xml
+
+- com.qti.sensormodule.liteon_ov7251_0:
+    - sensor/ov7251_slave/ov7251_slave_sensor.xml
+    - module/liteon_ov7251_0_module.xml
+
+- com.qti.sensormodule.liteon_ov7251_1:
+    - sensor/ov7251_slave/ov7251_slave_sensor.xml
+    - module/liteon_ov7251_1_module.xml
+
+- com.qti.sensormodule.liteon_ov7251_4:
+    - sensor/ov7251_slave/ov7251_slave_sensor.xml
+    - module/liteon_ov7251_4_module.xml
+
+- com.qti.sensormodule.liteon_ov7251_5:
+    - sensor/ov7251_slave/ov7251_slave_sensor.xml
+    - module/liteon_ov7251_5_module.xml
+
+facedetection_binaries:
+- fdconfigvideo:
+    - fd/fdconfigdata.xml
+
+- fdconfigvideolite:
+    - fd/fdconfigdata.xml
+
+- fdconfigpreview:
+    - fd/fdconfigdata.xml
+
+- fdconfigpreviewlite:
+    - fd/fdconfigdata.xml
+
+chromatix_projects:
+- com.qti.tuned.shinetech_imx471:
+    - tuning/sm8250_shintech_imx471
+
+- com.qti.tuned.default:
+    - tuning/default_c7project
+
+- com.qti.tuned.sunny_ov8856:
+    - tuning/sm8250_sunny_ov8856
+
+- com.qti.tuned.cmk_s5kjd1sp:
+    - tuning/sm8250_cmk_s5kjd1sp

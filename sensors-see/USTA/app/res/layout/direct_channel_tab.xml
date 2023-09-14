@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--========================================================================
+Copyright (c) 2020 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+=========================================================================-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation = "vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadeScrollbars="true"
+        android:scrollbarFadeDuration="3000">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.8"
+                    android:text="Channel Number:"/>
+
+                <Spinner
+                    android:id="@+id/direct_channel_channel_number_spinner"
+                    android:layout_width="235dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="32dp"
+                    android:layout_weight="0.2"
+                    android:spinnerMode="dropdown"
+                    android:textAlignment="center"></Spinner>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/direct_channel_new_channel_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp">
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/direct_channel_sensorInfo_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp">
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/direct_channel_send_config_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="76dp"
+                android:layout_marginRight="64dp"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:text="Send Config Request" />
+
+            <TextView
+                android:id="@+id/direct_channel_send_config_req_status_view_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

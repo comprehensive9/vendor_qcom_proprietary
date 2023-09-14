@@ -1,0 +1,12 @@
+
+//#######################
+prebuilt_etc {
+
+    name: "qti_permissions.xml",
+
+    // This will install the file in /system_ext/etc/permissions
+    src: "qti_permissions.xml",
+    sub_dir: "permissions",
+
+    system_ext_specific: true,
+}

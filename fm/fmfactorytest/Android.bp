@@ -1,0 +1,17 @@
+
+cc_binary {
+    name: "fmfactorytest",
+
+    srcs: ["fmfactorytestclient.c"],
+
+    shared_libs: [
+        "libcutils",
+        "liblog",
+        "libutils",
+    ],
+
+    owner: "qti",
+
+    proprietary: true,
+
+}

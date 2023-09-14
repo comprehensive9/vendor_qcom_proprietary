@@ -1,0 +1,19 @@
+# Copyright (c) 2020-2021 Qualcomm Technologies, Inc.
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+[Unit]
+Description=sscrpcd Service
+SourcePath=/usr/bin/sscrpcd
+Requires=data.mount
+After=data.mount
+
+[Service]
+User=system
+Group=system
+Restart=always
+ExecStartPre=+/bin/chown -R system.system /data/persist/sensors
+ExecStart=/usr/bin/sscrpcd sensorspd
+
+[Install]
+WantedBy=multi-user.target

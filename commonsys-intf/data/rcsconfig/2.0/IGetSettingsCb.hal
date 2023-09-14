@@ -1,0 +1,21 @@
+/*********************************************************************
+Copyright (c) 2020 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+**********************************************************************/
+
+package vendor.qti.ims.rcsconfig@2.0;
+
+interface IGetSettingsCb {
+    /**
+     * Callback triggered upon getting result of getSettingsValue
+     *
+     * @param   status    RequestStatus to indicate whether get request to
+     *                    modem was success or not
+     *
+     * @param   cbdata    struct containing the SettingsId requested and
+     *                    the corresponding values from modem as key-value
+     *                    pair vector, if status is OK
+     */
+    oneway onGetSettingsResponse(RequestStatus status, SettingsData cbdata);
+};

@@ -1,0 +1,43 @@
+/********************************************************************
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ ********************************************************************/
+
+package vendor.qti.hardware.eid@1.0;
+
+/**
+ * eid error codes.
+ */
+enum EidErrorCode : int32_t {
+    EID_SUCCESS                         = 0,
+    EID_ERROR_GENERIC                   = -1,
+    EID_ERROR_MEMORY_ALLOCATION_FAILED  = -2,
+    EID_ERROR_BAD_PARAMETERS            = -3,
+    EID_ERROR_BASE64_ENCODE             = -4,
+    EID_ERROR_SHORT_BUFFER              = -5,
+    EID_ERROR_COMMUNICATION             = -6,
+    EID_ERROR_CONTEXT_NOT_READY         = -7,
+    EID_ERROR_SESSION_NOT_READY         = -8,
+    EID_ERROR_GET_MSG_FAILED            = -9,
+    EID_ERROR_MSG_OVER_LEN              = -10,
+    EID_ERROR_INVALID_INPUT_LENGTH      = -11,
+    EID_ERROR_TOO_MANY_OPERATIONS       = -12,
+    EID_ERROR_INVALID_ARGUMENT          = -13,
+    EID_ERROR_ESE_COMMUNICATION         = -14,
+    EID_ERROR_FACEDATA_TOO_BIG          = -15,
+    EID_ERROR_OUT_NOT_ENOUGH            = -16,
+    EID_ERROR_COMPRESS                  = -17,
+    EID_ERROR_DECOMPRESS                = -18,
+    EID_ERROR_ID_NOT_MATCH              = -19,
+    EID_ERROR_PIN_NOT_MATCH             = -20,
+    EID_ERROR_FILE_BREAKDOWN            = -21,
+    EID_ERROR_INVALID_TAG               = -22,
+    EID_ERROR_INVALID_TIME              = -23,
+    EID_ERROR_UNSUPPORTED_COMMAND       = -24,
+    EID_ERROR_INVALID_OPERATION         = -25,
+    EID_ERROR_INVALID_MAC               = -26,
+    EID_ERROR_ESE_AUTH                  = -27,
+    EID_ERROR_UNIMPLEMENTED             = -28,
+    EID_ERROR_UNKNOWN_ERROR             = -1000,
+};

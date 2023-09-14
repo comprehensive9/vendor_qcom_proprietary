@@ -1,0 +1,23 @@
+android_app {
+    name: "SimContact",
+
+    srcs: ["src/**/*.java"],
+    resource_dirs: ["res"],
+
+    static_libs: [
+        "android-support-v7-appcompat",
+        "android-support-v7-cardview",
+    ],
+
+    libs: ["telephony-common"],
+
+    certificate: "platform",
+
+    optimize: {
+        enabled: false,
+    },
+    system_ext_specific: true,
+    platform_apis: true,
+    min_sdk_version: "21",
+
+}

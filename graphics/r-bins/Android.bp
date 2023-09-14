@@ -1,0 +1,381 @@
+//This file is generated using generate_bpx_mkx_for_a6xbins.py.
+
+cc_library_headers{
+    name: "adreno_headers_public",
+    export_include_dirs: [
+        "include/public",
+        ],
+    vendor_available: true,
+}
+
+cc_library_headers{
+    name: "adreno_headers_out",
+    export_include_dirs: [
+        "include/private/C2D",
+        "c2d30/include",
+        "include/public/EGL",
+        "include/public/GLES",
+        "include/public/GLES2",
+        "include/public/GLES3",
+        "include/public",
+        ],
+    vendor_available: true,
+}
+
+prebuilt_firmware{
+    name: "a650_gmu.bin",
+    src: "vendor/firmware/a650_gmu.bin",
+    filename_from_src: true,
+    soc_specific: true,
+}
+
+prebuilt_firmware{
+    name: "a650_sqe.fw",
+    src: "vendor/firmware/a650_sqe.fw",
+    filename_from_src: true,
+    soc_specific: true,
+}
+
+prebuilt_firmware{
+    name: "a650_zap.b00",
+    src: "vendor/firmware/a650_zap.b00",
+    filename_from_src: true,
+    soc_specific: true,
+}
+
+prebuilt_firmware{
+    name: "a650_zap.b01",
+    src: "vendor/firmware/a650_zap.b01",
+    filename_from_src: true,
+    soc_specific: true,
+}
+
+prebuilt_firmware{
+    name: "a650_zap.b02",
+    src: "vendor/firmware/a650_zap.b02",
+    filename_from_src: true,
+    soc_specific: true,
+}
+
+prebuilt_firmware{
+    name: "a650_zap.elf",
+    src: "vendor/firmware/a650_zap.elf",
+    filename_from_src: true,
+    soc_specific: true,
+}
+
+prebuilt_firmware{
+    name: "a650_zap.mdt",
+    src: "vendor/firmware/a650_zap.mdt",
+    filename_from_src: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared{
+    name: "libadreno_app_profiles",
+    target: {
+        android_arm: {
+            srcs: ["vendor/lib/libadreno_app_profiles.so"],
+        },
+        android_arm64: {
+            srcs: ["vendor/lib64/libadreno_app_profiles.so"],
+        },
+    },
+    proprietary: true,
+    strip : {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared{
+    name: "libadreno_compiler_cl",
+    target: {
+        android_arm: {
+            srcs: ["vendor/lib/libadreno_compiler_cl.so"],
+        },
+        android_arm64: {
+            srcs: ["vendor/lib64/libadreno_compiler_cl.so"],
+        },
+    },
+    proprietary: true,
+    strip : {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared{
+    name: "libadreno_utils",
+    target: {
+        android_arm: {
+            srcs: ["vendor/lib/libadreno_utils.so"],
+        },
+        android_arm64: {
+            srcs: ["vendor/lib64/libadreno_utils.so"],
+        },
+    },
+    proprietary: true,
+    strip : {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared{
+    name: "libC2D2",
+    target: {
+        android_arm: {
+            srcs: ["vendor/lib/libC2D2.so"],
+        },
+        android_arm64: {
+            srcs: ["vendor/lib64/libC2D2.so"],
+        },
+    },
+    proprietary: true,
+    strip : {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared{
+    name: "libc2d30_bltlib",
+    target: {
+        android_arm: {
+            srcs: ["vendor/lib/libc2d30_bltlib.so"],
+        },
+        android_arm64: {
+            srcs: ["vendor/lib64/libc2d30_bltlib.so"],
+        },
+    },
+    proprietary: true,
+    strip : {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared{
+    name: "libCB",
+    target: {
+        android_arm: {
+            srcs: ["vendor/lib/libCB.so"],
+        },
+        android_arm64: {
+            srcs: ["vendor/lib64/libCB.so"],
+        },
+    },
+    proprietary: true,
+    strip : {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared{
+    name: "libgpudataproducer",
+    target: {
+        android_arm: {
+            srcs: ["vendor/lib/libgpudataproducer.so"],
+        },
+        android_arm64: {
+            srcs: ["vendor/lib64/libgpudataproducer.so"],
+        },
+    },
+    proprietary: true,
+    strip : {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared{
+    name: "libgsl",
+    target: {
+        android_arm: {
+            srcs: ["vendor/lib/libgsl.so"],
+        },
+        android_arm64: {
+            srcs: ["vendor/lib64/libgsl.so"],
+        },
+    },
+    proprietary: true,
+    strip : {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared{
+    name: "libkcl",
+    target: {
+        android_arm: {
+            srcs: ["vendor/lib/libkcl.so"],
+        },
+        android_arm64: {
+            srcs: ["vendor/lib64/libkcl.so"],
+        },
+    },
+    proprietary: true,
+    strip : {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared{
+    name: "libkernelmanager",
+    target: {
+        android_arm: {
+            srcs: ["vendor/lib/libkernelmanager.so"],
+        },
+        android_arm64: {
+            srcs: ["vendor/lib64/libkernelmanager.so"],
+        },
+    },
+    proprietary: true,
+    strip : {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared{
+    name: "libllvm-glnext",
+    target: {
+        android_arm: {
+            srcs: ["vendor/lib/libllvm-glnext.so"],
+        },
+        android_arm64: {
+            srcs: ["vendor/lib64/libllvm-glnext.so"],
+        },
+    },
+    proprietary: true,
+    strip : {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared{
+    name: "libllvm-qcom",
+    target: {
+        android_arm: {
+            srcs: ["vendor/lib/libllvm-qcom.so"],
+        },
+        android_arm64: {
+            srcs: ["vendor/lib64/libllvm-qcom.so"],
+        },
+    },
+    proprietary: true,
+    strip : {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared{
+    name: "libllvm-qgl",
+    target: {
+        android_arm: {
+            srcs: ["vendor/lib/libllvm-qgl.so"],
+        },
+        android_arm64: {
+            srcs: ["vendor/lib64/libllvm-qgl.so"],
+        },
+    },
+    proprietary: true,
+    strip : {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared{
+    name: "libOpenCL",
+    target: {
+        android_arm: {
+            srcs: ["vendor/lib/libOpenCL.so"],
+        },
+        android_arm64: {
+            srcs: ["vendor/lib64/libOpenCL.so"],
+        },
+    },
+    proprietary: true,
+    strip : {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared{
+    name: "libVkLayer_ADRENO_qprofiler",
+    target: {
+        android_arm: {
+            srcs: ["vendor/lib/egl/libVkLayer_ADRENO_qprofiler.so"],
+        },
+        android_arm64: {
+            srcs: ["vendor/lib64/egl/libVkLayer_ADRENO_qprofiler.so"],
+        },
+    },
+    relative_install_path: "egl",
+    proprietary: true,
+    strip : {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared{
+    name: "eglSubDriverAndroid",
+    target: {
+        android_arm: {
+            srcs: ["vendor/lib/egl/eglSubDriverAndroid.so"],
+        },
+        android_arm64: {
+            srcs: ["vendor/lib64/egl/eglSubDriverAndroid.so"],
+        },
+    },
+    relative_install_path: "egl",
+    proprietary: true,
+    strip : {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared{
+    name: "libGLESv1_CM_adreno",
+    target: {
+        android_arm: {
+            srcs: ["vendor/lib/egl/libGLESv1_CM_adreno.so"],
+        },
+        android_arm64: {
+            srcs: ["vendor/lib64/egl/libGLESv1_CM_adreno.so"],
+        },
+    },
+    relative_install_path: "egl",
+    proprietary: true,
+    strip : {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared{
+    name: "libq3dtools_esx",
+    target: {
+        android_arm: {
+            srcs: ["vendor/lib/egl/libq3dtools_esx.so"],
+        },
+        android_arm64: {
+            srcs: ["vendor/lib64/egl/libq3dtools_esx.so"],
+        },
+    },
+    relative_install_path: "egl",
+    proprietary: true,
+    strip : {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared{
+    name: "vulkan.adreno",
+    target: {
+        android_arm: {
+            srcs: ["vendor/lib/hw/vulkan.adreno.so"],
+        },
+        android_arm64: {
+            srcs: ["vendor/lib64/hw/vulkan.adreno.so"],
+        },
+    },
+    relative_install_path: "hw",
+    proprietary: true,
+    strip : {
+        none: true,
+    },
+}

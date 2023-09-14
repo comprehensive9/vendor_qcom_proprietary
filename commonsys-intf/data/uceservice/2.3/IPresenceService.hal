@@ -1,0 +1,61 @@
+/*********************************************************************
+ Copyright (c) 2020 Qualcomm Technologies, Inc.
+ All Rights Reserved.
+ Confidential and Proprietary - Qualcomm Technologies, Inc.
+**********************************************************************/
+
+package com.qualcomm.qti.uceservice@2.3;
+
+import @2.2::IPresenceService;
+import IPresenceListener;
+import @2.0::UceStatus;
+import @2.0::PresServiceInfo;
+
+interface IPresenceService extends @2.2::IPresenceService {
+    /**
+     * Adds a listener to the Presence service.
+     *
+     * @param serviceHandle    received in IPresenceListener.onPresenceCreated() callback.
+     * @param listener         @2.3::IPresenceListener Object.
+     * @param clientHandle     token from the client.
+     *
+     * @return status          status of the request placed.
+     */
+    addListener_2_3(int64_t serviceHandle, IPresenceListener listener,
+                    int64_t clientHandle) generates (UceStatus status);
+
+    /**
+     * Sends a request to publish current device capabilities.
+     * The network response is notifed in IPresenceListener.onSipResponseReceived() callback.
+     * If status of API is returned as NOT_SUPPORTED then it means additional capabilities
+     * introduced as part of @2.3::PresenceCapabilityInfo are not supported by the server.
+     * In this case please fallback to the @2.2::publishCapability API.
+     *
+     * @param serviceHandle     received in IPresenceListener.onPresenceCreated() callback.
+     * @param myCapInfo         @2.3::PresenceCapabilityInfo to share to network.
+     * @param userData          client token for the request.
+     * @return status           status of the request placed.
+     */
+    publishCapability_2_3(int64_t serviceHandle, PresenceCapabilityInfo capInfo,
+                          int64_t userData) generates (UceStatus status);
+
+    /**
+     * Sets the mapping between a new/custom feature tag and the corresponding service tuple information
+     * to be included in the published document.
+     * The status of this call is received in IPresenceListener.cmdStatus() callback.
+     * If status of API is returned as NOT_SUPPORTED then please fallback to the
+     * @2.2::SetNewFeatureTag API.
+     * Please refer to GSMA RCS 5.3 documentation on the format of custom feature tag
+     * and service tuple information.
+     *
+     * @param serviceHandle     received in IPresenceListener.onPresenceCreated() callback.
+     * @param featureTag        feature to be supported.
+     * @param serviceInfo       service information describing the featureTag.
+     * @param userData          client token for the request.
+     * @return status           status of the request placed.
+     */
+    setNewFeatureTag_2_3(int64_t serviceHandle, FeatureDesc featureTag,
+                         PresServiceInfo serviceInfo, int64_t userData)
+              generates (UceStatus status);
+
+};

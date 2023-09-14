@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2021 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<linearization34_bps
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\XSD\isp\linearization_3_4_0.xsd">
+  <enable_section>
+    <linearization_enable>1</linearization_enable>
+  </enable_section>
+  <module_version major_revision="3" minor_revision="4" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_drc_gain</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_led_idx</control_var_type>
+    <control_var_type>control_lux_idx</control_var_type>
+    <control_var_type>control_cct</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_gain</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <private_information>
+    <led_sensitivity_trigger>
+      <start>1</start>
+      <end>100</end>
+    </led_sensitivity_trigger>
+  </private_information>
+  <chromatix_linearization34_core>
+    <mod_linearization34_drc_gain_data>
+      <drc_gain_trigger>
+        <start>1</start>
+        <end>100</end>
+      </drc_gain_trigger>
+      <drc_gain_data>
+        <mod_linearization34_hdr_aec_data>
+          <hdr_aec_trigger>
+            <exp_time_start>1</exp_time_start>
+            <exp_time_end>64</exp_time_end>
+            <aec_sensitivity_start>1</aec_sensitivity_start>
+            <aec_sensitivity_end>64</aec_sensitivity_end>
+            <exp_gain_start>1</exp_gain_start>
+            <exp_gain_end>64</exp_gain_end>
+          </hdr_aec_trigger>
+          <hdr_aec_data>
+            <mod_linearization34_led_idx_data>
+              <led_idx_trigger>0</led_idx_trigger>
+              <led_idx_data>
+                <mod_linearization34_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>1</gain_start>
+                    <gain_end>1.1</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_linearization34_cct_data>
+                      <cct_trigger>
+                        <start>1</start>
+                        <end>10000</end>
+                      </cct_trigger>
+                      <linearization34_rgn_data>
+                        <r_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <r_lut_p>1008 2929 4850 6771 8692 10613 12534 14455</r_lut_p>
+                        </r_lut_p_tab>
+                        <r_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <r_lut_base>0 0 1921 3842 5763 7684 9605 11526 13447</r_lut_base>
+                        </r_lut_base_tab>
+                        <gr_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <gr_lut_p>1008 2929 4850 6771 8692 10613 12534 14455</gr_lut_p>
+                        </gr_lut_p_tab>
+                        <gr_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <gr_lut_base>0 0 1921 3842 5763 7684 9605 11526 13447</gr_lut_base>
+                        </gr_lut_base_tab>
+                        <gb_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <gb_lut_p>1008 2929 4850 6771 8692 10613 12534 14455</gb_lut_p>
+                        </gb_lut_p_tab>
+                        <gb_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <gb_lut_base>0 0 1921 3842 5763 7684 9605 11526 13447</gb_lut_base>
+                        </gb_lut_base_tab>
+                        <b_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <b_lut_p>1010 2931 4852 6773 8694 10615 12536 14457</b_lut_p>
+                        </b_lut_p_tab>
+                        <b_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <b_lut_base>0 0 1921 3842 5763 7684 9605 11526 13447</b_lut_base>
+                        </b_lut_base_tab>
+                      </linearization34_rgn_data>
+                    </mod_linearization34_cct_data>
+                  </aec_data>
+                </mod_linearization34_aec_data>
+                <mod_linearization34_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>1.9</gain_start>
+                    <gain_end>2.1</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_linearization34_cct_data>
+                      <cct_trigger>
+                        <start>1</start>
+                        <end>10000</end>
+                      </cct_trigger>
+                      <linearization34_rgn_data>
+                        <r_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <r_lut_p>995 2918 4841 6764 8687 10610 12533 14456</r_lut_p>
+                        </r_lut_p_tab>
+                        <r_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <r_lut_base>0 0 1923 3846 5769 7692 9615 11538 13461</r_lut_base>
+                        </r_lut_base_tab>
+                        <gr_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <gr_lut_p>995 2918 4841 6764 8687 10610 12533 14456</gr_lut_p>
+                        </gr_lut_p_tab>
+                        <gr_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <gr_lut_base>0 0 1923 3846 5769 7692 9615 11538 13461</gr_lut_base>
+                        </gr_lut_base_tab>
+                        <gb_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <gb_lut_p>995 2918 4841 6764 8687 10610 12533 14456</gb_lut_p>
+                        </gb_lut_p_tab>
+                        <gb_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <gb_lut_base>0 0 1923 3846 5769 7692 9615 11538 13461</gb_lut_base>
+                        </gb_lut_base_tab>
+                        <b_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <b_lut_p>994 2917 4840 6763 8686 10609 12532 14455</b_lut_p>
+                        </b_lut_p_tab>
+                        <b_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <b_lut_base>0 0 1923 3846 5769 7692 9615 11538 13461</b_lut_base>
+                        </b_lut_base_tab>
+                      </linearization34_rgn_data>
+                    </mod_linearization34_cct_data>
+                  </aec_data>
+                </mod_linearization34_aec_data>
+                <mod_linearization34_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>3.9</gain_start>
+                    <gain_end>4.1</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_linearization34_cct_data>
+                      <cct_trigger>
+                        <start>1</start>
+                        <end>10000</end>
+                      </cct_trigger>
+                      <linearization34_rgn_data>
+                        <r_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <r_lut_p>979 2904 4829 6754 8679 10604 12529 14454</r_lut_p>
+                        </r_lut_p_tab>
+                        <r_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <r_lut_base>0 0 1925 3850 5775 7700 9625 11550 13475</r_lut_base>
+                        </r_lut_base_tab>
+                        <gr_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <gr_lut_p>979 2904 4829 6754 8679 10604 12529 14454</gr_lut_p>
+                        </gr_lut_p_tab>
+                        <gr_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <gr_lut_base>0 0 1925 3850 5775 7700 9625 11550 13475</gr_lut_base>
+                        </gr_lut_base_tab>
+                        <gb_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <gb_lut_p>979 2904 4829 6754 8679 10604 12529 14454</gb_lut_p>
+                        </gb_lut_p_tab>
+                        <gb_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <gb_lut_base>0 0 1925 3850 5775 7700 9625 11550 13475</gb_lut_base>
+                        </gb_lut_base_tab>
+                        <b_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <b_lut_p>978 2903 4828 6753 8678 10603 12528 14453</b_lut_p>
+                        </b_lut_p_tab>
+                        <b_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <b_lut_base>0 0 1925 3850 5775 7700 9625 11550 13475</b_lut_base>
+                        </b_lut_base_tab>
+                      </linearization34_rgn_data>
+                    </mod_linearization34_cct_data>
+                  </aec_data>
+                </mod_linearization34_aec_data>
+                <mod_linearization34_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>7.9</gain_start>
+                    <gain_end>8.1</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_linearization34_cct_data>
+                      <cct_trigger>
+                        <start>1</start>
+                        <end>10000</end>
+                      </cct_trigger>
+                      <linearization34_rgn_data>
+                        <r_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <r_lut_p>951 2880 4809 6738 8667 10596 12525 14454</r_lut_p>
+                        </r_lut_p_tab>
+                        <r_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <r_lut_base>0 0 1929 3858 5787 7716 9645 11574 13503</r_lut_base>
+                        </r_lut_base_tab>
+                        <gr_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <gr_lut_p>952 2880 4808 6736 8664 10592 12520 14448</gr_lut_p>
+                        </gr_lut_p_tab>
+                        <gr_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <gr_lut_base>0 0 1928 3856 5784 7712 9640 11568 13496</gr_lut_base>
+                        </gr_lut_base_tab>
+                        <gb_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <gb_lut_p>953 2881 4809 6737 8665 10593 12521 14449</gb_lut_p>
+                        </gb_lut_p_tab>
+                        <gb_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <gb_lut_base>0 0 1928 3856 5784 7712 9640 11568 13496</gb_lut_base>
+                        </gb_lut_base_tab>
+                        <b_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <b_lut_p>951 2880 4809 6738 8667 10596 12525 14454</b_lut_p>
+                        </b_lut_p_tab>
+                        <b_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <b_lut_base>0 0 1929 3858 5787 7716 9645 11574 13503</b_lut_base>
+                        </b_lut_base_tab>
+                      </linearization34_rgn_data>
+                    </mod_linearization34_cct_data>
+                  </aec_data>
+                </mod_linearization34_aec_data>
+                <mod_linearization34_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>15.9</gain_start>
+                    <gain_end>16.1</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_linearization34_cct_data>
+                      <cct_trigger>
+                        <start>1</start>
+                        <end>10000</end>
+                      </cct_trigger>
+                      <linearization34_rgn_data>
+                        <r_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <r_lut_p>907 2841 4775 6709 8643 10577 12511 14445</r_lut_p>
+                        </r_lut_p_tab>
+                        <r_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <r_lut_base>0 0 1934 3868 5802 7736 9670 11604 13538</r_lut_base>
+                        </r_lut_base_tab>
+                        <gr_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <gr_lut_p>907 2841 4775 6709 8643 10577 12511 14445</gr_lut_p>
+                        </gr_lut_p_tab>
+                        <gr_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <gr_lut_base>0 0 1934 3868 5802 7736 9670 11604 13538</gr_lut_base>
+                        </gr_lut_base_tab>
+                        <gb_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <gb_lut_p>909 2843 4777 6711 8645 10579 12513 14447</gb_lut_p>
+                        </gb_lut_p_tab>
+                        <gb_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <gb_lut_base>0 0 1934 3868 5802 7736 9670 11604 13538</gb_lut_base>
+                        </gb_lut_base_tab>
+                        <b_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <b_lut_p>904 2838 4772 6706 8640 10574 12508 14442</b_lut_p>
+                        </b_lut_p_tab>
+                        <b_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <b_lut_base>0 0 1934 3868 5802 7736 9670 11604 13538</b_lut_base>
+                        </b_lut_base_tab>
+                      </linearization34_rgn_data>
+                    </mod_linearization34_cct_data>
+                  </aec_data>
+                </mod_linearization34_aec_data>
+                <mod_linearization34_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>31</gain_start>
+                    <gain_end>32</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_linearization34_cct_data>
+                      <cct_trigger>
+                        <start>1</start>
+                        <end>10000</end>
+                      </cct_trigger>
+                      <linearization34_rgn_data>
+                        <r_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <r_lut_p>906 2840 4774 6708 8642 10576 12510 14444</r_lut_p>
+                        </r_lut_p_tab>
+                        <r_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <r_lut_base>0 0 1934 3868 5802 7736 9670 11604 13538</r_lut_base>
+                        </r_lut_base_tab>
+                        <gr_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <gr_lut_p>908 2842 4776 6710 8644 10578 12512 14446</gr_lut_p>
+                        </gr_lut_p_tab>
+                        <gr_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <gr_lut_base>0 0 1934 3868 5802 7736 9670 11604 13538</gr_lut_base>
+                        </gr_lut_base_tab>
+                        <gb_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <gb_lut_p>909 2843 4777 6711 8645 10579 12513 14447</gb_lut_p>
+                        </gb_lut_p_tab>
+                        <gb_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <gb_lut_base>0 0 1934 3868 5802 7736 9670 11604 13538</gb_lut_base>
+                        </gb_lut_base_tab>
+                        <b_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <b_lut_p>902 2837 4772 6707 8642 10577 12512 14447</b_lut_p>
+                        </b_lut_p_tab>
+                        <b_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <b_lut_base>0 0 1935 3870 5805 7740 9675 11610 13545</b_lut_base>
+                        </b_lut_base_tab>
+                      </linearization34_rgn_data>
+                    </mod_linearization34_cct_data>
+                  </aec_data>
+                </mod_linearization34_aec_data>
+                <mod_linearization34_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>63</gain_start>
+                    <gain_end>64</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_linearization34_cct_data>
+                      <cct_trigger>
+                        <start>1</start>
+                        <end>10000</end>
+                      </cct_trigger>
+                      <linearization34_rgn_data>
+                        <r_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <r_lut_p>908 2842 4776 6710 8644 10578 12512 14446</r_lut_p>
+                        </r_lut_p_tab>
+                        <r_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <r_lut_base>0 0 1934 3868 5802 7736 9670 11604 13538</r_lut_base>
+                        </r_lut_base_tab>
+                        <gr_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <gr_lut_p>909 2843 4777 6711 8645 10579 12513 14447</gr_lut_p>
+                        </gr_lut_p_tab>
+                        <gr_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <gr_lut_base>0 0 1934 3868 5802 7736 9670 11604 13538</gr_lut_base>
+                        </gr_lut_base_tab>
+                        <gb_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <gb_lut_p>907 2841 4775 6709 8643 10577 12511 14445</gb_lut_p>
+                        </gb_lut_p_tab>
+                        <gb_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <gb_lut_base>0 0 1934 3868 5802 7736 9670 11604 13538</gb_lut_base>
+                        </gb_lut_base_tab>
+                        <b_lut_p_tab type="uint" range="[0,16383]" length="8">
+                          <b_lut_p>904 2838 4772 6706 8640 10574 12508 14442</b_lut_p>
+                        </b_lut_p_tab>
+                        <b_lut_base_tab type="uint" range="[0,16383]" length="9">
+                          <b_lut_base>0 0 1934 3868 5802 7736 9670 11604 13538</b_lut_base>
+                        </b_lut_base_tab>
+                      </linearization34_rgn_data>
+                    </mod_linearization34_cct_data>
+                  </aec_data>
+                </mod_linearization34_aec_data>
+              </led_idx_data>
+            </mod_linearization34_led_idx_data>
+          </hdr_aec_data>
+        </mod_linearization34_hdr_aec_data>
+      </drc_gain_data>
+    </mod_linearization34_drc_gain_data>
+  </chromatix_linearization34_core>
+</linearization34_bps>

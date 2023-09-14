@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--========================================================================
+Copyright (c) 2020 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+=========================================================================-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="48dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="32dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Channel Type"/>
+
+            <Spinner
+                android:id="@+id/direct_channel_channelType_spinner"
+                android:layout_width="141dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="0.2"
+                android:spinnerMode="dropdown"
+                android:textAlignment="center"
+                android:textSize="8sp"></Spinner>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="48dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="32dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Clinet Proc Type"/>
+
+            <Spinner
+                android:id="@+id/direct_channel_clientProc_spinner"
+                android:layout_width="141dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="0.2"
+                android:spinnerMode="dropdown"
+                android:textAlignment="center"
+                android:textSize="8sp"></Spinner>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

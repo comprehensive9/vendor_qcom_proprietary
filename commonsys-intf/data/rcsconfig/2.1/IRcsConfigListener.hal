@@ -1,0 +1,22 @@
+/*********************************************************************
+Copyright (c) 2020 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+**********************************************************************/
+
+package vendor.qti.ims.rcsconfig@2.1;
+import @2.0::IRcsConfigListener;
+
+interface IRcsConfigListener extends @2.0::IRcsConfigListener {
+    /**
+     * Indication triggered when token refresh is requested due to given reasons.
+     * On getting this event, client needs to trigger token request and invoke the
+     * updateTokenFetchStatus API to update the status of the request where there is
+     * a change in it.
+     *
+     * @param   requestId   unique Id for the request triggered
+     * @param   tokenType   type of token as defined in TokenType enum
+     * @param   reqReason   reason of the token fetch request as defined in TokenRequestReason enum
+     */
+    oneway onTokenFetchRequest(int32_t requestId, TokenType tokenType, TokenRequestReason reqReason);
+};

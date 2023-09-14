@@ -1,0 +1,43 @@
+
+
+cc_library_shared {
+
+    name: "liblocdiagiface",
+    owner: "qti",
+    proprietary: true,
+    vendor: true,
+
+
+
+    cflags: ["-fno-short-enums"] + GNSS_CFLAGS,
+
+    arch: {
+        arm: {
+            cflags: ["-DANDROID_32_BIT_PTR_SUPPORT"],
+        },
+    },
+
+    shared_libs: [
+        "libgps.utils",
+        "libcutils",
+        "libdiag",
+        "liblog",
+        "libutils",
+    ],
+
+    header_libs: [
+        "libgps.utils_headers",
+        "libloc_pla_headers",
+        "vendor_common_inc",
+        "libdiag_headers",
+    ],
+
+    srcs: ["LocDiagIface.cpp"],
+}
+
+cc_library_headers {
+
+    name: "libloc_diag_iface_headers",
+    vendor: true,
+    export_include_dirs: ["."],
+}

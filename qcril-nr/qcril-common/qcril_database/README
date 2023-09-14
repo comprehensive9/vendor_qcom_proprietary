@@ -1,0 +1,15 @@
+/******************************************************************************
+#  Copyright (c) 2019 Qualcomm Technologies, Inc.
+#  All Rights Reserved.
+#  Confidential and Proprietary - Qualcomm Technologies, Inc.
+#******************************************************************************/
+
+Tested both on Python 2 and Python 3
+Run the below command whenever you update the src/config.xml file:
+
+python tools/config_gen.py src/configs.xml --header inc/property_key.h --sql upgrade/config/
+
+Note:
+1) The script replies on existed SQL files inside upgrade/config/ to generate the delta SQL cmds
+2) In OTA upgrade case, besides modifying the items, developer needs to increase the version in configs.xml. The script will generate the delta SQL cmds for new version.
+3) In Non-OTA case, developer can change the item in XML without modifying the version and the scripts will re-generate the SQL cmds for last version.

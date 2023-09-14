@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) 2021 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.hardware.sxrhal@1.0;
+
+import ISxrCryptoCallback;
+
+interface ISxrCrypto {
+    init(string addr, uint32_t port) generates (int32_t status);
+    deinit() generates (int32_t status);
+    initAsync(string addr, uint32_t port, pointer token, ISxrCryptoCallback sxrCb) generates (int32_t status);
+    deinitAsync(pointer token) generates (int32_t status);
+    encrypt(handle inFd,  uint32_t offset, uint32_t size, handle outFd) generates (int32_t status);
+    decrypt(handle inFd,  uint32_t offset, uint32_t size, handle outFd) generates (int32_t status);
+    encryptAsync(handle inFd, uint32_t offset, uint32_t size, handle outFd, pointer token) generates (int32_t status);
+    decryptAsync(handle inFd, uint32_t offset, uint32_t size, handle outFd, pointer token) generates (int32_t status);
+    allocate(uint32_t size, uint64_t reserved0) generates (handle fd);
+    /*
+        mqDescRx -> data received from HMD
+        mqDescTx -> data to be transmitted from host
+    */
+    setMessageQueue(fmq_sync<uint8_t> mqDescRx, fmq_sync<uint8_t> mqDescTx) generates(bool ret);
+};

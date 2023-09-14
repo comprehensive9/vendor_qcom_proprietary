@@ -1,0 +1,11 @@
+{
+  "config": {
+    "hw_platform": ["IDP", "QRD"],
+    "soc_id": ["1417", "1474", "1523", "1524"]
+  },
+  "sns_amd": {
+    "owner": "sns_amd",
+    "enabled": {"ver": "0","type": "int", "data": "1"
+    }
+  }
+}

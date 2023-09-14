@@ -1,0 +1,63 @@
+/*
+ * Copyright (c) 2021 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+/** @file  ITVMAppLoader.idl */
+/**
+ * @brief
+ * TVMAppLoader interface provides methods to load an App in the
+ * TEE (Trusted Execute Environment)
+ */
+
+/** @cond */
+interface TVMAppLoader {
+/** @endcond */
+
+   /**
+    * @addtogroup TVMAppLoader
+    * @{
+    */
+
+   /** @cond */
+   /* TVMAppLoader Error Codes */
+    error ERROR_INVALID_UID;
+    error ERROR_MEM_HANDLE;
+    error ERROR_LOADING_APP;
+   /** @endcond */
+
+    /**
+     Loads the App image passed in this method, in TVM.
+     The App binary is sent from HLOS side by copying into a buffer
+     and passing over the memparcel_handle to TVM, obtained using
+     the  mem-buf driver.
+
+     @param[in]   UID                 App UID
+
+     @param[in]   memparcel_handle    Mem handle to app image binary
+
+     @param[in]   mem_size            Size of image binary being passed
+
+     @param[out]  appObject           handle to the app loaded on TVM
+
+     @return
+     Object_OK on success or error code
+   */
+    method loadApp(in uint32 UID, in uint32 memparcel_handle,
+                   in uint32 mem_size, out interface appObject);
+
+    /**
+     Invokes the unloading of app image in TVM.
+
+     @param[in]   UID    App UID
+
+     @return
+     Object_OK on success or error code
+   */
+
+    method unloadApp(in uint32 UID);
+
+   /** @} */ /* end_addtogroup TVMAppLoader */
+
+};

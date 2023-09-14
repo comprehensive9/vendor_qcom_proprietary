@@ -1,0 +1,5 @@
+f18febc3294997ffa2f7fbc0a4d1fde26741712935c6fa95c74ea9da587ac277 vendor.qti.latency@2.0::types
+8f53bbd130560ae8a016e58189f326982f73675b82d9b18113667b4e02111a46 vendor.qti.latency@2.0::IClientToken
+1075f138c10272762fbedd32da56bed47639ff7df2773afc1aa4309e2d4fee1f vendor.qti.latency@2.0::ILinkLatencyService
+019fad9ea829ec6e03c230dc84ad4e5c49de09d4617e3ba3eb8bf379c5707987 vendor.qti.latency@2.1::types
+4c7eb3df8036937f64748b916e9a267d73a0df33b0e34c386aa8a8e444856c66 vendor.qti.latency@2.1::ILinkLatencyService

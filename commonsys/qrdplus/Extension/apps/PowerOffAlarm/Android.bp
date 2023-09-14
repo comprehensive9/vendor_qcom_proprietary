@@ -1,0 +1,21 @@
+
+
+android_app {
+    name: "PowerOffAlarm",
+
+    optimize: {
+        enabled: false,
+    },
+
+    srcs: ["**/*.java"],
+
+    product_specific: true,
+
+    certificate: "platform",
+
+    sdk_version: "system_current",
+    libs: ["android.hidl.base-V1.0-java"],
+
+    static_libs: ["vendor.qti.hardware.alarm-V1.0-java"],
+
+}

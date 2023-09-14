@@ -1,0 +1,49 @@
+dppdaemon
+----------
+Copyright (c) 2020 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+This package includes dppdaemon which aims to imitate DPP roles on behalf
+of host and automates the process from DPP authentication to prvisioning
+and finally connection.
+
+Usage:
+Command line options
+--------------------
+
+  -i / --interface         Interface on which wpa supplicant is running.
+
+  -c / --client_path <dir> wpa supplicant client path.
+
+  -n / --netrole           network role of the host.
+
+  -p / --prov_role         Provision role of the host.
+
+  -a / --auth_role         Authentication role of the host.
+
+  -x / --xml_file <file>   Xml file path
+
+  -l / --log_dir <dir>     Logging directory path (Optional arg)
+    NOTE: If this option is specified, the log level would be DEBUG otherwise INFO.
+
+  -h / --help              Help Menu
+
+For eg. dppdaemon -i wlan0 -c /var/run/wpa_supplicant -n sta -p enrollee
+        -a responder -x default.xml
+The above commands would first parse default.xml file and get the bootstrap
+parameters and sets up a URI. Now it will put host supplicant in DPP_LISTEN
+mode (Responder) and where it will Authenticate with peer device (Initiator).
+Once Authentication handshake is done, it follows Dpp configuration handshake
+with Peer to read network profile and along with trigger connection with the
+received network profile.
+
+NOTE: Make sure xml file is readable to the user forking dppdaemon process.
+
+Dpp Manager Library
+--------------------
+This package also includes the dpp manager shared ibrary which exposes an api
+named ProcessCommand(cmd) where cmd is C++ string object and takes the argument
+as the command mentioned above.
+For eg. cmd :=  -i wlan0 -c /var/run/wpa_supplicant -n sta -p enrollee -a responder
+                -x default.xml -l /tmp

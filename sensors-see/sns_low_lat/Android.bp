@@ -1,0 +1,93 @@
+cc_prebuilt_library_shared {
+    name: "libsns_low_lat_stream_skel",
+    soc_specific: true,
+    relative_install_path: "rfsa/adsp",
+    owner: "qti",
+    proprietary: true,
+    srcs: ["prebuilt/lib/q6/libsns_low_lat_stream_skel.so"],
+    strip: {
+        none: true,
+    },
+}
+
+cc_library_shared {
+    name: "libsns_low_lat_stream_stub",
+    srcs: ["src/sns_low_lat_stream_stub.c"],
+    local_include_dirs: ["inc"],
+    header_libs: [
+        "libsnsfastRPCUtils_headers",
+        "libfastrpcshippable_headers",
+    ],
+    cflags: [
+        "-Werror",
+        "-Wall",
+        "-Wno-unused-parameter",
+        "-fexceptions",
+    ],
+    shared_libs: [
+        "libsns_fastRPC_util",
+        "libdl",
+        "liblog",
+        "libc",
+        "libutils",
+        "libcutils",
+    ],
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_defaults {
+    name: "libsensor_low_lat-defaults",
+    srcs: [
+        "jni/src/sensor_low_lat.cpp",
+    ],
+    local_include_dirs: ["inc"],
+    cflags: [
+        "-Werror",
+        "-Wall",
+        "-Wno-unused-parameter",
+        "-fexceptions",
+    ],
+    header_libs: [
+        "libdiag_headers",
+        "jni_headers",
+        "vendor_common_inc",
+        "libsnsfastRPCUtils_headers",
+        "libssc_headers",
+        "libfastrpcshippable_headers",
+    ],
+    shared_libs: [
+        "libutils",
+        "libcutils",
+        "liblog",
+        "libdiag",
+        "libdl",
+        "libsns_low_lat_stream_stub",
+        "libsns_fastRPC_util",
+    ],
+    sanitize:{
+        integer_overflow: true,
+    },
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_library_shared {
+    name: "libsensor_low_lat",
+    defaults: [
+        "libsensor_low_lat-defaults",
+        "sns_proto_lib_name-lite",
+        "sns_fastRPC_heap_type",
+    ],
+    shared_libs: [
+        "libssc",
+        "libsnsapi",
+    ],
+}
+
+cc_library_headers {
+    name: "libsnslowlat_headers",
+    export_include_dirs: ["inc"],
+    owner: "qti",
+    proprietary: true,
+}

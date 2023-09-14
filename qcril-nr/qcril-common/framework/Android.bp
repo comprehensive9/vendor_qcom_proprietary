@@ -1,0 +1,15 @@
+cc_library_headers {
+    name: "libqcrilNrFramework-headers",
+    host_supported: true,
+    vendor: true,
+    proprietary: true,
+    export_include_dirs: [
+        "inc",
+    ],
+    header_libs: [
+        "qcrilnr-toplevel-headers",
+    ],
+    export_header_lib_headers: [
+        "qcrilnr-toplevel-headers",
+    ],
+}

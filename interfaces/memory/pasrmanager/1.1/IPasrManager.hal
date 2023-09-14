@@ -1,0 +1,117 @@
+/*!
+ * @file IPasrManager.hal
+ *
+ * @cr
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ * @services Defines the external interface for PASR Manager.
+ */
+
+package vendor.qti.memory.pasrmanager@1.1;
+
+/* Import IPasrManager from 1.0 */
+import @1.0::IPasrManager;
+import @1.0::types;
+
+/* Extend 1.0 interfaces and add the additional ones here */
+interface IPasrManager extends @1.0::IPasrManager{
+
+    /**
+     * Get allocated memory of a given segment in MBs
+     *
+     * Gets the allocated memory of a given pasr segment by using the
+     * 'allocated_bytes' node in the kernel.
+     *
+     * @param    segNum    The pasr segment number
+     * @return    allocMem The allocated memory in the given segment
+     */
+    getSegmentAllocatedMem(uint32_t segNum) generates (PasrSegAllocMemType allocMem);
+
+
+    /**
+     * Get allocated memory of each segments in MBs
+     *
+     * Gets the allocated memory of each segment by looping through the
+     * 'allocated_bytes' node in the kernel. This data is populated into
+     * hidl_memory buffer and passed over to the requesting client.
+     *
+     * @return    mem hidl_memory buffer which has info of allocated memory of each segments
+     * @return    numSegs The number of segments for which the data is held in mem
+     */
+    getSegmentAllocatedMemAll() generates (memory mem, uint32_t numSegs);
+
+
+    /**
+     * Attempt to Offline one block
+     *
+     * Selects a candidate block which has the least number of bytes allocated and attempts to Offline it.
+     * This makes sure least amount of page migration happens when we trigger Offline.
+     * Returns OFFLINE if Offline succeeds, ERROR if Offline fails
+     *
+     * @param    PasrSrc    The source ID of the initiator
+     * @param    PasrPriority    The priority level of pasr trigger
+     * @return    PasrStatus    Returns OFFLINE if Offline succeeds, ERROR if Offline fails
+     */
+    attemptOffline_1_1(uint32_t srcId, uint32_t pri) generates (PasrStatus status);
+
+
+    /**
+     * Attempt to Online one block
+     *
+     * Selects a candidate block and attempts to Online it.
+     * Returns ONLINE if Online succeeds, ERROR if Online fails
+     *
+     * @param    PasrSrc    The source ID of the initiator
+     * @param    PasrPriority    The priority level of pasr trigger
+     * @return    PasrStatus    Returns ONLINE if Online succeeds, ERROR if Online fails
+     */
+    attemptOnline_1_1(uint32_t srcId, uint32_t pri) generates (PasrStatus status);
+
+
+    /**
+     * Attempt to Offline *all* the blocks
+     *
+     * This lists through all the removable blocks in the system and attempts to Offline them all
+     * Returns OFFLINE if offlining all blocks succeeds, ERROR if failed to offline some or all blocks
+     *
+     * @param    PasrSrc    The source ID of the initiator
+     * @param    PasrPriority    The priority level of pasr trigger
+     * @return   PasrStatus    Returns OFFLINE if offlining all blocks succeeds, ERROR if failed to offline some or all blocks
+     */
+    attemptOfflineAll_1_1(uint32_t srcId, uint32_t pri) generates (PasrStatus status);
+
+
+    /**
+     * Attempt to Online *all* the blocks
+     *
+     * This lists through all the removable blocks in the system and attempts to Online them all
+     * Returns ONLINE if onlining all blocks succeeds, ERROR if failed to online some or all blocks
+     *
+     * @param    PasrSrc    The source ID of the initiator
+     * @param    PasrPriority    The priority level of pasr trigger
+     * @return   PasrStatus    Returns ONLINE if onlining all blocks succeeds, ERROR if failed to online some or all blocks
+     */
+    attemptOnlineAll_1_1(uint32_t srcId, uint32_t pri) generates (PasrStatus status);
+
+    /**
+     * Request to enter priority state for trigerring Online/Offline
+     *
+     * @param    srcId  The source ID of the initiator
+     * @param    pri    The priority level for which source wants to enter into state
+     * @param    mode   The mode of state, the source wants to enter
+     * @return   status Returns SUCCESS if source entered into given state, ERROR if failed to enter the give state
+     */
+    stateEnter_1_1(uint32_t srcId, uint32_t pri, uint32_t mode) generates (PasrStatus status);
+
+
+    /**
+     * Request to exit the source from previous put state
+     *
+     * @param    srcId  The source ID of the initiator
+     * @return   status Returns SUCCESS if source exited from the previous state it was put in, ERROR if failed to exit the state
+     */
+    stateExit_1_1(uint32_t srcId) generates (PasrStatus status);
+
+};

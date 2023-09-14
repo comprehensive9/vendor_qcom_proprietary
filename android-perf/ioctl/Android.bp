@@ -1,0 +1,56 @@
+
+soong_config_module_type {
+    name: "ioctl_cc_defaults",
+    module_type: "cc_defaults",
+    config_namespace: "perf",
+    bool_variables: ["ioctl"],
+    properties: ["srcs", "shared_libs", "include_dirs", "exclude_srcs", "header_libs"],
+}
+
+ioctl_cc_defaults {
+    name: "ioctl_defaults",
+    soong_config_variables: {
+        ioctl: {
+            srcs: [
+                "ioctl.cpp"
+            ],
+            shared_libs: [
+                "libdrm",
+            ],
+            exclude_srcs : [
+                "ioctl_fallthrough.cpp"
+            ],
+            header_libs : [
+                "qti_kernel_headers",
+                "qti_display_kernel_headers"
+            ]
+        },
+    }
+}
+
+cc_library_shared {
+    name: "libperfioctl",
+    proprietary: true,
+    defaults: ["ioctl_defaults"],
+    srcs: [
+        "ioctl_fallthrough.cpp"
+    ],
+
+    cflags: [
+        "-DQC_DEBUG=0",
+    ],
+
+    header_libs: [
+        "libcutils_headers",
+    ],
+
+    shared_libs: [
+        "libutils",
+        "liblog",
+        "libcutils",
+    ],
+
+    include_dirs: [
+        "vendor/qcom/proprietary/android-perf/mp-ctl",
+    ],
+}

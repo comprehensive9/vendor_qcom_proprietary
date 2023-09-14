@@ -1,0 +1,27 @@
+cc_binary {
+    name: "ssc_drva_test",
+    defaults: ["sns_proto_lib_name-full"],
+    owner: "qti",
+    proprietary: true,
+    srcs: [
+        "ssc_drva_test.cpp",
+    ],
+    local_include_dirs: ["./"],
+    cflags: [
+        "-Wno-unused-variable",
+        "-Wno-unused-parameter",
+        "-fexceptions",
+    ],
+    header_libs: [
+        "libcutils_headers",
+        "libsensorlog_headers",
+        "libssc_headers",
+    ],
+    shared_libs: [
+        "libssc",
+        "liblog",
+        "libsensorslog",
+        "libcutils",
+        "libsnsapi",
+    ],
+}

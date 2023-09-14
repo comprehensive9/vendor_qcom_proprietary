@@ -1,0 +1,12 @@
+cc_binary {
+    name: "diag_mdlog_system",
+
+    srcs: ["diag_mdlog.c"],
+
+    header_libs: ["libdiag_headers_system", "libcutils_headers", "vendor_common_inc", "oemaids_headers",],
+    cflags: ["-DTARGET_FS_CONFIG_GEN"],
+
+    shared_libs: ["libdiag_system", "liblog",],
+
+    system_ext_specific: true,
+}

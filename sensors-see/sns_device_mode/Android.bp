@@ -1,0 +1,44 @@
+cc_prebuilt_library_shared {
+    name: "libsns_device_mode_skel",
+    soc_specific: true,
+    relative_install_path: "rfsa/adsp",
+    owner: "qti",
+    proprietary: true,
+    srcs: ["prebuild/lib/q6/libsns_device_mode_skel.so"],
+    strip: {
+        none: true,
+    },
+}
+
+cc_library_shared {
+    name: "libsns_device_mode_stub",
+    srcs: ["src/sns_device_mode_stub.c"],
+    local_include_dirs: ["inc"],
+    header_libs: [
+        "libsnsfastRPCUtils_headers",
+        "libfastrpcshippable_headers",
+    ],
+    cflags: [
+        "-Werror",
+        "-Wall",
+        "-Wno-unused-parameter",
+        "-fexceptions",
+    ],
+    shared_libs: [
+        "libsns_fastRPC_util",
+        "libdl",
+        "liblog",
+        "libc",
+        "libutils",
+        "libcutils",
+    ],
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_library_headers {
+    name: "libsnsDevieMode_headers",
+    export_include_dirs: ["inc"],
+    owner: "qti",
+    proprietary: true,
+}

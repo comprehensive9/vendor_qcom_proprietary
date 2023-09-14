@@ -1,0 +1,19 @@
+
+android_app {
+
+    name: "my.tests.snapdragonsdktest",
+
+    libs: ["com.qti.location.sdk"],
+
+    srcs: ["**/*.java"],
+
+    certificate: "platform",
+
+    system_ext_specific: true,
+
+    optimize: {
+        enabled: false,
+    },
+
+    platform_apis: true,
+}

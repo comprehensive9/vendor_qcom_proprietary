@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) 2022 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.hardware.radio.qtiradio@2.7;
+
+import android.hardware.radio@1.0::RadioResponseInfo;
+import @2.6::IQtiRadioResponse;
+
+/*
+ * Interface declaring response functions to solicited qtiradio requests
+ */
+interface IQtiRadioResponse extends @2.6::IQtiRadioResponse {
+
+     /**
+     * Response to IQtiRadio.getQosParameters
+     *
+     * @param info Response info struct containing response type, serial no. and error
+     * @param qosParamsResult QosParametersResult defined in types.hal
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:OP_NOT_ALLOWED_BEFORE_REG_TO_NW
+     *   RadioError:OP_NOT_ALLOWED_DURING_VOICE_CALL
+     *   RadioError:INVALID_ARGUMENTS
+     *   RadioError:INTERNAL_ERR
+     *   RadioError:NO_RESOURCES if the vendor is unable to handle due to resources
+     *              being full.
+     *   RadioError:SIM_ABSENT
+     */
+    oneway getQosParametersResponse(RadioResponseInfo info, QosParametersResult qosParamsResult);
+};

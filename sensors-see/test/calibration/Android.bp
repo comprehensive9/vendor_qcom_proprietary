@@ -1,0 +1,27 @@
+cc_library_shared {
+    name: "libSensorCalLibNative",
+    defaults: ["sns_proto_lib_name-lite"],
+    cflags: [
+        "-Werror",
+        "-Wno-unused-parameter",
+    ],
+    clang: true,
+    owner: "qti",
+    proprietary: true,
+    srcs: [
+        "see_calibration_accel.cpp",
+        "see_calibration_jni.cpp",
+    ],
+    local_include_dirs: ["./"],
+    header_libs: [
+        "jni_headers",
+        "libsensorlog_headers",
+        "libssc_headers",
+    ],
+    shared_libs: [
+        "libsnsapi",
+        "libssc",
+        "liblog",
+        "libsensorslog",
+    ],
+}

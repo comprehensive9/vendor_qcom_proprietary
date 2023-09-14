@@ -1,0 +1,56 @@
+cc_library_shared {
+    name: "libmediasp_jni",
+
+    srcs: ["mediaSecureProcessor.cpp"],
+
+    shared_libs: [
+        "libutils",
+        "libandroid_runtime",
+        "libnativewindow",
+        "libutils",
+        "libbinder",
+        "libmedia",
+        "libmedia_jni_utils",
+        "libhwui",
+        "libui",
+        "liblog",
+        "libcutils",
+        "libgui",
+        "libandroidfw",
+        "libhidlallocatorutils",
+        "libhidlbase",
+        "vendor.qti.hardware.secureprocessor.common@1.0",
+        "vendor.qti.hardware.secureprocessor.config@1.0",
+        "vendor.qti.hardware.secureprocessor.device@1.0",
+        "vendor.qti.hardware.secureprocessor.common@1.0-helper",
+    ],
+
+    header_libs: [
+        "libhardware_headers",
+        "jni_headers",
+    ],
+
+    include_dirs: [
+        "frameworks/base/core/jni",
+        "frameworks/base/core/jni/include",
+        "frameworks/native/libs/nativewindow/include",
+        "frameworks/native/include",
+        "frameworks/native/libs/arect/include",
+    ],
+
+    cflags: [
+        "-Wall",
+        "-Werror",
+        "-Wno-error=deprecated-declarations",
+        "-Wunused",
+        "-Wunreachable-code",
+    ],
+
+    sanitize: {
+        cfi: true,
+        integer_overflow: true,
+    },
+
+    owner: "qti",
+    system_ext_specific: true,
+}

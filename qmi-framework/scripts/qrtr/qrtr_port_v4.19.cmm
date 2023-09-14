@@ -1,0 +1,913 @@
+;************************************************************
+;Copyright (c) 2021 Qualcomm Technologies, Inc.
+;All Rights Reserved.
+;Confidential and Proprietary - Qualcomm Technologies, Inc.
+;************************************************************
+
+&Folder=""
+&Tool=""
+&numcpus=0
+
+ENTRY &Folder &numcpus
+
+if "&Folder"==""
+(
+  AREA.RESet
+  AREA.Create IO
+  AREA.Select IO
+  AREA.view IO
+  print "Choose directory to save process stack: "
+  print "   0. Current Working Directory"
+  print "   1. Temporary Folder (C:\temp) "
+  print "   2. Specify Different Folder "
+  print "   Default(0) : "
+  ENTER &option
+  if ("&option"=="")||("&option"=="0")
+  (
+	&Folder=os.pwd()
+  )
+  else
+  (
+	if ("&option"=="1")
+	    &Folder="C:\temp"
+	if ("&option"=="2")
+	(
+		print "   Enter the name of Folder : "
+		ENTER &Folder
+	)
+  )
+)
+
+&outfilebase="qrtr_port.txt"
+&outfile="&Folder/&outfilebase"
+
+if os.file(&outfile)
+(
+	;os.command start &outfile
+	;enddo
+)
+
+;;ADD below at the end of procedure
+;;os.command start &outfile
+
+
+//---------------------------------- INIT VARIABLES SET ----------------------------------//
+LOCAL &max_qrtrtype
+
+&max_qrtrtype=0xE
+var.new char[&max_qrtrtype][25.] \qrtr_pkt_type
+var.set \qrtr_pkt_type[0x1]="QRTR_TYPE_DATA"
+var.set \qrtr_pkt_type[0x2]="QRTR_TYPE_HELLO"
+var.set \qrtr_pkt_type[0x3]="QRTR_TYPE_BYE"
+var.set \qrtr_pkt_type[0x4]="QRTR_TYPE_NEW_SERVER"
+var.set \qrtr_pkt_type[0x5]="QRTR_TYPE_DEL_SERVER"
+var.set \qrtr_pkt_type[0x6]="QRTR_TYPE_DEL_CLIENT"
+var.set \qrtr_pkt_type[0x7]="QRTR_TYPE_RESUME_TX"
+var.set \qrtr_pkt_type[0x8]="QRTR_TYPE_EXIT"
+var.set \qrtr_pkt_type[0x9]="QRTR_TYPE_PING"
+var.set \qrtr_pkt_type[0xA]="QRTR_TYPE_NEW_LOOKUP"
+var.set \qrtr_pkt_type[0xB]="QRTR_TYPE_DEL_LOOKUP"
+var.set \qrtr_pkt_type[0xC]="UNKNOWN(0xC)"
+var.set \qrtr_pkt_type[0xD]="QRTR_TYPE_DEL_PROC"
+
+if (y.exist(qrtr_ports))
+(
+    &QMI_DATA_READY_ADDR=address.offset(qmi_data_ready)
+	&qrtr_ports=v.value(qrtr_ports.idr_rt.rnode)
+    
+	open #11 "&outfile" /create
+
+	write #11 ""
+	write #11 "************* NODE INFO"
+	GOSUB QRTR_NODE_TRAVERSE2 11
+
+	write #11 ""
+	write #11 "************* PORT INFO"
+	write #11 ""
+	GOSUB RADIX_TREE_PARSE 11 &qrtr_ports qrtr_sock QRTR_SOCK_PARSE 0
+
+	close #11
+)
+else
+(
+	PRINT "No IPC router information is available"
+	ENDDO
+)
+
+if os.file(&outfile)
+	os.command start &outfile
+print "done"
+
+ENDDO
+
+//----------------------------------------------------------------------------------------
+CHANGE_BYTE_ORDER:
+(
+	ENTRY &data &len
+	PRIVATE &ret_data
+
+	;endian
+	&ret_data=0
+
+	if (&len==32.)
+	(
+		&ret_data=((&data&0xFF)<<24.)|((&data&0xFF00)<<8.)|((&data&0xFF0000)>>8.)|((&data&0xFF000000)>>24.)
+	)
+	else if (&len==16.)
+	(
+		&ret_data=((&data>>8.)|(&data<<8.))
+	)
+	else
+	(
+		print %ERROR "not yet supported for &len lenth (data:&data)"
+	)
+
+	RETURN &ret_data
+)
+
+READ_DATA:
+(
+	ENTRY &arg_addr &arg_len &reverse
+	PRIVATE &data_addr &var_size &ret_data &tmp_data
+
+	&data_addr=&arg_addr
+
+	&ret_data=0
+	if (&reverse==1)
+	(
+		if (&arg_len==32.)
+			&tmp_data="0x"+format.hex(8.,d.long(D:&data_addr))
+		else if (&arg_len==16.)
+			&tmp_data="0x"+format.hex(4.,d.short(D:&data_addr))
+		&var_size=(str.len("&tmp_data")-2)*4 ;expect that it starts with 0x and covert to bit
+		GOSUB CHANGE_BYTE_ORDER &tmp_data &var_size
+		ENTRY &ret_data
+	)
+	else
+	(
+		if (&arg_len==32.)
+			&tmp_data=d.long(D:&data_addr)
+		else if (&arg_len==16.)
+			&tmp_data=d.short(D:&data_addr)
+		&ret_data=&tmp_data
+	)
+
+	RETURN &ret_data
+)
+
+QRTR_MSG:
+(
+	;ENTRY &cb_type &cb_srcn &cb_srcp &cb_dstn &cb_dstp &cb_confirmrx &cb_size &rest_data_addr
+	PRIVATE &rx_str &type_str &data0 &data1 &cb_type_dec
+
+	&data0=0x0
+	&data1=0x0
+	&type_str="UNKNOWN(&cb_type)"
+	if (&cb_type<&max_qrtrtype)
+		&type_str=var.string(\qrtr_pkt_type[&cb_type])
+	&cb_type_dec=format.decimal(1,&cb_type)
+	if (string.scan("&type_str","QRTR_TYPE_DATA",0)>-1)
+	(
+		&data0=d.longlong(D:&rest_data_addr)
+		&data1=(&data0)>>32.
+		&data0=(&data0)&0xFFFFFFFF
+
+		&datas="&msgdir_str DATA: Len:&cb_size CF:&cb_confirmrx src[&cb_srcn:&cb_srcp] dts[&cb_dstn:&cb_dstp] [&data0 &data1]"
+	)
+	else
+	(
+;struct qrtr_ctrl_pkt {
+;        __le32 cmd;
+;
+;        union {
+;                struct {
+;                        __le32 service;
+;                        __le32 instance;
+;                        __le32 node;
+;                        __le32 port;
+;                } server;
+;
+;                struct {
+;                        __le32 node;
+;                        __le32 port;
+;                } client;
+;        };
+;} __packed;
+		if (string.scan("&type_str","QRTR_TYPE_NEW_SERVER",0)>-1)||(string.scan("&type_str","QRTR_TYPE_DEL_SERVER",0)>-1)
+		(
+			GOSUB READ_DATA &rest_data_addr+0x4 32. 0
+			ENTRY &data0
+			&pkt_service=&data0
+
+			GOSUB READ_DATA &rest_data_addr+0x8 32. 0
+			ENTRY &data0
+			&pkt_instance=&data0
+
+			GOSUB READ_DATA &rest_data_addr+0xC 32. 0
+			ENTRY &data0
+			&pkt_node=&data0
+
+			GOSUB READ_DATA &rest_data_addr+0x10 32. 0
+			ENTRY &data0
+			&pkt_port=&data0
+
+			&datas="&msgdir_str CTRL: cmd:&cb_type_dec(&type_str) SVC[&pkt_service:&pkt_instance] addr[&pkt_node:&pkt_port]"
+		)
+		else if (string.scan("&type_str","QRTR_TYPE_DEL_CLIENT",0)>-1)||(string.scan("&type_str","QRTR_TYPE_RESUME_TX",0)>-1)
+		(
+			GOSUB READ_DATA &rest_data_addr+0x4 32. 0
+			ENTRY &data0
+			&pkt_client_node=&data0
+
+			GOSUB READ_DATA &rest_data_addr+0x8 32. 0
+			ENTRY &data0
+			&pkt_client_port=&data0
+
+			&datas="&msgdir_str CTRL: cmd:&cb_type_dec(&type_str) addr[&pkt_client_node:&pkt_client_port]"
+		)
+		else if (string.scan("&type_str","QRTR_TYPE_HELLO",0)>-1)||(string.scan("&type_str","QRTR_TYPE_BYE",0)>-1)
+		(
+			&datas="&msgdir_str CTRL: cmd:&cb_type_dec(&type_str) node[&cb_srcn]"
+		)
+		else if (string.scan("&type_str","QRTR_TYPE_DEL_PROC",0)>-1)||(string.scan("&type_str","QRTR_TYPE_DEL_PROC",0)>-1)
+		(
+			&proc_node=v.value(((struct qrtr_ctrl_pkt *)&rest_data_addr)->proc.node)
+			&datas="&msgdir_str CTRL: cmd:&cb_type_dec(&type_str) node[&proc_node]"
+		)
+		else
+		(
+			&datas="&msgdir_str: Invalid cmd:&cb_type_dec(&type_str)"
+		)
+	)
+
+	RETURN
+)
+
+MHI_TO_QRTR:
+(
+	LOCAL &outfile
+	ENTRY &outfile &arg_addr &arg_len &arg_dir
+	LOCAL &data_addr &data0 &valid &cb_type &cb_srcn &cb_srcp &cb_dstn &cb_dstp &cb_confirmrx &cb_size &rest_data_addr &ver_str &msgdir_str
+
+	&valid=(&arg_len)&0x3
+	if (&valid!=0x0)
+	(
+		&ret_str="Invalid"
+		GOTO finish_qrtr
+	)
+
+	&data_addr=&arg_addr
+	&rest_data_addr=-1
+	&ver_str="unknown"
+
+	&data0=d.long(D:&data_addr)
+	&ver=&data0&0xFF
+
+	if (&ver==1) ;QRTR_PROTO_VER_1
+	(
+;struct qrtr_hdr_v1 {
+;        __le32 version;
+;        __le32 type;
+;        __le32 src_node_id;
+;        __le32 src_port_id;
+;        __le32 confirm_rx;
+;        __le32 size;
+;        __le32 dst_node_id;
+;        __le32 dst_port_id;
+;} __packed;
+
+		GOSUB READ_DATA &data_addr+0x4 32. 0
+		ENTRY &data0
+		&cb_type=&data0
+
+		GOSUB READ_DATA &data_addr+0x8 32. 0
+		ENTRY &data0
+		&cb_srcn=&data0
+
+		GOSUB READ_DATA &data_addr+0xC 32. 0
+		ENTRY &data0
+		&cb_srcp=&data0
+
+		GOSUB READ_DATA &data_addr+0x10 32. 0
+		ENTRY &data0
+		;if (&cb_confirmrx>0x0) ;to mimic !!v1->confirm_rx
+		;	&cb_confirmrx=0x1
+		&cb_confirmrx=&data0
+
+		GOSUB READ_DATA &data_addr+0x14 32. 0
+		ENTRY &data0
+		&cb_size=&data0
+
+		GOSUB READ_DATA &data_addr+0x18 32. 0
+		ENTRY &data0
+		&cb_dstn=&data0
+
+		GOSUB READ_DATA &data_addr+0x1C 32. 0
+		ENTRY &data0
+		&cb_dstp=&data0
+
+		&rest_data_addr=&data_addr+v.sizeof(struct qrtr_hdr_v1)
+		&ver_str="v1"
+	)
+	else if (&ver==3) ;QRTR_PROTO_VER_2
+	(
+;struct qrtr_hdr_v2 {
+;        u8 version;
+;        u8 type;
+;        u8 flags;
+;        u8 optlen;
+;        __le32 size;
+;        __le16 src_node_id;
+;        __le16 src_port_id;
+;        __le16 dst_node_id;
+;        __le16 dst_port_id;
+;} __packed;
+;#define QRTR_FLAGS_CONFIRM_RX   BIT(0)
+
+		GOSUB READ_DATA &data_addr 32. 0
+		ENTRY &data0
+		&cb_type=(((&data0)&0x0000FF00)>>8.)
+
+		&cb_confirmrx=(((&data0)&0x00FF0000)>>16.)
+		&cb_confirmrx=(&cb_confirmrx)&0x1 ;QRTR_FLAGS_CONFIRM_RX
+		;if (&cb_confirmrx>0x0) ;;!!
+		;	&cb_confirmrx=0x1
+
+		GOSUB READ_DATA &data_addr+0x4 32. 0
+		ENTRY &data0
+		&cb_size=&data0
+
+		GOSUB READ_DATA &data_addr+0x8 16. 0
+		ENTRY &data0
+		&cb_srcn=&data0
+
+		GOSUB READ_DATA &data_addr+0xA 16. 0
+		ENTRY &data0
+		&cb_srcp=&data0
+
+		GOSUB READ_DATA &data_addr+0xC 16. 0
+		ENTRY &data0
+		&cb_dstn=&data0
+
+		GOSUB READ_DATA &data_addr+0xE 16. 0
+		ENTRY &data0
+		&cb_dstp=&data0
+
+		&optlen=(((d.long(D:&data_addr))&0xFF000000)>>24.)
+		&rest_data_addr=&data_addr+v.sizeof(struct qrtr_hdr_v2)+&optlen
+		&ver_str="v2"
+	)
+	else
+	(
+		&datas="Invalid version"
+		GOTO finish_qrtr
+	)
+
+	if (&arg_dir==2) ;INBOUND, RX
+		&msgdir_str="RX"
+	else
+		&msgdir_str="TX"
+
+	GOSUB QRTR_MSG
+
+	&datas="&ver_str: &datas"
+
+finish_qrtr:
+	RETURN
+)
+
+MHI_RING_IS_FULL:
+(
+	ENTRY &ring_addr
+	LOCAL &tmp &tmp2 &full &wp &el_size &rp &len &base &tmp
+
+	&full=0
+
+	&wp=v.value(((struct mhi_ring *)&ring_addr)->wp)
+	&el_size=v.value(((struct mhi_ring *)&ring_addr)->el_size)
+	&rp=v.value(((struct mhi_ring *)&ring_addr)->rp)
+	&len=v.value(((struct mhi_ring *)&ring_addr)->len)
+	&base=v.value(((struct mhi_ring *)&ring_addr)->base)
+
+	&tmp=&wp+&el_size
+	&tmp2=&base+&len
+
+	if (&tmp>=&tmp2)
+		&tmp=&base
+
+	if (&tmp==&rp)
+		&full=1
+
+	RETURN &full
+)
+
+MHI_RING_STATUS:
+(
+	LOCAL &outfile
+	ENTRY &outfile &ring_addr &name
+	LOCAL &wp &el_size &rp &len &base
+
+	&wp=v.value(((struct mhi_ring *)&ring_addr)->wp)
+	&el_size=v.value(((struct mhi_ring *)&ring_addr)->el_size)
+	&rp=v.value(((struct mhi_ring *)&ring_addr)->rp)
+	&len=v.value(((struct mhi_ring *)&ring_addr)->len)
+	&base=v.value(((struct mhi_ring *)&ring_addr)->base)
+
+	write #&outfile "      &name => base:&base wp:&wp rp:&rp el_size:&el_size len:&len"
+
+	RETURN
+)
+
+MHI_RING_PARSE:
+(
+	LOCAL &outfile
+	ENTRY &outfile &ring_addr
+	LOCAL &wp &el_size &rp &len &base &max_ring &start_ring &buf_cnt
+
+	&wp=v.value(((struct mhi_ring *)&ring_addr)->wp)
+	&el_size=v.value(((struct mhi_ring *)&ring_addr)->el_size)
+	&rp=v.value(((struct mhi_ring *)&ring_addr)->rp)
+	&len=v.value(((struct mhi_ring *)&ring_addr)->len)
+	&base=v.value(((struct mhi_ring *)&ring_addr)->base)
+
+	&max_ring=&base+&len
+	&buf_addr=&base
+	&buf_cnt=0
+
+	write #&outfile "      > buf_ring base:&base"
+	while (&buf_addr<&max_ring)
+	(
+		&buf_wp=v.value(((struct mhi_buf_info *)&buf_addr)->wp)
+		&buf_skb=v.value(((struct mhi_buf_info *)&buf_addr)->cb_buf)
+		&buf_skb_data=v.value(((struct mhi_buf_info *)&buf_addr)->v_addr)
+
+		&data0=d.longlong(D:&buf_skb_data)
+		&data1=d.longlong(D:&buf_skb_data+0x8)
+
+		&buf_len=v.value(((struct mhi_buf_info *)&buf_addr)->len)
+		&buf_bbaddr=v.value(((struct mhi_buf_info *)&buf_addr)->bb_addr)
+		&buf_bbaddr_phys=address.offset(mmu.physical(D:&buf_bbaddr))
+
+		&tre_ptr=v.value(((struct mhi_tre *)&buf_wp)->ptr)
+		&tre_dword0=v.value(((struct mhi_tre *)&buf_wp)->dword[0])
+		&tre_dword1=v.value(((struct mhi_tre *)&buf_wp)->dword[1])
+
+		write #&outfile "      [" %decimal &buf_cnt "] v.v (struct mhi_buf_info *)&buf_addr"
+		if (&buf_addr==&wp)
+			write #&outfile %cont "   <=== CURRENT WP"
+		if (&buf_addr==&rp)
+			write #&outfile %cont "   <=== CURRENT RP"
+		write #&outfile "        | skb: &buf_skb, skb->data: &buf_skb_data (&data0 &data1)"
+		write #&outfile "        | len: &buf_len, dma_vaddr: &buf_bbaddr(p:&buf_bbaddr_phys)"
+
+		write #&outfile "        + tre_ring ( v.v (struct mhi_tre *)&buf_wp )"
+		write #&outfile "          | dma_paddr: &tre_ptr buf_len: &tre_dword0 dword1: &tre_dword1"
+
+		if (&tre_ptr!=&buf_bbaddr_phys)
+			write #&outfile %cont "     ERR: buf_info->p_addr(&tre_ptr) != translated buf_info->bb_addr(&buf_bbaddr_phys)"
+
+		write #&outfile ""
+
+		&buf_addr=&buf_addr+&el_size
+		&buf_cnt=&buf_cnt+1
+	)
+
+	RETURN
+)
+
+MHI_CHAN_PARSE:
+(
+	LOCAL &outfile
+	ENTRY &outfile &chan_addr
+	LOCAL &name &id &tre_ring &buf_ring &isfull
+
+	&name=d.string(D:(v.value(((struct mhi_chan *)&chan_addr)->name)))
+	&id=v.value(((struct mhi_chan *)&chan_addr)->chan)
+
+	&queue_xfer_func=v.value(((struct mhi_chan *)&chan_addr)->queue_xfer)
+	&queue_xfer_func=symbol.name(D:&queue_xfer_func)
+
+	write #&outfile "      name: &name chan: " %decimal &id " queue_xfer: &queue_xfer_func"
+
+	&tre_ring=address.offset(v.address(((struct mhi_chan *)&chan_addr)->tre_ring))
+	&buf_ring=address.offset(v.address(((struct mhi_chan *)&chan_addr)->buf_ring))
+
+	GOSUB MHI_RING_STATUS &outfile &buf_ring buf_ring
+	GOSUB MHI_RING_STATUS &outfile &tre_ring tre_ring
+
+	GOSUB MHI_RING_IS_FULL &tre_ring
+	ENTRY &isfull
+
+	if (&isfull==1)
+		write #&outfile "      tre ring is full !!!"
+
+	GOSUB MHI_RING_PARSE &outfile &buf_ring
+
+	RETURN
+)
+
+QRTR_MHI:
+(
+	LOCAL &outfile
+	ENTRY &outfile &dev_addr
+	PRIVATE &ulpkt_head &ulpkt_next &pkt_o &pkt_cnt &ul_chan &dl_chan
+	LOCAL &datas
+
+	&ulpkt_head=address.offset(v.address(((struct qrtr_mhi_dev *)&q_mhidev)->ul_pkts))
+	&ulpkt_next=v.value(((struct list_head *)&ulpkt_head)->next)
+	&pkt_o=address.offset(v.address(((struct qrtr_mhi_pkt *)0)->node))
+	&pkt_cnt=0
+
+	write #&outfile "   [TX]"
+	if (&ulpkt_head==&ulpkt_next)
+		write #&outfile "       no pending"
+	else
+		write #&outfile "       !!! pending receive buffers"
+
+	while (&ulpkt_head!=&ulpkt_next)&&(&ulpkt_next!=0)
+	(
+		&pkt_addr=&ulpkt_next-&pkt_o
+		&skbuff=v.value(((struct qrtr_mhi_pkt *)&pkt_addr)->skb)
+		&refc=v.value(((struct qrtr_mhi_pkt *)&pkt_addr)->refcount.refcount.refs.counter)
+		&sk=v.value(((struct qrtr_mhi_pkt *)&pkt_addr)->skb->sk)
+		&buf_addr=v.value(((struct qrtr_mhi_pkt *)&pkt_addr)->skb->data)
+		&buf_len=v.value(((struct qrtr_mhi_pkt *)&pkt_addr)->skb->len)
+		;&buf_head=v.value(((struct qrtr_mhi_pkt *)&pkt_addr)->skb->head)
+		&buf_tail=v.value(((struct qrtr_mhi_pkt *)&pkt_addr)->skb->tail)
+
+		&datas=""
+		GOSUB MHI_TO_QRTR &outfile &buf_addr &buf_len 1
+
+		;&data0=d.longlong(D:&data_addr)
+		;&data1=d.longlong(D:&data_addr+0x8)
+		;write #&outfile "         " %decimal &pkt_cnt " : (struct sk_buff)&skbuff sk:&sk , data:&data0 &data1 , refcount:" %decimal &refc " | v.v (struct qrtr_mhi_pkt)&pkt_addr"
+		write #&outfile "          " %decimal &pkt_cnt " : (struct sk_buff)&skbuff refcount [" %decimal &refc "] DATA [&buf_addr] LEN [&buf_len] TAIL [&buf_tail] | v.v (struct qrtr_mhi_pkt)&pkt_addr"
+		write #&outfile "             > data (&datas)"
+
+		&ulpkt_next=v.value(((struct list_head *)&ulpkt_next)->next)
+		&pkt_cnt=&pkt_cnt+1
+	)
+
+	RETURN
+)
+
+QRTR_TX_FLOW_PARSE:
+    LOCAL &pending &node &port
+    ENTRY &fd &flow &__key
+
+    &pending=v.value(((struct qrtr_tx_flow *)&flow)->pending.counter)
+    &node=(&__key>>0x20)&0xFFFFFFFF
+    &port=(&__key>>0x0)&0xFFFFFFFF
+
+    &string=""
+   
+    if &pending>=5 ;QRTR_TX_FLOW_LOW
+        write #&fd "    - dst[0x" format.hex(1.,&node) ":0x" format.hex(4.,&port) "] flow : 0x" format.hex(16.,&flow) " pending : " %decimal &pending " <<<< pending by TX flow control"
+
+    RETURN
+
+QRTR_NODE_PARSE:
+(
+	LOCAL &outfile &qtrt_node_addr &idx
+	ENTRY &outfile &qtrt_node_addr &idx
+	LOCAL &nid &xmit_func &rx_func &ep &rxtask &rxtask_pid &rxtask_comm &rxq_len &rxq_next
+    LOCAL &qrtr_tx_flow
+
+	&nid=v.value(((struct qrtr_node)&qtrt_node_addr).nid)
+	&xmit_func=v.value(((struct qrtr_node)&qtrt_node_addr).ep->xmit)
+	&xmit_func=symbol.name(D:&xmit_func)
+	&rx_func=v.value(((struct qrtr_node)&qtrt_node_addr).read_data.func)
+	&rx_func=symbol.name(D:&rx_func)
+    &qrtr_tx_flow=v.value(((struct qrtr_node *)&qtrt_node_addr)->qrtr_tx_flow.rnode)
+
+	write #&outfile ""
+	write #&outfile "==================================================================================="
+	write #&outfile "IDX: " %decimal &idx " NID: " %decimal &nid " | v.v (struct qrtr_node)&qtrt_node_addr"
+	write #&outfile "==================================================================================="
+	write #&outfile "  tx: &xmit_func , rx: &rx_func"
+
+    write #&outfile "   [TX flow control]"
+    GOSUB RADIX_TREE_PARSE_WITH_KEY &outfile &qrtr_tx_flow qrtr_tx_flow QRTR_TX_FLOW_PARSE 0 0
+    write #&outfile ""
+
+	&ep=v.value(((struct qrtr_node)&qtrt_node_addr).ep)
+	&tx_func_name=os.file.name(&xmit_func)
+	if ("&tx_func_name"=="qcom_mhi_qrtr_send")
+	(
+		&mhi_offset=address.offset(v.address(((struct qrtr_mhi_dev *)0)->ep))
+		&q_mhidev=&ep-&mhi_offset
+		&dev_name=d.string(D:(v.value(((struct qrtr_mhi_dev)&q_mhidev).dev->kobj.name)))
+		&chan_name=d.string(D:(v.value(((struct qrtr_mhi_dev)&q_mhidev).mhi_dev->chan_name)))
+		write #&outfile "  dev: &dev_name chan: &chan_name | v.v (struct qrtr_mhi_dev)&q_mhidev"
+
+		GOSUB QRTR_MHI &outfile &q_mhidev
+	)
+	else
+	(
+		&smd_offset=address.offset(v.address(((struct qrtr_mhi_dev *)0)->ep))
+		&q_smddev=&ep-&smd_offset
+		&dev_name=d.string(D:(v.value(((struct qrtr_smd_dev)&q_smddev).dev->kobj.name)))
+		write #&outfile "  dev: &dev_name | v.v (struct qrtr_smd_dev)&q_smddev"
+	)
+
+	&rxtask=v.value(((struct qrtr_node)&qtrt_node_addr).task)
+	&rxtask_pid=v.value(((struct task_struct *)&rxtask)->pid)
+	&rxtask_comm=v.value(((struct task_struct *)&rxtask)->comm)
+	&rxtask_comm=d.string(D:&rxtask_comm)
+	write #&outfile "   [RX] task: &rxtask_comm(pid: " %decimal &rxtask_pid ") | v.v (struct task_struct *)&rxtask"
+
+	&rxq_len=v.value(((struct qrtr_node)&qtrt_node_addr).rx_queue.qlen)
+	&rxq_next=v.value(((struct qrtr_node)&qtrt_node_addr).rx_queue.next)
+
+	if (&rxq_len!=0)
+	(
+		write #&outfile "       !!! pending receive buffers : " format.decimal(5,&rxq_len)
+
+		&ri=0
+		while (&ri<&rxq_len)
+		(
+			&cb=address.offset(v.address(((struct sk_buff)&rxq_next).cb))
+			&src_node=v.value(((struct qrtr_cb)&cb).src_node)
+			&src_port=v.value(((struct qrtr_cb)&cb).src_port)
+			&dst_node=v.value(((struct qrtr_cb)&cb).dst_node)
+			&dst_port=v.value(((struct qrtr_cb)&cb).dst_port)
+			&hdr_type=v.value(((struct qrtr_cb)&cb).type)
+			&conf_rx=v.value(((struct qrtr_cb)&cb).confirm_rx)
+
+			&data_head=v.value(((struct sk_buff)&rxq_next).head)
+			&data_data=v.value(((struct sk_buff)&rxq_next).data)
+			&data_len=v.value(((struct sk_buff)&rxq_next).len)
+			&data_tail=v.value(((struct sk_buff)&rxq_next).tail)
+
+			&rx_datas=""
+			if (&hdr_type==1)
+			(
+				&rx_data0=format.hex(8.,d.long(D:&data_data))
+				&rx_data1=format.hex(8.,d.long(D:(&data_data+0x4)))
+				&rx_datas="&rx_data0 &rx_data1"
+			)
+
+			if (&hdr_type<&max_qrtrtype)
+				&hdr_type=var.string(\qrtr_pkt_type[&hdr_type])
+
+			write #&outfile "        " format.decimal(3,&ri) " : (struct sk_buff)&rxq_next   [&src_node:&src_port]->[&dst_node:&dst_port]    type [&hdr_type]    CONF_RX [&conf_rx]    DATA [&data_data(&rx_datas)]    LEN [&data_len]    TAIL [&data_tail]"
+			if (&src_port==0xFFFFFFFE) //nameserver, ctrl packet
+			(
+				&ctrl_cmd=v.value(((struct qrtr_ctrl_pkt)&data_data).cmd)
+				&ctrl_cmd=var.string(\qrtr_pkt_type[&ctrl_cmd])
+				&server_service=v.value(((struct qrtr_ctrl_pkt)&data_data).server.service)
+				&server_instance=v.value(((struct qrtr_ctrl_pkt)&data_data).server.instance)
+				&server_node=v.value(((struct qrtr_ctrl_pkt)&data_data).server.node)
+				&server_port=v.value(((struct qrtr_ctrl_pkt)&data_data).server.port)
+				write #&outfile "            CTRL PKT CMD [&ctrl_cmd]    SERVICE [&server_service:&server_instance]    NODE_PORT [&server_node:&server_port]"
+			)
+
+			&rxq_next=v.value(((struct sk_buff)&rxq_next).next)
+			&ri=&ri+1
+		)
+	)
+	else
+	(
+		write #&outfile "       no pending"
+	)
+
+	write #&outfile "-----------------------------------------------------------------------------------"
+	write #&outfile ""
+
+	RETURN
+)
+
+QRTR_NODE_TRAVERSE:
+(
+	local &outfile
+	ENTRY &outfile
+	local &lroot &lnext &loffset &nodeaddr
+	if (!y.exist(qrtr_all_epts))
+		RETURN
+
+	&lroot=address.offset(v.address(qrtr_all_epts))
+	&lnext=v.value(((struct list_head *)&lroot)->next)
+	&loffset=address.offset(v.address(((struct qrtr_node *)0)->item))
+
+	while (&lroot!=&lnext)&&(&lnext!=0)
+	(
+		&nodeaddr=&lnext-&loffset
+		GOSUB QRTR_NODE_PARSE &outfile &nodeaddr 0xFF
+		&lnext=v.value(((struct list_head *)&lnext)->next)
+	)
+
+	RETURN
+)
+
+QRTR_NODE_TRAVERSE2:
+(
+	LOCAL &outfile
+	ENTRY &outfile
+	LOCAL &qroot
+
+	if (!y.exist(qrtr_nodes))
+		RETURN
+
+	&qroot=v.value(qrtr_nodes.rnode)
+
+	GOSUB RADIX_TREE_PARSE &outfile &qroot qrtr_node QRTR_NODE_PARSE 1
+
+	RETURN
+)
+
+QMI_SERVICE:
+(
+	ENTRY &outfile &reqaddr &sertype
+	PRIVATE &node_offset &head &next &idx
+
+	&node_offset=address.offset(v.address(((struct qmi_service *)0)->list_node))
+	&head=&reqaddr
+	&next=v.value(((struct list_head *)&head)->next)
+
+	if (&head!=&next)&&(&next!=0)
+	(
+		if (&sertype==1)
+			write #&outfile "      lookups:"
+		else if (&sertype==2)
+			write #&outfile "      servers:"
+	)
+
+	&idx=0
+	while (&head!=&next)&&(&next!=0)
+	(
+		&svcaddr=&next-&node_offset
+		&svc=v.value(((struct qmi_service *)&svcaddr)->service)
+		&ver=v.value(((struct qmi_service *)&svcaddr)->version)
+		&inst=v.value(((struct qmi_service *)&svcaddr)->instance)
+
+		if ((&idx!=0)&&(&idx%5==0))
+			write #&outfile "              "
+		write #&outfile %cont " [svc:&svc version:&ver instance:&inst]"
+		&next=v.value(((struct list_head *)&next)->next)
+		&idx=&idx+1
+	)
+
+	return
+)
+
+QRTR_SOCK_PARSE:
+(
+	LOCAL &outfile &sock &idx
+	ENTRY &outfile &sock &idx
+	
+	;;write #&outfile "v.v (struct &struct_name)&qrtr"
+	
+	&us_node=v.value(((struct qrtr_sock)&sock).us.sq_node)
+	&us_port=v.value(((struct qrtr_sock)&sock).us.sq_port)
+	&peer_node=v.value(((struct qrtr_sock)&sock).peer.sq_node)
+	&peer_port=v.value(((struct qrtr_sock)&sock).peer.sq_port)
+	&sk_data_ready=v.value(((struct qrtr_sock)&sock).sk.sk_data_ready)
+
+	write #&outfile "    node:port   US[&us_node:&us_port]    PEER[&peer_node:&peer_port]"
+    
+	if &sk_data_ready==&QMI_DATA_READY_ADDR
+	(
+		&qmi_handle=v.value(((struct qrtr_sock)&sock).sk.sk_user_data)
+		&qmi_sock="v.v (struct qmi_handle *)0x&qmi_handle"
+		write #&outfile "    qmi (&qmi_sock)"
+
+		&qmi_handler=v.value(((struct qmi_handle *)&qmi_handle)->handlers)
+		if (&qmi_handler!=0)
+		(
+			&qmi_type=v.value(((struct qmi_msg_handler *)&qmi_handler)->type)
+			&qmi_msgid=v.value(((struct qmi_msg_handler *)&qmi_handler)->msg_id)
+			&qmi_fn=v.value(((struct qmi_msg_handler *)&qmi_handler)->fn)
+			&qmi_fn=y.function(D:&qmi_fn)
+			write #&outfile "      type:&qmi_type msgid:&qmi_msgid fn:&qmi_fn"
+		)
+
+		&lookups_addr=address.offset(v.address(((struct qmi_handle *)&qmi_handle)->lookups))
+		GOSUB QMI_SERVICE &outfile &lookups_addr 1
+		&services_addr=address.offset(v.address(((struct qmi_handle *)&qmi_handle)->services))
+		GOSUB QMI_SERVICE &outfile &services_addr 2
+	)
+	
+	&sk_receive_queue_len=v.value(((struct qrtr_sock)&sock).sk.sk_receive_queue.qlen)
+	&sk_receive_queue_next=v.value(((struct qrtr_sock)&sock).sk.sk_receive_queue.next)
+	if (&sk_receive_queue_len!=0)
+	(
+		write #&outfile "    !!! pending receive buffers : " format.decimal(5,&sk_receive_queue_len)
+		
+		&ri=0.
+		while (&ri<&sk_receive_queue_len)
+		(
+			&cb=address.offset(v.address(((struct sk_buff)&sk_receive_queue_next).cb))
+			&src_node=v.value(((struct qrtr_cb)&cb).src_node)
+			&src_port=v.value(((struct qrtr_cb)&cb).src_port)
+			&dst_node=v.value(((struct qrtr_cb)&cb).dst_node)
+			&dst_port=v.value(((struct qrtr_cb)&cb).dst_port)
+			&hdr_type=v.value(((struct qrtr_cb)&cb).type)
+			&conf_rx=v.value(((struct qrtr_cb)&cb).confirm_rx)
+			
+			&data_head=v.value(((struct sk_buff)&sk_receive_queue_next).head)
+			&data_data=v.value(((struct sk_buff)&sk_receive_queue_next).data)
+			&data_len=v.value(((struct sk_buff)&sk_receive_queue_next).len)
+			&data_tail=v.value(((struct sk_buff)&sk_receive_queue_next).tail)
+			
+			write #&outfile "        " format.decimal(3,&ri) " : (struct sk_buff)&sk_receive_queue_next    [&src_node:&src_port]->[&dst_node:&dst_port]    type [&hdr_type]    CONF_RX [&conf_rx]    DATA [&data_data]    LEN [&data_len]    TAIL [&data_tail]"
+			if (&us_port==0xFFFFFFFE) //nameserver, ctrl packet
+			(
+				&ctrl_cmd=v.value(((struct qrtr_ctrl_pkt)&data_data).cmd)
+				&ctrl_cmd=var.string(\qrtr_pkt_type[&ctrl_cmd])
+				&server_service=v.value(((struct qrtr_ctrl_pkt)&data_data).server.service)
+				&server_instance=v.value(((struct qrtr_ctrl_pkt)&data_data).server.instance)
+				&server_node=v.value(((struct qrtr_ctrl_pkt)&data_data).server.node)
+				&server_port=v.value(((struct qrtr_ctrl_pkt)&data_data).server.port)
+				write #&outfile "            CTRL PKT CMD [&ctrl_cmd]    SERVICE [&server_service:&server_instance]    NODE_PORT [&server_node:&server_port]"
+			)
+		
+			&sk_receive_queue_next=v.value(((struct sk_buff)&sk_receive_queue_next).next)
+			&ri=&ri+1
+		)
+	)
+	
+	RETURN
+)
+
+RADIX_TREE_PARSE:
+(
+	LOCAL &outfile &node &struct_name &callback &skip_print
+	ENTRY &outfile &node &struct_name &callback &skip_print
+
+	LOCAL &i &j &is_table &shift &count &shift &slot &temp
+
+	&is_table=(&node)&(0x1)
+	if (&is_table==1)
+	(
+		&node=(&node)&(~0x1)
+	)
+
+	&count=v.value(((struct radix_tree_node)&node).count)
+	&shift=v.value(((struct radix_tree_node)&node).shift)
+
+	&i=0
+	while (&i<64.)
+	(
+		&slot=v.value(((struct radix_tree_node)&node).slots[&i])
+		if (&shift!=0)
+		(
+			GOSUB RADIX_TREE_PARSE &outfile &slot &struct_name &callback &skip_print
+		)
+		else if (&slot==0)
+		(
+			;;
+		)
+		else
+		(
+			;;print "v.v (struct &struct_name)&slot"
+			if (&skip_print==0)
+				write #&outfile "v.v (struct &struct_name)&slot"
+			GOSUB &callback &outfile &slot &i
+		)
+		&i=&i+1
+	)
+
+	RETURN
+)
+
+RADIX_TREE_PARSE_WITH_KEY:
+(
+    LOCAL &outfile &node &struct_name &callback &skip_print &key &_key
+	ENTRY &outfile &node &struct_name &callback &skip_print &key
+
+	LOCAL &i &j &is_table &shift &count &shift &slot &temp
+
+	&is_table=(&node)&(0x1)
+	if (&is_table==1)
+	(
+		&node=(&node)&(~0x1)
+	)
+
+	&count=v.value(((struct radix_tree_node)&node).count)
+	&shift=v.value(((struct radix_tree_node)&node).shift)
+    
+	&i=0
+	while (&i<64.)
+	(
+		&slot=v.value(((struct radix_tree_node)&node).slots[&i])
+        if &slot==0
+        (
+        )
+		else if (&shift!=0)
+		(
+            &_key=&key|(&i<<&shift)
+            ;PRINT "shift : 0x" format.hex(2.,&shift) " key : 0x" format.hex(16.,&key) " i : " %decimal &i " _key : 0x" format.hex(16.,&_key)
+			GOSUB RADIX_TREE_PARSE_WITH_KEY &outfile &slot &struct_name &callback &skip_print &_key
+		)
+		else
+		(
+            &_key=&key|&i
+            ;PRINT "+ key : 0x" format.hex(16.,&key) " i : 0x" format.hex(2.,&i) " _key : 0x" format.hex(16.,&_key)
+			GOSUB &callback &outfile &slot &_key
+		)
+		&i=&i+1
+	)
+
+	RETURN
+)
+

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+   Copyright (c) 2003-2010,2017,2020,2021 Qualcomm Technologies, Inc.
+   All rights reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+ -->
+
+<resources>
+
+    <string name="app_name">QTR</string>
+    <string name="snapdragon_settings_title">하드웨어 피드백</string>
+    <string name="data_preference_key">data_preference</string>
+	<string name="data_preference_title">Data Settings</string>
+	<string name="data_setting_summary">
+		<![CDATA[QTR helps improve next generation device security, battery life and performance.  QTR uses cellular or WiFi to automatically send anonymous device info and statistics data to QTI. <a href=\'http://reporting.qti.qualcomm.com/learnmore_en.html\' >Learn More</a>
+		]]>
+	</string>
+    <string name="data_setting_summary_ext">
+		<![CDATA[QTR helps improve next generation device security, battery life and performance.  QTR uses cellular or WiFi to automatically send anonymous device info and statistics data to QTI.
+		]]>
+	</string>
+	<string name="qtifeedback_notice" >Data collected by Qualcomm Technologies, Inc. in the U.S. and shared with its affiliates.</string>
+    <string name="qti_non_commercial" >
+        <![CDATA[<p><b>NOTICE &amp; ACKNOWLEDGEMENT</b></p>
+        <p>QTR Non-Commercial</p>
+        <p>Qualcomm Technologies, Inc. (“QTI”) is continuously looking for ways to improve its products, and one such way is through gathering and evaluating certain performance and telemetry data relating to its products, such as the QTI Mobile Test Platform (“MTP Device”). To assist in the gathering of this data, as well as to help QTI in monitoring a company’s compliance with the terms of use for QTI products such as the MTP Device, QTI has developed a proprietary software referred to as QTR Non-Commercial.</p>
+        <p>QTR Non-Commercial is designed to obtain certain performance and telemetry data from MTP Devices, including, without limitation:</p>
+        <p>&#149 Modem diagnostic logs;</p>
+        <p>&#149 Application processor performance metrics (power used, CPU, GPU, thermal);</p>
+        <p>&#149 App stats (data sent and received, connection duration, air interface technology used);</p>
+        <p>&#149 Device information such as IMEI, chipset serial number, make, model, version, processor type, memory, operating system, display type and resolution;</p>
+        <p>&#149 Wi-Fi and cellular network (3G/4G/5G) connectivity stats (data sent and received, along with connection duration);</p>
+        <p>&#149 Sensor data relating, but not limited, to accelerometer, gravity, gyroscope, linear acceleration, rotation vector, game rotation vector, geomagnetic rotation vector, magnetic field, proximity, ambient temperature, light, pressure and relative humidity;</p>
+        <p>&#149 Battery events;</p>
+        <p>&#149 Location;</p>
+        <p>&#149 IP address; and</p>
+        <p>&#149 QTR Non-Commercial software ID.</p>
+        <p><b>Given QTR Non-Commercial has been designed to obtain the aforementioned data from MTP Devices, QTR Non-Commercial may only be installed on MTP devices, and thus said software shall NOT be installed or otherwise used on any commercially-released devices.</b></p>
+        <p>To that end, QTR Non-Commercial may be part of the software (“MTP Software”) that you will be receiving from QTI for use on an MTP Device that QTI is delivering under its limited use tools agreement (or such other agreement that, in lieu of the limited use tools agreement, covers the hardware and software development tools of QTI) with the legal entity that you represent (hereinafter collectively referred to as the “Tools Agreement”).  Your use of the MTP Device and the associated MTP Software are subject to the terms and conditions of the Tools Agreement.  As such, you may use the MTP Device and the MTP Software solely in connection with (A) the internal testing, evaluation and development of (i) devices that incorporate one (1) or more integrated circuits made by or on behalf of QTI, or (ii) software applications (including software drivers) that are supported on devices that incorporate one (1) or more integrated circuits made by or on behalf of QTI, or (B) deployment of wireless networks that support devices that incorporate one (1) or more integrated circuits made by or on behalf of QTI,.</p>
+        <p>By downloading and/or using the MTP Software, you hereby acknowledge that (A) you have read and understand this notice provision and agree to be bound by the terms of this notice provision, as well as the Tools Agreement, and (B) you are an authorized representative of the legal entity you represent.</p>
+        <p>For any further questions, please send an email to <a href="mailto:QTRNonCommercial.support@qti.qualcomm.com">QTRNonCommercial.support@qti.qualcomm.com</a></p>
+		]]>
+    </string>
+	<string name="disabledStr">Hardware Feedback has disabled in this region</string>
+	<string name="notification_title"><![CDATA[Qualcomm 기술 보고]]></string>
+	<string name="notification_notice" ><![CDATA[구성 및 성능 데이터 수집이 활성화되었습니다. 자세한 내용 또는 비활성화하려면 클릭하십시오.]]></string>
+	<string name="data_setting_body" >
+		<![CDATA[<p>Qualcomm 기술 보고</p>
+		<p>하드웨어 및 소프트웨어 유형, 구성 및 성능 데이터를 수집하며, 이는 Qualcomm Technologies, Inc.의 차세대 장치의 배터리 수명, 보안 및 성능 개선에 도움을 줍니다. 비활성화하려면 체크 표시를 해제하십시오.
+		<a href=\'http://docs.google.com/gview?embedded=true&url=https://www.qualcomm.com/media/documents/files/qualcomm-gaein-jeongbo-boho-jeongcaeg-hangugeo.pdf\' >더 알아보기.</a></p>
+		]]>
+	</string>
+</resources>

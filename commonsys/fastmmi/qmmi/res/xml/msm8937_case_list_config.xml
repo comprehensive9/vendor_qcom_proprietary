@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2017, 2021 Qualcomm Technologies, Inc.
+    All Rights Reserved.
+    Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+<platform>
+
+    <!--default enable modules for ui mode -->
+
+    <variable name="basic_ui_testcases">
+        SYSTEM_INFO,
+        AUDIO_SPEAKER_PLAYTONE,
+        AUDIO_MIC1_SPEAKER_LOOPBACK,
+        AUDIO_MIC2_SPEAKER_LOOPBACK,
+        LCD_BACKLIGHT,
+        LCD,
+        LCD_IMAGE,
+        TOUCH,
+        KEY,
+        HEADSET_KEY,
+        VIBRATOR,
+        CAMERA_BACK_MAIN,
+        CAMERA_FRONT,
+        BATTERY,
+        SMB,
+        GYROSCOPE,
+        GRAVITY_SENSOR,
+        GRAVITY_SENSOR_CAL,
+        LIGHT_SENSOR,
+        MAGNETIC_SENSOR,
+        PRESSURE_SENSOR,
+        SDCARD,
+        STORAGE,
+        MEMORY,
+        SIMCARD1,
+        WIFI,
+        BLUETOOTH,
+        GPS,
+        NFC,
+        TELEPHONE_SIMCARD1
+    </variable>
+
+    <!--default enable modules for pcba mode -->
+    <variable name="basic_pcba_testcases">
+        SYSTEM_INFO,
+        LCD_BACKLIGHT,
+        LCD,
+        LCD_IMAGE,
+        KEY,
+        VIBRATOR,
+        AUDIO_SPEAKER_PLAYTONE,
+        AUDIO_MIC1_SPEAKER_LOOPBACK,
+        AUDIO_MIC2_SPEAKER_LOOPBACK,
+        CAMERA_BACK_MAIN,
+        CAMERA_FRONT,
+        TOUCH,
+        TOUCH_TRACK,
+        BATTERY,
+        SMB,
+        GYROSCOPE,
+        GRAVITY_SENSOR,
+        GRAVITY_SENSOR_CAL,
+        LIGHT_SENSOR,
+        MAGNETIC_SENSOR,
+        PRESSURE_SENSOR,
+        SDCARD,
+        STORAGE,
+        MEMORY,
+        SIMCARD1,
+        WIFI,
+        BLUETOOTH,
+        GPS,
+        NFC,
+        TELEPHONE_SIMCARD1
+    </variable>
+
+    <!--default enable modules for pcba mode -->
+    <variable name="basic_assemble_testcases">
+        SYSTEM_INFO,
+        LCD_BACKLIGHT,
+        LCD,
+        LCD_IMAGE,
+        KEY,
+        VIBRATOR,
+        AUDIO_SPEAKER_PLAYTONE,
+        AUDIO_MIC1_SPEAKER_LOOPBACK,
+        AUDIO_MIC2_SPEAKER_LOOPBACK,
+        CAMERA_BACK_MAIN,
+        CAMERA_FRONT,
+        TOUCH,
+        BATTERY,
+        SMB,
+        GYROSCOPE,
+        GRAVITY_SENSOR,
+        GRAVITY_SENSOR_CAL,
+        LIGHT_SENSOR,
+        MAGNETIC_SENSOR,
+        PRESSURE_SENSOR,
+        SDCARD,
+        STORAGE,
+        MEMORY,
+        SIMCARD1,
+        WIFI,
+        BLUETOOTH,
+        GPS,
+        NFC,
+        TELEPHONE_SIMCARD1
+    </variable>
+</platform>

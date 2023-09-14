@@ -1,0 +1,4 @@
+hidl_package_root {
+    name: "vendor.qti.data.slm",
+    use_current: true,
+}

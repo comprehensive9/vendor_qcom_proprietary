@@ -1,0 +1,115 @@
+common_thermal_cflags = ["-Wall"]
+common_thermal_cflags += ["-Wextra"]
+common_thermal_cflags += ["-Wconversion"]
+common_thermal_cflags += ["-Wsign-conversion"]
+common_thermal_cflags += ["-Wno-error=conversion"]
+common_thermal_cflags += ["-Wno-error=sign-conversion"]
+common_thermal_cflags += ["-Wno-strict-aliasing"]
+common_thermal_cflags += ["-Wunused-variable"]
+common_thermal_cflags += ["-Wno-unused-parameter"]
+common_thermal_cflags += ["-DUSE_ANDROID_LOG"]
+
+//################ Build thermal-engine Daemon ##################
+
+cc_binary {
+  name: "thermal-engine",
+
+  srcs: [
+         "./thermal.c",
+         "./thermal_monitor.c",
+	 "./thermal_util.c",
+         "./thermal_monitor-data.c",
+         "./thermal_config_v2.c",
+         "./sensors/sensors-tsens.c",
+         "./sensors/sensors_manager.c",
+         "./sensors/sensors.c",
+         "./sensors/sensors-thermal.c",
+         "./sensors/sensors-bandwidth.c",
+         "./sensors/sensor-virtual-data.c",
+         "./sensors/sensors-virtual.c",
+         "./devices/devices_manager.c",
+         "./devices/devices.c",
+         "./devices/devices_actions.c",
+         "./limits_partition_write.c",
+         "./thermal_kernel_config.c",
+         "./thermal_kernel_monitor.c",
+         "./devices/cooling_devices.c",
+         "./devices/devices-qmi.c",
+         "./devices/thermal_mitigation_device_service_v01.c",
+         "./ss_algorithm.c",
+         "./ss-data.c",
+         "./server/thermal_server.c",
+         "./server/thermal_lib_common.c",
+  ],
+
+  shared_libs: [
+                "libcutils",
+                "liblog",
+                "libdl",
+                "libqmi_common_so",
+                "libqmi_cci",
+  ],
+
+  header_libs: [
+                "liblog_headers",
+                "libcutils_headers",
+                "vendor_common_inc",
+                "libqmi_common_headers",
+                "libqmi_cci_headers",
+  ],
+
+  cflags: common_thermal_cflags + [
+        "-DCONFIG_FILE_DEFAULT=\"/vendor/etc/thermal-engine.conf\"",
+        "-D_PLATFORM_BASE=\"/devices/soc/\"",
+        "-DENABLE_LIMITS_PARTITION",
+        "-DUSE_THERMAL_FRAMEWORK",
+        "-DENABLE_MODEM_MITIGATION",
+        "-DENABLE_BW_SENSOR",
+        "-DENABLE_SS",
+        "-DENABLE_THERMAL_SERVER",
+        "-DENABLE_VIRTUAL_SENSORS",
+  ],
+
+  local_include_dirs: [".", "./inc", "./server/"],
+
+  init_rc: ["init_thermal-engine.rc"],
+
+  owner: "qti",
+
+  proprietary: true,
+}
+
+//################ Install prebuilt thermal-engine.conf  ##################
+
+prebuilt_etc {
+  name: "thermal-engine.conf",
+
+  src: "thermal-engine.conf",
+
+  owner: "qti",
+
+  proprietary: true,
+}
+
+//################ Build thermal client library ##################
+
+cc_library_shared {
+  name: "libthermalclient",
+
+  srcs: [
+         "./client/thermal_client.c",
+         "./server/thermal_lib_common.c",
+  ],
+
+  shared_libs: ["libcutils", "liblog"],
+
+  header_libs: ["liblog_headers", "libThermal_headers", "vendor_common_inc",],
+
+  cflags: common_thermal_cflags,
+
+  local_include_dirs: ["./inc", "./server/"],
+
+  owner: "qti",
+
+  proprietary: true,
+}

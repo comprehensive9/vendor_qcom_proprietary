@@ -1,0 +1,19 @@
+// Build the library
+java_library {
+
+    name: "com.qti.snapdragon.sdk.display",
+    installable: true,
+    product_specific: true,
+    sdk_version: "system_current",
+    srcs: ["./**/*.java"] + ["com/qti/snapdragon/sdk/display/IColorService.aidl"],
+}
+
+// Copy com.qti.service.xml to /system/etc/permissions/
+prebuilt_etc {
+
+    name: "com.qti.snapdragon.sdk.display.xml",
+    product_specific: true,
+    src: "com.qti.snapdragon.sdk.display.xml",
+    sub_dir: "permissions",
+
+}

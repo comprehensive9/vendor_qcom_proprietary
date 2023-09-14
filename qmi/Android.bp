@@ -1,0 +1,309 @@
+
+cc_library_headers {
+
+    name: "libqmi_legacy_headers",
+
+    export_include_dirs: ["inc",
+                          "platform",
+                          "qmi_client_helper",
+                          "services",
+                          "libqmi_legacy",
+                          "core/lib/inc"],
+
+    owner: "qti",
+    proprietary: true,
+
+}
+
+cc_library_shared {
+    name: "libqmi_legacy",
+
+    cflags: ["-DFEATURE_QMI_ANDROID",
+             "-DFEATURE_QMI_IWLAN",
+             "-DFEATURE_DATA_LOG_QXDM",
+             "-g"],
+
+    local_include_dirs: ["libqmi_legacy",
+                         "inc",
+                         "qmuxd",
+                         "platform",
+                         "core/lib/inc",
+                         "services"],
+
+
+    srcs: ["libqmi_legacy/qmi_service.c",
+           "libqmi_legacy/qmi.c",
+           "libqmi_legacy/qmi_errors.c",
+           "libqmi_legacy/qmi_wds_srvc.c",
+           "libqmi_legacy/qmi_qos_srvc.c",
+           "libqmi_legacy/qmi_nas_srvc.c",
+           "libqmi_legacy/qmi_eap_srvc.c",
+           "libqmi_legacy/qmi_atcop_srvc.c",
+           "libqmi_legacy/qmi_wds_utils.c"],
+
+    shared_libs: ["libcutils",
+                  "libqmi_client_qmux",
+                  "libdiag",
+                  "libdsutils",
+                  "libqmiservices",
+                  "libidl",
+                  "liblog"],
+
+    header_libs: ["libril-qc-qmi-services-headers",
+                  "libqmi_cci_headers",
+                  "libdiag_headers",
+                  "vendor_common_inc", "libdsutils_headers"],
+
+
+    clang: true,
+
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_library_shared {
+    name: "libqmi_client_qmux",
+
+    cflags: ["-DFEATURE_QMI_ANDROID",
+             "-DFEATURE_QMI_IWLAN",
+             "-DFEATURE_QMUXD_DISABLED",
+             "-DFEATURE_DATA_LOG_QXDM",
+             "-g"], 
+   
+
+    local_include_dirs: [".",
+                         "libqmi_legacy",
+                         "inc",
+                         "qmuxd",
+                         "platform",
+                         "core/lib/inc",
+                         "services"],
+
+    srcs: ["platform/linux_qmi_qmux_if_client.c",
+           "qmuxd/qmi_platform.c",
+           "libqmi_legacy/qmi_qmux_if.c",
+           "libqmi_legacy/qmi_util.c"],
+
+    header_libs: ["vendor_common_inc",
+	          "libdiag_headers",
+                  "libqmi_legacy_headers",
+                   "libdsutils_headers",
+                  "libqmi_common_headers",
+                  "libqmi_cci_headers"],
+
+    shared_libs: ["libcutils",
+                  "libdiag",
+                  "libdsutils",
+                  "libqmiservices",
+                  "libidl",
+                  "liblog",
+                  "libcutils"],
+
+
+    clang: true,
+
+    owner: "qti",
+    proprietary: true,
+
+}
+
+
+cc_library_shared {
+    name: "libqcci_legacy",
+
+    cflags: ["-DFEATURE_QMI_ANDROID", 
+             "-DFEATURE_DATA_LOG_QXDM",
+             "-g"],
+
+    local_include_dirs: [".",
+                         "libqmi_legacy",
+                         "inc",
+                         "platform",
+                         "core/lib/inc",
+                         "services"],
+
+
+    srcs: ["libqmi_legacy/qmi_legacy_client.c"],
+
+    shared_libs: ["libcutils",
+                  "libdiag",
+                  "libidl",
+                  "libqmi_client_qmux",
+                  "libqmi_legacy",
+                  "liblog"],
+
+    header_libs: ["vendor_common_inc",
+	              "libdiag_headers",
+                  "libqmi_legacy_headers", "libdsutils_headers"],
+
+
+    owner: "qti",
+    proprietary: true,
+
+}
+
+cc_library_shared {
+    name: "libqmi_csvt_srvc",
+
+
+
+    cflags: ["-DFEATURE_QMI_ANDROID",
+             "-DFEATURE_DATA_LOG_QXDM",
+             "-DFEATURE_NEW_BP",
+             "-g"],
+
+    local_include_dirs: [".",
+                         "libqmi_legacy",
+                         "inc",
+                         "platform",
+                         "core/lib/inc",
+                         "services"],
+
+
+    srcs: ["libqmi_legacy/qmi_csvt_srvc.c"],
+
+    shared_libs: ["libcutils",
+                  "libdiag",
+                  "libqmi_legacy",
+                  "libqmiservices",
+                  "libqcci_legacy",
+                  "libqmi_client_qmux",
+                  "liblog"],
+
+
+    header_libs: ["libril-qc-qmi-services-headers", // this is from ATEL
+                  "vendor_common_inc",
+	          "libdiag_headers",
+                  "libqmi_legacy_headers", "libdsutils_headers"],
+
+    clang: true,
+
+    owner: "qti",
+    proprietary: true,
+
+}
+
+
+cc_library_shared {
+    name: "libqmiservices_ext",
+
+    cflags: ["-Wno-missing-field-initializers"],
+
+    local_include_dirs: ["services_ext",
+                         "inc",
+                         "libqmi_legacy",
+                         "platform",
+                         "core/lib/inc"],
+
+    shared_libs: ["libidl"],
+
+    srcs: ["services_ext/common_v01.c",
+           "services_ext/voice_service_common_v02.c",
+           "services_ext/voice_service_v02.c",
+           "services_ext/wireless_data_service_v01.c",
+           "services_ext/wireless_data_administrative_service_v01.c",
+           "services_ext/wireless_messaging_service_v01.c",
+           "services_ext/device_management_service_v01.c",
+           "services_ext/network_access_service_v01.c",
+           "services_ext/user_identity_module_v01.c",
+           "services_ext/card_application_toolkit_v02.c",
+           "services_ext/phonebook_manager_service_v01.c",
+           "services_ext/sar_vs_service_v01.c",
+           "services_ext/specific_absorption_rate_v01.c",
+           "services_ext/control_service_v01.c",
+           "services_ext/qmi_ims_vt_v01.c",
+           "services_ext/qualcomm_mobile_access_point_v01.c",
+           "services_ext/circuit_switched_video_telephony_v01.c",
+           "services_ext/ip_multimedia_subsystem_video_telephony_v01.c",
+           "services_ext/ip_multimedia_subsystem_presence_v01.c",
+           "services_ext/coexistence_manager_v01.c",
+           "services_ext/ip_multimedia_subsystem_settings_v01.c",
+           "services_ext/radio_frequency_radiated_performance_enhancement_v01.c",
+           "services_ext/ip_multimedia_subsystem_application_v01.c",
+           "services_ext/ip_multimedia_subsystem_rtp_v01.c",
+           "services_ext/ip_multimedia_subsystem_dcm_v01.c",
+           "services_ext/data_system_determination_v01.c",
+           "services_ext/data_port_mapper_v01.c",
+           "services_ext/data_common_v01.c",
+           "services_ext/persistent_device_configuration_v01.c"],
+
+
+    header_libs: ["vendor_common_inc"],
+
+    clang: true,
+
+    owner: "qti",
+    proprietary: true,
+
+}
+
+
+
+cc_library_shared {
+    name: "libqmiservices",
+
+    cflags: ["-Wno-missing-field-initializers"],
+
+    local_include_dirs: ["services",
+                         "inc",
+                         "libqmi_legacy",
+                         "platform",
+                         "core/lib/inc"],
+
+    shared_libs: ["libidl"],
+
+    whole_static_libs: ["libimsqmiservices",
+                        "libdataqmiservices",
+                        "librilqmiservices"],
+
+    srcs: ["services/common_v01.c",
+           "services/sar_vs_service_v01.c",
+           "services/lowi_service_v01.c",
+           "services/secure_filesystem_service_v01.c",
+           "services/bandwidth_limits_management_v01.c"],
+
+
+    clang: true,
+
+    owner: "qti",
+    proprietary: true,
+
+    header_libs: ["vendor_common_inc"],
+
+}
+
+cc_library_shared {
+    name: "libqmi_client_helper",
+
+    cflags: ["-DFEATURE_QMI_ANDROID",
+             "-DFEATURE_QMI_IWLAN",
+             "-DFEATURE_DATA_LOG_QXDM",
+             "-g"],
+
+    local_include_dirs: [".",
+                         "qmi_client_helper"],
+
+    srcs: ["qmi_client_helper/qmi_client_helper.c"],
+
+    shared_libs: ["libcutils",
+                  "libdiag",
+                  "libdsutils",
+                  "libqmiservices",
+                  "libqmi_client_qmux",
+                  "libqmi_cci",
+                  "libidl",
+                  "liblog"],
+
+    header_libs: ["libqmi_common_headers",
+                  "libqmi_cci_headers",
+                  "libqmi_legacy_headers",
+                  "vendor_common_inc",
+                  "libdiag_headers",
+                  "libdataqmiservices_headers", "libdsutils_headers"],
+
+    clang: true,
+
+    owner: "qti",
+    proprietary: true,
+
+}

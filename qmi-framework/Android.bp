@@ -1,0 +1,252 @@
+common_cflags = ["-g"]
+common_cflags += ["-O2"]
+common_cflags += ["-fno-inline"]
+common_cflags += ["-fno-short-enums"]
+common_cflags += ["-fpic"]
+common_cflags += ["-Wall"]
+common_cflags += ["-Werror"]
+common_cflags += ["-Wno-missing-field-initializers"]
+common_cflags += ["-Wno-unused-parameter"]
+
+// _________________________ libqmi_common _________________________ //
+
+cc_library {
+    name: "libqmi_common_so",
+
+    cflags: common_cflags,
+
+    srcs: ["common/src/common_v01.c"],
+
+    shared_libs: ["libcutils"] + ["libutils"],
+    header_libs: ["libqmi_common_headers"],
+
+    export_header_lib_headers: ["libqmi_common_headers"],
+
+    owner: "qti",
+    proprietary: true,
+    host_supported: true
+}
+
+cc_library_headers {
+    name: "libqmi_common_headers",
+    export_include_dirs: ["inc"] + ["common/inc"],
+    vendor_available: true,
+    host_supported: true
+}
+
+// _________________________ libqmi_encdec _________________________ //
+
+cc_library {
+    name: "libqmi_encdec",
+
+    cflags: common_cflags,
+
+    srcs: ["encdec/qmi_idl_accessor.c"] + ["encdec/qmi_idl_lib.c"],
+
+    shared_libs: ["libcutils"] + ["libutils"],
+    header_libs: ["libqmi_encdec_headers"],
+
+    export_header_lib_headers: ["libqmi_encdec_headers"],
+
+    owner: "qti",
+    proprietary: true,
+    host_supported: true
+}
+
+cc_library_headers {
+    name: "libqmi_encdec_headers",
+    export_include_dirs: ["inc"],
+    proprietary: true,
+    host_supported: true
+}
+
+// _________________________ libqmi_cci _________________________ //
+
+cc_library_shared {
+    name: "libqmi_cci",
+
+    cflags: common_cflags + ["-DQMI_FW_ANDROID"] + ["-DQMI_FW_ADB_LOG"] + ["-DQMI_CCI_ANDROID"] + ["-DQMI_CCI_SMEM_LOG_DISABLE"],
+
+    header_libs: ["libcutils_headers"] + ["libqrtr_headers"] + ["libqsocket_headers"] + ["libqmi_cci_headers"],
+
+    srcs: ["qcci/src/qmi_cci_common.c"] + ["qcci/src/qmi_cci_target.c"] + ["qcci/src/qmi_cci_xport_ipc_router.c"] + ["qcci/src/qmi_cci_xport_qrtr.c"],
+
+    shared_libs: ["libcutils"] + ["libutils"] + ["libqmi_encdec"] + ["liblog"],
+
+    static_libs: ["libqmi_common_so"],
+
+    export_header_lib_headers: ["libqmi_cci_headers"],
+
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_library_headers {
+    name: "libqmi_cci_headers",
+    export_include_dirs: ["qcci/inc"] + ["inc"],
+    vendor_available: true,
+}
+
+// _________________________ libqmi_csi _________________________ //
+
+cc_library_shared {
+    name: "libqmi_csi",
+
+    cflags: common_cflags + ["-DQMI_FW_ADB_LOG"] + ["-DQMI_FW_ANDROID"] + ["-DQMI_CSI_ANDROID"] + ["-DQMI_CSI_SMEM_LOG_DISABLE"],
+
+    srcs: ["qcsi/src/qmi_csi_common.c"] + ["qcsi/src/qmi_csi_xport_ipc_router.c"] + ["qcsi/src/qmi_csi_target.c"] + ["qcsi/src/qmi_csi_xport_qrtr.c"],
+
+    shared_libs: ["libcutils"] + ["libutils"] + ["libqmi_encdec"] + ["liblog"],
+
+    static_libs: ["libqmi_common_so"],
+
+    header_libs: ["libqrtr_headers"] + ["libqsocket_headers"] + ["libqmi_csi_headers"],
+
+    export_header_lib_headers: ["libqmi_csi_headers"],
+
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_library_headers {
+    name: "libqmi_csi_headers",
+    export_include_dirs: ["qcsi/inc"],
+    vendor_available: true,
+}
+
+// _________________________ qmi_fw conf _________________________ //
+
+prebuilt_etc {
+    name: "qmi_fw.conf",
+    owner: "qti",
+    proprietary: true,
+    src: "etc/qmi_fw.conf",
+}
+
+// _________________________ irsc_util _________________________ //
+
+cc_binary {
+    name: "irsc_util",
+    local_include_dirs: ["qsocket/inc"],
+    cflags: common_cflags + ["-DDEBUG_ANDROID"],
+    header_libs: ["libutils_headers"],
+    shared_libs: ["liblog"],
+    srcs: ["irsc_util/irsc_util.c"],
+    owner: "qti",
+    proprietary: true,
+}
+
+// _________________________ libqrtr _________________________ //
+
+cc_library_shared {
+    name: "libqrtr",
+
+    cflags: common_cflags,
+    header_libs: ["libqrtr_headers"],
+    export_header_lib_headers: ["libqrtr_headers"],
+    srcs: ["qrtr/lib/qrtr.c"],
+
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_library_headers {
+    name: "libqrtr_headers",
+    export_include_dirs: ["qrtr/lib"] + ["qrtr/src"],
+    proprietary: true,
+}
+
+cc_binary {
+    name: "qrtr-cfg",
+    cflags: common_cflags,
+    srcs: ["qrtr/src/cfg.c"],
+    shared_libs: ["libqrtr"],
+
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_binary {
+    name: "qrtr-ns",
+    cflags: common_cflags,
+    srcs: ["qrtr/src/ns.c"] + ["qrtr/src/map.c"] + ["qrtr/src/hash.c"] + ["qrtr/src/waiter.c"] + ["qrtr/src/util.c"],
+    shared_libs: ["libqrtr"],
+
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_binary {
+    name: "qrtr-lookup",
+    cflags: common_cflags,
+    srcs: ["qrtr/src/lookup.c"] + ["qrtr/src/util.c"],
+    shared_libs: ["libqrtr"],
+
+    owner: "qti",
+    proprietary: true,
+}
+
+// _________________________ libqsocket _________________________ //
+
+cc_library_shared {
+    name: "libqsocket",
+
+    cflags: common_cflags,
+    header_libs: ["libqsocket_headers"],
+    export_header_lib_headers: ["libqsocket_headers"],
+    srcs: ["qsocket/src/qsocket_ipcr.c"],
+
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_library_headers {
+    name: "libqsocket_headers",
+    export_include_dirs: ["qsocket/inc"],
+    proprietary: true,
+}
+
+// _________________________ libsmemlog _________________________ //
+
+cc_library_shared {
+    name: "libsmemlog",
+
+    cflags: common_cflags,
+
+    header_libs: ["libsmemlog_headers"],
+    export_header_lib_headers: ["libsmemlog_headers"],
+    srcs: ["smem_log/smem_log.c"],
+
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_library_headers {
+    name: "libsmemlog_headers",
+    export_include_dirs: ["smem_log"],
+    proprietary: true,
+}
+
+// _________________________ libsystem_health_mon _________________________ //
+
+cc_library_shared {
+    name: "libsystem_health_mon",
+
+    cflags: common_cflags + ["-DSHM_ANDROID"],
+
+    header_libs: ["libsystem_health_mon_headers"],
+    export_header_lib_headers: ["libsystem_health_mon_headers"],
+
+    srcs: ["system_health_monitor/sys_health_mon.c"],
+
+    shared_libs: ["libcutils"] + ["libutils"] + ["liblog"],
+
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_library_headers {
+    name: "libsystem_health_mon_headers",
+    export_include_dirs: ["system_health_monitor"],
+    proprietary: true,
+}

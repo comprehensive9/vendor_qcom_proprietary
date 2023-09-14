@@ -1,0 +1,172 @@
+/*********************************************************************
+Copyright (c) 2021 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+**********************************************************************/
+
+package vendor.qti.ims.configservice@1.0;
+import IConfigServiceListener;
+
+/**
+ * This is the interface returned when loading an implementation of IConfigService.
+ * The SettingsData contains two fields:one integer and one struct. The integer
+ * field is used to identify the type of SettingsId being set and the struct contains a
+ * vector of key value pair, where key is the SettingsKeys and value is the SettingsValues.
+ *
+ */
+interface IConfigService {
+    /**
+     * Sends RCS configuration data to modem
+     *
+     * @param   configData    the new configuration in ConfigData container
+     *          userData      user data/request ID.
+     *
+     * @return
+     *   status               status code as per RequestStatus
+     *
+     * The response status for request is provided through
+     * IConfigServiceListener::onCommandStatus()
+     */
+    setConfig(ConfigData configData, uint32_t userData) generates (int32_t status);
+
+    /**
+     * Sends RCS settings data to modem
+     *
+     * @param   settingsData       struct containing type of SettingsId and key value pair
+     *                             for specifying individual SettingsKeys and their values.
+     *          userData           user data/request ID.
+     * @return
+     *   status                    status code as per RequestStatus
+     *
+     * The response status for request is provided through
+     * IConfigServiceListener::onCommandStatus()
+     */
+    setSettingsValue(SettingsData settingsData, uint32_t userData) generates (int32_t status);
+
+    /**
+     * Queries the modem to retrieve value of all the properties set on modem
+     * of a particular type.
+     *
+     * @param   settingsId         integer value representing the type of SettingsId
+     *                             to query
+     *          userData           user data/request ID.
+     * @return
+     *   status                    status code as per RequestStatus
+     *
+     * The response status for request is provided through
+     * IConfigServiceListener::onGetSettingsResponse()
+     */
+    getSettingsValue(SettingsId settingsId, uint32_t userData) generates (int32_t status);
+
+    /**
+     * Registers for callback with modem to listen for any settings value update on
+     * modem. Any change in settings value from modem would be provided by
+     * IConfigServiceListener::onGetUpdatedSettings callback.
+     *
+     * @param   userData           user data/request ID.
+     *
+     * @return  status             status of the register request as per RequestStatus
+     *
+     * The response status for request is provided through
+     * IConfigServiceListener::onCommandStatus()
+     */
+    registerForSettingsChange(uint32_t userData) generates (int32_t status);
+
+    /**
+     * Deregisters for callback with modem for any settings value update on modem
+     * previously registered for using registerForSettingsChange().
+     *
+     * @param   userData           user data/request ID.
+     *
+     * @return  status             status returned as per RequestStatus
+     *
+     * The response status for request is provided through
+     * IConfigServiceListener::onCommandStatus()
+     */
+    deregisterForSettingsChange(uint32_t userData) generates (int32_t status);
+
+    /**
+     * Queries the modem to retrieve the Uce Capabilities set on modem.
+     * If modem is up and status of UCE capabilities are available then uceCapInfo
+     * would carry the capability status and status would be returned as SUCCESS
+     * else status can be returned as FAILED or IN_PROGRESS.
+     *
+     * @return  status             status returned as per RequestStatus
+                uceCapInfo         capinfo notifying the UCE capabilities on modem
+     */
+    getUceStatus() generates (int32_t status, UceCapabilityInfo uceCapInfo);
+
+    /**
+     * Queries the modem to retrieve the Rcs Capabilities set on modem.
+     * If modem is up and status of RCSService capabilities are available then
+     * isRcsEnabled would carry the capability status and status would be returned
+     *  as SUCCESS else status can be returned as FAILED or IN_PROGRESS.
+     *
+     * @return  status             status returned as per RequestStatus
+                isRcsEnabled       value notifying the Rcs capabilities on modem
+     */
+    getRcsServiceStatus() generates (int32_t status, bool isRcsEnabled);
+
+    /**
+     * Updates token when it is available after fetch request is successful.
+     * It can be updated when requested by onTokenFetchRequest callback or
+     * whenever token is refreshed by client.
+     *
+     * @param   token         plain-Text app-token, must be base-64 encoded
+     *          userData      user data/request ID.
+     *
+     * @return  status        status returned as per RequestStatus
+     * The response status for request is provided through
+     * IConfigServiceListener::onCommandStatus()
+     */
+    setAppToken(string token, uint32_t userData) generates (int32_t status);
+
+     /**
+     * Update the status of token fetch request as triggered by the client
+     * as and when status changes
+     *
+     * @param   requestId   unique Id received as part of onTokenFetchRequest callback
+     * @param   tokenType   type of token as defined in TokenType enum
+     * @param   status      status of the token fetch request as defined in StatusCode enum
+     * @param   userData    user data/request ID.
+     *
+     * @return  status      status returned as per #RequestStatus
+     *
+     * The response status for request is provided through
+     * IConfigServiceListener::onCommandStatus()
+     *
+     */
+
+    updateTokenFetchStatus(int32_t requestId, TokenType tokenType, StatusCode status, uint32_t userData) generates (int32_t status);
+
+    /**
+    * Queries the auto configuration xml structure from modem if its available.
+    * The configuration would be provided through
+    * IConfigServiceListener::onAutoConfigurationReceived()
+    *
+    * @param   userData    user data/request ID.
+    *
+    * @return
+    *   status                        code. See #RequestStatus.
+    *
+    * The response status for request is provided through
+    * IConfigServiceListener::onCommandStatus()
+    *
+    */
+
+    getAcsConfiguration(uint32_t userData) generates (int32_t status);
+
+    /**
+     * Triggers the Request to Modem to generate AutoConfig configurations
+     *
+     * @param autoConfigReasonType          AutoConfig Reason type for triggering the request to modem
+     *        userData                      user data/request ID.
+     * @return
+     *        status                        code. See #RequestStatus.
+     *
+     * The response status for request is provided through
+     * IConfigServiceListener::onCommandStatus()
+     */
+    triggerAcsRequest(AutoConfigTriggerReason autoConfigReasonType, uint32_t userData) generates (int32_t status);
+
+};

@@ -1,0 +1,36 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+/** @file  types.idl */
+
+
+struct TUIConfig{
+    /**
+     * Enable/Disable use of Secure Indicator.
+     */
+    uint8 useSecureIndicator;
+    /**
+     * String identifier for the layout to be displayed on the screen.
+     */
+    uint8[256] layoutName;
+    /**
+     * Optionally enable periodic session authentication of Secure Session
+     * running in TrustedVM.
+     * @caution The use of this feature can cause some performance impact.
+     */
+    uint8 enableSessionAuth;
+};
+
+/**DisplayID Types for TUI **/
+const uint32 TUI_PRIMARY_DISPLAY = 1;
+const uint32 TUI_SECONDARY_DISPLAY = 2;
+
+/** Input Types for TUI **/
+const uint32 TUI_TOUCH_INPUT = 1;
+const uint32 TUI_MAX_INPUT = 1;
+
+
+

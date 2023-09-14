@@ -1,0 +1,4 @@
+cc_library_headers {
+    name: "libmmparser_headers",
+    export_include_dirs: ["inc"],
+}

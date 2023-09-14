@@ -1,0 +1,21 @@
+android_app {
+    name: "QSensorTest",
+    srcs: [
+        "src/com/qualcomm/qti/sensors/core/**/*.java",
+        "src/com/qualcomm/qti/sensors/ui/**/*.java",
+    ],
+    static_libs: [
+        "android-support-v7-appcompat",
+        "android-support-v4",
+    ],
+    resource_dirs: [
+        "res",
+    ],
+    certificate: "platform",
+    sdk_version: "system_current",
+    optimize: {
+        proguard_flags_files: ["proguard.flags"],
+    },
+    proprietary: true,
+    owner: "qti",
+}

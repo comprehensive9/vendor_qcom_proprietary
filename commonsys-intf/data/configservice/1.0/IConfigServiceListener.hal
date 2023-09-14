@@ -1,0 +1,104 @@
+/*********************************************************************
+Copyright (c) 2021 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+**********************************************************************/
+
+package vendor.qti.ims.configservice@1.0;
+
+interface IConfigServiceListener {
+    /**
+     * Callback function to notify the clients the status of request placed.
+     *
+     * @param status     success or failure of set requests
+     *        userData   user data/request ID corresponding to client request.
+     */
+    oneway onCommandStatus(RequestStatus status, uint32_t userData);
+
+    /**
+     * Callback triggered upon getting result of getSettingsValue()
+     *
+     * @param   status    RequestStatus to indicate whether get request to
+     *                    modem was success or not
+     *          cbdata    struct containing the SettingsId requested and
+     *                    the corresponding values from modem as key-value
+     *                    pair vector, if status is OK
+     *          userData  user data/request ID corresponding to the client request.
+     */
+    oneway onGetSettingsResponse(RequestStatus status, SettingsData cbdata, uint32_t userData);
+
+    /**
+     * Callback function to notify clients of the Autoconfiguration xml
+     * after successful negotiation between UE and network. It would be
+     * triggered when client requests getAcsConfiguration() or when
+     * there is a change in autoconfiguration xml on modem which would
+     * be notified by this listener.
+     *
+     * @param acsConfig config data structure having autoconfiguration xml
+     *
+     * @return
+     *   None.
+     *
+     * @dependencies
+     *   None.
+     */
+
+    oneway onAutoConfigurationReceived(AutoConfig acsConfig);
+
+    /**
+    * Callback triggered due to service error so reconfiguration is required from the client.
+    * On getting this event the client needs to invoke the setConfig API to send
+    * configuration xml to modem again.
+    */
+    oneway onReconfigNeeded();
+
+    /**
+     * Indication triggered when token refresh is requested due to given reasons.
+     * On getting this event, client needs to trigger token request and invoke the
+     * updateTokenFetchStatus API to update the status of the request where there is
+     * a change in it.
+     *
+     * @param   requestId   unique Id for the request triggered
+     * @param   tokenType   type of token as defined in TokenType enum
+     * @param   reqReason   reason of the token fetch request as defined in TokenRequestReason enum
+     */
+    oneway onTokenFetchRequest(int32_t requestId, TokenType tokenType, TokenRequestReason reqReason);
+
+    /**
+     * Callback triggered notifying the UCE capabilities on modem, triggered upon
+     * getting result of getUceStatus()
+     */
+    oneway onUceStatusUpdate(UceCapabilityInfo capinfo);
+
+    /**
+     * Callback triggered notifying the RCS capabilities on modem, triggered upon
+     * getting result of getRcsServiceStatus()
+     */
+    oneway onRcsServiceStatusUpdate(bool isRcsEnabled);
+
+    /**
+     * Unsolicited indication to client when IConfigService receives an error
+     * response for Auto Config request to server that requires additional
+     * handling from the client.
+     *
+     * @param acsResponse sip response of the ACS request
+     *
+     * @return
+     *   None.
+     *
+     * @dependencies
+     *   None.
+     */
+    oneway onAutoConfigErrorSipResponse(AutoConfigResponse acsResponse);
+
+     /**
+     * Unsolicited indication received from modem to notify HAL client if value of
+     * SettingsId has been updated on modem
+     *
+     *
+     * @param   cbdata    struct containing the SettingsId for which callback is registered
+     *                    and the corresponding values from modem as key-value
+     *                    pair vector.
+     */
+    oneway onGetUpdatedSettings(SettingsData cbdata);
+};

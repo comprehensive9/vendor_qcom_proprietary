@@ -1,0 +1,19 @@
+cc_library_shared {
+    name: "libmmi_jni",
+    srcs: ["MmiDiagJNIInterface.cpp"],
+
+    shared_libs: [
+        "libutils",
+        "libcutils",
+        "libdiag_system",
+        "liblog",
+        "libnativehelper",
+    ],
+
+    header_libs: [
+        "vendor_common_inc",
+        "libdiag_headers_system",
+    ],
+
+    system_ext_specific: true,
+}

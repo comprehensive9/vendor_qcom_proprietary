@@ -1,0 +1,38 @@
+
+
+cc_binary {
+    name: "perfunittests",
+
+    srcs: [
+        "ttf.cpp",
+        "perf-util/EventDataPoolTest.cpp",
+        "perf-util/EventQueueTest.cpp",
+        "perf-hal/PerfGlueLayerTest.cpp",
+        "activity-trigger/ActivityTriggerTest.cpp",
+        "mp-ctl/ActiveRequestListTest.cpp",
+    ],
+
+    shared_libs: [
+        "libcutils",
+        "libdl",
+        "libutils",
+        "liblog",
+        "libqti-util",
+        "libperfgluelayer",
+        "libqti-perfd",
+    ],
+
+    include_dirs: [
+        "vendor/qcom/proprietary/android-perf/perf-hal",
+        "vendor/qcom/proprietary/android-perf/perf-util",
+        "vendor/qcom/proprietary/android-perf/mp-ctl",
+        "vendor/qcom/proprietary/android-perf/tests",
+    ],
+
+    cflags: [
+        "-Wall",
+        "-DQTI_DEBUG=0",
+    ],
+
+    proprietary: true,
+}

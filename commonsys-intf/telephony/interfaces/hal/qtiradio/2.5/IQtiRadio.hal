@@ -1,0 +1,32 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ */
+
+package vendor.qti.hardware.radio.qtiradio@2.5;
+
+import @2.4::IQtiRadio;
+
+interface IQtiRadio extends @2.4::IQtiRadio {
+    /**
+     * QTIRADIO_REQUEST_NR_CONFIG
+     * If we call this fuction with SA/NSA/NSA+SA set in NrConfig, will enable SA/NSA/NSA+SA.
+     *
+     * @param serial to match request/response. Responses must include the same token as requests.
+     *
+     * Response callback is IQtiRadioResponse.setNrConfigResponse()
+     */
+    oneway setNrConfig(int32_t serial, NrConfig config);
+
+
+    /**
+     * QTIRADIO_REQUEST_QUERY_NR_CONFIG
+     *
+     * @param serial to match request/response. Responses must include the same token as requests.
+     *
+     * Response callback is IQtiRadioResponse.onNrConfigResponse()
+     */
+    oneway queryNrConfig(int32_t serial);
+};

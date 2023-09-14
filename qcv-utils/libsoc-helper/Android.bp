@@ -1,0 +1,62 @@
+cc_library_shared {
+    name: "libsoc_helper",
+    srcs: ["native/src/libsoc_helper.c"],
+    local_include_dirs: ["native/inc"],
+    shared_libs: ["libcutils"],
+    vendor: true,
+    export_include_dirs: ["native/inc"],
+    compile_multilib: "both",
+    owner: "qti",
+    proprietary: true,
+
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+}
+
+cc_library_shared {
+    name: "libsoc_helper_jni",
+    srcs: ["jni/src/com_qualcomm_qti_LibsocHelper.cpp"],
+    shared_libs: [
+        "libsoc_helper",
+        "liblog",
+        "libutils",
+    ],
+    local_include_dirs: ["jni/inc"],
+    header_libs: ["jni_headers"],
+
+    vendor: true,
+    compile_multilib: "both",
+    owner: "qti",
+    proprietary: true,
+
+    cflags: [
+        "-Wno-unused-parameter",
+    ],
+}
+
+java_library_static {
+    name: "libsoc_helper_static",
+    srcs: ["java/**/*.java"],
+    sdk_version: "current",
+    owner: "qti",
+    proprietary: true,
+}
+
+prebuilt_etc {
+    name: "init.qti.qcv.rc",
+    src: "init.qti.qcv.rc",
+    sub_dir: "init",
+    vendor: true,
+    owner: "qti",
+    proprietary: true,
+}
+
+sh_binary {
+    name: "init.qti.qcv.sh",
+    src: "init.qti.qcv.sh",
+    vendor: true,
+    owner: "qti",
+    proprietary: true,
+}

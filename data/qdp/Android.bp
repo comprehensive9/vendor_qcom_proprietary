@@ -1,0 +1,39 @@
+cc_library_shared {
+   name: "libqdp",
+   sanitize:{
+    integer_overflow: true,
+   },
+   vendor: true,
+   owner: "qti",
+   cflags: [
+    "-DFEATURE_DATA_LOG_QXDM",
+    "-DFEATURE_QDP_LINUX_ANDROID",
+   ],
+   export_include_dirs: [
+    "inc",
+   ],
+   srcs: [
+    "src/qdp.c",
+    "src/qdp_platform.c",
+    "src/qdp_qmi_wds.c"
+   ],
+   header_libs: [
+    "libqmi_encdec_headers",
+    "libdataqmiservices_headers",
+    "vendor_common_inc",
+    "libqmi_cci_headers",
+    "libqmi_common_headers",
+    "libdsutils_headers",
+    "libqmi_legacy_headers",
+    "libdiag_headers",
+   ],
+   shared_libs: [
+    "libdiag",
+    "libdsutils",
+    "libcutils",
+    "libqmiservices",
+    "libqmi_cci",
+    "libqmi_common_so",
+    "libqmi_client_helper",
+   ],
+}

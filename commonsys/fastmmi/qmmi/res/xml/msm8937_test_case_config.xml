@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2017, 2021 Qualcomm Technologies, Inc.
+    All Rights Reserved.
+    Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+
+<FactoryTest>
+
+    <TestCase
+        name="AUDIO_SPEAKER_PLAYTONE"
+        auto="false"
+        enable="true"
+        group="Audio"
+        method="mm_audio_ftm">
+        <parameters>
+            <string name="init_service">vendor.audio_tc1</string>
+        </parameters>
+    </TestCase>
+
+    <TestCase
+        name="AUDIO_MIC1_SPEAKER_LOOPBACK"
+        auto="false"
+        enable="true"
+        group="Audio"
+        method="mm_audio_ftm">
+        <parameters>
+            <string name="init_service">vendor.audio_tc2</string>
+        </parameters>
+    </TestCase>
+
+    <TestCase
+        name="AUDIO_MIC2_SPEAKER_LOOPBACK"
+        auto="false"
+        enable="true"
+        group="Audio"
+        method="mm_audio_ftm">
+        <parameters>
+            <string name="init_service">vendor.audio_tc3</string>
+        </parameters>
+    </TestCase>
+
+    <TestCase
+        name="BATTERY"
+        auto="true"
+        enable="true"
+        group="Battery"></TestCase>
+
+    <TestCase
+        name="SMB"
+        auto="false"
+        enable="true"
+        group="Smb"></TestCase>
+
+    <TestCase
+        name="BLUETOOTH"
+        auto="true"
+        enable="true"
+        group="Bluetooth">
+        <parameters>
+            <!--  unit: ms -->
+            <string name="timeout">5000</string>
+        </parameters>
+    </TestCase>
+
+    <TestCase
+        name="CAMERA_BACK_MAIN"
+        auto="false"
+        enable="true"
+        group="Camera"
+        method="preview">
+        <parameters>
+            <string name="type">back</string>
+        </parameters>
+    </TestCase>
+
+    <TestCase
+        name="CAMERA_FRONT"
+        auto="false"
+        enable="true"
+        group="Camera"
+        method="preview">
+        <parameters>
+            <string name="type">front</string>
+        </parameters>
+    </TestCase>
+
+    <TestCase
+        name="GPS"
+        auto="true"
+        enable="true"
+        group="Gps">
+        <parameters>
+            <!--  unit: ms -->
+            <string name="timeout">10000</string>
+        </parameters>
+    </TestCase>
+
+    <TestCase
+        name="GRAVITY_SENSOR"
+        auto="true"
+        enable="true"
+        group="Sensor">
+        <parameters>
+            <string name="type">accelerometer</string>
+            <!--  unit: ms -->
+            <string name="freq">1000</string>
+        </parameters>
+        <limits>
+            <limit
+                name="x"
+                max="15"
+                min="-15"></limit>
+            <limit
+                name="y"
+                max="15"
+                min="-15"></limit>
+            <limit
+                name="z"
+                max="15"
+                min="-15"></limit>
+        </limits>
+    </TestCase>
+
+    <TestCase
+        name="GRAVITY_SENSOR_CAL"
+        auto="false"
+        enable="true"
+        group="Sensor">
+        <parameters>
+            <string name="type">accelerometer_cal</string>
+        </parameters>
+    </TestCase>
+
+    <TestCase
+        name="GYROSCOPE"
+        auto="true"
+        enable="true"
+        group="Sensor">
+        <parameters>
+            <string name="type">gyroscope</string>
+            <!--  unit: ms -->
+            <string name="freq">1000</string>
+        </parameters>
+        <limits>
+            <limit
+                name="x"
+                max="1"
+                min="-1"></limit>
+            <limit
+                name="y"
+                max="1"
+                min="-1"></limit>
+            <limit
+                name="z"
+                max="1"
+                min="-1"></limit>
+        </limits>
+    </TestCase>
+
+    <TestCase
+        name="KEY"
+        auto="false"
+        enable="true"
+        group="Key">
+        <parameters>
+            <string name="key">MENU,HOME,BACK,VOLUME_UP,VOLUME_DOWN,POWER</string>
+        </parameters>
+    </TestCase>
+
+    <TestCase
+        name="LCD"
+        auto="false"
+        enable="true"
+        group="Lcd"></TestCase>
+    <!--
+    Type list:
+    BACKLIGHT = 0;
+    KEYBOARD = 1;
+    BUTTONS = 2;
+    BATTERY = 3;
+    NOTIFICATIONS = 4;
+    ATTENTION = 5;
+    BLUETOOTH = 6;
+    WIFI = 7;
+    COUNT = 8;
+    -->
+
+    <TestCase
+        name="LCD_BACKLIGHT"
+        auto="false"
+        enable="true"
+        group="Light">
+        <parameters>
+            <string name="type">0</string>
+        </parameters>
+    </TestCase>
+
+    <TestCase
+        name="LCD_IMAGE"
+        auto="false"
+        enable="true"
+        group="Lcd">
+        <parameters>
+            <string name="file">/sdcard/qmmi.png</string>
+        </parameters>
+    </TestCase>
+
+    <TestCase
+        name="LIGHT_SENSOR"
+        auto="true"
+        enable="true"
+        group="Sensor">
+        <parameters>
+            <string name="type">light</string>
+        </parameters>
+        <limits>
+            <limit
+                name="value"
+                max="10000"
+                min="0"></limit>
+        </limits>
+    </TestCase>
+
+    <!-- limit max 20G, unit : GB -->
+    <TestCase
+        name="MEMORY"
+        auto="false"
+        enable="true"
+        group="Memory">
+        <limits>
+            <limit
+                name="value"
+                max="20"
+                min="0"></limit>
+        </limits>
+    </TestCase>
+
+    <TestCase
+        name="MAGNETIC_SENSOR"
+        auto="true"
+        enable="true"
+        group="Sensor">
+        <parameters>
+            <string name="type">magnetic_field</string>
+            <!--  unit: ms -->
+            <string name="freq">1000</string>
+        </parameters>
+        <limits>
+            <limit
+                name="x"
+                max="1000"
+                min="-1000"></limit>
+            <limit
+                name="y"
+                max="1000"
+                min="-1000"></limit>
+            <limit
+                name="z"
+                max="1000"
+                min="-1000"></limit>
+        </limits>
+    </TestCase>
+
+    <TestCase
+        name="PRESSURE_SENSOR"
+        auto="true"
+        enable="true"
+        group="Sensor">
+        <parameters>
+            <string name="type">pressure</string>
+        </parameters>
+        <limits>
+            <limit
+                name="value"
+                max="10"
+                min="0"></limit>
+        </limits>
+    </TestCase>
+
+    <TestCase
+        name="NFC"
+        auto="false"
+        enable="true"
+        group="Nfc"></TestCase>
+
+
+    <!-- limit max 20G, unit : GB -->
+    <TestCase
+        name="SDCARD"
+        auto="true"
+        enable="true"
+        group="Storage">
+        <parameters>
+            <string name="type">sdcard</string>
+        </parameters>
+        <limits>
+            <limit
+                name="value"
+                max="20"
+                min="0"></limit>
+        </limits>
+    </TestCase>
+
+    <!-- limit max 20G, unit : GB -->
+    <TestCase
+        name="STORAGE"
+        auto="false"
+        enable="true"
+        group="Storage">
+        <parameters>
+            <string name="type">storage</string>
+        </parameters>
+        <limits>
+            <limit
+                name="value"
+                max="20"
+                min="0"></limit>
+        </limits>
+    </TestCase>
+
+    <TestCase
+        name="SIMCARD1"
+        auto="true"
+        enable="true"
+        group="Sim">
+        <parameters>
+            <string name="sub">0</string>
+        </parameters>
+    </TestCase>
+
+    <TestCase
+        name="SYSTEM_INFO"
+        auto="true"
+        enable="true"
+        group="SystemInfo"></TestCase>
+
+    <TestCase
+        name="TELEPHONE_SIMCARD1"
+        auto="false"
+        enable="true"
+        group="Telephone">
+        <parameters>
+            <string name="slot">0</string>
+        </parameters>
+    </TestCase>
+
+    <TestCase
+        name="TOUCH"
+        auto="false"
+        enable="true"
+        group="TouchPanel"></TestCase>
+
+
+    <TestCase
+        name="VIBRATOR"
+        auto="false"
+        enable="true"
+        group="Vibrate"></TestCase>
+
+    <TestCase
+        name="WIFI"
+        auto="true"
+        enable="true"
+        group="Wifi"></TestCase>
+
+</FactoryTest>

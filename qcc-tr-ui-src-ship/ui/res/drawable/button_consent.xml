@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+   Copyright (c) 2003-2010,2017,2020 Qualcomm Technologies, Inc.
+   All rights reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+ -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item 
+        android:state_focused="true"
+        android:drawable="@drawable/btn_consent_inactive"/>
+    <item 
+        android:state_enabled="false"
+        android:drawable="@drawable/btn_consent_inactive"/>
+    <item 
+        android:state_pressed="true"
+        android:drawable="@drawable/btn_consent_active"/>
+    <item 
+        android:drawable="@drawable/btn_consent_inactive" />
+</selector>

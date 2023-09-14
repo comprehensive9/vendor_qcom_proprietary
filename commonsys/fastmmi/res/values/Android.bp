@@ -1,0 +1,25 @@
+
+
+prebuilt_etc {
+    name: "strings.xml",
+
+    src: "strings.xml",
+    sub_dir: "mmi",
+    system_ext_specific: true,
+}
+
+prebuilt_etc {
+    name: "strings-zh-rCN.xml",
+
+    src: "strings-zh-rCN.xml",
+    sub_dir: "mmi",
+    system_ext_specific: true,
+}
+
+prebuilt_etc {
+    name: "path_config.xml",
+
+    src: "path_config_android.xml",
+    sub_dir: "mmi",
+    system_ext_specific: true,
+}

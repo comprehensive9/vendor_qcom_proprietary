@@ -1,0 +1,37 @@
+#! /bin/sh
+# Copyright (c) 2016-2017, 2020, Qualcomm Technologies, Inc.
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+#
+# Copyright (c) 2015 The Linux Foundation. All rights reserved.
+#
+
+#
+# Function to start sscrpcd
+#
+
+set -e
+export KERNEL=`uname -r`
+
+case "$1" in
+    start)
+        echo -n "Starting sscrpcd: "
+        start-stop-daemon -S -b -a /usr/bin/sscrpcd
+        echo "done"
+        ;;
+    stop)
+        echo -n "Stopping sscrpcd: "
+        start-stop-daemon -K -n sscrpcd
+        echo "done"
+        ;;
+    restart)
+        $0 stop
+        $0 start
+        ;;
+    *)
+        echo "Usage sscrpcd { start | stop | restart}" >&2
+        exit 1
+        ;;
+esac
+
+exit 0

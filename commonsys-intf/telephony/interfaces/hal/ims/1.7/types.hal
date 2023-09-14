@@ -1,0 +1,102 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ */
+
+package vendor.qti.hardware.radio.ims@1.7;
+
+import @1.0::CallState;
+import @1.0::CallType;
+import @1.3::VerstatInfo;
+import @1.4::MultiIdentityLineInfoHal;
+import @1.5::CallFailCauseResponse;
+import @1.5::TirMode;
+import @1.6::CallDetails;
+
+struct CallInfo {
+    CallState state;
+    uint32_t index;
+    uint32_t toa;
+    bool hasIsMpty;
+    bool isMpty;
+    bool hasIsMT;
+    bool isMT;
+    MultiIdentityLineInfoHal mtMultiLineInfo;
+    uint32_t als;
+    bool hasIsVoice;
+    bool isVoice;
+    bool hasIsVoicePrivacy;
+    bool isVoicePrivacy;
+    string number;
+    uint32_t numberPresentation;
+    string name;
+    uint32_t namePresentation;
+    bool hasCallDetails;
+    CallDetails callDetails;
+    bool hasFailCause;
+    CallFailCauseResponse failCause;
+    bool hasIsEncrypted;
+    bool isEncrypted;
+    bool hasIsCalledPartyRinging;
+    bool isCalledPartyRinging;
+    string historyInfo;
+    bool hasIsVideoConfSupported;
+    bool isVideoConfSupported;
+    VerstatInfo verstatInfo;
+    TirMode tirMode;
+    /*
+     * True if the message is intended for preliminary resource allocation
+     * only and shall not be visible to the end user.
+     * Default: False
+     */
+    bool isPreparatory;
+    CrsData crsData;
+    //Call progress info for MO calls during alerting stage.
+    CallProgressInfo callProgInfo;
+};
+
+enum CrsType : int32_t {
+    INVALID = 0, //Local ring
+    AUDIO = 1 << 0, //audio CRS
+    VIDEO = 1 << 1, //video CRS
+};
+
+struct CrsData {
+    /*
+     * INVALID if CrsData is invalid,
+     * AUDIO if only audio will be played,
+     * VIDEO if only video will be played,
+     * AUDIO | VIDEO if both video and audio will be played.
+     */
+    bitfield<CrsType> type;
+
+    /*
+     * Valid only if CrsData.type is not INVALID
+     * Call type of the actual call received from network.
+     */
+    CallType originalCallType;
+};
+
+enum CallProgressInfoType : int32_t {
+    INVALID,          /* Invalid if CallProgressInfo is not present. */
+    CALL_REJ_Q850,    /* MO call will be rejected with protocol Q850 error */
+    CALL_WAITING,     /* There is already an ACTIVE call at remote UE side and this call is a
+                       * WAITING call from remote UE perspective.
+                       */
+    CALL_FORWARDING,  /* Call forwarding is enabled at remote UE and this call will be forwarded
+                       * from remote UE perspective.
+                       */
+    REMOTE_AVAILABLE, /* MT call is alerting from remote UE perspective. */
+};
+
+struct CallProgressInfo {
+    CallProgressInfoType type;  /* Type of call progress info */
+    uint16_t reasonCode;        /* Reason code for call rejection, this will be valid only for
+                                 * CallProgressInfoType#CALL_REJ_Q850.
+                                 */
+    string reasonText;          /* Reason text for call rejection, this will be valid only for
+                                 * CallProgressInfoType#CALL_REJ_Q850.
+                                 */
+};

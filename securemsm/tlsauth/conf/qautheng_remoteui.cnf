@@ -1,0 +1,25 @@
+#
+# Copyright (c) 2021 Qualcomm Technologies, Inc.
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+#
+openssl_conf = openssl_init
+
+[openssl_init]
+ssl_conf = ssl_section
+engines = engine_section
+
+[ssl_section]
+system_default = ssl_default_section
+
+[ssl_default_section]
+ClientSignatureAlgorithms = RSA-PSS+SHA256
+
+[engine_section]
+qautheng = qautheng_section
+
+[qautheng_section]
+dynamic_path = /usr/lib/libqautheng.so.1
+engine_id = qautheng
+PrivateKey = RemoteUIPriv
+

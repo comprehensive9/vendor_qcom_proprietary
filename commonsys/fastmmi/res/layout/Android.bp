@@ -1,0 +1,8 @@
+
+prebuilt_etc {
+    name: "main.xml",
+
+    src: "main.xml",
+    sub_dir: "mmi/layout",
+    system_ext_specific: true,
+}

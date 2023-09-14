@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+   Copyright (c) 2003-2010,2017,2020-2021 Qualcomm Technologies, Inc.
+   All rights reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+ -->
+
+<resources>
+     <color name="dark">#232323</color>
+     <color name="white">#ffffff</color>
+     <color name="black">#000000</color>
+     <color name="text_gray">#f3f3f3</color>
+     <color name="dialog_background">#f3f3f3</color>
+     <color name="actionbar_background">#232323</color>
+     <color name="textColorPrimary">#212121</color>
+
+     <color name="colorPrimary">@color/white</color>
+     <color name="colorPrimaryDark">@color/white</color>
+     <color name="colorAccent">#009688</color>
+     <color name="colorBackground">@color/white</color>
+
+</resources>

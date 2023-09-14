@@ -1,0 +1,44 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.data.mwqem@1.0;
+
+/**
+ * This is the root of the HAL module and is the interface returned when
+ * loading an implementation of the IMwqemService HAL.
+ */
+interface IMwqemService{
+    /**
+     * Enables MWQEM for the list of UIDs.
+     *
+     * @param uids List containing uids for enabling MWQEM
+     * @param pref Preference which mentions whether the application
+     *             requires throughput or latency as preference
+     * @return status operation status
+     */
+    @callflow(next={"*"})
+    enableMwqem(vec<uint32_t> uids, Preference pref)
+        generates (ReturnCode status);
+
+    /**
+     * Disables MWQEM for the list of UIDs.
+     *
+     * @param uids List containing uids for disabling MWQEM
+     * @return status operation status
+     */
+    @callflow(next={"*"})
+    disableMwqem(vec<uint32_t> uids)
+        generates (ReturnCode status);
+
+    /**
+     * Disables MWQEM for all the UIDs.
+     *
+     * @param uids None
+     * @return status operation status
+     */
+    @callflow(next={"*"})
+    disableMwqemforAllUids() generates (ReturnCode status);
+};

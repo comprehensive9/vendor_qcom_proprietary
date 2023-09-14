@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2020 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.SubscriptionFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/CmServiceLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/textview_mainscreen"
+                    android:textColor="#171616"
+                    android:textSize="15sp"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    style="@style/Widget.AppCompat.Spinner.DropDown"
+                    android:layout_width="256dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:entries="@array/cmserviceoperations_array"
+                    android:prompt="@string/drpbtn_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView5"
+                    tools:visibility="visible" />
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="115dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/button_mainscreen"
+                    app:layout_constraintLeft_toRightOf="@id/spinner"
+                    app:layout_constraintTop_toBottomOf="@id/textView5" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/FeatureTagLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/textView_ft"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/textview_ftselection"
+                    android:textColor="#1B1A1A"
+                    android:textSize="15sp"
+                    android:visibility="visible"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:id="@+id/spinner2"
+                    android:layout_width="249dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_ft" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="115dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/button_create"
+                    app:layout_constraintLeft_toRightOf="@id/spinner2"
+                    app:layout_constraintTop_toBottomOf="@id/textView_ft" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/RegisteredTagLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/textView_registeredFt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/textview_regftselection"
+                    android:textColor="#1B1A1A"
+                    android:textSize="15sp"
+                    android:visibility="visible"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:id="@+id/spinner3"
+                    android:layout_width="249dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_registeredFt" />
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="115dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/button_go"
+                    app:layout_constraintLeft_toRightOf="@id/spinner3"
+                    app:layout_constraintTop_toBottomOf="@id/textView_registeredFt" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="240dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="85dp"
+                android:layout_height="29dp"
+                android:text="@string/status_text"
+                android:textAlignment="center"
+                android:textColor="#151515"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.009" />
+
+
+           <LinearLayout
+                android:id="@+id/CMStatusLayout"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:orientation="vertical">
+
+
+               <ListView
+                    android:id="@+id/statusListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+
+           </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

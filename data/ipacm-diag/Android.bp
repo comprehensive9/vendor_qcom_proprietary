@@ -1,0 +1,15 @@
+cc_binary {
+    name: "ipacm-diag",
+    header_libs: ["libdiag_headers"] + ["libdsutils_headers"] + ["qti_kernel_headers"] + ["vendor_common_inc"],
+    cflags: ["-v"] + ["-DDEBUG"] + ["-DFEATURE_DATA_LOG_QXDM"] + ["-DFEATURE_IPA_ANDROID"],
+
+    srcs: ["src/ipacmdiag_main.c"],
+
+    init_rc: ["src/ipacm-diag.rc"],
+
+    clang: true,
+    vendor: true,
+
+    shared_libs: ["libdiag"] + ["libcutils"] + ["liblog"],
+
+}

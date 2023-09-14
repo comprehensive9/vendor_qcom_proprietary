@@ -1,0 +1,11 @@
+cc_binary {
+    name: "test_diag_system",
+
+    srcs: ["test_diag.c"],
+
+    header_libs: ["libdiag_headers_system", "vendor_common_inc",],
+
+    shared_libs: ["libdiag_system", "liblog",],
+
+    system_ext_specific: true,
+}

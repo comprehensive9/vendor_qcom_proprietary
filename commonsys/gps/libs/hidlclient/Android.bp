@@ -1,0 +1,17 @@
+
+java_library_static {
+
+    name: "izat.lib.hidlclient",
+    owner: "qti",
+
+    srcs: ["java/**/*.java"],
+
+    jarjar_rules: ":framework-jarjar-rules",
+    static_libs: ["android-support-v4",
+                  "vendor.qti.gnss-V4.1-java",
+                 ],
+
+    optimize: {
+        proguard_flags_files: ["proguard.flags"],
+    },
+}

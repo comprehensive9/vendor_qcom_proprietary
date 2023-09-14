@@ -1,0 +1,91 @@
+///******************************************************************************
+//*@file Android.bp
+//*brief Rules for compiling the source files
+//*******************************************************************************/
+
+//  Build the SAM interface files into a library
+//  which can be used by both service and client.
+
+java_library {
+
+    name: "saminterfacelibrary",
+    installable: true,
+    platform_apis: true,
+    system_ext_specific: true,
+
+    srcs: ["src/com/qualcomm/qti/sam/interfaces/CardState.java"] +
+            ["src/com/qualcomm/qti/sam/interfaces/CardATR.java"] +
+            ["src/com/qualcomm/qti/sam/interfaces/SlotMap.java"] +
+            ["src/com/qualcomm/qti/sam/interfaces/SAMErrors.java"] +
+            ["src/com/qualcomm/qti/sam/interfaces/ISAMResponseCallback.aidl"] +
+            ["src/com/qualcomm/qti/sam/interfaces/ISAMUnsolicitedCallback.aidl"] +
+            ["src/com/qualcomm/qti/sam/interfaces/ISAM.aidl"],
+
+}
+
+// ==========================================================================
+// Build the sam manager interface to a library
+// which can be used by client
+
+java_library {
+
+    name: "sammanagerlibrary",
+    installable: true,
+    system_ext_specific: true,
+    platform_apis: true,
+    libs: ["saminterfacelibrary"],
+
+    srcs: ["src/com/qualcomm/qti/sam/manager/SAMManager.java"] +
+    ["src/com/qualcomm/qti/sam/manager/SAMResponseCallback.java"] +
+    ["src/com/qualcomm/qti/sam/manager/SAMUnsolicitedCallback.java"],
+
+}
+
+// ==========================================================================
+// Build the service
+android_app {
+    name: "sam",
+
+    srcs: ["src/com/qualcomm/qti/sam/service/SAMService.java"],
+
+    system_ext_specific: true,
+    platform_apis: true,
+    certificate: "platform",
+    optimize: {
+        enabled: false,
+    },
+
+    libs: [
+        "saminterfacelibrary",
+        "qti-telephony-utils",
+    ] + ["qcrilhook"] + ["telephony-common"],
+
+}
+
+// ==========================================================================
+
+prebuilt_etc {
+
+    name: "sammanager.xml",
+    system_ext_specific: true,
+
+    //this will install the file in /system_ext/etc/permissions
+
+    src: "sammanager.xml",
+    sub_dir: "permissions",
+
+}
+
+// ==========================================================================
+
+prebuilt_etc {
+
+    name: "saminterface.xml",
+    system_ext_specific: true,
+
+    //this will install the file in /system_ext/etc/permissions
+
+    src: "saminterface.xml",
+    sub_dir: "permissions",
+
+}

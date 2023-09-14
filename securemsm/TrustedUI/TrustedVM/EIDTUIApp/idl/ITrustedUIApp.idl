@@ -1,0 +1,90 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+/** @file  ITrustedUIApp.idl */
+
+/**
+ * @brief
+ * TrustedUIApp interface provides methods to start a TrustedUI session in the
+ * TEE (Trusted Execute Environment)
+ */
+
+include "types.idl"
+
+/** @cond */
+interface TrustedUIApp {
+/** @endcond */
+
+  /**
+   * @addtogroup TrustedUIApp
+   * @{
+   */
+
+  /**
+    Initialize/Create a new session.
+
+    @param [in] uint32_t displayId  Unique Display identifier
+
+    @param [in] uint32_t inputMethodUID Unique Input Method
+                         (examples: Touch, Power button etc.)
+
+    @param [in] interface HLOSCbo Callback object to communicate with TUI
+                HAL in HLOS
+
+    @return
+    Object_OK on success. Any other error code on failure.
+  */
+  method createSession(in uint32 displayId, in uint32 inputMethod, in interface HLOSCbo);
+
+  /**
+    Start a TrustedUI session. Acquires all resources needed (display, user
+    selected method of input, etc.). When this call returns, the intended layout
+    as set in TUIConf, is displayed on the screen and the session is ready
+    for user interaction.
+
+    @param [in] TUIConfig TUIconf TUI configuration parameters like Layout ID,
+                etc. more details in types.h
+
+    @return
+    Object_OK on success. Any other error code on failure.
+  */
+  method startSession(in TUIConfig TUIconf);
+
+  /**
+    Stop the active TUI session.  This will in turn release all the acquired
+    resources. In case, this method is invoked before successful user
+    interaction completion, this will result in session abort.
+
+    @return
+    Object_OK on success. Any other error code on failure.
+  */
+  method stopSession();
+
+  /**
+    Delete Session
+
+    @return
+    Object_OK on success. Any other error code on failure.
+  */
+  method deleteSession();
+
+  /**
+    Handle custom user commands to the TrustedUI APP
+
+    @param [in] buffer cmd   custom command ID and command data
+
+    @param [in] buffer response  Response/output for the command intiated
+
+    @return
+    Object_OK on success. Any other error code on failure.
+  */
+  method handleCmd(in buffer cmd, out buffer response);
+
+
+  /** @} */ /* end_addtogroup ITrustedUIApp */
+
+
+};

@@ -1,0 +1,43 @@
+cc_library_headers {
+    name: "libdsutils_headers",
+    export_include_dirs: ["inc"],
+    vendor: true,
+}
+
+cc_library_shared {
+    name: "libdsutils",
+    cflags: [
+//Logging Features. Enable only one at any time
+//      "-DFEATURE_DATA_LOG_SYSLOG",
+        "-DFEATURE_DATA_LOG_ADB",
+        "-DFEATURE_DATA_LOG_QXDM",
+        "-DFEATURE_DS_LINUX_NO_RPC",
+        "-DFEATURE_DATA_LINUX",
+        "-DFEATURE_DS_LINUX_ANDROID",
+        "-DFEATURE_DS_HAVE_LIBMDMDETECT",
+        "-DFEATURE_Q_NO_SELF_QPTR",
+//      "-DFEATURE_DS_TRACE_ON",
+        "-DFEATURE_DS_UTILS_NON_EMULATOR",
+    ],
+    header_libs: [
+        "qti_kernel_headers",
+        "libmdmdetect_headers",
+        "libdiag_headers",
+        "libdsutils_headers",
+        "vendor_common_inc",
+        "libutils_headers",
+    ],
+    srcs: ["src/*.c"],
+    shared_libs: [
+        "liblog",
+        "libdiag",
+        "libcutils",
+        "libmdmdetect",
+        "libnetutils",
+    ],
+    sanitize: {
+        integer_overflow: true,
+    },
+    owner: "qti",
+    proprietary: true,
+}

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2020 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+<RelativeLayout
+            android:layout_width="match_parent"
+
+android:layout_height="wrap_content"
+>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+
+android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/SubsStatusBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Subsription Status"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+
+<RelativeLayout
+                    android:id="@+id/expandable_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="293dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+
+android:id="@+id/changeCapabilitiesBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Change Capabilities" />
+
+                        <Button
+
+android:id="@+id/manual_publish"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/manual_publish" />
+
+                        <Button
+                            android:id="@+id/capabilityPolling"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/subscribesimpletext" />
+
+                        <ListView
+                            android:id="@+id/SubsStatusList"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                    </LinearLayout>
+
+
+</RelativeLayout>
+            </LinearLayout>
+
+
+</RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

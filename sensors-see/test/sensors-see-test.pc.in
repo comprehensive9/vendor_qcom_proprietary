@@ -1,0 +1,10 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: sensors-see-test
+Description: sensors-see-test library
+Version: @VERSION@
+Libs: -L${libdir} -lsensors-see-test
+Cflags: -I${includedir}/sensors-see/test

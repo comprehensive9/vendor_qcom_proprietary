@@ -1,0 +1,38 @@
+cc_binary {
+    name: "android.hardware.biometrics.face@1.0-service.faceauth",
+    defaults: ["hidl_defaults"],
+    vendor: true,
+    init_rc: ["android.hardware.biometrics.face@1.0-service.faceauth.rc"],
+    relative_install_path: "hw",
+    proprietary: true,
+    srcs: [
+        "FaceAuth.cpp",
+        "FaceAuthClientCallback-impl.cpp",
+        "service.cpp",
+    ],
+    include_dirs: [
+        "frameworks/av/media/ndk/include/media",
+        "frameworks/av/camera/ndk/include/camera",
+        "frameworks/av/media/ndk/include/private",
+        "frameworks/native/libs/nativewindow/include",
+        "hardware/libhardware/include",
+    ],
+    shared_libs: [
+        "libhidlbase",
+        "libutils",
+        "liblog",
+        "libui",
+        "libion",
+        "android.hardware.biometrics.face@1.0",
+        "vendor.qti.hardware.secureprocessor.common@1.0",
+        "vendor.qti.hardware.secureprocessor.config@1.0",
+        "vendor.qti.hardware.secureprocessor.device@1.0",
+        "vendor.qti.hardware.secureprocessor.common@1.0-helper",
+        "libcamera2ndk_vendor",
+        "libmediandk",
+        "libnativewindow",
+    ],
+    static_libs: [
+        "libarect",
+    ]
+}

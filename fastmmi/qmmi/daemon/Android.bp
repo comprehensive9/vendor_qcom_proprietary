@@ -1,0 +1,32 @@
+
+
+cc_binary {
+
+    name: "mmid",
+    proprietary: true,
+    srcs: [
+        "mmid.cpp",
+        "mmid_handle.cpp",
+        "utils.cpp",
+        "socket.cpp",
+    ],
+
+    include_dirs: [
+        "frameworks/native/include",
+    ],
+
+    cflags: [
+        "-Wall",
+        "-Wno-unused-parameter",
+    ],
+
+    shared_libs: [
+        "libc",
+        "libcutils",
+        "libutils",
+        "liblog",
+        "libc++",
+        "vendor.qti.hardware.qxr-ndk_platform",
+    ],
+
+}

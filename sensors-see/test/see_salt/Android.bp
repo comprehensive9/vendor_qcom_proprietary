@@ -1,0 +1,52 @@
+cc_library_shared {
+    name: "libSEESalt",
+    defaults: [
+        "sns_proto_lib_name-full",
+        "sns_direct_channel",
+    ],
+    clang: true,
+    owner: "qti",
+    proprietary: true,
+    srcs: [
+        "parse.cpp",
+        "por.cpp",
+        "salt_usta.cpp",
+        "see_salt.cpp",
+        "see_salt_payloads.cpp",
+        "see_salt_sensor.cpp",
+        "see_salt_sleep.cpp",
+    ],
+    local_include_dirs: ["./"],
+    cflags: [
+        "-Wno-unused-variable",
+        "-Wno-unused-parameter",
+        "-fexceptions",
+        "-g",
+    ],
+    cppflags: ["-DGOOGLE_PROTOBUF_NO_RTTI"],
+    sanitize:{
+        integer_overflow: true,
+    },
+    header_libs: [
+        "libcutils_headers",
+        "libutils_headers",
+        "libsensorlog_headers",
+        "libssc_headers",
+        "libsnsdiag_headers",
+        "libUSTANative_headers",
+        "libssc_headers",
+    ],
+    shared_libs: [
+        "liblog",
+        "libUSTANative",
+    ],
+    static_libs: [
+        "libsnsapi-full-static",
+    ],
+}
+cc_library_headers {
+    name: "libseesalt_headers",
+    export_include_dirs: ["./"],
+    owner: "qti",
+    proprietary: true,
+}

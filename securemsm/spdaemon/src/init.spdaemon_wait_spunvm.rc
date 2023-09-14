@@ -1,0 +1,16 @@
+on post-fs
+    wait /mnt/vendor/spunvm
+    start vendor.spdaemon
+    start vendor.sec_nvm
+
+service vendor.spdaemon /vendor/bin/spdaemon
+    class core
+    user system
+    group system
+    shutdown critical
+
+service vendor.sec_nvm /vendor/bin/sec_nvm
+    class core
+    user system
+    group system
+

@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ */
+
+package vendor.qti.hardware.radio.qtiradio@2.6;
+
+import android.hardware.radio@1.0::RadioResponseInfo;
+import @2.5::IQtiRadioResponse;
+
+/*
+ * Interface declaring response functions to solicited qtiradio requests
+ *
+ */
+interface IQtiRadioResponse extends @2.5::IQtiRadioResponse {
+
+     /**
+     * Response to IQtiRadio.getQtiRadioCapability
+     * @param info Response info struct containing response type, serial no. and error
+     * @param raf Radio Access family as defined by RadioAccessFamily in types.hal
+     */
+    oneway getQtiRadioCapabilityResponse(RadioResponseInfo info, bitfield<RadioAccessFamily> raf);
+
+};

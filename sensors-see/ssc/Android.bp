@@ -1,0 +1,226 @@
+cc_defaults {
+    name: "libsnsapi-defaults",
+    rtti: false,
+    srcs: [
+        "client_api/sns_client_api_v01.c",
+        "google/protobuf/descriptor.proto",
+        "nanopb.proto",
+        "sns_std_sensor.proto",
+        "sns_gravity.proto",
+        "sns_device_orient.proto",
+        "sns_rotv.proto",
+        "sns_tilt_to_wake.proto",
+        "sns_heart_beat.proto",
+        "sns_wrist_tilt_gesture.proto",
+        "sns_rmd.proto",
+        "sns_gyro_rot_matrix.proto",
+        "sns_oem1.proto",
+        "sns_tilt.proto",
+        "sns_step_detect.proto",
+        "sns_game_rv.proto",
+        "sns_registry.proto",
+        "sns_pedometer_wrist.proto",
+        "sns_geomag_rv.proto",
+        "sns_amd.proto",
+        "sns_da_test.proto",
+        "sns_dpc.proto",
+        "sns_pedometer.proto",
+        "sns_pose_6dof.proto",
+        "sns_psmd.proto",
+        "sns_bring_to_ear.proto",
+        "sns_physical_sensor_test.proto",
+        "sns_sar.proto",
+        "sns_ppg.proto",
+        "sns_std_event_gated_sensor.proto",
+        "sns_hall.proto",
+        "sns_basic_gestures.proto",
+        "sns_heart_rate.proto",
+        "sns_sig_motion.proto",
+        "sns_fw.proto",
+        "sns_ext_svc.proto",
+        "sns_cal.proto",
+        "sns_ambient_temperature.proto",
+        "sns_ambient_light.proto",
+        "sns_accel_cal.proto",
+        "sns_gyro.proto",
+        "sns_proximity.proto",
+        "sns_thermopile.proto",
+        "sns_gyro_cal.proto",
+        "sns_accel.proto",
+        "sns_mag_cal.proto",
+        "sns_sensor_temperature.proto",
+        "sns_rgb.proto",
+        "sns_mag.proto",
+        "sns_pressure.proto",
+        "sns_ultra_violet.proto",
+        "sns_device_mode.proto",
+        "sns_facing.proto",
+        "sns_offbody_detect.proto",
+        "sns_cmc.proto",
+        "sns_aont.proto",
+        "sns_std_type.proto",
+        "sns_std.proto",
+        "sns_formatter.proto",
+        "sns_formatter_notify.proto",
+        "sns_suid.proto",
+        "sns_resampler.proto",
+        "sns_client.proto",
+        "sns_diag.proto",
+        "sns_threshold.proto",
+        "sns_diag_sensor.proto",
+        "sns_humidity.proto",
+        "sns_fmv.proto",
+        "sns_activity_recognition.proto",
+        "sns_hinge_angle.proto",
+        "sns_direct_channel.proto",
+    ],
+    local_include_dirs: ["./"],
+    export_include_dirs: ["client_api/."],
+    cppflags: ["-DGOOGLE_PROTOBUF_NO_RTTI"],
+    cflags: [
+        "-Werror",
+        "-Wall",
+        "-Wno-unused-parameter",
+        "-fexceptions",
+    ],
+    proto: {
+        canonical_path_from_root: false,
+        export_proto_headers: true,
+        local_include_dirs : ["./"],
+    },
+    header_libs: [
+        "libqmi_encdec_headers",
+        "libqmi_common_headers",
+    ],
+    shared_libs: [
+        "libcutils",
+        "libutils",
+        "libqmi_common_so",
+        "libqmi_cci",
+        "libqmi_encdec",
+    ],
+    sanitize:{
+        integer_overflow: true,
+    },
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_library_shared {
+    name: "libsnsapi",
+    defaults: [
+        "libsnsapi-defaults",
+        "sns_proto_lib_name-lite",
+    ],
+    proto: {
+        type: "lite",
+    },
+}
+
+cc_library_static {
+    name: "libsnsapi-full-static",
+    defaults: [
+        "libsnsapi-defaults",
+        "sns_proto_lib_name-full",
+    ],
+    proto: {
+        type: "full",
+    },
+}
+
+cc_library_headers {
+    name: "libssc_headers",
+    export_include_dirs: ["./"],
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_defaults {
+    name: "libssc-defaults",
+    rtti: false,
+    srcs: [
+        "wakelock_utils.cpp",
+        "ssc_connection.cpp",
+        "ssc_utils.cpp",
+    ],
+    local_include_dirs: ["./"],
+    header_libs: [
+        "libqmi_encdec_headers",
+        "libqmi_common_headers",
+        "libsensorlog_headers",
+    ],
+    cflags: [
+        "-Werror",
+        "-Wall",
+        "-Wno-unused-parameter",
+        "-fexceptions",
+    ],
+    shared_libs: [
+        "liblog",
+        "libsensorslog",
+        "libcutils",
+        "libutils",
+        "libqmi_common_so",
+        "libqmi_cci",
+        "libqmi_encdec",
+    ],
+    sanitize:{
+        integer_overflow: true,
+    },
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_library_shared {
+    name: "libssc",
+    defaults: [
+        "libssc-defaults",
+        "sns_proto_lib_name-lite",
+    ],
+    shared_libs: [
+        "libsnsapi",
+    ],
+}
+
+cc_library_static {
+    name: "libssc-full-static",
+    defaults: [
+        "libssc-defaults",
+        "sns_proto_lib_name-full",
+    ],
+    static_libs: [
+        "libsnsapi-full-static",
+    ],
+}
+
+cc_library_shared {
+    name: "libsns_api",
+    clang: true,
+    owner: "qti",
+    proprietary: true,
+    srcs: ["nanopb_api/src/*.c", "client_api/*.c"],
+    local_include_dirs: [
+        "nanopb_api/inc",
+        "client_api",
+    ],
+    header_libs: [
+        "libnanopb_headers",
+        "libqmi_encdec_headers",
+        "libqmi_common_headers",
+    ],
+    shared_libs: [
+        "libnanopb",
+        "libqmi_common_so",
+    ],
+    cflags: [
+        "-std=c11",
+        "-DPB_FIELD_16BIT",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-missing-field-initializers",
+        "-Wno-maybe-uninitialized",
+    ],
+    export_include_dirs: ["nanopb_api/inc", "client_api"],
+}
+

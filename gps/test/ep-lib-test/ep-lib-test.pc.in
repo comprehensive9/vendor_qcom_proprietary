@@ -1,0 +1,10 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: engine plugin
+Description: QTI GPS engine plugin
+Version: @VERSION
+Libs: -L${libdir} -lengineplugin
+Cflags: -I${includedir}/engine-plugin

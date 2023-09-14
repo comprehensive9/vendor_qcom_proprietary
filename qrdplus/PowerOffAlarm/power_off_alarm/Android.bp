@@ -1,0 +1,12 @@
+
+
+cc_binary {
+    name: "power_off_alarm",
+    srcs: ["power_off_alarm.cpp"],
+
+    shared_libs: ["libc"] + ["liblog"] + ["libcutils"],
+
+    proprietary: true,
+    owner: "qti",
+
+}

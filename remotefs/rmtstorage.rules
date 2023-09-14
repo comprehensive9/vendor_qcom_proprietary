@@ -1,0 +1,3 @@
+ACTION=="add" SUBSYSTEM=="uio", KERNEL=="uio*", OWNER="system", GROUP="system", MODE="0660"
+ACTION=="add" SUBSYSTEM=="subsys", KERNEL=="subsys_modem", OWNER="system", GROUP="system", MODE="0666"
+ACTION=="add" SUBSYSTEM=="block", KERNEL=="mmcblk[0-9]*p[0-9]*|sd[a-z][0-9]*", OWNER="root", GROUP="system", MODE="0660"

@@ -1,0 +1,19 @@
+cc_binary {
+    name: "see_resampler",
+    owner: "qti",
+    proprietary: true,
+    srcs: [
+        "see_resampler.cpp",
+    ],
+    local_include_dirs: ["./"],
+    header_libs: [
+        "libseesalt_headers",
+    ],
+    cflags: [
+        "-Wno-unused-variable",
+        "-Wno-unused-parameter",
+        "-fexceptions",
+        "-g",
+    ],
+    shared_libs: ["libSEESalt"],
+}

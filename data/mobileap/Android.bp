@@ -1,0 +1,36 @@
+cc_library_headers {
+    name: "libqcmaputils_headers",
+    export_include_dirs: ["ipc"],
+    vendor: true,
+}
+
+cc_library_shared {
+    name: "libqcmaputils",
+    cflags: [
+        "-DFEATURE_DATA_LOG_QXDM",
+        "-O0"
+    ],
+    shared_libs: [
+        "libdiag",
+        "libdsutils",
+    ],
+    header_libs: [
+        "qti_kernel_headers",
+        "libdiag_headers",
+        "libdsutils_headers",
+        "vendor_common_inc",
+        "libqcmaputils_headers",
+        "libqmi_legacy_headers",
+        "libcutils_headers",
+        "libutils_headers",
+        "libmdmdetect_headers",
+    ],
+    srcs: ["ipc/*.c"],
+
+    sanitize: {
+        integer_overflow: true,
+    },
+
+    owner: "qti",
+    proprietary: true,
+}

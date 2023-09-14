@@ -1,0 +1,8 @@
+android.hardware.automotive.vehicle
+vendor.qti.hardware.systemhelper
+vendor.qti.automotive.qcarcam
+vendor.qti.imsrtpservice
+android.hardware.keymaster
+android.hardware.thermal
+vendor.qti.hardware.wifidisplaysession
+com.qualcomm.qti.wifidisplayhal

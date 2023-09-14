@@ -1,0 +1,10 @@
+
+android_app {
+    name: "SimContacts",
+
+    srcs: ["**/*.java"],
+
+    certificate: "platform",
+    product_specific: true,
+    sdk_version: "system_current",
+}

@@ -1,0 +1,90 @@
+common_cflags = ["-g"]
+common_cflags += ["-O2"]
+common_cflags += ["-fno-inline"]
+common_cflags += ["-fno-short-enums"]
+common_cflags += ["-fpic"]
+common_cflags += ["-Wall"]
+common_cflags += ["-Werror"]
+common_cflags += ["-Wno-missing-field-initializers"]
+common_cflags += ["-Wno-unused-parameter"]
+
+// _________________________ libqmi_common _________________________ //
+
+cc_library_static {
+    name: "libqmi_common_system",
+
+    cflags: common_cflags,
+
+    local_include_dirs: ["inc"] + ["common/inc"],
+
+    srcs: ["common/src/common_v01.c"],
+
+    shared_libs: ["libcutils"] + ["libutils"],
+    system_ext_specific: true,
+}
+
+cc_library_headers {
+    name: "libqmi_common_headers_sys",
+    export_include_dirs: ["inc"] + ["common/inc"],
+}
+
+// _________________________ libqmi_encdec _________________________ //
+
+cc_library {
+    name: "libqmi_encdec_system",
+
+    cflags: common_cflags,
+
+    local_include_dirs: ["inc"],
+
+    srcs: ["encdec/qmi_idl_accessor.c"] + ["encdec/qmi_idl_lib.c"],
+
+    shared_libs: ["libcutils"] + ["libutils"],
+    system_ext_specific: true,
+}
+
+// _________________________ libqmi_cci _________________________ //
+
+cc_library_shared {
+    name: "libqmi_cci_system",
+
+    cflags: common_cflags + ["-DQMI_FW_ANDROID"] + ["-DQMI_FW_ADB_LOG"] + ["-DQMI_CCI_ANDROID"] + ["-DQMI_CCI_SMEM_LOG_DISABLE"],
+
+    local_include_dirs: ["common/inc"] + ["inc"] + ["qcci/inc"],
+
+    header_libs: ["libcutils_headers"] + ["vendor_common_inc"],
+
+    srcs: ["qcci/src/qmi_cci_common.c"] + ["qcci/src/qmi_cci_target.c"] + ["qcci/src/qmi_cci_xport_ipc_router.c"] + ["qcci/src/qmi_cci_xport_qrtr.c"],
+
+    shared_libs: ["libcutils"] + ["libutils"] + ["libqmi_encdec_system"]  + ["liblog"],
+
+    static_libs: ["libqmi_common_system"],
+    system_ext_specific: true,
+}
+
+cc_library_headers {
+    name: "libqmi_cci_headers_sys",
+    export_include_dirs: ["qcci/inc"],
+}
+
+// _________________________ libqmi_csi _________________________ //
+
+cc_library_shared {
+    name: "libqmi_csi_system",
+
+    cflags: common_cflags + ["-DQMI_FW_ADB_LOG"] + ["-DQMI_FW_ANDROID"] + ["-DQMI_CSI_ANDROID"] + ["-DQMI_CSI_SMEM_LOG_DISABLE"],
+
+    local_include_dirs: ["common/inc"] + ["inc"] + ["qcsi/inc"],
+
+    srcs: ["qcsi/src/qmi_csi_common.c"] + ["qcsi/src/qmi_csi_xport_ipc_router.c"] + ["qcsi/src/qmi_csi_target.c"] + ["qcsi/src/qmi_csi_xport_qrtr.c"],
+
+    shared_libs: ["libcutils"] + ["libutils"] + ["libqmi_encdec_system"] + ["liblog"],
+
+    static_libs: ["libqmi_common_system"],
+    system_ext_specific: true,
+}
+
+cc_library_headers {
+    name: "libqmi_csi_headers_sys",
+    export_include_dirs: ["qcsi/inc"],
+}

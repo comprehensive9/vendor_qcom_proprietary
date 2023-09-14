@@ -1,0 +1,12 @@
+cc_binary {
+    name: "PktRspTest",
+
+    srcs: ["PktRspTest.c"],
+
+    header_libs: ["libdiag_headers", "vendor_common_inc",],
+
+    shared_libs: ["libdiag", "liblog",],
+
+    owner: "qti",
+    proprietary: true,
+}

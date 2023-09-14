@@ -1,0 +1,26 @@
+cc_library_shared {
+    name: "libnanopb",
+    clang: true,
+    owner: "qti",
+    proprietary: true,
+    srcs: ["src/*.c"],
+    local_include_dirs: [
+        "inc",
+    ],
+    cflags: [
+        "-std=c11",
+        "-DPB_FIELD_16BIT",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-missing-field-initializers",
+        "-Wno-maybe-uninitialized",
+    ],
+}
+
+cc_library_headers {
+    name: "libnanopb_headers",
+    export_include_dirs: ["inc"],
+    owner: "qti",
+    proprietary: true,
+}

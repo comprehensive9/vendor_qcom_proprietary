@@ -1,0 +1,29 @@
+cc_binary {
+    name: "esepmhidlclient",
+
+    srcs: ["EsePMClient.cpp"],
+    local_include_dirs: ["1.1"],
+
+    shared_libs: [
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "vendor.qti.esepowermanager@1.0",
+        "vendor.qti.esepowermanager@1.1",
+    ],
+
+    sanitize: {
+        cfi: true,
+        misc_undefined: ["signed-integer-overflow",
+                         "unsigned-integer-overflow"],
+        //Enable below lines during debug
+        //diag: {
+        //    cfi: true,
+        //    misc_undefined: ["signed-integer-overflow",
+        //                     "unsigned-integer-overflow"],
+        //},
+    },
+
+    proprietary: true,
+    owner: "qti",
+}

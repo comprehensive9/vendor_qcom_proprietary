@@ -1,0 +1,30 @@
+cc_library_headers {
+    name : "libportbridge_sockif_headers",
+    export_include_dirs: ["inc"],
+    proprietary: true,
+}
+
+cc_binary {
+    name: "port-bridge",
+    srcs: ["port_bridge.c"],
+    header_libs: [
+        "libportbridge_sockif_headers",
+        "vendor_common_inc",
+        "libdsutils_headers",
+    ],
+    cflags: [
+        "-DFEATURE_PB_LINUX_ANDROID",
+//      "-DPORT_BRIDGE_TEST"
+    ],
+    shared_libs: [
+        "libutils",
+        "libcutils",
+        "libdsutils",
+    ],
+    sanitize: {
+        integer_overflow: true,
+    },
+    init_rc: ["port-bridge.rc"],
+    owner: "qti",
+    proprietary: true,
+}

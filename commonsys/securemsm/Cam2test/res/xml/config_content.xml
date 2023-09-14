@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--=============================================================================
+Copyright (c) 2020 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+=============================================================================-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/choose_config"
+        android:layout="@layout/activity_config">
+        <ListPreference
+            android:dialogTitle="@string/select_config_title"
+            android:key="@string/key_select_config"
+            android:title="@string/select_config_title"
+            android:entries="@array/configs"
+            android:entryValues="@array/config_values"
+            android:defaultValue="@string/default_config_choice"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="@string/category_1">
+        <ListPreference
+            android:dialogTitle="@string/select_camera"
+            android:key="@string/key_select_camera_1"
+            android:title="@string/select_camera_title"/>
+        <MultiSelectListPreference
+            android:dialogTitle="@string/select_mode"
+            android:key="@string/key_select_mode_1"
+            android:title="@string/select_mode_title"
+            android:entries="@array/mode"
+            android:entryValues="@array/mode_values"
+            android:defaultValue="@array/default_mode_1"/>
+        <ListPreference
+            android:dialogTitle="@string/select_format"
+            android:key="@string/key_select_format_1"
+            android:title="@string/select_format_title"
+            android:entries="@array/default_format"
+            android:entryValues="@array/default_format_value"
+            android:enabled="false"/>
+        <ListPreference
+            android:dialogTitle="@string/select_resolution"
+            android:key="@string/key_select_resolution_1"
+            android:title="@string/select_resolution"
+            android:entries="@array/default_resolution"
+            android:entryValues="@array/default_resolution_value"
+            android:enabled="true"/>
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/key_timestamp_1"
+            android:title="@string/select_timestamp"/>
+        <ListPreference
+            android:dialogTitle="@string/select_fps"
+            android:key="@string/key_select_fps_1"
+            android:title="@string/select_fps_title"
+            android:entries="@array/default_fps"
+            android:entryValues="@array/default_fps_value"
+            android:enabled="false"/>
+        <EditTextPreference
+            android:dialogTitle="@string/select_usecaseID"
+            android:key="@string/key_select_usecaseID_1"
+            android:title="@string/select_usecaseID_title"
+            android:defaultValue="@string/default_usecaseID"
+            android:shouldDisableView="true"/>
+        <ListPreference
+            android:dialogTitle="@string/select_destination"
+            android:key="@string/key_select_destination_1"
+            android:title="@string/select_destination_title"
+            android:entries="@array/destination"
+            android:entryValues="@array/destination_values"
+            android:defaultValue="@string/default_destination"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="@string/category_2">
+        <ListPreference
+            android:dialogTitle="@string/select_camera"
+            android:key="@string/key_select_camera_2"
+            android:title="@string/select_camera_title"/>
+        <MultiSelectListPreference
+            android:dialogTitle="@string/select_mode"
+            android:key="@string/key_select_mode_2"
+            android:title="@string/select_mode_title"
+            android:entries="@array/mode"
+            android:entryValues="@array/mode_values"
+            android:defaultValue="@array/default_mode_2"/>
+        <ListPreference
+            android:dialogTitle="@string/select_format"
+            android:key="@string/key_select_format_2"
+            android:title="@string/select_format_title"
+            android:entries="@array/default_format"
+            android:entryValues="@array/default_format_value"
+            android:enabled="false"/>
+        <ListPreference
+            android:dialogTitle="@string/select_resolution"
+            android:key="@string/key_select_resolution_2"
+            android:title="@string/select_resolution"
+            android:entries="@array/default_resolution"
+            android:entryValues="@array/default_resolution_value"
+            android:enabled="false" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/key_timestamp_2"
+            android:title="@string/select_timestamp"/>
+        <ListPreference
+            android:dialogTitle="@string/select_fps"
+            android:key="@string/key_select_fps_2"
+            android:title="@string/select_fps_title"
+            android:entries="@array/default_fps"
+            android:entryValues="@array/default_fps_value"
+            android:enabled="false" />
+        <EditTextPreference
+            android:dialogTitle="@string/select_usecaseID"
+            android:key="@string/key_select_usecaseID_2"
+            android:title="@string/select_usecaseID_title"
+            android:defaultValue="@string/default_usecaseID"
+            android:shouldDisableView="true"/>
+        <ListPreference
+            android:dialogTitle="@string/select_destination"
+            android:key="@string/key_select_destination_2"
+            android:title="@string/select_destination_title"
+            android:entries="@array/destination"
+            android:entryValues="@array/destination_values"
+            android:defaultValue="@string/default_destination"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="@string/category_2"
+        android:title="@string/both_preview_and_capture">
+        <ListPreference
+            android:dialogTitle="@string/select_preview_format"
+            android:key="@string/key_select_preview_format"
+            android:title="@string/select_preview_format"
+            android:entries="@array/default_format"
+            android:entryValues="@array/default_format_value"
+            android:shouldDisableView="true"
+            android:enabled="false"/>
+        <ListPreference
+            android:dialogTitle="@string/select_preview_resolution"
+            android:key="@string/key_select_preview_resolution"
+            android:title="@string/select_preview_resolution"
+            android:entries="@array/default_resolution"
+            android:entryValues="@array/default_resolution_value"
+            android:shouldDisableView="true"
+            android:enabled="false" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

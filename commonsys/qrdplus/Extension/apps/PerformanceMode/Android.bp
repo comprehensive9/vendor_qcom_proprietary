@@ -1,0 +1,15 @@
+android_app {
+    name: "PerformanceMode",
+
+    srcs: ["src/**/*.java"],
+
+    platform_apis: true,
+    optimize: {
+        enabled: false,
+    },
+
+    certificate: "platform",
+
+    system_ext_specific: true,
+
+}

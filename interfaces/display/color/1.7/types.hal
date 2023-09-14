@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) 2021 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.display.color@1.7;
+
+import @1.6::types;
+
+/*
+ * SPR mode information struct
+ */
+struct sprModeInfo {
+  uint32_t mode_id;
+};

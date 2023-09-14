@@ -1,0 +1,52 @@
+
+
+cc_binary {
+    name: "lmtests",
+
+    srcs: [
+        "tests/lmtests.cpp",
+        "tests/ModuleTests/core/LMCore.cpp",
+        "tests/ModuleTests/database/iopDB.cpp",
+        "tests/ModuleTests/database/LMDBTest.cpp",
+        "framework/database/lmDB.cpp",
+    ],
+
+    header_libs: ["libutils_headers"],
+
+    shared_libs: [
+        "liblog",
+        "libc",
+        "libcutils",
+        "libsqlite",
+        "libperfhinthelper",
+    ],
+
+    cflags: [
+        "-Wno-unused-parameter",
+        "-Werror",
+    ],
+
+    cppflags: [
+        "-fexceptions",
+    ],
+
+    include_dirs: [
+        "vendor/qcom/proprietary/android-perf/learning-module/framework/inc/core",
+        "vendor/qcom/proprietary/android-perf/learning-module/framework/inc/metameters",
+        "vendor/qcom/proprietary/android-perf/learning-module/framework/inc/utils",
+        "vendor/qcom/proprietary/android-perf/learning-module/framework/inc/database",
+        "vendor/qcom/proprietary/android-perf/learning-module/tests/utils",
+        "vendor/qcom/proprietary/android-perf/learning-module/tests/ModuleTests/core",
+        "vendor/qcom/proprietary/android-perf/learning-module/tests/ModuleTests/database",
+        "vendor/qcom/proprietary/android-perf/mp-ctl",
+        "vendor/qcom/proprietary/android-perf/perf-hal",
+        "external/tinyxml2",
+        "external/sqlite/dist",
+    ],
+
+    compile_multilib: "first",
+
+    owner: "qti",
+
+    proprietary: true,
+}

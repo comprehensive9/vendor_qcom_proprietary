@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) 2021 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.hardware.wifi.wificfr@1.0;
+
+enum CaptureStatusCode : uint32_t {
+    /**
+     * Command executed successfully
+     */
+    SUCCESS,
+    /**
+     * Unknown failure occured.
+     */
+    FAILURE_UNKNOWN,
+};
+
+struct CaptureStatus {
+    CaptureStatusCode code;
+    string debugMessage;
+};
+

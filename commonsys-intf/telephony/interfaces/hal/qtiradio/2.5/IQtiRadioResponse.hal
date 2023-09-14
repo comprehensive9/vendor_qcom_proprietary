@@ -1,0 +1,34 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ */
+
+package vendor.qti.hardware.radio.qtiradio@2.5;
+
+import @2.4::IQtiRadioResponse;
+import @1.0::QtiRadioResponseInfo;
+/*
+ * Interface declaring responses to solicited qtiradio requests
+ *
+ */
+interface IQtiRadioResponse extends @2.4::IQtiRadioResponse {
+     /**
+     * Response to IQtiRadio.SetNrConfig
+     *
+     * @param serial to match request/response. Response must inclue same serial as request.
+     * @param errorCode - errorCode as per types.hal returned from RIL.
+     * @param status SUCCESS/FAILURE of the request.
+     */
+    oneway setNrConfigResponse(int32_t serial, uint32_t errorCode, Status status);
+
+     /**
+     * Response to IQtiRadio.queryNrConfig
+     *
+     * @param serial to match request/response. Response must inclue same serial as request.
+     * @param errorCode - errorCode as per types.hal returned from RIL.
+     * @param enabled values as per types.hal to indicate status of NrConfig.
+     */
+    oneway onNrConfigResponse(int32_t serial, uint32_t errorCode, NrConfig config);
+};

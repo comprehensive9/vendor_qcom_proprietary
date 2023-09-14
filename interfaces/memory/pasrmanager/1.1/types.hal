@@ -1,0 +1,25 @@
+/*!
+ * @file types.hal
+ *
+ * @cr
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ * @services Defines the external interface for PASR Manager.
+ */
+
+package vendor.qti.memory.pasrmanager@1.1;
+
+import @1.0::types;
+
+typedef int32_t PasrSegAllocMemType;
+
+enum PasrSrc_1_1 : uint64_t
+{
+    PASR_SRC_PSI = 0,
+    PASR_SRC_POWER,
+    PASR_SRC_PERF,
+    PASR_SRC_HAL,
+    PASR_SRC_MAX,
+};

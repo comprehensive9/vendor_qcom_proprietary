@@ -1,0 +1,70 @@
+
+
+// For HIDL Impl library
+cc_library_shared {
+    name: "vendor.qti.hardware.capabilityconfigstore@1.0-impl",
+    proprietary: true,
+    relative_install_path: "hw",
+
+    owner: "qti",
+
+    srcs: ["CapabilityConfigStore.cpp"],
+
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libbase",
+        "libutils",
+        "libhardware",
+        "libhidlbase",
+        "libxml2",
+        "vendor.qti.hardware.capabilityconfigstore@1.0",
+    ],
+
+}
+
+// For HIDL Service bin
+cc_binary {
+    name: "vendor.qti.hardware.capabilityconfigstore@1.0-service",
+    init_rc: ["vendor.qti.hardware.capabilityconfigstore@1.0-service.rc"],
+    proprietary: true,
+    relative_install_path: "hw",
+    owner: "qti",
+    srcs: ["service.cpp"],
+
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libbase",
+        "libutils",
+        "libhardware",
+        "libhidlbase",
+        "libxml2",
+        "vendor.qti.hardware.capabilityconfigstore@1.0",
+    ],
+
+}
+
+cc_binary_host {
+    name: "configstore_xmlparser",
+    srcs: ["xmlparser.cpp"],
+    owner: "qti",
+
+    shared_libs: [
+        "libxml2",
+        "liblog",
+    ],
+
+}
+
+//Example of what to add to  Android.mk to get the configstore xml's installed for configstore hal
+//Please add and uncomment below lines in your Android.mk also please refer to the audio.xml located in this dir
+
+/*
+prebuilt_etc {
+    name: "audio.xml",
+    src: "audio.xml",
+    sub_dir: "configstore",
+    proprietary: true,
+
+}*/

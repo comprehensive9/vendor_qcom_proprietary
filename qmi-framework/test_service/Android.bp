@@ -1,0 +1,191 @@
+commonSources = [
+    "test_service_v01.c",
+    "qmi_test_service_clnt_common.c",
+    "qmi_test_service_clnt_common_stats.c",
+]
+commonHeaderLibs = ["libqmi_common_headers", "libqmi_cci_headers", "libqmi_csi_headers"]
+
+common_test_clnt_cflags = ["-g"]
+common_test_clnt_cflags += ["-O2"]
+common_test_clnt_cflags += ["-fno-inline"]
+common_test_clnt_cflags += ["-fno-short-enums"]
+common_test_clnt_cflags += ["-fpic"]
+common_test_clnt_cflags += ["-Werror"]
+common_test_clnt_cflags += ["-Wno-unused-parameter"]
+
+cc_binary {
+    name: "qmi_test_service_test",
+    cflags: common_test_clnt_cflags,
+    header_libs: commonHeaderLibs,
+    srcs: [
+        "test_service_v01.c",
+        "qmi_test_service_clnt.c",
+    ],
+    shared_libs: [
+        "libqmi_cci",
+        "libqmi_common_so",
+    ],
+    relative_install_path: "qmi-framework-tests",
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_binary {
+    name: "qmi_test_service_clnt_test_0000",
+    cflags: common_test_clnt_cflags,
+    header_libs: commonHeaderLibs,
+    srcs: commonSources + ["qmi_test_service_clnt_test_0000.c"],
+    shared_libs: [
+        "libqmi_cci",
+        "libqmi_common_so",
+    ],
+    relative_install_path: "qmi-framework-tests",
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_binary {
+    name: "qmi_test_service_clnt_test_0001",
+    cflags: common_test_clnt_cflags,
+    header_libs: commonHeaderLibs,
+    srcs: commonSources + ["qmi_test_service_clnt_test_0001.c"],
+    shared_libs: [
+        "libqmi_cci",
+        "libqmi_common_so",
+    ],
+    relative_install_path: "qmi-framework-tests",
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_binary {
+    name: "qmi_test_service_clnt_test_1000",
+    cflags: common_test_clnt_cflags,
+    header_libs: commonHeaderLibs,
+    srcs: commonSources + ["qmi_test_service_clnt_test_1000.c"],
+    shared_libs: [
+        "libqmi_cci",
+        "libqmi_common_so",
+    ],
+    relative_install_path: "qmi-framework-tests",
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_binary {
+    name: "qmi_test_service_clnt_test_1001",
+    cflags: common_test_clnt_cflags,
+    header_libs: commonHeaderLibs,
+    srcs: commonSources + ["qmi_test_service_clnt_test_1001.c"],
+    shared_libs: [
+        "libqmi_cci",
+        "libqmi_common_so",
+    ],
+    relative_install_path: "qmi-framework-tests",
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_binary {
+    name: "qmi_test_service_clnt_test_2000",
+    cflags: common_test_clnt_cflags,
+    header_libs: commonHeaderLibs,
+    srcs: commonSources + ["qmi_test_service_clnt_test_2000.c"],
+    shared_libs: [
+        "libqmi_cci",
+        "libqmi_common_so",
+    ],
+    relative_install_path: "qmi-framework-tests",
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_binary {
+    name: "qmi_test_service_clnt_test_3000",
+    cflags: common_test_clnt_cflags,
+    header_libs: commonHeaderLibs,
+    srcs: commonSources + ["qmi_test_service_clnt_test_3000.c"],
+    shared_libs: [
+        "libqmi_cci",
+        "libqmi_common_so",
+        "libqmi_encdec",
+    ],
+    relative_install_path: "qmi-framework-tests",
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_binary {
+    name: "qmi_test_service_clnt_test_3001",
+    cflags: common_test_clnt_cflags,
+    header_libs: commonHeaderLibs,
+    srcs: commonSources + ["qmi_test_service_clnt_test_3001.c"],
+    shared_libs: [
+        "libqmi_cci",
+        "libqmi_common_so",
+        "libqmi_encdec",
+    ],
+    relative_install_path: "qmi-framework-tests",
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_binary {
+    name: "qmi_test_service_clnt_test_4000",
+    cflags: common_test_clnt_cflags,
+    header_libs: commonHeaderLibs,
+    srcs: commonSources + ["qmi_test_service_clnt_test_4000.c"],
+    shared_libs: [
+        "libqmi_cci",
+        "libqmi_common_so",
+        "libqmi_encdec",
+    ],
+    relative_install_path: "qmi-framework-tests",
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_binary {
+    name: "qmi_test_service_clnt_test_4001",
+    cflags: common_test_clnt_cflags,
+    header_libs: commonHeaderLibs,
+    srcs: commonSources + ["qmi_test_service_clnt_test_4001.c"],
+    shared_libs: [
+        "libqmi_cci",
+        "libqmi_common_so",
+    ],
+    relative_install_path: "qmi-framework-tests",
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_binary {
+    name: "qmi_test_service_start_svc",
+    cflags: common_test_clnt_cflags,
+    header_libs: commonHeaderLibs,
+    srcs: commonSources + [
+        "qmi_test_service_ping_svc.c",
+        "qmi_test_service_start_svc.c",
+    ],
+    shared_libs: [
+        "libqmi_csi",
+        "libqmi_common_so",
+    ],
+    relative_install_path: "qmi-framework-tests",
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_binary {
+    name: "qmi_test_mt_client_init_instance",
+    cflags: common_test_clnt_cflags,
+    header_libs: commonHeaderLibs,
+    srcs: commonSources + ["qmi_test_mt_client_init_instance.c"],
+    shared_libs: [
+        "libqmi_cci",
+        "libqmi_common_so",
+    ],
+    relative_install_path: "qmi-framework-tests",
+    owner: "qti",
+    proprietary: true,
+}

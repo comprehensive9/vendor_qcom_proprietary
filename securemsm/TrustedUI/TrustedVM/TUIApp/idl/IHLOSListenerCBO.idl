@@ -1,0 +1,65 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+/** @file  IHLOSListenerCBO.idl */
+
+/**
+ * @brief
+ * HLOSListenerCBO interface provides methods to communicate to the TrustedUI
+ * HAL in HLOS.
+ */
+
+/** @cond */
+interface HLOSListenerCBO {
+    /** @endcond */
+    /**
+   * @addtogroup HLOSListenerCBO
+   * @{
+   */
+
+  /**
+    onComplete
+    @brief OnComplete callback method is used by TUI App in Trusted VM to notify
+    TrustedUI HAL in HLOS of successful session completion.
+    This callback is only expected to be received after session has successfully
+    started.
+
+    @param none
+
+    @return
+    Object_OK on success. Any other error code on failure.
+  */
+  method onComplete();
+  /**
+    onError
+    @brief onError callback method is used by TUI App in TrustedVM to notify
+    TrustedUI HAL in HLOS of any error in the session during input handling
+    after the session had successfully started.
+
+    @param none
+
+    @return
+    Object_OK on success. Any other error code on failure.
+  */
+  method onError(in int32 error);
+  /**
+    handleCmd
+    @brief handleCmd callback method is used by TUI App in TrustedVM to notify
+    TrustedUI HAL in HLOS of any commands in the session during input handling
+    after the session had successfully started.
+
+    @param none
+
+    @return
+    Object_OK on success. Any other error code on failure.
+  */
+  method handleCmd(in buffer cmd, out buffer rsp);
+
+  /** @} */ /* end_addtogroup HLOSListenerCBO */
+
+
+};
+

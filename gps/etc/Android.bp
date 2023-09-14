@@ -1,0 +1,31 @@
+prebuilt_etc {
+
+    name: "izat.conf",
+    proprietary: true,
+    owner: "qti",
+    src: "izat.conf",
+}
+
+prebuilt_etc {
+
+    name: "sap.conf",
+    proprietary: true,
+    owner: "qti",
+    src: "sap.conf",
+}
+
+prebuilt_etc {
+
+    name: "apdr.conf",
+    proprietary: true,
+    owner: "qti",
+    src: "apdr.conf",
+}
+
+prebuilt_etc {
+
+    name: "sll.conf",
+    proprietary: true,
+    owner: "qti",
+    src: "sll.conf",
+}

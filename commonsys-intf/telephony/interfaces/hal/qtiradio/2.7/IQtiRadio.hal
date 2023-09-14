@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) 2022 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.hardware.radio.qtiradio@2.7;
+
+import @2.6::IQtiRadio;
+
+interface IQtiRadio extends @2.6::IQtiRadio {
+    /**
+     * Used to fetch QoS parameters for a particular data call.
+     *
+     * @param serial Serial number of request.
+     * @param cid Connection id of the data call for which QoS parameters need to be fetched.
+     *
+     * Response callback is IQtiRadioResponse.getQosParametersResponse()
+     */
+    oneway getQosParameters(int32_t serial, int32_t cid);
+};

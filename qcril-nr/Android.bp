@@ -1,0 +1,62 @@
+cc_defaults {
+    name: "qtiril_common_defaults",
+    vendor: true,
+    proprietary: true,
+    cflags: [
+        "-O0",
+        "-g",
+        "-Wall",
+        "-Werror",
+        "-Wno-error=#warnings",
+    ],
+    cppflags: [
+        "-O0",
+        "-g",
+        "-Wall",
+        "-Werror",
+        "-Wno-error=#warnings",
+    ],
+    ldflags: [
+        "-Wl,--no-allow-shlib-undefined,--unresolved-symbols=report-all",
+    ],
+}
+
+cc_defaults {
+    name: "qcril_asan_defaults",
+    vendor: true,
+    proprietary: true,
+    cflags: [
+        "-O0",
+        "-g",
+        "-Wall",
+        "-Werror",
+        "-Wno-error=#warnings",
+    ],
+    cppflags: [
+        "-O0",
+        "-g",
+        "-Wall",
+        "-Werror",
+        "-Wno-error=#warnings",
+    ],
+    ldflags: [
+        "-Wl,--no-allow-shlib-undefined,--unresolved-symbols=report-all",
+    ],
+    sanitize: {
+        address: true,
+    },
+}
+cc_library_headers {
+    name: "qcrilnr-toplevel-headers",
+    host_supported: true,
+    defaults: ["qtiril_common_defaults"],
+    export_include_dirs: [
+        "include"
+    ],
+}
+
+cc_library_headers {
+    name: "qcrilnr_qcril_qmi_headers",
+    vendor_available: true,
+    export_include_dirs: ["qcril_qmi"],
+}

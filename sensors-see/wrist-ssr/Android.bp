@@ -1,0 +1,25 @@
+cc_binary {
+    name: "sns_wrist_ssr",
+    defaults: [ "sns_wearable_target_bg",
+    ],
+    srcs: [
+        "wrist_trigger_ssr.cpp",
+    ],
+    header_libs: [
+        "vendor_common_inc",
+    ],
+    shared_libs: [
+        "libc",
+        "libcutils",
+        "libutils",
+        "liblog",
+    ],
+    cflags: [
+        "-Wall",
+        "-Wno-unused-variable",
+        "-Wno-unused-parameter",
+    ],
+    proprietary: true,
+    owner: "qti",
+    init_rc: [ "vendor.sensors.wrist-ssr.rc", ],
+}

@@ -1,0 +1,10 @@
+PRODUCT_PACKAGES += qwesd
+PRODUCT_PACKAGES += smcinvoke_vendor_client
+PRODUCT_PACKAGES += libqcbor
+PRODUCT_PACKAGES += libminkdescriptor
+PRODUCT_PACKAGES += tz_whitelist.json
+PRODUCT_PACKAGES += ta_config.json
+PRODUCT_PACKAGES += TrustZoneAccessService
+PRODUCT_PACKAGES += libnative-api
+PRODUCT_PACKAGES += ssgtzd
+PRODUCT_PACKAGES += ssgtzd.rc

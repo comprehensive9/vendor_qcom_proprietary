@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*********************************************************************
+ Copyright (c) 2012-2019,2020-2021 Qualcomm Technologies, Inc.
+ All Rights Reserved.
+ Confidential and Proprietary - Qualcomm Technologies, Inc.
+**********************************************************************/
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    coreApp="true"
+    package="com.qualcomm.qti.uceShimService"
+    android:sharedUserId="android.uid.phone"
+    versionCode="1"
+    versionName="1.0" >
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+
+    <application
+        android:label="uceShimService"
+        android:persistent="true"
+        android:directBootAware="true"
+        android:defaultToDeviceProtectedStorage="true"
+        android:process = ".dataservices" >
+        <receiver android:name=".RCSReceiver"
+                  android:enabled="true"
+                  android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+       <service
+            android:name=".RCSService"
+            android:singleUser="true"
+            android:enabled="true">
+        </service>
+
+        </application>
+
+    <uses-sdk android:minSdkVersion="28" android:targetSdkVersion="29" >
+    </uses-sdk>
+
+</manifest>

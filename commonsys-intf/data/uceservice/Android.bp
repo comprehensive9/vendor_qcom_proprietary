@@ -1,0 +1,4 @@
+hidl_package_root {
+    name: "com.qualcomm.qti.uceservice",
+    use_current: true,
+}

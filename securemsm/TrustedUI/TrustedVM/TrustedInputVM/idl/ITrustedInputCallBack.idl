@@ -1,0 +1,22 @@
+/*===================================================================================
+  Copyright (c) 2020 Qualcomm Technologies, Inc.
+  All Rights Reserved.
+  Confidential and Proprietary - Qualcomm Technologies, Inc.
+  ===================================================================================*/
+
+/*===================================================================================
+FILE:  ITrustedInputCallBack.idl
+
+DESCRIPTION:  This file contains interface to the VMClientApp and is used
+by TrustedInput to either share the touchdata or indicate that it has timed-out
+without any touch events or notify any error.
+
+=====================================================================================*/
+
+interface TrustedInputCallBack
+{
+
+    method notifyInput(in buffer inputData);
+    method notifyTimeout();
+    method notifyError(in int32 error);
+};

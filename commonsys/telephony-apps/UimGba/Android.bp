@@ -1,0 +1,55 @@
+// Build the auto generated files into a library to be used by both the
+// app and the service
+java_library {
+
+    name: "uimgbalibrary",
+    installable: true,
+    system_ext_specific: true,
+    srcs: ["src/com/qualcomm/qti/uimGba/IUimGbaServiceCallback.aidl"] +
+            ["src/com/qualcomm/qti/uimGba/IUimGbaService.aidl"],
+    sdk_version: "system_current",
+}
+
+// ==========================================================================
+prebuilt_etc {
+
+    name: "UimGba.xml",
+    system_ext_specific: true,
+
+    // This will install the file in /system_ext/etc/permissions
+    //
+
+    src: "UimGba.xml",
+    sub_dir: "permissions",
+
+}
+
+// ==========================================================================
+// Build the uimGba manager
+// which can be used by client
+
+java_library {
+
+    name: "uimgbamanagerlibrary",
+    installable: true,
+    system_ext_specific: true,
+    libs: ["uimgbalibrary"],
+
+    srcs: ["src/com/qualcomm/qti/uimGbaManager/UimGbaManager.java"] +
+            ["src/com/qualcomm/qti/uimGbaManager/UimGbaManagerCallback.java"],
+
+}
+
+// ==========================================================================
+
+prebuilt_etc {
+
+    name: "UimGbaManager.xml",
+    system_ext_specific: true,
+
+    //this will install the file in /system_ext/etc/permissions
+
+    src: "UimGbaManager.xml",
+    sub_dir: "permissions",
+
+}

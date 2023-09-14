@@ -1,0 +1,31 @@
+aidl_interface {
+    name: "vendor.qti.hardware.qxr",
+    system_ext_specific: true,
+    vendor_available: true,
+    srcs: [
+        "vendor/qti/hardware/qxr/IQXRCoreService.aidl",
+        "vendor/qti/hardware/qxr/IQXRCamService.aidl",
+        "vendor/qti/hardware/qxr/IQXRModService.aidl",
+        "vendor/qti/hardware/qxr/IQXRSplitService.aidl",
+        "vendor/qti/hardware/qxr/IQXRAudioService.aidl",
+    ],
+    stability: "vintf",
+    imports: [
+        "android.hardware.common",
+    ],
+    backend: {
+        java: {
+            enabled: false,
+        },
+        ndk: {
+            enabled: true,
+        },
+        cpp: {
+            enabled: false,
+        },
+    },
+    versions: [
+        "1",
+        "2",
+    ],
+}

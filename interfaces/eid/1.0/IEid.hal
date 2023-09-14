@@ -1,0 +1,121 @@
+/********************************************************************
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ ********************************************************************/
+
+package vendor.qti.hardware.eid@1.0;
+
+/** eID service interface */
+
+interface IEid {
+
+    /**
+     * Check if Certificate has been installed in eID applet.
+     * It can be replaced by geteIDState.
+     */
+    haseIDCertificate() generates (EidErrorCode result, uint32_t state);
+
+    /**
+     * Get the state of eSE.
+     * Return value:
+     * 0x01 Application instances are not installed;
+     * 0x02 Application instances are installed;
+     * 0x03 Certificate is installed;
+     * 0X04 Personalization has been completed;
+     * 0x2F General error
+     */
+    geteIDState() generates (EidErrorCode result, uint32_t state);
+
+    /**
+     * Input face photo data and face photo format.
+     * And obtain face-related data from eID TA.
+     * The return value is null when there is an error in getting data.
+     */
+    getNoneSecureFaceData(bool isComplete, vec<uint8_t> picture, uint32_t type) generates(EidErrorCode result, vec<uint8_t> data);
+
+    /**
+     * The data package of the application certificate of eID TA organization is obtained.
+     * The application can use this data packet to organize application certificate messages.
+     * The return value is null when the data acquisition error occurs.
+     */
+    applyeIDCertificate() generates (EidErrorCode result, vec<uint8_t> data);
+
+    /**
+     * To write the eID digital certificate to the eID APPLET.
+     * Input is eID digital certificate installation message.
+     * The return value is null when writing an exception.
+     */
+    installeIDCertificate(bool isComplete, vec<uint8_t> data) generates (EidErrorCode result, vec<uint8_t> data);
+
+    /**
+     * To get information about eID carrier from eID TA.
+     * The return value is null when an error occurs.
+     */
+    geteIDInfo() generates (EidErrorCode result, vec<uint8_t> data);
+
+    /**
+     * To obtain the signature information to be confirmed.
+     * Input is the signature request message.
+     * The return value is null when an error occurs.
+     */
+    initSign(vec<uint8_t> data) generates (EidErrorCode result, vec<uint8_t> data);
+
+    /**
+     * To obtain the message to be checked.
+     * The input is the signature session sequence number.
+     * The return value is null when an error occurs.
+     */
+    finishSign(uint64_t session, uint32_t authType) generates (EidErrorCode result, vec<uint8_t> data);
+
+    /**
+     * To obtain the message to be checked.
+     * The input is the signature session sequence number and face photos.
+     * The return value is null when an error occurs.
+     */
+    finishSignEx(bool isComplete, vec<uint8_t> picture, uint32_t picType, uint64_t session, uint32_t authType) generates (EidErrorCode result, vec<uint8_t> data);
+
+    /**
+     * To terminate the signature operation.
+     * The input is the signature session sequence number.
+     * Return value: ture/false
+     */
+    abortSign(uint64_t session) generates (EidErrorCode result);
+
+    /**
+     * To get ID information from eSE
+     */
+    geteIDIDCard(uint32_t authType) generates (EidErrorCode result, vec<uint8_t> data);
+
+    /**
+     * To clean up personal resources, such as ID photos, stored in eID TA.
+     */
+    clear(uint32_t authType) generates (EidErrorCode result);
+
+    /**
+     * To get the generated random number.
+     * which needs to be obtained before obtaining the ID electronic certificate.
+     */
+    getRandomData() generates (EidErrorCode result, vec<uint8_t> data);
+
+    /**
+     * To get encrypted identity datai.
+     * which needs to be obtained before obtaining the ID electronic certificate.
+     */
+    geteIDSecureIDData(bool isComplete, vec<uint8_t> data) generates (EidErrorCode result, vec<uint8_t> data);
+
+    /**
+     * When signing, the secure ui needs to be started to confirm the signature information.
+     */
+    confirmByTui (uint64_t session) generates (EidErrorCode result, uint32_t state);
+
+    /**
+     * This is a reserved interface for future extensions.
+     */
+    processCommand(bool isComplete, vec<uint8_t> data, uint32_t authType) generates (EidErrorCode result, vec<uint8_t> data);
+
+    /**
+     * To obtain desensitization identity data online after eID is enrolled.
+     */
+    geteIDDesensitizedIDData(uint32_t authType) generates (EidErrorCode result, vec<uint8_t> data);
+};

@@ -1,0 +1,2337 @@
+/*
+ * SlimRemoteMsgs.proto
+ * Common location data types definitions, enums, structs
+ *
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+syntax = "proto3";
+
+/** @brief Proto file versioning for SLIM service */
+/** Proto file versioning for SLIM service */
+enum pbSlimServiceVersionEnumT {
+    // Allow multiple enum items to use the same enum value
+    option allow_alias = true;
+
+    PB_eSLIM_SERVICE_VER_INVALID = 0;
+    // Major changes - compatibility breakage. Bump the first byte of version i.e. 1.x to 2.0
+    PB_eSLIM_SERVICE_VER_MAJOR = 1;
+    // Minor - New features / API addition, new message/elemtent addition.
+    // Bump the last byte of version i.e. x.2 to x.3
+    PB_eSLIM_SERVICE_VER_MINOR = 0;
+}
+
+/** @brief Enum for SLIM service provider flags */
+/** Sensor*/
+enum pbSlimServiceProviderEnumT
+{
+    PB_eSLIM_SERVICE_PROVIDER_DEFAULT               = 0;
+    /**< Default provider should be used. If this value is set in the provider mask
+       of type slimServiceProviderMaskT, other bits of the mask are ignored. */
+    PB_eSLIM_SERVICE_PROVIDER_SSC                   = 1;
+    /**< Only SSC provider should be used */
+    PB_eSLIM_SERVICE_PROVIDER_SAMLITE               = 2;
+    /**< Only SAMLite provider should be used */
+    PB_eSLIM_SERVICE_PROVIDER_NATIVE                = 3;
+    /**< Only native provider should be used */
+
+    //! @cond
+    PB_eSLIM_SERVICE_PROVIDER_MAX                   = 2147483647; /* Force 32bit */
+    //! @endcond
+}
+
+/** @brief Device sensor types */
+enum pbSlimSensorTypeEnumT
+{
+    PB_eSLIM_SENSOR_TYPE_ACCEL        = 0; /**< Accelerometer */
+    PB_eSLIM_SENSOR_TYPE_GYRO         = 1; /**< Gyroscope */
+    PB_eSLIM_SENSOR_TYPE_ACCEL_TEMP   = 2; /**< Accelerometer temperature */
+    PB_eSLIM_SENSOR_TYPE_GYRO_TEMP    = 3; /**< Gyroscope temperature */
+    PB_eSLIM_SENSOR_TYPE_MAGNETOMETER = 4; /**< Magnetometer */
+    PB_eSLIM_SENSOR_TYPE_BAROMETER    = 5; /**< Barometer */
+    //negative value not supported so below enum value is altered
+    PB_eSLIM_SENSOR_TYPE_NONE        = 101; /**< Invalid */
+
+    //! @cond
+    PB_eSLIM_SENSOR_TYPE_MAX          = 2147483647; /* Force 32bit */
+    //! @endcond
+}
+
+/** @brief Time source */
+enum pbSlimTimeSourceEnumT
+{
+    PB_eSLIM_TIME_SOURCE_UNSPECIFIED = 0;
+    /**< The sensor time source is unspecified.
+       Can be converted to common with timesync. */
+    PB_eSLIM_TIME_SOURCE_COMMON      = 1;
+    /**< The time source is common between the sensors and
+       the SLIM engine. Monotonous millisecond time.
+       This does not include leap seconds. */
+    PB_eSLIM_TIME_SOURCE_GPS         = 2;
+    /**< GPS time in milliseconds since GPS epoch 00:00:00 January 6th 1980.
+       This does not include leap seconds. */
+    PB_eSLIM_TIME_SOURCE_UTC         = 3;
+    /**< UTC time in milliseconds since UNIX epoch 00:00:00 January 1st 1970.
+       Like UNIX time, this includes leap seconds. */
+    PB_eSLIM_TIME_SOURCE_LEGACY      = 4;
+    /**< Legacy sensor timestamp. Used only when playing back old logs which
+       require sensor to GPS timestamp conversion using legacy timesync. */
+
+    //! @cond
+    PB_eSLIM_TIME_SOURCE_MAX         = 2147483647; /* Force 32bit */
+    //! @endcond
+}
+
+/** #define not supported in proto so defining following values in enum */
+enum pbSlimFlags {
+    PB_SLIM_FLAGS_MASK_INVALID = 0x00; /* for protoc compiler happy */
+    /* SLIM flags */
+    PB_SLIM_FLAGS_MASK_TIME_JUMP = 0x01;
+    /**< Time has jumped such that timestamp is not related to
+       previous timestamp. This happens when SLIM timesync is reset. */
+    PB_SLIM_FLAGS_MASK_TIME_UNC_HIGH = 0x02;
+    /**< Timestamp uncertainty is high, and it should not be trusted.
+       This may happen if there is too much noise in timesync measurements,
+       or if timesync has not yet converged to low-uncertainty estimate. */
+    PB_SLIM_FLAGS_MASK_DATA_OUTAGE = 0x04;
+    /**< Service has a temporary outage. All fields (except the flags, time source
+       and timestamp) are invalid in the data indication. */
+
+    /* These flags are defined as specific to the pedometer an no other SLIM client types **
+    ** (i.e. slimPedometerDataStructT::flags).                                            */
+    PB_SLIM_FLAGS_MASK_PEDOMETER_STEP_RATE_ANCHOR_JUMP = 0x08;  /* step detection:  bit-3 */
+    PB_SLIM_FLAGS_MASK_PEDOMETER_STEP_RATE_ANCHOR = 0x10;  /* anchor set:      bit-4 */
+    PB_SLIM_FLAGS_MASK_PEDOMETER_STEP_RATE_ANCHOR_PREINIT = 0x20;  /* anchor preinit:  bit-5 */
+    PB_SLIM_FLAGS_MASK_PEDOMETER_STEP_RATE_ANCHOR_INIT = 0x40;  /* anchor init:     bit-6 */
+}
+
+/**
+@brief Sensor sample
+
+@sa slimSensorDataStructT
+*/
+message pbSlimSensorSampleStructT
+{
+    uint32 sampleTimeOffsetMs = 1;
+    /**<   Sample time offset. This time offset must be
+        relative to the sensor time of the first sample. \n
+        - Type: Unsigned integer \n
+        - Units: milliseconds */
+
+    uint32 sampleTimeOffsetSubMilliNs = 2;
+    /**<   Sample time sub-milli second offset in nano secs . This time offset must be
+       relative to the sampleTimeOffsetMs calculated for this sample. \n
+       - Type: Unsigned integer \n
+       - Units: nanoseconds */
+
+    repeated float           sample = 3;
+    /**<   3-axis Sample
+       - Type: Floating point \n
+       - Axes: Device has a right-handed coordinate system: \n
+               x = Right (when holding phone in hand and looking at the display)
+               y = Up
+               z = Out of the display
+       - Units: eSLIM_SENSOR_TYPE_ACCEL: m/s2 \n
+                eSLIM_SENSOR_TYPE_GYRO: rad/s \n
+                eSLIM_SENSOR_TYPE_MAGNETOMETER: uTesla
+
+         1-axis Sample
+       - Type: Floating point \n
+       - Axes: only sample[0] has valid measurement
+       - Units: eSLIM_SENSOR_TYPE_ACCEL_TEMP: Celsius \n
+                eSLIM_SENSOR_TYPE_GYRO_TEMP: Celsius \n
+                eSLIM_SENSOR_TYPE_BAROMETER: hectopascal (hPa) */
+}
+
+/**
+@brief Sensor data message
+
+@sa slim_EnableSensorData
+*/
+message pbSlimSensorDataStructT
+{
+    pbSlimServiceProviderEnumT         provider = 1;
+    /**< Provider of this data. One of: \n
+         eSLIM_SERVICE_PROVIDER_DEFAULT
+         eSLIM_SERVICE_PROVIDER_SSC \n
+         eSLIM_SERVICE_PROVIDER_SAMLITE \n
+         eSLIM_SERVICE_PROVIDER_NATIVE */
+
+    pbSlimTimeSourceEnumT              timeSource = 2;
+    /**< Source of timeBase. One of: \n
+         eSLIM_TIME_SOURCE_UNSPECIFIED \n
+         eSLIM_TIME_SOURCE_COMMON \n
+         eSLIM_TIME_SOURCE_GPS \n
+         eSLIM_TIME_SOURCE_UTC \n
+         eSLIM_TIME_SOURCE_LEGACY   */
+
+    uint64                             timeBase = 3;
+    /**< Base time to which the sample time offsets are added
+       to get full sample timestamps. Units: milliseconds */
+
+    uint32                        flags = 4; /* changed from uint32 */
+    /**< SLIM flags. Combination of:  \n
+         SLIM_FLAGS_MASK_TIME_JUMP  \n
+         SLIM_FLAGS_MASK_TIME_UNC_HIGH */
+
+    pbSlimSensorTypeEnumT              sensorType = 5;
+    /**< Sensor type. Any of:
+         eSLIM_SENSOR_TYPE_ACCEL
+         eSLIM_SENSOR_TYPE_GYRO
+         eSLIM_SENSOR_TYPE_ACCEL_TEMP
+         eSLIM_SENSOR_TYPE_GYRO_TEMP
+         eSLIM_SENSOR_TYPE_MAGNETOMETER
+         eSLIM_SENSOR_TYPE_BAROMETER */
+
+    uint32                             samples_len = 6; /**< Number of samples, changed from uint8 */
+    repeated pbSlimSensorSampleStructT samples = 7;
+    /**< Variable length array to specify sensor samples;
+       maximum length of the array is 50. */
+}
+
+/** QMD motion*/
+
+/**
+@brief QMD service motion state enumeration
+
+@sa slimQmdDataStructT
+*/
+enum pbSlimQmdMotionStateEnumT
+{
+    PB_eSLIM_QMD_MOTION_STATE_UNSPECIFIED = 0;
+    /**< The motion state is unspecified */
+    PB_eSLIM_QMD_MOTION_STATE_REST        = 1;
+    /**< Rest motion state */
+    PB_eSLIM_QMD_MOTION_STATE_MOVE        = 2;
+    /**< Move motion state */
+
+    //! @cond
+    PB_eSLIM_QMD_MOTION_STATE_MAX         = 2147483647; /* Force 32bit */
+    //! @endcond
+}
+
+/**
+@brief AMD and RMD service data message.
+
+Note that AMD and RMD use both this structure
+
+@sa slim_EnableQmdData
+*/
+message pbSlimQmdDataStructT
+{
+    pbSlimServiceProviderEnumT   provider = 1;
+    /**< Provider of this data. One of: \n
+         eSLIM_SERVICE_PROVIDER_DEFAULT
+         eSLIM_SERVICE_PROVIDER_SSC \n
+         eSLIM_SERVICE_PROVIDER_SAMLITE \n
+         eSLIM_SERVICE_PROVIDER_NATIVE */
+
+    pbSlimTimeSourceEnumT        timeSource = 2;
+    /**< Source of timestamp. One of: \n
+         eSLIM_TIME_SOURCE_UNSPECIFIED \n
+         eSLIM_TIME_SOURCE_COMMON \n
+         eSLIM_TIME_SOURCE_GPS \n
+         eSLIM_TIME_SOURCE_UTC \n
+         eSLIM_TIME_SOURCE_LEGACY   */
+
+    uint64                       timestamp = 3;
+    /**< Timestamp of input used to generate the algorithm output.
+        - Type: Unsigned integer \n
+        - Units: Milliseconds */
+
+    uint32                  flags = 4; /* changed from uint32 */
+    /**< SLIM flags. Combination of:  \n
+         SLIM_FLAGS_MASK_TIME_JUMP  \n
+         SLIM_FLAGS_MASK_TIME_UNC_HIGH */
+
+    pbSlimQmdMotionStateEnumT    motionState = 5;
+    /**< Motion state output of QMD algorithm instance. */
+
+}
+
+/**
+@brief SMD motion state enumeration
+
+@sa slimSmdDataStructT
+*/
+enum pbSlimSmdStateEnumT
+{
+    PB_eSLIM_SMD_STATE_UNKNOWN    = 0;
+    /**< The state is unknown */
+    PB_eSLIM_SMD_STATE_NO_MOTION  = 1;
+    /**< No motion state */
+    PB_eSLIM_SMD_STATE_MOTION     = 2;
+    /**< Motion state */
+
+    //! @cond
+    PB_eSLIM_SMD_MOTION_STATE_MAX = 2147483647; /* Force 32bit */
+    //! @endcond
+}
+
+/**
+@brief SMD data message
+
+@sa slim_EnableSmdData
+*/
+message pbSlimSmdDataStructT
+{
+    pbSlimServiceProviderEnumT provider = 1;
+    /**< Provider of this data. One of: \n
+         eSLIM_SERVICE_PROVIDER_DEFAULT
+         eSLIM_SERVICE_PROVIDER_SSC \n
+         eSLIM_SERVICE_PROVIDER_SAMLITE \n
+         eSLIM_SERVICE_PROVIDER_NATIVE */
+
+    pbSlimTimeSourceEnumT      timeSource = 2;
+    /**< Source of timestamp. One of: \n
+         eSLIM_TIME_SOURCE_UNSPECIFIED \n
+         eSLIM_TIME_SOURCE_COMMON \n
+         eSLIM_TIME_SOURCE_GPS \n
+         eSLIM_TIME_SOURCE_UTC \n
+         eSLIM_TIME_SOURCE_LEGACY   */
+
+    uint64                 timestamp = 3;
+    /**< Timestamp of input used to generate the algorithm output.
+        - Type: Unsigned integer \n
+        - Units: Milliseconds */
+
+    uint32            flags = 4;
+    /**< SLIM flags. Combination of:  \n
+         SLIM_FLAGS_MASK_TIME_JUMP  \n
+         SLIM_FLAGS_MASK_TIME_UNC_HIGH */
+
+    pbSlimSmdStateEnumT motionState = 5;
+    /**< Detected motion state. */
+
+    uint32 motionStateProbability = 6; /* converted from uint8 */
+    /**< Probability of the reported motion state scaled to percentage
+       (range 0 to 100). */
+}
+
+/**
+@brief Pedometer report type.
+
+@sa slimPedometerDataStructT
+*/
+enum pbSlimInjectPedometerReportEnumT
+{
+    PB_eSLIM_INJECT_PEDOMETER_REPORT_ON_STEP_EVENT    = 0;
+    /**< Report is injected on detection of a step event */
+    PB_eSLIM_INJECT_PEDOMETER_REPORT_PERIODICALLY  = 1;
+    /**< Report is injected periodically */
+
+    //! @cond
+    PB_eSLIM_INJECT_PEDOMETER_REPORT_MAX = 2147483647; /* Force 32bit */
+    //! @endcond
+}
+
+/**
+@brief Pedometer report message.
+@sa slim_EnablePedometer
+*/
+message pbSlimPedometerDataStructT
+{
+    pbSlimServiceProviderEnumT provider = 1;
+    /**< Provider of this data. One of: \n
+         eSLIM_SERVICE_PROVIDER_DEFAULT
+         eSLIM_SERVICE_PROVIDER_SSC \n
+         eSLIM_SERVICE_PROVIDER_SAMLITE \n
+         eSLIM_SERVICE_PROVIDER_NATIVE */
+
+    pbSlimTimeSourceEnumT      timeSource = 2;
+    /**< Source of timestamp. One of: \n
+         eSLIM_TIME_SOURCE_UNSPECIFIED \n
+         eSLIM_TIME_SOURCE_COMMON \n
+         eSLIM_TIME_SOURCE_GPS \n
+         eSLIM_TIME_SOURCE_UTC \n
+         eSLIM_TIME_SOURCE_LEGACY   */
+
+    uint64                 timestamp = 3;
+    /**<   Time stamp of the last step event in this report, i.e., the time stamp
+         of the step event that caused this report to be generated.
+         The time stamp is in the time reference scale that is
+         used by the pedometer time source. \n
+         - Units: Milliseconds */
+
+    uint32            flags = 4;
+    /**<  SLIM flags. Combination of:  \n
+        SLIM_FLAGS_MASK_TIME_JUMP  \n
+        SLIM_FLAGS_MASK_TIME_UNC_HIGH \n
+        SLIM_FLAGS_MASK_DATA_OUTAGE \n
+        ** flags are specific to the pedometer, for detecing step rate jumps **
+        SLIM_FLAGS_MASK_PEDOMETER_STEP_RATE_ANCHOR_JUMP \n
+        SLIM_FLAGS_MASK_PEDOMETER_STEP_RATE_ANCHOR \n
+        SLIM_FLAGS_MASK_PEDOMETER_STEP_RATE_ANCHOR_PREINIT \n
+        SLIM_FLAGS_MASK_PEDOMETER_STEP_RATE_ANCHOR_INIT */
+
+    float                    timeInterval = 5;
+    /**<   Time interval during which the step count was calculated. Subtracting
+         timeInterval from the timestamp field yields the time when
+         the step detection for the first step in this report started. \n
+         - Units: Milliseconds */
+
+    /*  Step Count */
+    uint32                   stepCount = 6;
+    /**<   Number of steps counted during the time interval. */
+
+    bool                  stepConfidence_valid = 7;
+    /**< Must be set to true if stepConfidence is being passed */
+    uint32                  stepConfidence = 8;
+    /**<   Confidence associated with the step. This field is only applicable
+         for a single step report, i.e., if the step count is one. \n
+         - Range: 0 to 100 \n
+         @note The report is ignored if confidence is 0. */
+
+    bool                  stepCountUncertainty_valid = 9;
+    /**< Must be set to true if stepCountUncertainty is being passed */
+    float                    stepCountUncertainty = 10;
+    /**<   Uncertainty (in steps) associated with the step count. */
+
+    bool                  stepRate_valid = 11;
+    /**< Must be set to true if stepRate is being passed */
+    float                    stepRate = 12;
+    /**<   Current estimate for the rate of steps per second. \n
+       - Units: steps/second \n
+       - Range: >= 0.0 */
+
+    bool                  strideLength_valid = 13;
+    /**< Must be set to true if strideLength is being passed */
+    float                    strideLength = 14;
+    /**<   Current estimate of the stride length. \n
+       - Type: Float \n
+       - Units: Meters/stride \n
+       - Range: >= 0 */
+
+    bool                  strideLengthUncertainty_valid = 15;
+    /**< Must be set to true if strideLengthUncertainty is being passed */
+    float                    strideLengthUncertainty = 16;
+    /**<   Uncertainty associated with the stride length, provided at a 1-sigma
+       (68 percent) confidence. \n
+       - Type: Float \n
+       - Units: Meters/stride \n
+       - Range: >= 0 */
+
+    bool                  stepCountFractional_valid = 17;
+    /**< Must be set to true if stepCountFractional is being passed */
+    float                    stepCountFractional = 18;
+    /**<   Sub-integer portion of the number of steps counted during the time
+       interval. If the report is generated on event, this will be 0. \n
+       - Type: Float \n
+       - Units: steps \n
+       - Range: >= 0.0 and < 1.0 */
+
+    bool                  reportType_valid = 19;
+    /**< Must be set to true if reportType is being passed */
+    pbSlimInjectPedometerReportEnumT reportType = 20;
+    /**< Identifies the type of report generated. One of: \n
+         eSLIM_INJECT_PEDOMETER_REPORT_ON_STEP_EVENT \n
+         eSLIM_INJECT_PEDOMETER_REPORT_PERIODICALLY \n */
+}
+
+/*
+ *  Motion data
+ */
+/**
+@brief Motion state enumeration
+@sa slimMotionDataStructT
+*/
+enum pbSlimMotionStateEnumT
+{
+    PB_eSLIM_MOTION_STATE_UNKNOWN      = 0;
+    /**< Device state is not known. */
+    PB_eSLIM_MOTION_STATE_STATIONARY   = 1;
+    /**< Device state is Stationary. */
+    PB_eSLIM_MOTION_STATE_IN_MOTION    = 2;
+    /**< Device state is In Motion. */
+
+    //! @cond
+    PB_eSLIM_MOTION_STATE_MAX = 214748364; /* Force 32bit */
+    //! @endcond
+}
+
+/**
+@brief Motion mode enumeration
+@sa slimMotionDataStructT
+*/
+enum pbSlimMotionModeEnumT
+{
+    PB_eSLIM_MOTION_MODE_UNKNOWN              =  0;
+    /**< Device movement is not known. */
+    /* Add more unknown motion modes here */
+
+    PB_eSLIM_MOTION_MODE_STATIONARY = 1;
+    /**< Device is not moving. */
+    /* Add more stationary motion modes here */
+
+    PB_eSLIM_MOTION_MODE_PEDESTRIAN_UNKNOWN   =  200;
+    /**< Device movement is in Pedestrian mode; nothing else is known about the movement. */
+    PB_eSLIM_MOTION_MODE_PEDESTRIAN_WALKING = 201;
+    /**< Device movement is in pedestrian Walking mode. */
+    PB_eSLIM_MOTION_MODE_PEDESTRIAN_RUNNING = 202;
+    /**< Device movement is in pedestrian Running mode. */
+    /* Add more pedestrian modes here */
+
+    PB_eSLIM_MOTION_MODE_VEHICLE_UNKNOWN      =  300;
+    /**< Device movement is in Vehicular mode; nothing else is known about the movement. */
+    /* Add more vehicles modes here */
+
+    //! @cond
+    PB_eSLIM_MOTION_MODE_MAX                  = 2147483647; /* Force 32bit */
+    //! @endcond
+}
+
+/**
+@brief Motion data indication message.
+
+@sa slim_EnableMotionData
+*/
+message pbSlimMotionDataStructT
+{
+    pbSlimServiceProviderEnumT provider = 1;
+    /**< Provider of this data. One of: \n
+         eSLIM_SERVICE_PROVIDER_DEFAULT
+         eSLIM_SERVICE_PROVIDER_SSC \n
+         eSLIM_SERVICE_PROVIDER_SAMLITE \n
+         eSLIM_SERVICE_PROVIDER_NATIVE */
+
+    pbSlimTimeSourceEnumT      timeSource = 2;
+    /**< Source of timeBase. One of: \n
+         eSLIM_TIME_SOURCE_UNSPECIFIED \n
+         eSLIM_TIME_SOURCE_COMMON \n
+         eSLIM_TIME_SOURCE_GPS \n
+         eSLIM_TIME_SOURCE_UTC \n
+         eSLIM_TIME_SOURCE_LEGACY   */
+
+    uint64                 timestamp = 3;
+    /**<   Time stamp of the motion data in this report.
+         The time stamp is in the time reference scale that is
+         used by the motion data time source. \n
+         - Units: Milliseconds */
+
+    uint32                 flags = 4;
+    /**< SLIM flags. Combination of:  \n
+         SLIM_FLAGS_MASK_TIME_JUMP  \n
+         SLIM_FLAGS_MASK_TIME_UNC_HIGH */
+
+    pbSlimMotionStateEnumT     motionState = 5;
+    /**< Current motion state of the user. \n
+
+       Absolute rest and relative rest are both indicated by setting motion_state
+       to Stationary. The relative rest state can be distinguished from absolute
+       rest by reducing probabilityOfState.
+    */
+
+    pbSlimMotionModeEnumT      motionMode = 6;
+    /**< Modes of user motion. \n
+
+       The motionMode value is independent of the motionState value.
+    */
+
+    float                    probabilityOfState = 7;
+    /**< Probability that the device is actually undergoing the motion state
+       specified by the combination of the values of motion_state, motion_mode,
+       and motion_sub_mode.
+       @par
+       This value is a floating point number in the range of 0 to 100, in
+       units of percent probability. Any value greater than 99.9999 is
+       applied as 99.9999.
+       @par
+       It is recommended that if a particular combination of motion_state and
+       motion_mode cannot be determined with more than 50 percent confidence,
+       that a more general statement of user motion be made.
+       For example, if the mode of In-Motion + Pedestrian-Running can only be
+       determined with 50 percent probability, and the simpler statement of In-Motion
+       can be determined with 90 percent probability, it is recommended that this field
+       be used to simply state In-Motion with 90 percent probability.
+       @par
+       If the motion_state is not known, the value in this field is not used.
+    */
+
+    uint32                 age = 8;
+    /**< Age of the motion data in milliseconds at the time of injection.
+    */
+
+    uint32                 timeout = 9;
+    /**< If the age of the motion data input exceeds the timeout value, the data
+       will no longer be used. The timeout value is in units of milliseconds.
+       Values in the range of 0 to 10000 are accepted. If 65535 is provided,
+       the motion data input is applied until the next input is
+       received.
+       @par
+       If the determination of motion data is an instantaneous observation
+       and no notice is guaranteed to be given via the QMI on a change in the
+       state of the motion data, it is recommended that this field be set to 0.
+       @par
+       If the determination of motion data is continuously monitored
+       external to the QMI and an update is always applied to the QMI upon any
+       change in state, a value of 65535 is used for this field.
+       Note that in this case, if a certain mode is set and is not later
+       unset (e.g., by sending in the request message with a user motion
+       state of Unknown), the value is applied indefinitely.
+    */
+
+}
+
+/*
+ *  Vehicle sensors
+ */
+
+/**
+@brief Single sample for vehicle service.
+@sa slimVehicleSensorDataStructT
+*/
+message pbSlimVehicleSensorSampleStructT
+{
+    uint32 sampleTimeOffset = 1;
+    /**<   Sample time offset. This time offset must be
+       relative to the sensor time of the first sample. \n
+       - Type: Unsigned integer \n
+       - Units: microseconds */
+
+    repeated float    sample = 2;
+    /**<   3-axis Sample
+       - Type: Floating point \n
+       - Axes: x = Front \n
+               y = Right \n
+               z = Down \n
+       - Units: ACCEL       : m/s2 \n
+                GYRO        : rad/s */
+
+}
+
+/** Vehicle sensor types: */
+enum pbSlimVehicleSensorTypeEnumT
+{
+    PB_eSLIM_VEHICLE_SENSOR_TYPE_ACCEL    = 0; /**< Accelerometer */
+    PB_eSLIM_VEHICLE_SENSOR_TYPE_GYRO     = 1; /**< Gyroscope */
+
+    //! @cond
+    PB_eSLIM_VEHICLE_SENSOR_TYPE_MAX      = 2147483647; /* Force 32bit */
+    //! @endcond
+}
+
+
+/**
+@brief Vehicle service data indication message.
+
+This message provides service data for vehicle accelerometer and gyroscope
+services.
+*/
+message pbSlimVehicleSensorDataStructT
+{
+    pbSlimServiceProviderEnumT       provider = 1;
+    /**< Provider of this data. One of: \n
+         eSLIM_SERVICE_PROVIDER_DEFAULT
+         eSLIM_SERVICE_PROVIDER_SSC \n
+         eSLIM_SERVICE_PROVIDER_SAMLITE \n
+         eSLIM_SERVICE_PROVIDER_NATIVE */
+
+    pbSlimTimeSourceEnumT            timeSource = 2;
+    /**< Source of timeBase. One of: \n
+         eSLIM_TIME_SOURCE_UNSPECIFIED \n
+         eSLIM_TIME_SOURCE_COMMON \n
+         eSLIM_TIME_SOURCE_GPS \n
+         eSLIM_TIME_SOURCE_UTC \n
+         eSLIM_TIME_SOURCE_LEGACY   */
+
+    uint64                       timeBase = 3;
+    /**< Base time to which the sample time offsets are added
+       to get full sample timestamps. Units: milliseconds */
+
+    uint32                  flags = 4;
+    /**< SLIM flags. Combination of:  \n
+         SLIM_FLAGS_MASK_TIME_JUMP  \n
+         SLIM_FLAGS_MASK_TIME_UNC_HIGH */
+
+    pbSlimVehicleSensorTypeEnumT     sensorType = 5;
+    /**< Vehicle sensor type. One of: \n
+         eSLIM_VEHICLE_SENSOR_TYPE_ACCEL \n
+         eSLIM_VEHICLE_SENSOR_TYPE_GYRO */
+
+
+    bool                        axesValidity = 6;
+    /**< Identifies the axes that are valid for all the sensor samples.
+       Valid bitmasks: SLIM_MASK_VEHICLE_SENSOR_*_AXIS */
+
+    uint32                        samples_len = 7;
+    /**< @brief Number of elements inside #samples array.
+       Maximum is #SLIM_VEHICLE_SENSOR_MAX_SAMPLE_SETS
+       */
+    repeated pbSlimVehicleSensorSampleStructT samples = 8;
+    /**< Variable length array to specify the on-vehicle sensor samples;
+     Max Length of array is: 65 */
+}
+
+/** Enum for pedestrian alignment algorithm type */
+enum pbSlimPedAlignmentInputTypeEnumT
+{
+    PB_eSLIM_PED_ALIGNMENT_INPUT_TYPE_ROTATION_VECTOR        = 0;
+    /**<  9-axis fusion algorithm  */
+    PB_eSLIM_PED_ALIGNMENT_INPUT_TYPE_GAME_ROTATION_VECTOR   = 1;
+    /**<  6-axis accel + gyro fusion algorithm */
+    PB_eSLIM_PED_ALIGNMENT_INPUT_TYPE_ORIENTATION            = 2;
+    /**<  6-axis accel + mag fusion algorithm */
+
+    //! @cond
+    PB_eSLIM_PED_ALIGNMENT_INPUT_TYPE_MAX = 2147483647; /* Force 32bit */
+    //! @endcond
+}
+
+/** Enum for pedestrian device context type */
+enum pbSlimPedDevCxtTypeEnumT
+{
+    /* Legacy pedcxt states:
+
+    PEDCXT_RESULT_IN_HAND_STABLE,
+    PEDCXT_RESULT_IN_HAND_SWING,
+    PEDCXT_RESULT_SWING_IN_PANT_POCKET,
+    PEDCXT_RESULT_IN_HAND_JOG */
+
+    PB_eSLIM_PED_DEV_CXT_UNKNOWN        = 0;
+    /**<  Pedestrian device context is not known  */
+    PB_eSLIM_PED_DEV_CXT_IN_HAND_STABLE        = 1;
+    /**<  Device is in hand of a pedestrian and is stable */
+    PB_eSLIM_PED_DEV_CXT_IN_HAND_SWING        = 2;
+    /**<  Device is in hand of a pedestrian who is walking */
+    PB_eSLIM_PED_DEV_CXT_IN_PANT_POCKET        = 3;
+    /**<  Device is in the pant pocket of a pedestrian  */
+    PB_eSLIM_PED_DEV_CXT_IN_HAND_JOG           = 4;
+    /**<  Device is in the hand of a pedestrian who is jogging */
+
+    //! @cond
+    PB_eSLIM_PED_DEV_CXT_INPUT_TYPE_MAX = 2147483647; /* Force 32bit */
+    //! @endcond
+}
+
+/**
+ * @brief Pedestrian alignment input mask
+ *
+ * Pedestrian alignment input mask can be set to represent one or a group
+ * of algorithm types.
+ *
+ * The index of each bit corresponds a value in #slimPedAlignmentInputTypeEnumT.
+ *
+ * Mask can be easily manipulated using following macros:
+ * - Set value:              #SLIM_MASK_SET
+ *   @par Example:
+ *   @code
+ *   SLIM_MASK_SET(mask, eSLIM_PED_ALIGNMENT_INPUT_TYPE_ROTATION_VECTOR);
+ *   @endcode
+ * - Clear value:            #SLIM_MASK_CLEAR
+ *   @par Example:
+ *   @code
+ *   SLIM_MASK_CLEAR(mask, eSLIM_PED_ALIGNMENT_INPUT_TYPE_ROTATION_VECTOR);
+ *   @endcode
+ * - Check if value is set:  #SLIM_MASK_IS_SET
+ *   @par Example:
+ *   @code
+ *   if (SLIM_MASK_IS_SET(mask, eSLIM_PED_ALIGNMENT_INPUT_TYPE_ROTATION_VECTOR))
+ *   {
+ *     ...
+ *   }
+ *   @endcode
+ *
+ * @sa slimPedAlignmentInputTypeEnumT
+ */
+//typedef uint32_t slimPedAlignmentInputTypeMaskT;
+
+/** Pedestrian alignment event */
+enum pbSlimPedAlignmentEventEnumT
+{
+    PB_eSLIM_PED_ALIGNMENT_EVENT_TURN_DETECTED           = 0;
+    /**< Pedestrian turn detected  */
+    PB_eSLIM_PED_ALIGNMENT_EVENT_ALIGNMENT_CHANGED       = 1;
+    /**< Device alignment change detected */
+    PB_eSLIM_PED_ALIGNMENT_EVENT_RTA_COG_INCONSISTENT    = 2;
+    /**< RTA and CoG inconsistent */
+    PB_eSLIM_PED_ALIGNMENT_EVENT_PERIODIC_FAKE_STEP      = 3;
+    /**< Pedestrian alignment trigged by fake step */
+    PB_eSLIM_PED_ALIGNMENT_EVENT_UNSTABLE_DEVICE_MOTION_TO_BE_DEPRECATED  = 4;
+    /**< DEPRECATED : Unstabel device motion detected */
+    PB_eSLIM_PED_ALIGNMENT_EVENT_FAKE_PEDALIGN      = 5;
+    /**< Dummy Pedestrian alignment during SAMLite failure */
+    /* Add new events here. */
+    PB_eSLIM_PED_ALIGNMENT_EVENT_COUNT = 6;
+    /**< Event count used to validate data */
+
+    //! @cond
+    PB_eSLIM_PED_ALIGNMENT_EVENT_MAX         = 2147483647; /* Force 32bit */
+    //! @endcond
+}
+
+/**
+ * @brief Pedestrian alignment data indication message.
+ *
+ *  Pedestrian alignment event mask can be set to represent one or a group
+ *  of events.
+ *
+ *  The index of each bit corresponds a value in slimPedAlignmentEventEnumT.
+ *  Mask can be manipulated using following macros:
+ * - Set value:              #SLIM_MASK_SET
+ *   @par Example:
+ *   @code
+ *   SLIM_MASK_SET(mask, eSLIM_PED_ALIGNMENT_EVENT_TURN_DETECTED);
+ *   @endcode
+ * - Clear value:            #SLIM_MASK_CLEAR
+ *   @par Example:
+ *   @code
+ *   SLIM_MASK_CLEAR(mask, eSLIM_PED_ALIGNMENT_EVENT_TURN_DETECTED);
+ *   @endcode
+ * - Check if value is set:  #SLIM_MASK_IS_SET
+ *   @par Example:
+ *   @code
+ *   if (SLIM_MASK_IS_SET(mask, eSLIM_PED_ALIGNMENT_EVENT_TURN_DETECTED))
+ *   {
+ *     ...
+ *   }
+ *   @endcode
+ * @sa slim_EnablePedestrianAlignment
+ */
+//typedef uint32_t slim_PedAlignmentEventTypeMaskT;
+
+message pbSlimPedestrianAlignmentDataStructT
+{
+    pbSlimServiceProviderEnumT       provider = 1;
+    /**< Provider of this data. One of: \n
+         eSLIM_SERVICE_PROVIDER_DEFAULT
+         eSLIM_SERVICE_PROVIDER_SSC \n
+         eSLIM_SERVICE_PROVIDER_SAMLITE \n
+         eSLIM_SERVICE_PROVIDER_NATIVE */
+
+    pbSlimTimeSourceEnumT            timeSource = 2;
+    /**< Source of timeBase. One of: \n
+         eSLIM_TIME_SOURCE_UNSPECIFIED \n
+         eSLIM_TIME_SOURCE_COMMON \n
+         eSLIM_TIME_SOURCE_GPS \n
+         eSLIM_TIME_SOURCE_UTC \n
+         eSLIM_TIME_SOURCE_LEGACY   */
+
+    uint64                       timestamp = 3;
+    /**<   Time stamp of the pedestrian alignment data in this report.
+         The time stamp is in the time reference scale that is
+         used by the pedestrian alignment data time source. \n
+         - Units: Milliseconds */
+
+    uint32                       flags = 4;
+    /**< SLIM flags. Combination of:  \n
+         SLIM_FLAGS_MASK_TIME_JUMP  \n
+         SLIM_FLAGS_MASK_TIME_UNC_HIGH */
+
+    pbSlimPedAlignmentInputTypeEnumT algorithm = 5;
+    /**< Pedestrian alignment algorithm type of this sample. One of: \n
+         eSLIM_PED_ALIGNMENT_INPUT_TYPE_ROTATION_VECTOR \n
+         eSLIM_PED_ALIGNMENT_INPUT_TYPE_GAME_ROTATION_VECTOR \n
+         eSLIM_PED_ALIGNMENT_INPUT_TYPE_ORIENTATION */
+
+    float                          cogAngle = 6;
+    /**<   Course over ground (CoG) angle, in radians.
+         Relative to magnetic north, if magnetometer is available
+         Relative to arbitrary azimuth, if magnetometer is not available */
+
+    float                          cogAccuracy = 7;
+    /**<   Predicted standard deviation of the computed CoG, in radians.
+         Ranges from 0 to pi. Lower values correspond to more reliable
+         estimates.
+         Value < pi/12: highly reliable CoG estimate.
+         Value > pi/3: CoG cannot be trusted. */
+
+    float                          relativeTurnAngle = 8;
+    /**<   Estimated relative turn angle since last device alignment change,
+         in radians. */
+
+    bool                        relativeTurnAngleAccuracy_valid = 9;
+    /**<   Must be set to true if relativeTurnAngleAccuracy is being passed */
+
+    float                          relativeTurnAngleAccuracy = 10;
+    /**<   Estimated uncertainty of the relative turn angle since last device
+         alignment change, in radians. */
+
+    uint32                       alignmentChangeAge = 11;
+    /**<   Age of the last detected alignment change event.\n
+         - Units: Milliseconds */
+
+    uint32     eventsMask = 12; /* slim_PedAlignmentEventTypeMaskT; typedef not supported */
+    /**<   Pedestrian events detected since the last step. */
+
+    bool                        pedDevCxt_valid = 13;
+    /**<   Validity flag for the current pedestrian device context.
+         Use the below information only if the validity is TRUE */
+
+    pbSlimPedDevCxtTypeEnumT         pedDevCxt = 14;
+    /**< Pedestrian device context. One of: \n
+       eSLIM_PED_DEV_CXT_UNKNOWN \n
+       eSLIM_PED_DEV_CXT_IN_HAND_STABLE \n
+       eSLIM_PED_DEV_CXT_IN_HAND_SWING \n
+       eSLIM_PED_DEV_CXT_IN_PANT_POCKET
+       eSLIM_PED_DEV_CXT_IN_HAND_JOG */
+
+    uint32                       v_IsCoGHighConf = 15;
+    /**<   Flag to identify if the computed CoG is good
+         enough to be used as reference inside NF */
+}
+
+/**
+@brief Pedestrian alignment enable response message.
+
+@sa slim_EnablePedestrianAlignment
+*/
+message pbSlimPedestrianAlignmentEnableResponseStructT
+{
+    bool                        inputTypeMask_valid = 1;
+    /**<   Must be set to true if inputTypeMask is being passed */
+
+    uint32                       inputTypeMask = 2; /* typedef not supported */
+    /**< Mask containing all enabled algorithm types of a successful enable
+       request. */
+
+}
+
+/** Enum for magnetic field data flags */
+enum pbSlimMagneticFieldDataFlagsEnumT
+{
+    PB_eSLIM_MAG_FIELD_FLAG_MAG_PARAM_INVALID        = 0;
+    /**<  Magnetic field data is invalid.  */
+    PB_eSLIM_MAG_FIELD_FLAG_LONGITUDE_INVALID        = 1;
+    /**<  Longitude is invalid. */
+
+    //! @cond
+    PB_eSLIM_MAG_FIELD_FLAG_MAX = 2147483647; /* Force 32bit */
+    //! @endcond
+}
+
+/**
+ * @brief Magnetic field data flags mask
+ *
+ * Magnetic field data flags mask describes the properties of the magnetic
+ * field data.
+ * The index of each bit corresponds a value in #slimMagneticFieldDataFlagsEnumT.
+ *
+ * Mask can be easily manipulated using following macros:
+ * - Set value:              #SLIM_MASK_SET
+ *   @par Example:
+ *   @code
+ *   SLIM_MASK_SET(mask, eSLIM_MAG_FIELD_FLAG_MAG_PARAM_INVALID);
+ *   @endcode
+ * - Clear value:            #SLIM_MASK_CLEAR
+ *   @par Example:
+ *   @code
+ *   SLIM_MASK_CLEAR(mask, eSLIM_MAG_FIELD_FLAG_MAG_PARAM_INVALID);
+ *   @endcode
+ * - Check if value is set:  #SLIM_MASK_IS_SET
+ *   @par Example:
+ *   @code
+ *   if (SLIM_MASK_IS_SET(mask, eSLIM_MAG_FIELD_FLAG_MAG_PARAM_INVALID))
+ *   {
+ *     ...
+ *   }
+ *   @endcode
+ *
+ * @sa slimMagneticFieldDataFlagsEnumT
+ */
+//typedef uint32_t slimMagneticFieldDataFlagsMaskT;
+
+/**
+@brief Magnetic field data indication message.
+*/
+message pbSlimMagneticFieldDataStructT
+{
+    pbSlimServiceProviderEnumT       provider = 1;
+    /**< Provider of this data. One of: \n
+         eSLIM_SERVICE_PROVIDER_DEFAULT
+         eSLIM_SERVICE_PROVIDER_SSC \n
+         eSLIM_SERVICE_PROVIDER_SAMLITE \n
+         eSLIM_SERVICE_PROVIDER_NATIVE */
+
+    pbSlimTimeSourceEnumT            timeSource = 2;
+    /**< Source of timeBase. One of: \n
+         eSLIM_TIME_SOURCE_UNSPECIFIED \n
+         eSLIM_TIME_SOURCE_COMMON \n
+         eSLIM_TIME_SOURCE_GPS \n
+         eSLIM_TIME_SOURCE_UTC \n
+         eSLIM_TIME_SOURCE_LEGACY   */
+
+    uint64                       timestamp = 3;
+    /**<   Time stamp of the magnetic field data in this report.
+         The time stamp is in the time reference scale that is
+         used by the magnetic field data time source. \n
+         - Units: Milliseconds */
+
+    uint32                       flags = 4;
+    /**< SLIM flags. Combination of:  \n
+         SLIM_FLAGS_MASK_TIME_JUMP  \n
+         SLIM_FLAGS_MASK_TIME_UNC_HIGH */
+
+    uint32                       gpsWeek = 5;
+    /**<   GPS week of the Earth magnetic-field data assosiated with the current
+         position estimate. */
+
+    uint32                       gpsMsec = 6;
+    /**<   GPS millisecond counter of the Earth magnetic-field data assosiated
+         with the current position estimate. \n
+         - Units: Milliseconds */
+
+    uint32 magneticFieldDataFlags = 7;
+    /**<   Mask containing magnetic field data flags.*/
+
+    sint32                        longitude = 8;
+    /**<   Approximate degree-level-Longitude.  This should serve as
+         an estimate of timezone. \n
+         - Units: Degrees \n
+         - Range: -180 to 180 \n
+         - Positive values indicate eastern longitude \n
+         - Negative values indicate western longitude. */
+
+    double                         intensity = 9;
+    /**<   Intensity of magnetic field at current location. \n
+         - Units: nanotesla (nT) (1 Gauss = 100,000 nT). */
+
+    double                         inclination = 10;
+    /**<   The inclination is given by an angle that can assume values between
+         -90 degrees (up) to 90 degrees (down). In the northern hemisphere, the field
+         points downwards. It is straight down at the North Magnetic Pole and rotates
+         upwards as the latitude decreases until it is horizontal (0) at the
+         magnetic equator. \n
+         - Units: degrees. */
+
+    double                         declination = 11;
+    /**<   Declination is positive for an eastward deviation of the field relative
+         to true north. It can be estimated by comparing the magnetic north/south
+         heading on a compass with the direction of a celestial pole. Maps typically
+         include information on the declination as an angle or a small diagram
+         showing the relationship between magnetic north and true north. \n
+         - Units: degrees. */
+}
+
+enum pbSlimOdometryFlags
+{
+    PB_SLIM_MASK_VEHICLE_ODOMETRY_INVALID = 0x00; /* for protoc don't use */
+    /** Vehicle odometry flags: */
+    PB_SLIM_MASK_VEHICLE_ODOMETRY_REVERSE_MOVEMENT = 0x01;
+    /**< Odometry data includes at least some data where
+       the vehicle may have been moving in the reverse direction.
+       If odometry data may be in reverse, this bit must be set.
+       If odometry data is all in the forward direction, this bit
+       must not be set. */
+    PB_SLIM_MASK_VEHICLE_ODOMETRY_AFFECTED_BY_ERRORS = 0x02;
+    /**< Odometry data includes at least some data affected
+       by a major error source affecting distance-traveled accuracy,
+       such as wheel slippage due to skidding, gravel, snow, or ice as
+       detected by the vehicle, e.g., via an ABS or other system. */
+
+    PB_SLIM_MASK_VEHICLE_ODOMETRY_ABSOLUTE_MEASUREMENT = 0x04;
+    /**< Odometry data is an absolute amount since the vehicle
+       began service, and is the same vehicle that is regularly used with
+       this device (so that the offset of this value, since the last time
+       this measurement was used by the location engine, can be safely used
+       as a likely correct estimate of the distance traveled since last
+       use). */
+}
+
+enum pbSlimWheelFlags
+{
+    PB_SLIM_MASK_VEHICLE_ODOMETRY_WHEEL_INVALID = 0x00; /*don't use */
+    /** Vehicle odometry wheel flags: */
+    PB_SLIM_MASK_VEHICLE_ODOMETRY_LEFT_AND_RIGHT_AVERAGE = 0x01;
+    /**< Average of left and right non-turning wheels */
+    PB_SLIM_MASK_VEHICLE_ODOMETRY_LEFT = 0x02;
+    /**< Left side, non-turning wheel */
+    PB_SLIM_MASK_VEHICLE_ODOMETRY_RIGHT = 0x04;
+    /**< Right side, non-turning wheel */
+}
+
+/**< Delineates for which wheels the measurements are being provided
+     in the following samples, where one or more of the following bits
+     must be set, and data samples aligned with these axes must appear
+     in groups, in this order.
+
+     @note At least one bit must be set. */
+
+/**
+@brief Vehcile odometry sample.
+*/
+message pbSlimVehicleOdometrySampleStructT
+{
+    uint32 sampleTimeOffset = 1;
+    /**<   Sample time offset. This time offset must be
+       relative to the sensor time of the first sample. \n
+       - Type: Unsigned integer \n
+       - Units: microseconds */
+
+    repeated uint32 distanceTravelled = 2;
+    /**<  Distance traveled (odometry) sample offset. \n
+        - Type: Unsigned integer                      \n
+        - Units of accumulated distance: Millimeters  \n
+        - Range: Over 4000 km
+
+        @par
+        This measurement (in units of millimeters) is added to
+        the distance_travelled_base measurement (in meters) to
+        get the total distance traveled sample value.
+
+        @note The order of measurements must be: \n
+              - Average of left and right  \n
+              - Left                       \n
+              - Right
+
+    */
+
+}
+
+/**
+@brief Vehicle odometry data indication message.
+*/
+message pbSlimVehicleOdometryDataStructT
+{
+    pbSlimServiceProviderEnumT              provider = 1;
+    /**< Provider of this data. One of: \n
+         eSLIM_SERVICE_PROVIDER_DEFAULT
+         eSLIM_SERVICE_PROVIDER_SSC \n
+         eSLIM_SERVICE_PROVIDER_SAMLITE \n
+         eSLIM_SERVICE_PROVIDER_NATIVE */
+
+    pbSlimTimeSourceEnumT                   timeSource = 2;
+    /**< Source of timeBase. One of: \n
+         eSLIM_TIME_SOURCE_UNSPECIFIED \n
+         eSLIM_TIME_SOURCE_COMMON \n
+         eSLIM_TIME_SOURCE_GPS \n
+         eSLIM_TIME_SOURCE_UTC \n
+         eSLIM_TIME_SOURCE_LEGACY   */
+
+    uint64                              timeBase = 3;
+    /**< Base time to which the sample time offsets are added
+       to get full sample timestamps. Units: milliseconds */
+
+    uint32                              flags = 4;
+    /**< SLIM flags. Combination of:  \n
+         SLIM_FLAGS_MASK_TIME_JUMP  \n
+         SLIM_FLAGS_MASK_TIME_UNC_HIGH */
+
+    pbSlimOdometryFlags                              odometryFlags = 5;
+    /**< Flags to indicate any deviation from the default measurement
+       assumptions. Combination of: \n
+         SLIM_MASK_VEHICLE_ODOMETRY_REVERSE_MOVEMENT \n
+         SLIM_MASK_VEHICLE_ODOMETRY_AFFECTED_BY_ERRORS \n
+         SLIM_MASK_VEHICLE_ODOMETRY_ABSOLUTE_MEASUREMENT */
+
+    pbSlimWheelFlags                              wheelFlags = 6;
+    /**< Delineates for which wheels the measurements are provided
+       in the samples, where one or more of the following
+       bits must be set. Combination of: \n
+         SLIM_MASK_VEHICLE_ODOMETRY_LEFT_AND_RIGHT_AVERAGE \n
+         SLIM_MASK_VEHICLE_ODOMETRY_LEFT \n
+         SLIM_MASK_VEHICLE_ODOMETRY_RIGHT */
+
+    uint32                              distanceTravelledBase = 7;
+    /**< Distance traveled base. \n
+        - Type: Unsigned integer                 \n
+        - Units of accumulated distance: Meters  \n
+        - Range: Over 4,000,0000 km
+
+        @par
+        Distance traveled (odometry) is to be reported in a continuously
+        accumulating way from device power-up. It may be an incremental
+        distance starting at zero, or another arbitrary point from device
+        power-up, or the absolute distance traveled by the vehicle
+        (and if so, set SLIM_MASK_VEHICLE_ODOMETRY_ABSOLUTE_MEASUREMENT),
+        as long as the distance grows incrementally from device power-up.
+
+        @par
+        This distanceTravelledBase is added to the distranceTravelled offset
+        of each sample to get the absolute distance of each sample
+        point.
+
+        @par
+        Distance traveled errors are expected to be primarily due to
+        scale-factor, with some allowance for "noise" due to minor slippage
+        events, e.g., gravel. Major wheel slippage events that affect
+        odometry, must be flagged; see the flags field.
+
+        @note Other events, such as a vehicle traveling in reverse, may
+        also affect the available accuracy of this information, and notification
+        of those events must be provided; see the flags field. */
+
+    uint32                          samples_len = 8;
+    /**< @brief Number of elements inside #samples array.
+       Maximum number is #SLIM_VEHICLE_ODOMETRY_MAX_SAMPLE_SETS. */
+    repeated pbSlimVehicleOdometrySampleStructT samples = 9;
+    /**< Variable-size sample array */
+}
+
+/**
+@brief Enumeration of distance bound events.
+
+@sa slimDistanceBoundBreachEventDataStructT
+*/
+enum pbSlimDistanceBoundBreachEventEnumT
+{
+    PB_eSLIM_DISTANCE_BOUND_BREACH_EVENT_UNKNOWN    = 0;
+    /**< Unknown event */
+    PB_eSLIM_DISTANCE_BOUND_BREACH_EVENT_FALSE      = 1;
+    /**< False event */
+    PB_eSLIM_DISTANCE_BOUND_BREACH_EVENT_TRUE       = 2;
+    /**< True event */
+
+    //! @cond
+    PB_eSLIM_DISTANCE_BOUND_BREACH_EVENT_MAX        = 2147483647; /* Force 32bit */
+    //! @endcond
+}
+
+/**
+@brief Distance-bound event component.
+
+@sa slimDistanceBoundDataStructT
+*/
+message pbSlimDistanceBoundBreachEventDataStructT
+{
+    pbSlimDistanceBoundBreachEventEnumT breachEvent = 1;
+    /**< Breach event. */
+
+    uint32 sessionKey = 2;
+    /**< The unique session key provided by client associated with this report. */
+
+}
+
+/**
+@brief Message structure for distance bound service.
+
+@sa slim_EnableDistanceBound
+*/
+message pbSlimDistanceBoundDataStructT
+{
+    pbSlimServiceProviderEnumT provider = 1;
+    /**< Provider of this data. One of: \n
+         eSLIM_SERVICE_PROVIDER_DEFAULT
+         eSLIM_SERVICE_PROVIDER_SSC \n
+         eSLIM_SERVICE_PROVIDER_SAMLITE \n
+         eSLIM_SERVICE_PROVIDER_NATIVE */
+
+    pbSlimTimeSourceEnumT      timeSource = 2;
+    /**< Source of timestamp. One of: \n
+         eSLIM_TIME_SOURCE_UNSPECIFIED \n
+         eSLIM_TIME_SOURCE_COMMON \n
+         eSLIM_TIME_SOURCE_GPS \n
+         eSLIM_TIME_SOURCE_UTC \n
+         eSLIM_TIME_SOURCE_LEGACY   */
+
+    uint64                 timestamp = 3;
+    /**< Timestamp of input used to generate the algorithm output.
+        - Type: Unsigned integer \n
+        - Units: Milliseconds */
+
+    uint32                 flags = 4;
+    /**< SLIM flags. Combination of:  \n
+         SLIM_FLAGS_MASK_TIME_JUMP  \n
+         SLIM_FLAGS_MASK_TIME_UNC_HIGH */
+
+    pbSlimDistanceBoundBreachEventDataStructT breachEventData = 5;
+    /**< Breach event data. */
+
+    bool distanceAccumulated_valid = 6;
+    /**< Must be set to true if distanceAccumulated is being passed */
+
+    float distanceAccumulated = 7;
+    /**< Distance accumulated in meters since the last set bound request */
+
+}
+
+/**
+@brief Response message to distance bound report request.
+
+@sa slim_GetDistanceBoundReport
+*/
+message pbSlimDistanceBoundGetReportResponseStructT
+{
+    pbSlimServiceProviderEnumT provider = 1;
+    /**< Provider of this data. One of: \n
+         eSLIM_SERVICE_PROVIDER_DEFAULT
+         eSLIM_SERVICE_PROVIDER_SSC \n
+         eSLIM_SERVICE_PROVIDER_SAMLITE \n
+         eSLIM_SERVICE_PROVIDER_NATIVE */
+
+    pbSlimTimeSourceEnumT      timeSource = 2;
+    /**< Source of timestamp. One of: \n
+         eSLIM_TIME_SOURCE_UNSPECIFIED \n
+         eSLIM_TIME_SOURCE_COMMON \n
+         eSLIM_TIME_SOURCE_GPS \n
+         eSLIM_TIME_SOURCE_UTC \n
+         eSLIM_TIME_SOURCE_LEGACY   */
+
+    bool                  timestamp_valid = 3;
+    /**< Must be set to true if timestamp is being passed */
+
+    uint64                 timestamp = 4;
+    /**< Timestamp of input used to generate the algorithm output.
+        - Type: Unsigned integer \n
+        - Units: Milliseconds */
+
+    uint32                 flags = 5;
+    /**< SLIM flags. Combination of:  \n
+         SLIM_FLAGS_MASK_TIME_JUMP  \n
+         SLIM_FLAGS_MASK_TIME_UNC_HIGH */
+
+    bool                  breachEventData_valid = 6;
+    /**< Must be set to true if breachEventData is being passed */
+
+    pbSlimDistanceBoundBreachEventDataStructT breachEventData = 7;
+    /**< Breach event data. */
+
+    bool                  distanceAccumulated_valid = 8;
+    /**< Must be set to true if distanceAccumulated is being passed */
+
+    float                    distanceAccumulated = 9;
+    /**< Distance accumulated in meters since the last set bound request */
+
+}
+
+/** Vehicle Motion sensor types: */
+enum pbSlimVehicleMotionSensorTypeEnumT
+{
+    PB_eSLIM_VEHICLE_MOTION_SENSOR_TYPE_SPEED    = 0; /**< Speed */
+    PB_eSLIM_VEHICLE_MOTION_SENSOR_TYPE_DWS      = 1; /**< Differential Wheel Speed */
+    PB_eSLIM_VEHICLE_MOTION_SENSOR_TYPE_GEAR = 2; /**< Gear data */
+    PB_eSLIM_VEHICLE_MOTION_SENSOR_TYPE_STEERING_WHEEL = 3;
+    //! @cond
+    PB_eSLIM_VEHICLE_MOTION_SENSOR_TYPE_MAX      = 2147483647; /* Force 32bit */
+    //! @endcond
+}
+
+/**
+@brief Vehicle motion speed data sample.
+*/
+message pbSlimVehicleMotionSpeedDataSampleStructT
+{
+    uint32 sampleTimeOffset = 1;
+    /**<   Sample time offset. This time offset must be
+         relative to the sensor time of the first sample. \n
+       - Type: Unsigned integer \n
+       - Units: microseconds */
+
+    float data = 2;
+    /**< Type: Floating point \n
+       - data: Represents Vehicle Speed \n
+       - Units: m/s */
+}
+
+/**
+@brief Vehicle motion gear data sample.
+*/
+message pbSlimVehicleMotionGearDataSampleStructT
+{
+    uint32 sampleTimeOffset = 1;
+    /**<   Sample time offset. This time offset must be
+         relative to the sensor time of the first sample. \n
+       - Type: Unsigned integer \n
+       - Units: microseconds */
+
+    uint32 data = 2;
+    /**< - Type: Signed char \n
+       - data: Represents gear data \n
+           0 - Parked
+           1 - Reverse
+           2 - Neutral
+           3 - Forward
+       - Units: - */
+}
+
+
+/**
+@brief Vehicle motion DWS data sample.
+*/
+message pbSlimVehicleMotionDwsDataSampleStructT
+{
+    uint32 sampleTimeOffset = 1;
+    /**<   Sample time offset. This time offset must be
+         relative to the sensor time of the first sample. \n
+       - Type: Unsigned integer \n
+       - Units: microseconds */
+
+    float flWheel = 2;
+    /**< - Type: Floating point \n
+       - flWheel: Represents Differential Front Left Wheel Speed \n
+       - Units: m/s  */
+    float frWheel = 3;
+    /**< - Type: Floating point \n
+       - frWheel: Represents Differential Front Right Wheel Speed \n
+       - Units: m/s  */
+    float rlWheel = 4;
+    /**< - Type: Floating point \n
+       - rlWheel: Represents Differential Rear Left Wheel Speed \n
+       - Units: m/s */
+    float rrWheel = 5;
+    /**< - Type: Floating point \n
+       - rrWheel: Represents Differential Rear Right Wheel Speed \n
+       - Units: m/s */
+}
+
+/**
+@brief Vehicle motion steering wheel data sample.
+*/
+message pbSlimVehicleMotionSteeringWheelDataSampleStructT
+{
+    uint32 sampleTimeOffset = 1;
+    /**<   Sample time offset. This time offset must be
+         relative to the sensor time of the first sample. \n
+       - Type: Unsigned integer \n
+       - Units: microseconds */
+
+    float data = 2;
+    /**< Type: Floating point \n
+       - data: Represents Vehicle sterring wheel data \n
+       - Units: degrees */
+}
+
+/**
+@brief Vehicle motion data sample union.
+*/
+message pbSlimVehicleMotionDataSampleUnionT
+{
+    oneof MotionDataSampleUnion_oneof {
+
+        pbSlimVehicleMotionSpeedDataSampleStructT speed = 1;
+        /**<   Sensor Type: eSLIM_VEHICLE_MOTION_SENSOR_TYPE_SPEED
+           - Type:  struct \n
+           - speed: Represents vehicle Speed \n
+           - Units: m/s */
+        pbSlimVehicleMotionDwsDataSampleStructT dws = 2;
+        /**<   Sensor Type: eSLIM_VEHICLE_MOTION_SENSOR_TYPE_DWS
+           - Type: struct \n
+           - dws: Represents Differential Front Right Wheel Speed \n
+           - Units: m/s */
+        pbSlimVehicleMotionGearDataSampleStructT gear = 3;
+        /**<   Sensor Type: eSLIM_VEHICLE_MOTION_SENSOR_TYPE_GEAR
+           - Type: struct \n
+           - gear: Represents Differential Rear Left Wheel Speed \n
+           - Units: - */
+         pbSlimVehicleMotionSteeringWheelDataSampleStructT steering_wheel = 4;
+        /**<   Sensor Type: eSLIM_VEHICLE_MOTION_SENSOR_TYPE_STEERING_WHEEL
+            - Type: struct \n
+            - data: Represents Vehicle sterring wheel data \n
+            - Units: degrees */
+    }
+}
+
+/**
+@brief Vehicle Motion data indication message.
+
+*/
+message pbSlimVehicleMotionDataStructT
+{
+    pbSlimServiceProviderEnumT       provider = 1;
+    /**< Provider of this data. One of: \n
+         eSLIM_SERVICE_PROVIDER_DEFAULT
+         eSLIM_SERVICE_PROVIDER_SSC \n
+         eSLIM_SERVICE_PROVIDER_SAMLITE \n
+         eSLIM_SERVICE_PROVIDER_NATIVE */
+
+    pbSlimTimeSourceEnumT            timeSource = 2;
+    /**< Source of timeBase. One of: \n
+         eSLIM_TIME_SOURCE_UNSPECIFIED \n
+         eSLIM_TIME_SOURCE_COMMON \n
+         eSLIM_TIME_SOURCE_GPS \n
+         eSLIM_TIME_SOURCE_UTC \n
+         eSLIM_TIME_SOURCE_LEGACY   */
+
+    uint64                       timeBase = 3;
+    /**< Base time to which the sample time offsets are added
+       to get full sample timestamps. Units: milliseconds */
+
+    uint32                       flags = 4;
+    /**< SLIM flags. Combination of:  \n
+         SLIM_FLAGS_MASK_TIME_JUMP  \n
+         SLIM_FLAGS_MASK_TIME_UNC_HIGH */
+
+    pbSlimVehicleMotionSensorTypeEnumT     sensorType = 5;
+    /**< Vehicle motion sensor type. One of: \n
+         eSLIM_VEHICLE_MOTION_SENSOR_TYPE_SPEED  \n
+         eSLIM_VEHICLE_MOTION_SENSOR_TYPE_DWS   \n
+         eSLIM_VEHICLE_MOTION_SENSOR_TYPE_GEAR_FR \n
+         eSLIM_VEHICLE_MOTION_SENSOR_TYPE_STEERING_WHEEL */
+
+
+    uint32                        samples_len = 6;
+    /**< @brief Number of elements inside #samples array.
+       Maximum is #SLIM_VEHICLE_MOTION_MAX_SAMPLE_SETS
+       */
+    repeated pbSlimVehicleMotionDataSampleUnionT samples = 7;
+    /**< Variable length array to specify the on-vehicle sensor samples;
+     Max Length of array is: 50 */
+}
+
+
+/** @brief Enum for SLIM service ids
+ *
+ * @sa slimAvailableServiceMaskT
+ */
+enum pbSlimServiceEnumT
+{
+    // eSLIM_SERVICE_NONE               = -1, /* not supported in protoc added at last */
+    /**< Service not defined */
+
+    PB_eSLIM_SERVICE_SENSOR_ACCEL       = 0;
+    /**< Accelerometer sensor data service */
+    PB_eSLIM_SERVICE_SENSOR_ACCEL_TEMP  = 1;
+    /**< Accelerometer temperature sensor data service */
+    PB_eSLIM_SERVICE_SENSOR_GYRO        = 2;
+    /**< Gyro sensor data service */
+    PB_eSLIM_SERVICE_SENSOR_GYRO_TEMP   = 3;
+    /**< Gyro temperature sensor data service */
+
+    /* Derived data */
+    PB_eSLIM_SERVICE_AMD                = 4;
+    /**< Absolute Motion Data service */
+    PB_eSLIM_SERVICE_RMD                = 5;
+    /**< Relative Motion Data service */
+    PB_eSLIM_SERVICE_SMD                = 6;
+    /**< Significant Motion Data service */
+    PB_eSLIM_SERVICE_MOTION_DATA        = 7;
+    /**< Motion Data service */
+    PB_eSLIM_SERVICE_PEDOMETER          = 8;
+    /**< Pedometer service */
+    PB_eSLIM_SERVICE_DISTANCE_BOUND     = 9;
+    /**< Distance Bound (CMC-based) Data service */
+
+    /* Vehicle data */
+    PB_eSLIM_SERVICE_VEHICLE_ACCEL      = 10;
+    /**< Vehicle accelerometer data service */
+    PB_eSLIM_SERVICE_VEHICLE_GYRO       = 11;
+    /**< Vehicle angular rate data service */
+    PB_eSLIM_SERVICE_VEHICLE_ODOMETRY   = 12;
+    /**< Vehicle odometry data service */
+
+    PB_eSLIM_SERVICE_SENSOR_MAG_CALIB   = 13;
+    /**< Calibrated magnetometer sensor data service */
+    PB_eSLIM_SERVICE_SENSOR_MAG_UNCALIB = 14;
+    /**< Uncalibrated magnetometer sensor data service */
+
+    PB_eSLIM_SERVICE_PED_ALIGNMENT      = 15;
+    /**< Pedestrian alignment data service */
+
+    PB_eSLIM_SERVICE_SENSOR_BARO        = 16;
+    /**< Barometer sensor data service */
+
+    PB_eSLIM_SERVICE_MAG_FIELD_DATA     = 17;
+    /**< Earth's magnetic field data (inclination/declination) service */
+
+    PB_eSLIM_SERVICE_VEHICLE_SPEED   = 18;
+    /**< Vehicle speed data service */
+
+    PB_eSLIM_SERVICE_VEHICLE_DWS   = 19;
+    /**< Vehicle differential wheel speed data service */
+
+    PB_eSLIM_SERVICE_VEHICLE_GEAR   = 20;
+    /**< Vehicle gear data service */
+    PB_eSLIM_SERVICE_TILT   =  21;
+    /**< Tilt Event service */
+
+    PB_eSLIM_SERVICE_VEHICLE_STEERING_WHEEL   = 22;
+    /**< Vehicle steering wheel data service */
+
+    PB_eSLIM_SERVICE_LAST = 23; // PB_eSLIM_SERVICE_VEHICLE_STEERING_WHEEL
+    /**< Last SLIM service. Note that slimAvailableServiceMaskT type supports
+       currently 32 services so if the service count exceeds that count,
+       also size of the #slimAvailableServiceMaskT type should be modified.
+    */
+
+    PB_eSLIM_SERVICE_NONE = -1;
+
+    //! @cond
+    PB_eSLIM_SERVICE_MAX = 2147483647; /* Force 32bit */
+    //! @endcond
+}
+
+/**
+ * @brief SLIM service mask
+ *
+ * Service mask can be set to represent one or a group of services.
+ * The index of each bit corresponds a value in #slimServiceEnumT.
+ *
+ * Mask can be easily manipulated using following macros:
+ * - Set value:              #SLIM_MASK_SET
+ *   @par Example:
+ *   @code
+ *   SLIM_MASK_SET(mask, eSLIM_SERVICE_SENSOR_ACCEL);
+ *   @endcode
+ * - Clear value:            #SLIM_MASK_CLEAR
+ *   @par Example:
+ *   @code
+ *   SLIM_MASK_CLEAR(mask, eSLIM_SERVICE_SENSOR_ACCEL);
+ *   @endcode
+ * - Check if value is set:  #SLIM_MASK_IS_SET
+ *   @par Example:
+ *   @code
+ *   if (SLIM_MASK_IS_SET(mask, eSLIM_SERVICE_SENSOR_ACCEL))
+ *   {
+ *     ...
+ *   }
+ *   @endcode
+ *
+ * @sa slimServiceEnumT
+ */
+// typedef uint32_t slimAvailableServiceMaskT; no supported
+
+/** @brief Enum for SLIM service status events.*/
+enum pbSlimServiceStatusEnumT
+{
+    PB_eSLIM_SERVICE_STATUS_NONE = 0;
+    /**< Event is not service specific. */
+    PB_eSLIM_SERVICE_STATUS_AVAILABLE = 1;
+    /**< SLIM service is available */
+    PB_eSLIM_SERVICE_STATUS_UNAVAILABLE = 2;
+    /**< SLIM service is unavailable */
+    PB_eSLIM_SERVICE_STATUS_PROVIDERS_CHANGED = 3;
+    /**< Available providers for the service changed */
+
+    //! @cond
+    PB_eSLIM_SERVICE_STATUS_MAX = 2147483647; /* Force 32bit */
+    //! @endcond
+}
+
+/*! @brief Struct for service status event indication */
+message pbSlimServiceStatusEventStructT
+{
+    pbSlimServiceEnumT       service = 1;
+    /**< Updated service that caused this event. */
+    pbSlimServiceStatusEnumT serviceStatus = 2;
+    /**< Service status event type. */
+    uint32 providerFlags = 3;
+    /**< Available providers for the service that caused this event. */
+
+    uint32 availableServicesMask = 4;
+    /**< Mask containing all currently available SLIM services.
+       @see slim_ServiceAvailable
+    */
+}
+
+/** @brief Enum for SLIM message types */
+enum pbSlimMessageTypeEnumT
+{
+    PB_eSLIM_MESSAGE_TYPE_INDICATION = 0;
+    /**< Message is unsolicited indication */
+    PB_eSLIM_MESSAGE_TYPE_RESPONSE = 1;
+    /**< Message is a response to a request */
+    //! @cond
+    PB_eSLIM_MESSAGE_TYPE_MAX = 2147483647; /* Force 32bit */
+    //! @endcond
+}
+
+/**
+ * @brief Enum for SLIM message ids.
+ *
+ * Payload is valid only with specific message id only if the error code is
+ * #eSLIM_SUCCESS in the message header.
+ */
+enum pbSlimMessageIdEnumT
+{
+    /* SLIM service related messages */
+    PB_eSLIM_MESSAGE_ID_NONE = 0;
+    /**< no payload */
+
+    /* Response to client open request */
+    PB_eSLIM_MESSAGE_ID_OPEN_RESP = 1;
+    /**< no payload */
+
+    /* Service status indication */
+    PB_eSLIM_MESSAGE_ID_SERVICE_STATUS_IND = 2;
+    /**< slimServiceStatusEventStructT */
+
+    /* Sensor data messages */
+    PB_eSLIM_MESSAGE_ID_SENSOR_DATA_IND = 100; //#define SLIM_FIRST_SERVICE_MSG_ID 0x100
+    /**< slimSensorDataStructT */
+    PB_eSLIM_MESSAGE_ID_SENSOR_DATA_ENABLE_RESP = 101;
+    /**< no payload */
+
+    /* Motion data messages */
+    PB_eSLIM_MESSAGE_ID_MOTION_DATA_IND = 102;
+    /**< slimMotionDataStructT */
+    PB_eSLIM_MESSAGE_ID_MOTION_DATA_ENABLE_RESP = 103;
+    /**< no payload */
+
+    /* Pedometer messages */
+    PB_eSLIM_MESSAGE_ID_PEDOMETER_IND = 104;
+    /**< slimPedometerDataStructT */
+    PB_eSLIM_MESSAGE_ID_PEDOMETER_ENABLE_RESP = 105;
+    /**< no payload */
+
+    /* QMD data messages */
+    PB_eSLIM_MESSAGE_ID_QMD_DATA_IND = 106;
+    /**< slimQmdDataStructT */
+    PB_eSLIM_MESSAGE_ID_QMD_DATA_ENABLE_RESP = 107;
+    /**< no payload */
+
+    /* SMD data messages */
+    PB_eSLIM_MESSAGE_ID_SMD_DATA_IND = 108;
+    /**< slimSmdDataStructT */
+    PB_eSLIM_MESSAGE_ID_SMD_DATA_ENABLE_RESP = 109;
+    /**< no payload */
+
+    /* Distance Bound messages */
+    PB_eSLIM_MESSAGE_ID_DISTANCE_BOUND_DATA_IND = 110;
+    /**< slimDistanceBoundDataStructT */
+    PB_eSLIM_MESSAGE_ID_DISTANCE_BOUND_DATA_ENABLE_RESP = 111;
+    /**< no payload */
+    PB_eSLIM_MESSAGE_ID_DISTANCE_BOUND_DATA_SET_RESP = 112;
+    /**< no payload */
+    PB_eSLIM_MESSAGE_ID_DISTANCE_BOUND_DATA_GET_RESP = 113;
+    /**< slimDistanceBoundGetReportResponseStructT */
+
+    /* Vehicle data messages */
+    PB_eSLIM_MESSAGE_ID_VEHICLE_SENSOR_IND = 114;
+    /**< slimVehicleSensorDataStructT */
+    PB_eSLIM_MESSAGE_ID_VEHICLE_ODOMETRY_IND = 115;
+    /**< slimVehicleOdometryDataStructT */
+    PB_eSLIM_MESSAGE_ID_VEHICLE_ENABLE_RESP = 116;
+    /**< no payload */
+
+    /* Pedestrian alignment data messages */
+    PB_eSLIM_MESSAGE_ID_PED_ALIGNMENT_IND = 117;
+    /**< slimPedestrianAlignmentDataStructT */
+    PB_eSLIM_MESSAGE_ID_PED_ALIGNMENT_ENABLE_RESP = 118;
+    /**< slimPedestrianAlignmentEnableResponseStructT */
+
+    /* Magnetic field data messages */
+    PB_eSLIM_MESSAGE_ID_MAG_FIELD_DATA_IND = 119;
+    /**< slimMagneticFieldDataStructT */
+    PB_eSLIM_MESSAGE_ID_MAG_FIELD_DATA_ENABLE_RESP = 120;
+    /**< no payload */
+
+    /* Vehicle motion data message */
+    PB_eSLIM_MESSAGE_ID_VEHICLE_MOTION_DATA_IND = 121;
+    /**< slimVehicleMotionDataStructT */
+
+    PB_eSLIM_MESSAGE_ID_SENSOR_DATA_DISABLE_RESP = 122;
+    /**< no payload */
+    PB_eSLIM_MESSAGE_ID_MOTION_DATA_DISABLE_RESP = 123;
+    /**< no payload */
+    PB_eSLIM_MESSAGE_ID_PEDOMETER_DISABLE_RESP = 124;
+    /**< no payload */
+    PB_eSLIM_MESSAGE_ID_QMD_DATA_DISABLE_RESP = 125;
+    /**< no payload */
+    PB_eSLIM_MESSAGE_ID_SMD_DATA_DISABLE_RESP = 126;
+    /**< no payload */
+    PB_eSLIM_MESSAGE_ID_DISTANCE_BOUND_DATA_DISABLE_RESP = 127;
+    /**< no payload */
+    PB_eSLIM_MESSAGE_ID_VEHICLE_DISABLE_RESP = 128;
+    /**< no payload */
+    PB_eSLIM_MESSAGE_ID_PED_ALIGNMENT_DISABLE_RESP = 129;
+    /**< slimPedestrianAlignmentEnableResponseStructT */
+    PB_eSLIM_MESSAGE_ID_MAG_FIELD_DATA_DISABLE_RESP = 130;
+    /**< no payload */
+
+    PB_eSLIM_MESSAGE_ID_MAX_VALUE = 0xFF; //#define SLIM_LAST_MSG_ID_VALUE 0xFFFF
+    /**< We assume that SLIM message ids will always fit to uint16 range.
+       Add new values before this placeholder. */
+
+    //! @cond
+    PB_eSLIM_MESSAGE_ID_MAX = 2147483647; /* Force 32bit */
+    //! @endcond
+}
+
+
+/** @brief Enum for SLIM error codes */
+enum pbSlimErrorEnumT
+{
+    PB_eSLIM_SUCCESS                        = 0;
+    /**< No error - success */
+    PB_eSLIM_ERROR_CLIENT_HANDLE_INVALID    = -1;
+    /**< Invalid client handle */
+    PB_eSLIM_ERROR_UNSUPPORTED              = -2;
+    /**< Operation is not supported */
+    PB_eSLIM_ERROR_IPC_COMMUNICATION        = -3;
+    /**< Failure with IPC communication */
+    PB_eSLIM_ERROR_INVALID_CALLBACK         = -4;
+    /**< Client callback is invalid. */
+    PB_eSLIM_ERROR_INTERNAL                 = -5;
+    /**< Internal SLIM error */
+    PB_eSLIM_ERROR_MAX_TXN_COUNT_REACHED    = -6;
+    /**< Maximum transaction count exceeded.*/
+    PB_eSLIM_ERROR_BAD_ARGUMENT             = -7;
+    /**< Client provided bad argument. */
+    PB_eSLIM_ERROR_QMI_INTERFACE            = -8;
+    /**< Error happened in QMI-communication. */
+    PB_eSLIM_ERROR_ALLOCATION               = -9;
+    /**< Error happened in memory allocation. */
+    PB_eSLIM_ERROR_SERVICE_RESERVED         = -10;
+    /**< Service connection is already reserved for another client.*/
+    PB_eSLIM_ERROR_SERVICE_NOT_ENABLED      = -11;
+    /**< Service is not enabled.*/
+    PB_eSLIM_ERROR_MAX_CLIENT_COUNT_REACHED = -12;
+    /**< Maximum client count exceeded.*/
+    PB_eSLIM_ERROR_TIMEOUT                  = -13;
+    /**< Operation timeout reached.*/
+    PB_eSLIM_ERROR_NANOPB                   = -14;
+    /**< Nano pb argument error.*/
+    //! @cond
+    PB_eSLIM_ERROR_MIN                      = -2147483647; /* Force 32bit */
+    //! @endcond
+}
+
+/*!
+ * @brief Enum for SLIM open flags
+ *
+ * Open flags control SLIM core operation. MPSS and APSS have different sets
+ * of supported flags:
+ *
+ * Flag                                      | MPSS | APSS | SLIM Core
+ * ------------------------------------------|:----:|:----:|:---------:
+ * eSLIM_OPEN_FLAGS_NO_TIME_CONVERSION       |  +   |  -   | +
+ * eSLIM_OPEN_FLAGS_NO_REMOTE_SLIM_PROVIDERS |  +   |  -   | +
+ * eSLIM_OPEN_FLAGS_PERSISTENT_SERVICES      |  -   |  +   | -
+ *
+ * @sa slim_Open
+ */
+enum pbSlimOpenFlagsEnumT
+{
+    PB_eSLIM_OPEN_FLAGS_NO_TIME_CONVERSION = 0;
+    /**< Timestamps of the samples are not converted. Sample timestamps are in
+       provider time scale. */
+    PB_eSLIM_OPEN_FLAGS_NO_REMOTE_SLIM_PROVIDERS = 1;
+    /**< Remote SLIM-modules are not used as sensor service providers. */
+    PB_eSLIM_OPEN_FLAGS_PERSISTENT_SERVICES = 2;
+    /**< API implementation controls automatic service enable/disable depending
+       on service status. Client may ignore service availability messages. */
+
+    //! @cond
+    PB_eSLIM_OPEN_FLAGS_MAX = 2147483647; /* Force 32bit */
+    //! @endcond
+}
+
+/*! @brief Struct for SLIM message header */
+message pbSlimMessageHeaderStructT
+{
+    pbSlimServiceEnumT service = 1;
+    /**< SLIM service type */
+
+    pbSlimMessageTypeEnumT msgType = 2;
+    /**< SLIM message type */
+
+    pbSlimErrorEnumT msgError = 3;
+    /**< SLIM message error.
+       Do not handle message payload if value is not eSLIM_SUCCESS.
+    */
+
+    pbSlimMessageIdEnumT msgId = 4;
+    /**< SLIM message id */
+
+    uint32 size = 5;
+    /**< SLIM message size */
+
+    uint32 txnId = 6;
+    /**< Transaction id provided by client */
+}
+
+/*! @brief Struct for SLIM service enable/disable data */
+message pbSlimEnableServiceDataStructT
+{
+    bool enable = 1;
+    /**< TRUE if reporting should be enabled.
+       FALSE if reporting should be disabled.
+    */
+
+    uint32 providerFlags = 2;
+    /**< SLIM shall use only the providers defined in the given mask for
+       the service to enable.
+       If the value is 0, SLIM shall use the default provider for the service.
+    */
+}
+
+/*! @brief Struct for time-aligned batching config parameters */
+message pbSlimSensorDataBatchAlignRequestStructT
+{
+    uint64 batchStartTime = 1;
+    /**< Absolute time stamp for immediate first batch alignment.
+       Based on the TimeSource TimeStamp will be local or remote time stamp.
+       Set value to 0 for batching to start immediately based on batch duration.
+       If batchStartTime is in the past then it will be neglected.
+       Batch duration is calculated as (1000/reportRate) in millisecond per
+        batch (when enabling reporting). NOTE: Maximum batch size is 50.
+       If the batch count reaches 50 then batchDuration will be neglected
+       and the 50 samples will be sent.**/
+
+    pbSlimTimeSourceEnumT      timeSource = 2;
+    /**< Source of timeBase. One of:
+       eSLIM_TIME_SOURCE_UNSPECIFIED
+       eSLIM_TIME_SOURCE_COMMON
+       eSLIM_TIME_SOURCE_GPS
+       eSLIM_TIME_SOURCE_UTC
+       eSLIM_TIME_SOURCE_LEGACY   */
+
+}
+
+/*! @brief Struct for sensor data reporting configuration parameters */
+message pbSlimEnableSensorDataRequestStructT
+{
+    pbSlimEnableServiceDataStructT enableConf = 1;
+    /**< Configuration for service enabling/disabling. */
+
+    pbSlimServiceEnumT sensor = 2;
+    /**< Sensor service to enable/disable. Can be one of the following services:
+       - #eSLIM_SERVICE_SENSOR_ACCEL
+       - #eSLIM_SERVICE_SENSOR_ACCEL_TEMP
+       - #eSLIM_SERVICE_SENSOR_GYRO
+       - #eSLIM_SERVICE_SENSOR_GYRO_TEMP
+       - #eSLIM_SERVICE_SENSOR_MAG_CALIB
+       - #eSLIM_SERVICE_SENSOR_MAG_UNCALIB
+       - #eSLIM_SERVICE_SENSOR_BARO
+    */
+
+    uint32 sampleCount = 3;
+    /**< Samples per batch (when enabling reporting).
+       NOTE: Maximum sample count per batch is 50.
+    */
+
+    uint32 reportRate = 4;
+    /**< Batches per second (when enabling reporting) */
+
+    /* Optional */
+    bool batchAlignReq_valid = 5;
+    /**< Must be set to TRUE if batchAlignReq is being passed */
+
+    pbSlimSensorDataBatchAlignRequestStructT batchAlignReq = 6;
+    /*  Aligned Batch Start Time struct */
+
+}
+
+/*! @brief Struct for motion data reporting configuration parameters */
+message pbSlimEnableMotionDataRequestStructT
+{
+
+    pbSlimEnableServiceDataStructT enableConf = 1;
+    /**< Configuration for service enabling/disabling. */
+
+}
+
+/*! @brief Struct for AMD reporting configuration parameters */
+message pbSlimEnableAmdDataRequestStructT
+{
+
+    pbSlimEnableServiceDataStructT enableConf = 1;
+    /**< Configuration for service enabling/disabling. */
+
+}
+
+/*! @brief Struct for RMD reporting configuration parameters */
+message pbSlimEnableRmdDataRequestStructT
+{
+
+    pbSlimEnableServiceDataStructT enableConf = 1;
+    /**< Configuration for service enabling/disabling. */
+
+}
+
+/*! @brief Struct for pedometer reporting configuration parameters*/
+message pbSlimEnablePedometerRequestStructT
+{
+
+    pbSlimEnableServiceDataStructT enableConf = 1;
+    /**< Configuration for service enabling/disabling. */
+
+    bool  resetStepCount_valid = 2;
+    /**< Must be set to TRUE if resetStepCount is being passed */
+
+    uint32  resetStepCount = 3;
+    /**< Indicates whether the service should reset the step count.
+       This value is used only if reporting is already enabled.
+    */
+
+    bool  stepCountThreshold_valid = 4;
+    /**< Must be set to TRUE if stepCountThreshold is being passed */
+
+    uint32 stepCountThreshold = 5;
+    /**< Specifies the number of steps to be sampled in a pedometer report.
+       If the threshold is set to 0, every step event is reported.
+    */
+
+    uint32 reportPeriod = 6;
+    /**< Specifies interval for periodic reporting period in seconds, Q16.
+       P = 0 for asynchronous reporting.
+       P > 0 for periodic reporting. Maximum reporting period is 3600 seconds.
+    */
+
+    bool  sampleRate_valid = 7;
+    /**< Must be set to TRUE if sampleRate is being passed */
+
+    uint32 sampleRate = 8;
+    /**< Sampling rate in Hz, Q16. Default value of 20 Hz. Requires S >= 20 Hz. */
+
+    bool  dutyCycleOnPercent_valid = 9;
+    /**< Must be set to TRUE if dutyCycleOnPercent is being passed */
+
+    uint32  dutyCycleOnPercent = 10;
+    /**< Duty cycle ON percentage (0 to 100) for pedometer service when it is
+       duty-cycled. Sensor stream to pedometer service is active only during
+       the duty cycle ON period.
+    */
+
+}
+
+/*! @brief Struct for AMD/RMD configuration */
+message pbSlimQmdDataConfigStructT
+{
+
+    uint32 varThres = 1;
+    /**< Accel Variance thresold, we declare motion if the sum of variances
+       on all axes exceed this , Q16, in m^2/s^4.
+    */
+
+    uint32 varWinLen = 2;
+    /**< Time period over which the variance is computed, in Q16 seconds */
+
+}
+
+/*! @brief Struct for AMD/RMD data reporting configuration parameters */
+message pbSlimEnableQmdDataRequestStructT
+{
+    pbSlimEnableServiceDataStructT enableConf = 1;
+    /**< Configuration for service enabling/disabling. */
+
+    pbSlimServiceEnumT service = 2;
+    /**< eSLIM_SERVICE_AMD or eSLIM_SERVICE_RMD */
+
+    uint32 reportPeriod = 3;
+    /**< Unit of seconds, Q16; value of 0 means reporting on new event only .*/
+
+    bool config_valid = 4;
+    /**< TRUE if configuration contains valid data */
+
+    pbSlimQmdDataConfigStructT config = 5;
+    /**< Configuration options for QMD */
+
+}
+
+/*! @brief Struct for SMD data reporting configuration parameters*/
+message pbSlimEnableSmdDataRequestStructT
+{
+
+    pbSlimEnableServiceDataStructT enableConf = 1;
+    /**< Configuration for service enabling/disabling. */
+
+}
+
+/*! @brief Struct for Distance Bound data reporting configuration parameters*/
+message pbSlimEnableDistanceBoundRequestStructT
+{
+
+    pbSlimEnableServiceDataStructT enableConf = 1;
+    /**< Configuration for service enabling/disabling. */
+
+    bool  motionStateSpeedBounds_valid = 2;
+    /**< Must be set to true if motionStateSpeedBounds is being passed */
+
+    uint32 motionStateSpeedBoundsLength = 3;
+    /**< Must be set to # of elements in motionStateSpeedBounds */
+
+    repeated float motionStateSpeedBounds = 4;
+    /**<
+    An array that specifies a maximum speed associated with each motion state
+    defined in meters per second. If not provided, the algorithm will
+    use default values. The sns_sam_distance_bound_ms_e specifies the index of
+    each motion state in the array motion_state_speed_bounds array.
+    */
+
+}
+
+/*! @brief Struct for Distance Bound set request parameters*/
+message pbSlimSetDistanceBoundRequestStructT
+{
+    float distanceBound = 1;
+    /**< The distance bound in meters. When the distance travelled exceeds this,
+       an event is sent to the requestor, and the distance travelled
+       accumulation is reset.
+    */
+
+    uint32 sessionKey = 2;
+    /**< A unique key provided by the client that identifies the session
+       associated with the set bound request. Session key is provided in
+       the distance bound data indication to help the client to identify
+       the session.
+    */
+
+}
+
+/*! @brief Struct for vehicle data reporting configuration parameters */
+message pbSlimEnableVehicleDataRequestStructT
+{
+
+    pbSlimEnableServiceDataStructT enableConf  = 1;
+    /**< Configuration for service enabling/disabling. */
+
+    pbSlimServiceEnumT service = 2;
+    /**< Vehicle data service to enable/disable.
+       Can be one of the following services:
+       - #eSLIM_SERVICE_VEHICLE_ACCEL
+       - #eSLIM_SERVICE_VEHICLE_GYRO
+       - #eSLIM_SERVICE_VEHICLE_ODOMETRY
+       - #eSLIM_SERVICE_VEHICLE_SPEED
+       - #eSLIM_SERVICE_VEHICLE_DWS
+       - #eSLIM_SERVICE_VEHICLE_GEAR
+       - #eSLIM_SERVICE_VEHICLE_STEERING_WHEEL
+    */
+
+}
+
+/*! @brief Struct for pedestrian alignment data reporting configuration parameters */
+message pbSlimEnablePedestrianAlignmentRequestStructT
+{
+
+    pbSlimEnableServiceDataStructT enableConf = 1;
+    /**< Configuration for service enabling/disabling. */
+
+    uint32 inputTypeMask = 2;
+    /**< SLIM shall try to use all algorithm types defined in the given mask for
+       the pedestrian alignment service.
+    */
+
+    bool sampleRate_valid = 3;
+    /**<  Must be set to true if sampleRate is being passed */
+    uint32 sampleRate = 4;
+    /**<  Sampling rate in Hz, Q16. Can range from 20-50Hz. Defaults to 20 Hz.
+    */
+}
+
+
+/*! @brief Struct for magnetic-field data reporting configuration parameters */
+message pbSlimEnableMagneticFieldDataRequestStructT
+{
+
+    pbSlimEnableServiceDataStructT enableConf = 1;
+    /**< Configuration for service enabling/disabling. */
+
+}
+
+enum pbSlimRemoteMsgClsEnumT {
+    PB_eSLIM_MESSAGE_CLASS_CONTROL = 0;
+    PB_eSLIM_MESSAGE_CLASS_DATA = 1;
+    PB_eSLIM_MESSAGE_CLASS_MAX = 2147483647; /* Force 32bit */
+}
+
+enum pbSlimRemoteCtrlMsgEnumT{
+    PB_eSLIM_CONTROL_MESSAGE_ID_INVALID = 0;
+
+    PB_eSLIM_CONTROL_MESSAGE_ID_SLIM_INT_CLIENT_UP = 200;
+    /* Slim_ClientControlMsg (no payload) */
+
+    PB_eSLIM_CONTROL_MESSAGE_ID_AVAILABLE_SERVICE_REQ = 201;
+    /* Slim_ClientControlMsg (no payload) */
+
+    PB_eSLIM_CONTROL_MESSAGE_ID_AVAILABLE_SERVICE_RESP = 202;
+    /*Slim_ClientAvailableServicesControlMsg uint32_t (available proviers mask) */
+
+    PB_eSLIM_CONTROL_MESSAGE_ID_SENSOR_DATA_REQ = 203;
+    /* Slim_ClientSensorDataReqControlMsg slimEnableSensorDataRequestStructT
+    translated to slim_InternalEnableSensorData call*/
+
+    PB_eSLIM_CONTROL_MESSAGE_ID_MOTION_DATA_REQ = 204;
+    /*Slim_ClientMotionDataReqControlMsg (slimEnableMotionDataRequestStructT)
+    translated to slim_InternalEnableMotionData call*/
+
+    PB_eSLIM_CONTROL_MESSAGE_ID_PEDOMETER_REQ = 205;
+    /*Slim_ClientPedometerDataReqControlMsg (slimEnablePedometerRequestStructT)
+    translated to slim_InternalEnablePedometer call*/
+
+    PB_eSLIM_CONTROL_MESSAGE_ID_QMD_DATA_REQ = 206;
+    /*Slim_ClientQmdDataReqControlMsg (slimEnableQmdDataRequestStructT)
+    translated to slim_InternalEnableQmdData call*/
+
+    PB_eSLIM_CONTROL_MESSAGE_ID_SMD_DATA_REQ = 207;
+    /*Slim_ClientSmdDataReqControlMsg (slimEnableSmdDataRequestStructT)
+    translated to slim_InternalEnableSmdData call*/
+
+    PB_eSLIM_CONTROL_MESSAGE_ID_DISTANCE_BOUND_DATA_REQ = 208;
+    /*Slim_ClientDistanceBoundReqControlMsg (slimEnableDistanceBoundRequestStructT)
+    translated to slim_InternalEnableDistanceBound call*/
+
+    PB_eSLIM_CONTROL_MESSAGE_ID_SET_DISTANCE_BOUND_DATA_REQ = 209;
+    /*Slim_ClientSetDistanceBounceReqControlMsg (slimSetDistanceBoundRequestStructT)
+    translated to slim_InternalSetDistanceBound call*/
+
+    PB_eSLIM_CONTROL_MESSAGE_ID_GET_DISTANCE_BOUND_REPORT_REQ = 210;
+    /*Slim_ClientControlMsg (no request payload),
+    translated to slim_InternalGetDistanceBoundReport call*/
+
+    PB_eSLIM_CONTROL_MESSAGE_ID_VEHICLE_DATA_REQ = 211;
+    /*Slim_ClientVehicleDataReqControlMsg (slimEnableVehicleDataRequestStructT)
+    translated to slim_InternalEnableVehicleData call (sensor, odometry, motion)*/
+
+    PB_eSLIM_CONTROL_MESSAGE_ID_PED_ALIGNMENT_REQ = 212;
+    /*Slim_ClientPedestrianAlignmentReqControlMsg (slimEnablePedestrianAlignmentRequestStructT)
+    translated to slim_InternalEnablePedestrianAlignment call*/
+
+    PB_eSLIM_CONTROL_MESSAGE_ID_MAG_FIELD_DATA_REQ = 213;
+    /*Slim_ClientMagneticFieldDataReqControlMsg (slimEnableMagneticFieldDataRequestStructT)
+    translated to slim_InternalEnableMagneticFieldData call*/
+
+    PB_eSLIM_CONTROL_MESSAGE_ID_MAX = 2147483647; /* Force 32bit */
+}
+
+/* Control Message structure */
+
+message pbSlimRemoteAvailSvcsRespCtrlMsg
+{
+    uint32                                         mAvailableServicesMask = 1;
+    repeated pbSlimServiceStatusEventStructT    mServiceStatus = 2;
+}
+
+message pbSlimRemoteSensorDataReqCtrlMsg
+{
+    pbSlimEnableSensorDataRequestStructT       mSensorDataRequest = 1;
+}
+
+message pbSlimRemoteMotionDataReqControlMsg
+{
+    pbSlimEnableMotionDataRequestStructT        mMotionDataRequest = 1;
+}
+
+message pbSlimRemotePedometerDataReqControlMsg
+{
+    pbSlimEnablePedometerRequestStructT        mPedometerDataRequest = 1;
+}
+
+message pbSlimRemoteQmdDataReqControlMsg
+{
+    pbSlimEnableQmdDataRequestStructT            mQmdDataRequest = 1;
+}
+
+message pbSlimRemoteSmdDataReqControlMsg
+{
+    pbSlimEnableSmdDataRequestStructT            mSmdDataRequest = 1;
+}
+
+message pbSlimRemoteDistanceBoundReqControlMsg
+{
+    pbSlimEnableDistanceBoundRequestStructT    mDistanceBoundRequest = 1;
+}
+
+message pbSlimRemoteSetDistanceBounceReqControlMsg
+{
+    pbSlimSetDistanceBoundRequestStructT        mSetDistanceBoundRequest = 1;
+}
+
+message pbSlimRemoteVehicleDataReqCtrlMsg
+{
+    pbSlimEnableVehicleDataRequestStructT        mVehicleDataRequest = 1;
+}
+
+message pbSlimRemotePedestrianAlignmentReqControlMsg
+{
+    pbSlimEnablePedestrianAlignmentRequestStructT    mPedestrianAlignmentRequest = 1;
+}
+
+message pbSlimRemoteMagneticFieldDataReqControlMsg
+{
+    pbSlimEnableMagneticFieldDataRequestStructT        mMagneticFieldDataRequest = 1;
+}
+
+message pbSlimRemotePTPtime
+{
+    bool        qtOffsetCalcDone = 1;
+    uint64      gPTPtime = 2;
+}
+
+/*Data Messages of Response and Error with no payload*/
+message pbSlimRemoteDataMsg
+{
+    pbSlimMessageHeaderStructT     mHeader = 1;
+    pbSlimRemotePTPtime            mGPTP = 2;
+}
+
+/*Data messages of Response type with payload */
+message pbSlimRemoteDistanceBoundGetReportRespDataMsg
+{
+    pbSlimMessageHeaderStructT     mHeader = 1;
+    pbSlimRemotePTPtime            mGPTP = 2;
+    pbSlimDistanceBoundGetReportResponseStructT    mDistanceBoundGetReportResp = 3;
+} /* eSLImESSAGE_ID_DISTANCE_BOUND_DATA_GET_RESP */
+
+message pbSlimRemotePedestrianAlignmentEnableRespDataMsg
+{
+    pbSlimMessageHeaderStructT     mHeader = 1;
+    pbSlimRemotePTPtime            mGPTP = 2;
+    pbSlimPedestrianAlignmentEnableResponseStructT     mPedestrianAlignmentEnableResp = 3;
+} /* eSLImESSAGE_ID_PED_ALIGNMENT_ENABLE_RESP */
+
+message pbSlimRemoteSensorDataMsg
+{
+    pbSlimMessageHeaderStructT     mHeader = 1;
+    pbSlimRemotePTPtime            mGPTP = 2;
+    pbSlimSensorDataStructT        mSensorData = 3;
+} /* eSLImESSAGE_ID_SENSOR_DATA_IND */
+
+message pbSlimRemoteMotionDataMsg
+{
+    pbSlimMessageHeaderStructT     mHeader = 1;
+    pbSlimRemotePTPtime            mGPTP = 2;
+    pbSlimMotionDataStructT        mMotionData = 3;
+} /* eSLImESSAGE_ID_MOTION_DATA_IND */
+
+message pbSlimRemotePedometerDataMsg
+{
+    pbSlimMessageHeaderStructT     mHeader = 1;
+    pbSlimRemotePTPtime            mGPTP = 2;
+    pbSlimPedometerDataStructT     mPedometerData = 3;
+} /* eSLImESSAGE_ID_PEDOMETER_IND */
+
+message pbSlimRemoteQmdDataMsg
+{
+    pbSlimMessageHeaderStructT     mHeader = 1;
+    pbSlimRemotePTPtime            mGPTP = 2;
+    pbSlimQmdDataStructT            mQmdData = 3;
+} /* eSLImESSAGE_ID_QMD_DATA_IND */
+
+message pbSlimRemoteSmdDataMsg
+{
+    pbSlimMessageHeaderStructT     mHeader = 1;
+    pbSlimRemotePTPtime            mGPTP = 2;
+    pbSlimSmdDataStructT           mSmdData = 6;
+} /* eSLImESSAGE_ID_SMD_DATA_IND */
+
+message pbSlimRemoteDistanceBoundDataMsg
+{
+    pbSlimMessageHeaderStructT     mHeader = 1;
+    pbSlimRemotePTPtime            mGPTP = 2;
+    pbSlimDistanceBoundDataStructT mDistanceBoundData = 3;
+} /*eSLImESSAGE_ID_DISTANCE_BOUND_DATA_IND */
+
+message pbSlimRemoteVehicleSensorDataMsg
+{
+    pbSlimMessageHeaderStructT     mHeader = 1;
+    pbSlimRemotePTPtime            mGPTP = 2;
+    pbSlimVehicleSensorDataStructT         mVehicleSensorData = 3;
+} /* eSLImESSAGE_ID_VEHICLE_SENSOR_IND */
+
+message pbSlimRemoteVehicleOdometryDataMsg
+{
+    pbSlimMessageHeaderStructT     mHeader = 1;
+    pbSlimRemotePTPtime            mGPTP = 2;
+    pbSlimVehicleOdometryDataStructT       mVehicleOdometryData = 3;
+} /* eSLImESSAGE_ID_VEHICLE_ODOMETRY_IND */
+
+message pbSlimRemoteVehicleMotionDataMsg
+{
+    pbSlimMessageHeaderStructT     mHeader = 1;
+    pbSlimRemotePTPtime            mGPTP = 2;
+    pbSlimVehicleMotionDataStructT         mVehicleMotionData = 3;
+} /* eSLImESSAGE_ID_VEHICLE_MOTION_DATA_IND */
+
+message pbSlimRemotePedestrianAlignmentDataMsg
+{
+    pbSlimMessageHeaderStructT     mHeader = 1;
+    pbSlimRemotePTPtime            mGPTP = 2;
+    pbSlimPedestrianAlignmentDataStructT   mPedestrianAlignmentData = 3;
+} /* eSLImESSAGE_ID_PED_ALIGNMENT_IND */
+
+message pbSlimRemoteMagneticFieldDataMsg
+{
+    pbSlimMessageHeaderStructT     mHeader = 1;
+    pbSlimRemotePTPtime            mGPTP = 2;
+    pbSlimMagneticFieldDataStructT         mMagneticFieldData = 3;
+} /* eSLImESSAGE_ID_MAG_FIELD_DATA_IND */
+
+message pbSlimRemoteMsg
+{
+    pbSlimRemoteMsgClsEnumT        msgClass = 1;
+    uint32                         msgId = 2;
+    bytes                          payload = 3;
+}
+

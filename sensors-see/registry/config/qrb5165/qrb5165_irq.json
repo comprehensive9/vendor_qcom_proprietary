@@ -1,0 +1,9 @@
+{
+  "config": {
+    "hw_platform": ["QRD"],
+    "soc_id": ["356", "455", "496", "548"]
+  },
+  "sns_irq": {
+    "owner": "sns_irq"
+  }
+}

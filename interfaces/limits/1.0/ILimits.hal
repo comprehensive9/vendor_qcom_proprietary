@@ -1,0 +1,39 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.hardware.limits@1.0;
+
+import android.hardware.thermal@1.0::ThermalStatus;
+
+/**
+ * Interface for clients to receive limits headroom.
+ */
+interface ILimits {
+
+  /**
+   * Get thermal headroom.
+   *
+   * @return status: Status of the operation.
+   *         Possible status codes:
+   *         ThermalStatusCode.SUCCESS,
+   *         ThermalStatusCode.FAILURE
+   * @return headRoom: The estimated headroom in seconds
+   */
+  getThermalHeadRoom()
+         generates (ThermalStatus status, double headRoom);
+
+  /**
+   * Request to start thermal headroom calculation.
+   *
+   */
+  startHeadRoomCalculation();
+
+  /**
+   * Request to stop thermal headroom calculation.
+   *
+   */
+  stopHeadRoomCalculation();
+};

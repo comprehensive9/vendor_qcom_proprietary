@@ -1,0 +1,21 @@
+
+cc_binary {
+    name: "hal_ss_test_manual",
+
+    srcs: [
+        "Qualcomm_FM_Test_HAL_Layer.cpp",
+        "FmRadioController_qcom.cpp",
+        "ConfigFmThs.cpp",
+        "FmPerformanceParams.cpp",
+        "QcomFmIoctlsInterface.cpp",
+        "ConfFileParser.cpp",
+    ],
+
+    shared_libs: [
+        "libcutils",
+        "liblog",
+        "libutils",
+    ],
+
+    proprietary: true,
+}

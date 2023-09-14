@@ -1,0 +1,9 @@
+
+
+prebuilt_etc {
+    name: "mmi.xml",
+
+    src: "mmi.xml",
+    sub_dir: "mmi",
+
+}

@@ -1,0 +1,105 @@
+soong_config_module_type {
+    name: "sns_cc_defaults",
+    module_type: "cc_defaults",
+    config_namespace: "snsconfig",
+    variables: [
+        "imagetype",
+        "isDirectChannel",
+    ],
+    bool_variables: [
+        "isDefaultHeap",
+        "isWearableTarget",
+        "isWearableTargetBG",
+    ],
+    properties: ["shared_libs", "cflags"],
+}
+
+soong_config_string_variable {
+    name: "imagetype",
+    values: ["generic_odm_image", "odm_image"],
+}
+
+soong_config_string_variable {
+    name: "isDirectChannel",
+    values: ["enabled", "disabled"],
+}
+
+cc_defaults {
+    name: "sns_proto_lib_name-lite",
+    shared_libs: [
+        "libprotobuf-cpp-lite",
+    ],
+}
+
+sns_cc_defaults {
+    name: "sns_proto_lib_name-full",
+    soong_config_variables: {
+        imagetype: {
+            generic_odm_image: {
+                shared_libs: [
+                    "libprotobuf-cpp-full",
+                ],
+            },
+            odm_image: {
+                shared_libs: [
+                    "libprotobuf-cpp-full-vendor",
+                ],
+            },
+        },
+    },
+}
+
+sns_cc_defaults {
+    name: "sns_fastRPC_heap_type",
+    soong_config_variables: {
+        isDefaultHeap: {
+            cflags: ["-DSNS_TARGET_SUPPORT_DEFAULT_HEAP_ID"],
+        },
+    },
+}
+
+sns_cc_defaults {
+    name: "sns_direct_channel",
+    soong_config_variables: {
+        isDirectChannel: {
+            enabled: {
+                cflags: ["-DSNS_SUPPORT_DIRECT_CHANNEL"],
+                shared_libs: [
+                    "libsns_direct_channel_stub",
+                    "libadsprpc",
+                ],
+            },
+            disabled: {
+            },
+        },
+    },
+}
+
+sns_cc_defaults {
+    name: "sns_wearable_target",
+    soong_config_variables: {
+        isWearableTarget: {
+            cflags: [
+                "-DSNS_WEARABLES_TARGET",
+                "-DTARGET_SUPPORTS_NO_HIFI",
+            ],
+        },
+    },
+}
+
+sns_cc_defaults {
+    name: "sns_wearable_target_bg",
+    soong_config_variables: {
+        isWearableTargetBG: {
+            cflags: [
+                "-DSNS_WEARABLES_TARGET_BG",
+            ],
+            shared_libs: [
+                "vendor.google_clockwork.wristorientation@1.0",
+                "libutils",
+                "libhidlbase",
+                "libhardware",
+            ],
+        },
+    },
+}

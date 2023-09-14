@@ -1,0 +1,9 @@
+<!--
+    Copyright (c) 2021 Qualcomm Technologies, Inc.
+    All Rights Reserved.
+    Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+</resources>

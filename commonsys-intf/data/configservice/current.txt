@@ -1,0 +1,6 @@
+639d16bc47604169db807d14f7825698676367d7c7e2fb7ebfb4bae2ec4e278c vendor.qti.ims.configservice@1.0::types
+e55ba45ee181897bf4bcebe953b92b3b8ea85a15c4631d4e5d52e7b1a223ce91 vendor.qti.ims.configservice@1.0::IConfigService
+1f6e9811d260d411cd22f8bca9467cb69e3fe0d0d3ae36f1c8aab245e99cdf74 vendor.qti.ims.configservice@1.0::IConfigServiceListener
+7679490e7ff836a777e2ab38360a8c89455fbfdea45efe848d316bbefa52c0aa vendor.qti.ims.configservice@1.1::types
+53598326ff020339689a11f053dfe9bfaf4a232e96609c970d549f259cc97773 vendor.qti.ims.configservice@1.1::IConfigService
+132adc03624dd7244783fc94403ec2b4044710ce3e8220094e68daf3699649b1 vendor.qti.ims.configservice@1.1::IConfigServiceListener

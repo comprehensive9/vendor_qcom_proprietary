@@ -1,0 +1,9 @@
+android_app {
+    name: "WigigTetheringRRO",
+    resource_dirs: [
+        "res",
+    ],
+    manifest: "AndroidManifest.xml",
+    sdk_version: "current",
+    system_ext_specific: true
+}

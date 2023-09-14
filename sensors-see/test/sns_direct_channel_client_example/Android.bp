@@ -1,0 +1,33 @@
+cc_binary {
+    name: "sns_direct_channel_client_example",
+    defaults: [
+        "sns_proto_lib_name-lite",
+        "sns_direct_channel",
+    ],
+    clang: true,
+    owner: "qti",
+    proprietary: true,
+    srcs: [
+        "sns_direct_channel_client.cpp",
+    ],
+    local_include_dirs: ["./"],
+    cflags: [
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-missing-field-initializers",
+        "-Wno-maybe-uninitialized",
+    ],
+    cppflags: ["-fexceptions"],
+    header_libs: [
+        "libfastrpcshippable_headers",
+        "libsensorlog_headers",
+    ],
+    shared_libs: [
+        "libutils",
+        "libcutils",
+        "liblog",
+        "libsnsapi",
+        "libsensorslog"
+    ],
+}

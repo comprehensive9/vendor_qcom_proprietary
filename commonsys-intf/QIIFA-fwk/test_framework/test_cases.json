@@ -1,0 +1,370 @@
+{
+  "ABI": {
+    "No Change": {
+      "index": 0,
+      "library_name": "libTestCase",
+      "expected_result": "compatible"
+    },
+    "Add enumerator at start of Enum": {
+      "index": 1,
+      "library_name": "libTestCase_1",
+      "expected_result": "incompatible"
+    },
+    "Add enumerator at end of Enum": {
+      "index": 2,
+      "library_name": "libTestCase_2",
+      "expected_result": "extending"
+    },
+    "Change Order of Base Class Inheritance": {
+      "index": 3,
+      "library_name": "libTestCase_3",
+      "expected_result": "incompatible"
+    },
+    "Add new protected variable in Class": {
+      "index": 4,
+      "library_name": "libTestCase_4",
+      "expected_result": "incompatible"
+    },
+    "Remove Virtually Inherited Base Class": {
+      "index": 5,
+      "library_name": "libTestCase_5",
+      "expected_result": "incompatible"
+    },
+    "Add Virtually Inherited Base Class": {
+      "index": 6,
+      "library_name": "libTestCase_6",
+      "expected_result": "incompatible"
+    },
+    "Change type of data member": {
+      "index": 7,
+      "library_name": "libTestCase_7",
+      "expected_result": "incompatible"
+    },
+    "Remove member from enumeration declaration": {
+      "index": 8,
+      "library_name": "libTestCase_8",
+      "expected_result": "incompatible"
+    },
+    "Add new variable in Class": {
+      "index": 9,
+      "library_name": "libTestCase_9",
+      "expected_result": "incompatible"
+    },
+    "Change return type of member function": {
+      "index": 10,
+      "library_name": "libTestCase_10",
+      "expected_result": "incompatible"
+    },
+    "Change the size of union type": {
+      "index": 11,
+      "library_name": "libTestCase_11",
+      "expected_result": "incompatible"
+    },
+    "Change the type of union data members": {
+      "index": 12,
+      "library_name": "libTestCase_12",
+      "expected_result": "incompatible"
+    },
+    "Remove union data member": {
+      "index": 13,
+      "library_name": "libTestCase_13",
+      "expected_result": "incompatible"
+    },
+    "Change names of enumerators": {
+      "index": 14,
+      "library_name": "libTestCase_14",
+      "expected_result": "incompatible"
+    },
+    "Change comments": {
+      "index": 15,
+      "library_name": "libTestCase_15",
+      "expected_result": "compatible"
+    },
+    "Change the value of enumeration declaration": {
+      "index": 16,
+      "library_name": "libTestCase_16",
+      "expected_result": "incompatible"
+    },
+    "Add a new struct member": {
+      "index": 17,
+      "library_name": "libTestCase_17",
+      "expected_result": "incompatible"
+    },
+    "Change the order of struct members": {
+      "index": 18,
+      "library_name": "libTestCase_18",
+      "expected_result": "incompatible"
+    },
+    "Swap members in enumeration declaration": {
+      "index": 19,
+      "library_name": "libTestCase_19",
+      "expected_result": "incompatible"
+    },
+    "Change access specifier - public to private": {
+      "index": 20,
+      "library_name": "libTestCase_20",
+      "expected_result": "incompatible"
+    },
+    "Change access specifier - public to protected": {
+      "index": 21,
+      "library_name": "libTestCase_21",
+      "expected_result": "incompatible"
+    },
+    "Change access specifier - protected to private": {
+      "index": 22,
+      "library_name": "libTestCase_22",
+      "expected_result": "incompatible"
+    },
+    "Remove variable in Class": {
+      "index": 23,
+      "library_name": "libTestCase_23",
+      "expected_result": "incompatible"
+    },
+    "Change the virtual table layout": {
+      "index": 24,
+      "library_name": "libTestCase_24",
+      "expected_result": "incompatible"
+    },
+    "Change struct member type": {
+      "index": 25,
+      "library_name": "libTestCase_25",
+      "expected_result": "incompatible"
+    },
+    "Remove struct member": {
+      "index": 26,
+      "library_name": "libTestCase_26",
+      "expected_result": "incompatible"
+    },
+    "Change type of enumerators": {
+      "index": 27,
+      "library_name": "libTestCase_27",
+      "expected_result": "incompatible"
+    }
+  },
+  "HIDL": {
+    "default_success": {
+      "index": 0,
+      "file_path": "hardware/interfaces/current.txt",
+      "tc_method": "do_nothing",
+      "tc_method_kwargs": {},
+      "expected_result": "pass"
+    },
+    "modify_hash_fail": {
+      "index": 1,
+      "file_path": "vendor/qcom/proprietary/interfaces/current.txt",
+      "tc_method": "modify_hash",
+      "tc_method_kwargs": {
+        "hal_name": "vendor.qti.hardware.alarm",
+        "version": "1.0",
+        "intf_name": "IAlarm"
+      },
+      "expected_result": "fail"
+    },
+    "delete_hash_fail": {
+      "index": 2,
+      "file_path": "vendor/qcom/proprietary/interfaces/current.txt",
+      "tc_method": "delete_hash",
+      "tc_method_kwargs": {
+        "hal_name": "vendor.qti.hardware.alarm",
+        "version": "1.0",
+        "intf_name": "IAlarm"
+      },
+      "expected_result": "fail"
+    },
+    "add_dummy_hash_pass": {
+      "index": 3,
+      "file_path": "hardware/interfaces/current.txt",
+      "tc_method": "add_dummy_hash",
+      "tc_method_kwargs": {
+      },
+      "expected_result": "pass"
+    },
+    "add_version_xml_fail": {
+      "index": 4,
+      "file_path": "out/target/product/qssi/system/etc/vintf/compatibility_matrix.device.xml",
+      "tc_method": "add_hidl_version",
+      "tc_method_kwargs": {
+        "hal_name": "android.hardware.automotive.evs",
+        "new_version": "2.0-1"
+      },
+      "expected_result": "fail"
+    },
+    "remove_version_xml_fail": {
+      "index": 5,
+      "file_path": "out/target/product/qssi/system/etc/vintf/compatibility_matrix.device.xml",
+      "tc_method": "remove_hidl_version",
+      "tc_method_kwargs": {
+        "hal_name": "android.hardware.gnss",
+        "remove_version": "1.0-1"
+      },
+      "expected_result": "fail"
+    },
+    "modify_version_xml_fail": {
+      "index": 6,
+      "file_path": "out/target/product/qssi/system/etc/vintf/compatibility_matrix.device.xml",
+      "tc_method": "modify_hidl_version",
+      "tc_method_kwargs": {
+        "hal_name": "android.hardware.automotive.evs",
+        "prev_version": "1.1",
+        "mod_version": "1.0-2"
+      },
+      "expected_result": "fail"
+    },
+    "remove_intf_xml_fail": {
+      "index": 7,
+      "file_path": "out/target/product/qssi/system/etc/vintf/compatibility_matrix.device.xml",
+      "tc_method": "remove_hidl_intf",
+      "tc_method_kwargs": {
+        "hal_name": "android.hardware.automotive.evs",
+        "remove_intf": "IEvsEnumerator"
+      },
+      "expected_result": "fail"
+    },
+    "modify_intf_xml_fail": {
+      "index": 8,
+      "file_path": "out/target/product/qssi/system/etc/vintf/compatibility_matrix.device.xml",
+      "tc_method": "modify_hidl_intf",
+      "tc_method_kwargs": {
+        "hal_name": "android.hardware.automotive.evs",
+        "prev_intf": "IEvsEnumerator",
+        "mod_intf": "IRADIOOOBABYYYY"
+      },
+      "expected_result": "fail"
+    },
+    "add_intf_xml_fail": {
+      "index": 9,
+      "file_path": "out/target/product/qssi/system/etc/vintf/compatibility_matrix.device.xml",
+      "tc_method": "add_hidl_intf",
+      "tc_method_kwargs": {
+        "hal_name": "android.hardware.automotive.evs",
+        "new_intf": "INEWWW"
+      },
+      "expected_result": "fail"
+    },
+    "add_intf_instance_xml_pass": {
+      "index": 10,
+      "file_path": "out/target/product/qssi/system/etc/vintf/compatibility_matrix.device.xml",
+      "tc_method": "add_intf_instance",
+      "tc_method_kwargs": {
+        "hal_name": "android.hardware.automotive.evs",
+        "intf_name": "IEvsEnumerator",
+        "new_instance": "new_instance"
+      },
+      "expected_result": "pass"
+    },
+    "remove_intf_instance_xml_pass": {
+      "index": 11,
+      "file_path": "out/target/product/qssi/system/etc/vintf/compatibility_matrix.device.xml",
+      "tc_method": "remove_intf_instance",
+      "tc_method_kwargs": {
+        "hal_name": "vendor.qti.voiceprint",
+        "intf_name": "IQtiVoicePrintService",
+        "remove_instance": "default"
+      },
+      "expected_result": "pass"
+    },
+    "modify_intf_instance_xml_pass": {
+      "index": 12,
+      "file_path": "out/target/product/qssi/system/etc/vintf/compatibility_matrix.device.xml",
+      "tc_method": "modify_intf_instance",
+      "tc_method_kwargs": {
+        "hal_name": "android.hardware.radio",
+        "intf_name": "IRadio",
+        "prev_instance": "slot1",
+        "mod_instance": "mod_instance"
+      },
+      "expected_result": "pass"
+    },
+    "modify_signature_version_fail": {
+      "index": 13,
+      "file_path": "hardware/interfaces/current.txt",
+      "tc_method": "modify_signature_version",
+      "tc_method_kwargs": {
+        "hal_name": "android.hardware.automotive.evs",
+        "prev_version": "1.0",
+        "new_version": "1.0.12",
+        "intf_name": "IEvsCameraStream"
+      },
+      "expected_result": "fail"
+    },
+    "modify_comments_pass": {
+      "index": 14,
+      "file_path": "hardware/interfaces/current.txt",
+      "tc_method": "modify_comments",
+      "tc_method_kwargs": {
+        "comment": "# HALs released in Android R"
+      },
+      "expected_result": "pass"
+    },
+    "modify_compatibility_matrix_hal_format_random_value_fail": {
+      "index": 15,
+      "file_path": "out/target/product/qssi/system/etc/vintf/compatibility_matrix.device.xml",
+      "tc_method": "modify_compatibility_matrix_hal_format",
+      "tc_method_kwargs": {
+        "new_format": "1hidl"
+      },
+      "expected_result": "fail"
+    },
+    "modify_compatibility_matrix_hal_format_pass": {
+      "index": 16,
+      "file_path": "out/target/product/qssi/system/etc/vintf/compatibility_matrix.device.xml",
+      "tc_method": "modify_compatibility_matrix_hal_format",
+      "tc_method_kwargs": {
+        "new_format": "aidl"
+      },
+      "expected_result": "pass"
+    },
+    "remove_compatibility_matrix_hal_format_fail": {
+      "index": 17,
+      "file_path": "out/target/product/qssi/system/etc/vintf/compatibility_matrix.device.xml",
+      "tc_method": "remove_compatibility_matrix_hal_format",
+      "tc_method_kwargs": {
+      },
+      "expected_result": "fail"
+    },
+    "modify_compatibility_matrix_hal_optional_pass": {
+      "index": 18,
+      "file_path": "out/target/product/qssi/system/etc/vintf/compatibility_matrix.device.xml",
+      "tc_method": "modify_compatibility_matrix_hal_optional",
+      "tc_method_kwargs": {
+        "new_optional": "false"
+      },
+      "expected_result": "pass"
+    },
+    "remove_compatibility_matrix_hal_optional_pass": {
+      "index": 19,
+      "file_path": "out/target/product/qssi/system/etc/vintf/compatibility_matrix.device.xml",
+      "tc_method": "remove_compatibility_matrix_hal_optional",
+      "tc_method_kwargs": {
+      },
+      "expected_result": "pass"
+    },
+    "modify_compatibility_matrix_hal_name_fail": {
+      "index": 20,
+      "file_path": "out/target/product/qssi/system/etc/vintf/compatibility_matrix.device.xml",
+      "tc_method": "modify_compatibility_matrix_hal_name",
+      "tc_method_kwargs": {
+        "hal_name": "android.hardware.automotive.evs"
+      },
+      "expected_result": "fail"
+    },
+    "modify_hal_version_major_minor_format_fail": {
+      "index": 21,
+      "file_path": "out/target/product/qssi/system/etc/vintf/compatibility_matrix.device.xml",
+      "tc_method": "modify_hal_version_major_minor_format",
+      "tc_method_kwargs": {
+        "hal_name": "android.hardware.automotive.evs",
+        "new_version": "1.1.0"
+      },
+      "expected_result": "fail"
+    },
+    "check_hal_files_are_present": {
+      "index": 22,
+      "file_path": "hardware/interfaces/current.txt",
+      "tc_method": "check_hal_files_are_present",
+      "tc_method_kwargs": {
+      },
+      "expected_result": "pass"
+    }
+  }
+}

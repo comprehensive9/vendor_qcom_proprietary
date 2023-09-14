@@ -1,0 +1,59 @@
+
+
+cc_library_shared {
+    name: "liblearningmodule",
+    srcs: [
+        "metameters/MetaMeter.cpp",
+        "metameters/MeterMgr.cpp",
+        "metameters/Meter.cpp",
+        "metameters/MeterFwk.cpp",
+        "metameters/ThreadHelper.cpp",
+        "core/LearningModule.cpp",
+        "core/Feature.cpp",
+        "core/FeatureState.cpp",
+        "core/FeatureXML.cpp",
+        "core/LMPerfGlue.cpp",
+        "database/lmDB.cpp",
+    ],
+
+    header_libs: ["libutils_headers"],
+
+    shared_libs: [
+        "liblog",
+        "libc",
+        "libcutils",
+        "libutils",
+        "libtinyxml2",
+        "libsqlite",
+        "libperfgluelayer",
+        "libperfconfig",
+    ],
+
+    cflags: [
+        "-Wno-unused-parameter",
+        "-DQC_DEBUG=0",
+    ],
+
+    cppflags: [
+        "-fexceptions",
+    ],
+
+    include_dirs: [
+        "vendor/qcom/proprietary/android-perf/learning-module/framework/inc/core",
+        "vendor/qcom/proprietary/android-perf/learning-module/framework/inc/metameters",
+        "vendor/qcom/proprietary/android-perf/learning-module/framework/inc/utils",
+        "vendor/qcom/proprietary/android-perf/learning-module/framework/inc/database",
+        "vendor/qcom/proprietary/android-perf/mp-ctl",
+        "vendor/qcom/proprietary/android-perf/perf-hal",
+        "vendor/qcom/proprietary/android-perf/perf-util",
+        "external/tinyxml2",
+        "external/sqlite/dist",
+        "external/libxml2/include",
+    ],
+
+    compile_multilib: "first",
+
+    owner: "qti",
+
+    proprietary: true,
+}

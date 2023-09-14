@@ -1,0 +1,181 @@
+#LOCAL_PATH := $(call my-dir)
+#
+#include $(CLEAR_VARS)
+#LOCAL_SRC_FILES    := evautil.b00
+#LOCAL_MODULE       := evautil.b00
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/firmware
+#LOCAL_MODULE_OWNER := qti
+#LOCAL_PROPRIETARY_MODULE := true
+#include $(BUILD_PREBUILT)
+#
+#include $(CLEAR_VARS)
+#LOCAL_SRC_FILES    := evautil.b01
+#LOCAL_MODULE       := evautil.b01
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/firmware
+#LOCAL_MODULE_OWNER := qti
+#LOCAL_PROPRIETARY_MODULE := true
+#include $(BUILD_PREBUILT)
+#
+#include $(CLEAR_VARS)
+#LOCAL_SRC_FILES    := evautil.b02
+#LOCAL_MODULE       := evautil.b02
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/firmware
+#LOCAL_MODULE_OWNER := qti
+#LOCAL_PROPRIETARY_MODULE := true
+#include $(BUILD_PREBUILT)
+#
+#include $(CLEAR_VARS)
+#LOCAL_SRC_FILES    := evautil.b03
+#LOCAL_MODULE       := evautil.b03
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/firmware
+#LOCAL_MODULE_OWNER := qti
+#LOCAL_PROPRIETARY_MODULE := true
+#include $(BUILD_PREBUILT)
+#
+#include $(CLEAR_VARS)
+#LOCAL_SRC_FILES    := evautil.b04
+#LOCAL_MODULE       := evautil.b04
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/firmware
+#LOCAL_MODULE_OWNER := qti
+#LOCAL_PROPRIETARY_MODULE := true
+#include $(BUILD_PREBUILT)
+#
+#include $(CLEAR_VARS)
+#LOCAL_SRC_FILES    := evautil.b05
+#LOCAL_MODULE       := evautil.b05
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/firmware
+#LOCAL_MODULE_OWNER := qti
+#LOCAL_PROPRIETARY_MODULE := true
+#include $(BUILD_PREBUILT)
+#
+#include $(CLEAR_VARS)
+#LOCAL_SRC_FILES    := evautil.b06
+#LOCAL_MODULE       := evautil.b06
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/firmware
+#LOCAL_MODULE_OWNER := qti
+#LOCAL_PROPRIETARY_MODULE := true
+#include $(BUILD_PREBUILT)
+#
+#include $(CLEAR_VARS)
+#LOCAL_SRC_FILES    := evautil.b07
+#LOCAL_MODULE       := evautil.b07
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/firmware
+#LOCAL_MODULE_OWNER := qti
+#LOCAL_PROPRIETARY_MODULE := true
+#include $(BUILD_PREBUILT)
+#
+#include $(CLEAR_VARS)
+#LOCAL_SRC_FILES    := evautil.mdt
+#LOCAL_MODULE       := evautil.mdt
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/firmware
+#LOCAL_MODULE_OWNER := qti
+#LOCAL_PROPRIETARY_MODULE := true
+#include $(BUILD_PREBUILT)
+#
+#include $(CLEAR_VARS)
+#LOCAL_SRC_FILES    := evautil64.b00
+#LOCAL_MODULE       := evautil64.b00
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/firmware
+#LOCAL_MODULE_OWNER := qti
+#LOCAL_PROPRIETARY_MODULE := true
+#include $(BUILD_PREBUILT)
+#
+#include $(CLEAR_VARS)
+#LOCAL_SRC_FILES    := evautil64.b01
+#LOCAL_MODULE       := evautil64.b01
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/firmware
+#LOCAL_MODULE_OWNER := qti
+#LOCAL_PROPRIETARY_MODULE := true
+#include $(BUILD_PREBUILT)
+#
+#include $(CLEAR_VARS)
+#LOCAL_SRC_FILES    := evautil64.b02
+#LOCAL_MODULE       := evautil64.b02
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/firmware
+#LOCAL_MODULE_OWNER := qti
+#LOCAL_PROPRIETARY_MODULE := true
+#include $(BUILD_PREBUILT)
+#
+#include $(CLEAR_VARS)
+#LOCAL_SRC_FILES    := evautil64.b03
+#LOCAL_MODULE       := evautil64.b03
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/firmware
+#LOCAL_MODULE_OWNER := qti
+#LOCAL_PROPRIETARY_MODULE := true
+#include $(BUILD_PREBUILT)
+#
+#include $(CLEAR_VARS)
+#LOCAL_SRC_FILES    := evautil64.b04
+#LOCAL_MODULE       := evautil64.b04
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/firmware
+#LOCAL_MODULE_OWNER := qti
+#LOCAL_PROPRIETARY_MODULE := true
+#include $(BUILD_PREBUILT)
+#
+#include $(CLEAR_VARS)
+#LOCAL_SRC_FILES    := evautil64.b05
+#LOCAL_MODULE       := evautil64.b05
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/firmware
+#LOCAL_MODULE_OWNER := qti
+#LOCAL_PROPRIETARY_MODULE := true
+#include $(BUILD_PREBUILT)
+#
+#include $(CLEAR_VARS)
+#LOCAL_SRC_FILES    := evautil64.b06
+#LOCAL_MODULE       := evautil64.b06
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/firmware
+#LOCAL_MODULE_OWNER := qti
+#LOCAL_PROPRIETARY_MODULE := true
+#include $(BUILD_PREBUILT)
+#
+#include $(CLEAR_VARS)
+#LOCAL_SRC_FILES    := evautil64.b07
+#LOCAL_MODULE       := evautil64.b07
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/firmware
+#LOCAL_MODULE_OWNER := qti
+#LOCAL_PROPRIETARY_MODULE := true
+#include $(BUILD_PREBUILT)
+#
+#include $(CLEAR_VARS)
+#LOCAL_SRC_FILES    := evautil64.mdt
+#LOCAL_MODULE       := evautil64.mdt
+#LOCAL_MODULE_TAGS  := optional
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/firmware
+#LOCAL_MODULE_OWNER := qti
+#LOCAL_PROPRIETARY_MODULE := true
+#include $(BUILD_PREBUILT)

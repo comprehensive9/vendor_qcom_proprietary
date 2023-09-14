@@ -1,0 +1,313 @@
+/*****************************************************************************
+  @FILE     cnss_plat_ipc_service_v01.idl
+
+  @BRIEF    QMI Service definitions for IPC between CNSS platform driver and daemon
+
+  @DESCRIPTION
+  This specification documents Major Version 1 of the Qualcomm technologies, Inc
+  Messaging Interface (QMI) for WLAN cnss platform driver and daemon components.
+
+  CNSS plaform has two components: a kernel driver and user space daemon. These
+  components interact for calibration and QDSS functionality. CNSS platform driver
+  communicates the information from this exchanges to WLAN firmware.
+
+  @Copyright Copyright (c) 2021 Qualcomm Technologies, Inc.
+  All Rights Reserved.
+  Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+*****************************************************************************/
+
+include "common_v01.idl";
+
+revision 1;
+
+//! Max data size 60KB
+const CNSS_PLAT_IPC_QMI_MAX_DATA_SIZE = 61440;
+//! Max QMI msg size including the data buffer
+const CNSS_PLAT_IPC_QMI_MAX_MSG_SIZE = 65535;
+//! File name in root fs
+const CNSS_PLAT_IPC_QMI_MAX_FILE_NAME_LEN = 32;
+
+//! CNSS Platform driver status bitmask
+mask {
+  CNSS_PLAT_IPC_QMI_DRIVER_CBC_DONE = 0x01,
+  /**< Cold boot calibration complete */
+  CNSS_PLAT_IPC_QMI_DRIVER_WLAN_ACTIVE = 0x02
+  /**< WLAN Driver is active */
+} cnss_driver_status_bitmask;
+
+//============================================================================
+/** @COMMAND CNSS_PLAT_IPC_QMI_INIT_SETUP
+    @BRIEF This command is for exchanging setup information
+    @CMD_VERSION 1.0
+    @USAGE Production
+    @SECURITY_LEVEL Low Risk
+    @REQUIRED_ACTION Default
+*/
+//============================================================================
+
+//! @MSG     CNSS_PLAT_IPC_QMI_INIT_SETUP_REQ
+//! @TYPE    Request
+//! @SENDER  Control point
+//----------------------------------------------------------------------------
+
+message {
+  //! Platform Modem (DMS) support for MAC Address provisioning in NV
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory boolean dms_mac_addr_supported;
+  //! QDSS override - Android Property
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory boolean qdss_hw_trace_override;
+  //! CNSS Calibration file availability. Uses wlfw_cal_temp_id_enum from wlan_firmware_service IDL
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory uint32 cal_file_available_bitmask;
+} cnss_plat_ipc_qmi_init_setup_req_msg;
+
+//! @MSG     CNSS_PLAT_IPC_QMI_INIT_SETUP_RESP
+//! @TYPE    Response
+//! @SENDER  Service
+//----------------------------------------------------------------------------
+
+message {
+  //! Result Code
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory qmi_response_type resp;
+  //! CNSS Platform driver status
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory cnss_driver_status_bitmask drv_status;
+} cnss_plat_ipc_qmi_init_setup_resp_msg;
+
+/** @ERROR
+   QMI_ERR_NONE        No error in the request
+   QMI_ERR_INTERNAL    Unexpected error occurred during processing
+*/
+
+/** @DESCRIPTION
+This command exchanges info between the userspace and kernel space for config and status.
+*/
+
+//============================================================================
+/** @COMMAND CNSS_PLAT_IPC_QMI_FILE_DOWNLOAD_IND
+    @BRIEF This command sends file download indication from cnss platform driver
+    @CMD_VERSION 1.0
+    @USAGE Production
+    @SECURITY_LEVEL Low Risk
+    @REQUIRED_ACTION Default
+*/
+//============================================================================
+
+//! @MSG     CNSS_PLAT_IPC_QMI_FILE_DOWNLOAD_IND
+//! @TYPE    Indication
+//! @SENDER  Control point
+//----------------------------------------------------------------------------
+
+message {
+  //! File name
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory string file_name<CNSS_PLAT_IPC_QMI_MAX_FILE_NAME_LEN>;
+  //! File ID corresponding to file name. Used in file download request from daemon
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory uint32 file_id;
+} cnss_plat_ipc_qmi_file_download_ind_msg;
+
+//============================================================================
+/** @COMMAND CNSS_PLAT_IPC_QMI_FILE_DOWNLOAD
+    @BRIEF This command sends file data from daemon to platform driver
+    @CMD_VERSION 1.0
+    @USAGE Production
+    @SECURITY_LEVEL Low Risk
+    @REQUIRED_ACTION Default
+*/
+//============================================================================
+
+//! @MSG     CNSS_PLAT_IPC_QMI_FILE_DOWNLOAD_REQ
+//! @TYPE    Request
+//! @SENDER  Control point
+//----------------------------------------------------------------------------
+
+message {
+  //! File ID corresponding to file name. Received from file download indication from driver
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory uint32 file_id;
+  //! File total size
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory uint32 file_size;
+  //! File download msg end marker. Last segment is identified based on this.
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory boolean end;
+  //! File buf seg index
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory uint32 seg_index;
+  //! File seg buf
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory uint8 seg_buf<CNSS_PLAT_IPC_QMI_MAX_DATA_SIZE>;
+} cnss_plat_ipc_qmi_file_download_req_msg;
+
+//! @MSG     CNSS_PLAT_IPC_QMI_FILE_DOWNLOAD_RESP
+//! @TYPE    Response
+//! @SENDER  Service
+//----------------------------------------------------------------------------
+
+message {
+  //! Result Code
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory qmi_response_type resp;
+  //! File ID corresponding to file name.
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory uint32 file_id;
+  //! Acknowledge status of file buf seg index received.
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory uint32 seg_index;
+} cnss_plat_ipc_qmi_file_download_resp_msg;
+
+/** @ERROR
+   QMI_ERR_NONE        No error in the request
+   QMI_ERR_INTERNAL    Unexpected error occurred during processing
+*/
+
+/** @DESCRIPTION
+This command sends file data to driver.
+*/
+
+//============================================================================
+/** @COMMAND CNSS_PLAT_IPC_QMI_FILE_UPLOAD_IND
+    @BRIEF This command tells client to update local-stored file data
+    @CMD_VERSION 1.0
+    @USAGE Production
+    @SECURITY_LEVEL Low Risk
+    @REQUIRED_ACTION Default
+*/
+//============================================================================
+
+//! @MSG     CNSS_PLAT_IPC_QMI_FILE_UPLOAD_IND
+//! @TYPE    Indication
+//! @SENDER  Service
+//! @SCOPE   Unicast
+//----------------------------------------------------------------------------
+
+message {
+  //! File name
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory string file_name<CNSS_PLAT_IPC_QMI_MAX_FILE_NAME_LEN>;
+  //! File ID corresponding to file name.
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory uint32 file_id;
+  //! File total size
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory uint32 file_size;
+} cnss_plat_ipc_qmi_file_upload_ind_msg;
+
+//============================================================================
+/** @COMMAND CNSS_PLAT_IPC_QMI_FILE_UPLOAD
+    @BRIEF This command request file data from cnss platform driver
+    @CMD_VERSION 1.0
+    @USAGE Production
+    @SECURITY_LEVEL Low Risk
+    @REQUIRED_ACTION Default
+*/
+//============================================================================
+
+//! @MSG     CNSS_PLAT_IPC_QMI_FILE_UPLOAD_REQ
+//! @TYPE    Request
+//! @SENDER  Control point
+//----------------------------------------------------------------------------
+
+message {
+  //! File id
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory uint32 file_id;
+  //! File buf seg index
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory uint32 seg_index;
+} cnss_plat_ipc_qmi_file_upload_req_msg;
+
+//! @MSG     CNSS_PLAT_IPC_QMI_FILE_UPLOAD_RESP
+//! @TYPE    Response
+//! @SENDER  Service
+//----------------------------------------------------------------------------
+
+message {
+  //! Result Code
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory qmi_response_type resp;
+  //! File id
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory uint32 file_id;
+  //! File download msg end marker
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory boolean end;
+  //! File buf seg index
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory uint32 seg_index;
+  //! File seg buf
+  //! @VERSION 1.0
+  //! @VERSION_INTRODUCED 1.0
+  mandatory uint8 seg_buf<CNSS_PLAT_IPC_QMI_MAX_DATA_SIZE>;
+} cnss_plat_ipc_qmi_file_upload_resp_msg;
+
+/** @ERROR
+   QMI_ERR_NONE        No error in the request
+   QMI_ERR_INTERNAL    Unexpected error occurred during processing
+*/
+
+/** @DESCRIPTION
+This command sends file data from driver.
+*/
+
+//============================================================================
+// Service definition
+//============================================================================
+service cnss_platform {
+  //! @ID CNSS_PLAT_IPC_QMI_INIT_SETUP
+  cnss_plat_ipc_qmi_init_setup_req_msg CNSS_PLAT_IPC_QMI_INIT_SETUP_REQ,
+  cnss_plat_ipc_qmi_init_setup_resp_msg CNSS_PLAT_IPC_QMI_INIT_SETUP_RESP;
+
+  //! @ID CNSS_PLAT_IPC_QMI_FILE_DOWNLOAD_IND
+  cnss_plat_ipc_qmi_file_download_ind_msg CNSS_PLAT_IPC_QMI_FILE_DOWNLOAD_IND;
+
+  //! @ID CNSS_PLAT_IPC_QMI_FILE_DOWNLOAD
+  cnss_plat_ipc_qmi_file_download_req_msg CNSS_PLAT_IPC_QMI_FILE_DOWNLOAD_REQ,
+  cnss_plat_ipc_qmi_file_download_resp_msg CNSS_PLAT_IPC_QMI_FILE_DOWNLOAD_RESP;
+
+  //! @ID CNSS_PLAT_IPC_QMI_FILE_UPLOAD_IND
+  cnss_plat_ipc_qmi_file_upload_ind_msg CNSS_PLAT_IPC_QMI_FILE_UPLOAD_IND;
+
+  //! @ID CNSS_PLAT_IPC_QMI_FILE_UPLOAD
+  cnss_plat_ipc_qmi_file_upload_req_msg CNSS_PLAT_IPC_QMI_FILE_UPLOAD_REQ,
+  cnss_plat_ipc_qmi_file_upload_resp_msg CNSS_PLAT_IPC_QMI_FILE_UPLOAD_RESP;
+
+} = 1070;
+
+//============================================================================
+// File footer
+//============================================================================
+/*
+@FOOTER Test Appendix
+*/
+//============================================================================
+// End of Module
+//============================================================================

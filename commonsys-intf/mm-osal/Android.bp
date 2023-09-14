@@ -1,0 +1,52 @@
+//###########################################################
+//######### Default definition for osal library #############
+//###########################################################
+cc_library_shared {
+    name: "libmmosal",
+    vendor_available: true,
+    cflags: ["-D_ANDROID_"],
+
+    srcs: [
+        "src/MMMalloc.c",
+        "src/MMCriticalSection.c",
+        "src/MMDebug.c",
+        "src/MMTimer.c",
+        "src/MMThread.c",
+        "src/MMSignal.c",
+        "src/MMFile.c",
+        "src/AEEstd.c",
+    ],
+
+    header_libs: [
+        "vendor_common_inc",
+        "libmmosal_headers",
+    ],
+
+    export_header_lib_headers: [
+        "vendor_common_inc",
+        "libmmosal_headers",
+    ],
+
+    target: {
+        vendor: {
+            cflags: ["-D_VENDOR_OSAL_"],
+        },
+    },
+
+    shared_libs: [
+        "libutils",
+        "libcutils",
+        "liblog",
+    ],
+
+    system_ext_specific: true,
+}
+
+//###########################################################
+//######### Build the library for header files ##########
+//###########################################################
+cc_library_headers {
+    name: "libmmosal_headers",
+    vendor_available: true,
+    export_include_dirs: ["inc"],
+}

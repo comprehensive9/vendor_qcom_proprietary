@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) 2021 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ */
+
+package vendor.qti.hardware.radio.lpa@1.2;
+
+import @1.1::UimLpaUserEventId;
+import @1.0::UimLpaResult;
+import @1.0::UimLpaSrvAddrOpResp;
+import @1.0::UimLpaUserResp;
+enum UimLpaUserEventId : @1.1::UimLpaUserEventId {
+    UIM_LPA_EUICC_INFO2       = 12
+};
+
+struct UimLpaUserRespV1_2 {
+    @1.0::UimLpaUserResp base;
+    vec<uint8_t>         euicc_info2;
+};

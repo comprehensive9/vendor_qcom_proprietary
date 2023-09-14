@@ -1,0 +1,3 @@
+367579e6724487033e25ff809af008f12bca4a93b9510d0d56a4e3ff32dc2895 vendor.qti.data.mwqem@1.0::types
+b335df38e440cb7778f2083641a9f8def1b2cf8d0ab78e9d30fa001e99bbdb09 vendor.qti.data.mwqem@1.0::IMwqemService
+b40960cfc5a17856f49e3d375f8a351af2145496bb94e96c2dec781c3082d577 vendor.qti.data.mwqem@1.0::IMwqemToken

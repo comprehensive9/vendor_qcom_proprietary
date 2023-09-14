@@ -1,0 +1,25 @@
+
+cc_library_shared {
+
+    name: "liblocsdk_diag_jni",
+    owner: "qti",
+
+    system_ext_specific: true,
+
+    srcs: [
+        "LocDiag.cpp",
+    ],
+
+    shared_libs: [
+        "libdiag_system",
+        "libutils",
+        "liblog",
+    ],
+
+    header_libs: [
+        "vendor_common_inc",
+        "jni_headers",
+    ],
+
+    cflags: GPS_FEATURES + ["-D_ANDROID_"] + GNSS_CFLAGS,
+}

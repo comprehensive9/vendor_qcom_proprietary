@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--=============================================================================
+Copyright (c) 2020 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+=============================================================================-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CameraActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/stat_grid">
+
+        <Button
+            android:id="@+id/stop_capture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="25dp"
+            android:text="@string/stop_capture"
+            android:background="@color/design_default_color_primary"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:keepScreenOn="true"/>
+
+        <TextView
+            android:id="@+id/fps_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:gravity="start"
+            android:layout_below="@id/stop_capture"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/fps_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="end"
+            android:layout_below="@id/stop_capture"
+            android:textSize="15sp"
+            android:textColor="#ff0000"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/timestamp_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="#ffffff"
+            android:gravity="start"
+            android:textSize="15sp"
+            android:layout_below="@id/fps_1"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/timestamp_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="end"
+            android:textSize="15sp"
+            android:textColor="#ff0000"
+            android:layout_below="@id/fps_2"
+            android:layout_alignParentEnd="true"/>
+
+        <Button
+            android:id="@+id/exchange_timestamp_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/exchange_timestamp"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_below="@id/timestamp_1"
+            android:layout_alignParentStart="true"
+            android:visibility="invisible"/>
+
+        <Button
+            android:id="@+id/exchange_timestamp_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/exchange_timestamp"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_below="@id/timestamp_2"
+            android:layout_alignParentEnd="true"
+            android:visibility="invisible"/>
+
+        <FrameLayout
+            android:id="@+id/dummy_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"
+            android:layout_below="@id/exchange_timestamp_1"
+            android:layout_alignParentStart="true"/>
+
+        <FrameLayout
+            android:id="@+id/dummy_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_below="@id/exchange_timestamp_2"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,12 @@
+cc_binary {
+    name: "diag_socket_log",
+
+    srcs: ["diag_socket_log.c"],
+
+    header_libs: ["libdiag_headers", "vendor_common_inc",],
+
+    shared_libs: ["libdiag", "liblog",],
+
+    owner: "qti",
+    proprietary: true,
+}

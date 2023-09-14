@@ -1,0 +1,29 @@
+
+cc_library_shared {
+
+    name: "libgardencasesample",
+    owner: "qti",
+    proprietary: true,
+    vendor: true,
+
+
+
+    srcs: ["SampleCase.cpp"],
+
+    cflags: [
+        "-fno-short-enums",
+        "-fexceptions",
+    ],
+
+    header_libs: [
+        "libgarden_headers",
+        "libgps.utils_headers",
+        "libloc_pla_headers",
+    ],
+
+    shared_libs: [
+        "libgarden",
+        "liblog",
+        "libgps.utils",
+    ],
+}

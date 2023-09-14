@@ -1,0 +1,63 @@
+cc_defaults {
+    name: "libsnsdiaglog-defaults",
+    clang: true,
+    owner: "qti",
+    proprietary: true,
+    srcs: ["src/sensor_diag_log.cpp"],
+    cflags: [
+        "-Werror",
+        "-Wall",
+        "-Wunused-parameter",
+        "-fexceptions",
+    ],
+    cppflags: ["-DGOOGLE_PROTOBUF_NO_RTTI"],
+    sanitize:{
+        integer_overflow: true,
+    },
+    local_include_dirs: [
+        "inc",
+    ],
+    header_libs: [
+        "libdiag_headers",
+        "vendor_common_inc",
+        "libsensorlog_headers",
+    ],
+    shared_libs: [
+        "liblog",
+        "libdiag",
+        "libsensorslog",
+        "libutils",
+        "libcutils",
+    ],
+}
+
+cc_library_shared {
+    name: "libsnsdiaglog",
+    defaults: [
+        "libsnsdiaglog-defaults",
+        "sns_proto_lib_name-lite",
+    ],
+    shared_libs: [
+        "libssc",
+        "libsnsapi",
+    ],
+}
+
+cc_library_static {
+    name: "libsnsdiaglog-full-static",
+    defaults: [
+        "libsnsdiaglog-defaults",
+        "sns_proto_lib_name-full",
+    ],
+    static_libs: [
+        "libssc-full-static",
+        "libsnsapi-full-static",
+    ],
+}
+
+cc_library_headers {
+    name: "libsnsdiag_headers",
+    export_include_dirs: ["inc"],
+    owner: "qti",
+    proprietary: true,
+}

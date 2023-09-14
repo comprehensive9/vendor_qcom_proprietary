@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) 2021 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.hardware.data.lce@1.0;
+
+/**
+ * Interface declaring unsolicited link capacity estimate indications.
+ */
+interface ILceIndication {
+    /**
+     * Indicates current link capacity estimate.
+     *
+     * This indication is sent whenever the reporting criteria, as set by
+     * @1.0::ILceService.setLinkCapacityReportingCriteria, are met.
+     *
+     * @param accessNetwork The network type for the estimation report.
+     * @param rate Rate in kbps.
+     * @param level Level of accuracy at which the throughput information is generated on a scale
+     *   of 0 through 7. 0 indicates the least
+     * @param dir LinkDirection.
+     * @param queueSize Rate in kbps.
+     */
+    oneway linkEstimation(Report report);
+};

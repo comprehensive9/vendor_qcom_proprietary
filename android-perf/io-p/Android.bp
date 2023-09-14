@@ -1,0 +1,56 @@
+
+
+cc_library_shared {
+    name: "libqti-iopd",
+
+    header_libs: ["libcutils_headers"],
+
+    srcs: [
+        "io-prefetch/dblayer.cpp",
+        "io-prefetch/file_playback.cpp",
+        "io-prefetch/list_capture.cpp",
+        "io-prefetch/maintain_db.cpp",
+        "io-prefetch/uba.cpp",
+        "io-p.cpp",
+    ],
+
+    shared_libs: [
+        "libcutils",
+        "liblog",
+        "libutils",
+        "libxml2",
+        "libqti-util",
+        "liblog",
+        "libhidlbase",
+
+        "vendor.qti.hardware.iop@2.0",
+        "libbase",
+        "libqti-iopd-client",
+        "libqti-perfd-client",
+        "libsqlite",
+    ],
+
+    cflags: [
+        "-DSERVER",
+        "-DCLIENT",
+        "-DIOPD",
+        "-g0",
+        "-Wall",
+        "-Wno-unused-variable",
+        "-Wno-unused-parameter",
+        "-Wno-unused-function",
+        "-DVENDOR_DIR=\"/vendor/etc\"",
+    ],
+
+    include_dirs: [
+        "vendor/qcom/proprietary/android-perf/perf-util",
+        "vendor/qcom/proprietary/android-perf/mp-ctl-client",
+        "vendor/qcom/proprietary/android-perf/io-p-client",
+        "vendor/qcom/proprietary/android-perf/mp-ctl",
+        "vendor/qcom/proprietary/android-perf/perf-hal",
+        "external/sqlite/dist",
+    ],
+
+    proprietary: true,
+
+}

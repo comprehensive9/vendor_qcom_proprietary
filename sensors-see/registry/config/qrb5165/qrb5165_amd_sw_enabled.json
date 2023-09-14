@@ -1,0 +1,11 @@
+{
+  "config": {
+    "hw_platform": [ "MTP", "Dragon", "Surf", "QRD", "HDK", "IDP"],
+    "soc_id": ["356", "455", "496", "548"]
+  },
+  "sns_amd": {
+    "owner": "sns_amd",
+    "enabled": {"ver": "0","type": "int", "data": "1"
+    }
+  }
+}

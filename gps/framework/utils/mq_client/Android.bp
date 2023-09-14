@@ -1,0 +1,34 @@
+
+cc_library_static {
+
+    name: "libloc_mq_client",
+    owner: "qti",
+    proprietary: true,
+    vendor: true,
+
+
+
+    cflags: ["-fno-short-enums"] + GNSS_CFLAGS,
+
+    shared_libs: [
+        "libc",
+        "libcutils",
+    ],
+
+    static_libs: ["libloc_base_util"],
+
+    local_include_dirs: ["."] + ["src"],
+
+    header_libs: [
+        "libutils_headers",
+        "libgps.utils_headers",
+        "libloc_base_util_headers",
+        "libloc_pla_headers",
+    ],
+
+    srcs: [
+        "src/mq_client.cpp",
+        "src/mq_client_controller.cpp",
+        "src/IPCMessagingProxy.cpp",
+    ],
+}

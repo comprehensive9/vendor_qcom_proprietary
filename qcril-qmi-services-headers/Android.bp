@@ -1,0 +1,8 @@
+
+//# Build host header library
+cc_library_headers {
+    name: "libril-qc-qmi-services-headers",
+    vendor: true,
+    host_supported: true,
+    export_include_dirs: ["."],
+}

@@ -1,0 +1,37 @@
+cc_binary {
+    name: "sns_ext_svc_test",
+    defaults: ["sns_proto_lib_name-lite"],
+    clang: true,
+    owner: "qti",
+    proprietary: true,
+    srcs: [
+        "src/location_service_v02.c",
+        "src/sns_ext_svc_test.cpp",
+    ],
+    local_include_dirs: ["inc"],
+    cflags: [
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-missing-field-initializers",
+        "-Wno-maybe-uninitialized",
+    ],
+    header_libs: [
+        "libqmi_encdec_headers",
+        "libqmi_common_headers",
+        "libsensorlog_headers",
+        "libssc_headers",
+    ],
+    shared_libs: [
+        "libutils",
+        "libssc",
+        "liblog",
+        "libsensorslog",
+        "libcutils",
+        "libsnsapi",
+        "libqmi_common_so",
+        "libqmi_cci",
+        "libqmi_encdec",
+    ],
+}
+

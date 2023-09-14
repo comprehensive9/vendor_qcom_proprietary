@@ -1,0 +1,24 @@
+cc_library_shared {
+    name: "libsns_direct_channel_stub",
+    srcs: ["src/sns_direct_channel_stub.c"],
+    local_include_dirs: ["inc"],
+    header_libs: [
+        "libfastrpcshippable_headers",
+    ],
+    cflags: [
+        "-Werror",
+        "-Wall",
+        "-Wno-unused-parameter",
+        "-fexceptions",
+    ],
+    shared_libs: [
+        "liblog",
+        "libc",
+        "libutils",
+        "libcutils",
+        "libadsprpc",
+    ],
+    export_include_dirs: ["inc/."],
+    owner: "qti",
+    proprietary: true,
+}

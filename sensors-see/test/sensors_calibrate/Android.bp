@@ -1,0 +1,42 @@
+cc_library_headers {
+    name: "libsensors_headers",
+    export_include_dirs: ["./"],
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_library_shared {
+    name: "libsensorcal",
+    defaults: ["sns_proto_lib_name-lite"],
+    clang: true,
+    owner: "qti",
+    proprietary: true,
+    srcs: [
+        "sensors_calibrate.cpp",
+        "ssc_calibrate.cpp",
+    ],
+    local_include_dirs: ["./"],
+    cflags: [
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-missing-field-initializers",
+        "-Wno-maybe-uninitialized",
+    ],
+    cppflags: ["-DGOOGLE_PROTOBUF_NO_RTTI"],
+    sanitize:{
+        integer_overflow: true,
+    },
+    header_libs: [
+        "libsensorlog_headers",
+        "libssc_headers",
+    ],
+    shared_libs: [
+        "liblog",
+        "libssc",
+        "libutils",
+        "libcutils",
+        "libsensorslog",
+        "libsnsapi",
+    ],
+}

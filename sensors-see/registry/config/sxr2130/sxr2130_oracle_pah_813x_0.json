@@ -1,0 +1,116 @@
+{
+  "config":{
+    "hw_platform": ["MTP"],
+    "soc_id": ["356"],
+    "platform_subtype_id":["1"],
+    "platform_version":["262144"]
+  },
+  "pah_8131_0":{
+    "owner": "pah_8131",
+    ".ppg":{
+      "owner": "pah_8131",
+      ".config":{
+        "owner": "pah_8131",
+        "is_dri":{ "type": "int", "ver": "0",
+          "data": "1"
+        },
+        "hw_id":{ "type": "int", "ver": "0",
+          "data": "0"
+        },
+        "sync_stream":{ "type": "int", "ver": "0",
+          "data": "0"
+        },
+        "res_idx":{ "type": "int", "ver": "0",
+          "data": "0"
+        },
+        "rail_on_state": { "type": "int", "ver": "0",
+          "data": "2"
+        }
+      }
+    },
+    ".offbody_detect":{
+      "owner": "pah_8131",
+      ".config":{
+        "owner": "pah_8131",
+        "is_dri":{ "type": "int", "ver": "0",
+          "data": "1"
+        },
+        "hw_id":{ "type": "int", "ver": "0",
+          "data": "0"
+        },
+        "sync_stream":{ "type": "int", "ver": "0",
+          "data": "0"
+        },
+        "res_idx":{ "type": "int", "ver": "0",
+          "data": "0"
+        },
+        "rail_on_state": { "type": "int", "ver": "0",
+          "data": "1"
+        }
+      }
+    }
+  },
+  "pah_8131_0_platform":{
+    "owner": "pah_8131",
+    ".config":{
+      "owner": "pah_8131",
+      "bus_type":{ "type": "int", "ver": "0",
+        "data": "0"
+      },
+      "bus_instance":{ "type": "int", "ver": "0",
+        "data": "1"
+      },
+      "slave_config":{ "type": "int", "ver": "0",
+        "data": "21"
+      },
+      "i3c_address":{ "type": "int", "ver": "0",
+        "data": "10"
+      },
+      "min_bus_speed_khz":{ "type": "int", "ver": "0",
+        "data": "400"
+      },
+      "max_bus_speed_khz":{ "type": "int", "ver": "0",
+        "data": "400"
+      },
+      "reg_addr_type":{ "type": "int", "ver": "0",
+        "data": "0"
+      },
+      "dri_irq_num":{ "type": "int", "ver": "0",
+        "data": "39"
+      },
+      "irq_pull_type":{ "type": "int", "ver": "0",
+        "data": "1"
+      },
+      "irq_is_chip_pin":{ "type": "int", "ver": "0",
+        "data": "1"
+      },
+      "irq_drive_strength":{ "type": "int", "ver": "0",
+        "data": "0"
+      },
+      "irq_trigger_type":{ "type": "int", "ver": "0",
+        "data": "0"
+      },
+      "num_rail":{ "type": "int", "ver": "0",
+        "data": "2"
+      },
+      "rail_on_state":{ "type": "int", "ver": "0",
+        "data": "2"
+      },
+      "vdd_rail":{ "type": "str", "ver": "0",
+        "data": "/pmic/client/sensor_vdd"
+      },
+      "vddio_rail":{ "type": "str", "ver": "0",
+        "data": "/pmic/client/sensor_vddio"
+      },
+      "rigid_body_type":{ "type": "int", "ver": "0",
+        "data": "0"
+      },
+      "min_odr":{ "type": "int", "ver": "0",
+        "data": "20"
+      },
+      "max_odr":{ "type": "int", "ver": "0",
+        "data": "200"
+      }
+    }
+  }
+}

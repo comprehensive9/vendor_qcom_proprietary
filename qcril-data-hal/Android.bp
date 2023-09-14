@@ -1,0 +1,187 @@
+soong_config_module_type {
+    name: "qcrildata_cc_defaults",
+    module_type: "cc_defaults",
+    config_namespace: "qcrildatanamespace",
+    variables: [
+        "targetram",
+    ],
+    properties: [
+        "cflags",
+        "srcs",
+        "shared_libs",
+    ],
+}
+
+soong_config_string_variable {
+    name: "targetram",
+    values: ["lowram", "highram"],
+}
+
+qcrildata_cc_defaults {
+    name: "qcrildatalowram_defaults",
+    //Uncomment the following line to enable ASAN
+    //defaults: ["qcril_asan_defaults"],
+    soong_config_variables: {
+        targetram: {
+            lowram : {
+                cflags : ["-DRIL_FOR_LOW_RAM"],
+            },
+        }
+    }
+}
+
+qcrildata_cc_defaults {
+    name: "qcrildata_defaults",
+    //Uncomment the following line to enable ASAN
+    //defaults: ["qcril_asan_defaults"],
+    soong_config_variables: {
+        targetram: {
+            lowram : {
+                cflags : ["-DRIL_FOR_LOW_RAM"],
+            },
+            highram :{
+                srcs: [
+                    "callmanager/src/EmbmsCallHandler.cpp",
+                    "util/src/SegmentTracker.cpp",
+                    "endpoints/src/VoiceCallModemEndPoint.cpp",
+                    "endpoints/src/VoiceCallModemEndPointModule.cpp",
+                    "iwlanservice/*.cpp",
+                    "networkavailabilityhandler/src/*.cpp",
+                    "dataconnectionservice/src/*.cpp",
+                    "datamodule/module/src/legacy/qcril_data_embms.c",
+                ],
+                shared_libs: [
+                    "vendor.qti.hardware.data.iwlan@1.0",
+                    "vendor.qti.hardware.data.connection@1.0",
+                    "vendor.qti.hardware.data.connection@1.1",
+                ],
+            }
+        },
+     },
+}
+
+cc_library_headers {
+    name: "qcrilDataModule_headers",
+    sanitize:{
+          integer_overflow: true,
+    },
+    defaults : ["qcrildatalowram_defaults"],
+    vendor: true,
+    export_include_dirs: [
+          "lqe/inc","datamodule/include","datamodule/include/legacy",
+          "datamodule/include/local","datamodule/include/module",
+          "lcehandler/inc", "endpoints/inc","authmanager/inc",
+          "dataconnectionservice/inc","profilehandler/inc",
+          "networkservicehandler/inc","callmanager/inc",
+          "KeepAliveManager/inc", "qdphandler/inc",
+          "qdphandler/legacy", "util/inc",
+          "networkavailabilityhandler/inc","iwlanservice",
+    ],
+    host_supported:true,
+}
+
+
+cc_library_static {
+   name: "qcrilNrDataModule",
+   sanitize:{
+    integer_overflow: true,
+   },
+   defaults : ["qcrildata_defaults"],
+   vendor: true,
+   owner: "qti",
+   cflags: [
+    "-Wall",
+    "-Wno-macro-redefined",
+    "-Werror",
+    "-DQCRIL_DATA_MODULE_DEV",
+    "-DFEATURE_QCRIL_USE_NETCTRL",
+    "-DRIL_REQUEST_SET_INITIAL_ATTACH_APN",
+    "-DFEATURE_DATA_EMBMS",
+    "-DFEATURE_DATA_LQE",
+    "-DFEATURE_DATA_LOG_QXDM",
+    "-DFEATURE_QDP_LINUX_ANDROID",
+   ],
+   cppflags: ["-std=c++17"],
+   srcs: [
+    "datamodule/module/src/*.c",
+    "datamodule/module/src/*.cpp",
+    "datamodule/module/src/legacy/*.cpp",
+    "datamodule/module/src/legacy/qcril_data_lqe.c",
+    "datamodule/module/src/legacy/qcril_data_netctrl.c",
+    "datamodule/module/src/legacy/qcril_data_qmi_wds.c",
+    "datamodule/module/src/legacy/qcril_data_req_resp.c",
+    "datamodule/module/src/legacy/qcril_data_utils.c",
+    "endpoints/src/AuthModemEndPoint.cpp",
+    "endpoints/src/AuthModemEndPointModule.cpp",
+    "endpoints/src/DSDModemEndPoint.cpp",
+    "endpoints/src/DSDModemEndPointModule.cpp",
+    "endpoints/src/NasModemEndPointHelper.cpp",
+    "endpoints/src/OTTModemEndPoint.cpp",
+    "endpoints/src/OTTModemEndPointModule.cpp",
+    "endpoints/src/WDSCallModemEndPoint.cpp",
+    "endpoints/src/WDSCallModemEndPointModule.cpp",
+    "endpoints/src/WDSModemEndPoint.cpp",
+    "endpoints/src/WDSModemEndPointModule.cpp",
+    "endpoints/src/PDCModemEndPoint.cpp",
+    "endpoints/src/PDCModemEndPointModule.cpp",
+    "authmanager/src/*.cpp",
+    "profilehandler/src/*.cpp",
+    "lcehandler/src/*.cpp",
+    "networkservicehandler/src/*.cpp",
+    "lqe/src/*.c",
+    "qdphandler/legacy/*.cpp",
+    "qdphandler/src/*.cpp",
+    "util/src/DsiWrapper.cpp",
+    "util/src/LocalLogBuffer.cpp",
+    "callmanager/src/CallInfo.cpp",
+    "callmanager/src/CallManager.cpp",
+    "callmanager/src/CallState.cpp",
+    "callmanager/src/CallStateMachine.cpp",
+    "callmanager/src/ConnectedState.cpp",
+    "callmanager/src/ConnectingState.cpp",
+    "callmanager/src/DisconnectedState.cpp",
+    "callmanager/src/DisconnectingState.cpp",
+    "callmanager/src/HandoverState.cpp",
+    "callmanager/src/IdleState.cpp",
+    "KeepAliveManager/src/*.cpp",
+   ],
+   header_libs: [
+    "qcrilDataModule_headers",
+    "qcrilDataInternal_headers",
+    "qcrilDataInterfaces_headers",
+    "qcrilIntermodulemsgs-headers",
+    "qcrilInterfaces-headers",
+    "libqcrilNrFramework-headers",
+    "libqcrilNrLogger-headers",
+    "libqcrilNrQtiMutex-headers",
+    "libqcrilNrQtiBus-headers",
+    "libril-qc-qmi-services-headers",
+    "qtiril-utils-headers",
+    "qti_kernel_headers",
+    "libdsi_netctrl_headers",
+    "vendor_common_inc",
+    "libdataqmiservices_headers",
+    "libqmi_common_headers",
+    "libqmi_legacy_headers",
+    "libdsutils_headers",
+    "libdiag_headers",
+    "libqmi_cci_headers",
+    "qcrilnr_qcril_qmi_headers",
+   ],
+   shared_libs: [
+    "libqdp",
+    "liblog",
+    "libcutils",
+    "libdl",
+    "libbase",
+    "libutils",
+    "libhidlbase",
+    "libhardware_legacy",
+    "vendor.qti.hardware.data.connection@1.0",
+    "vendor.qti.hardware.data.connection@1.1",
+    "vendor.qti.hardware.data.iwlan@1.0",
+   ],
+   static_libs: [
+    "libqcrilNRDataInternal",
+   ],
+}

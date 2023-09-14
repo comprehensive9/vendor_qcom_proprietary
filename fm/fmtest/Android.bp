@@ -1,0 +1,15 @@
+
+cc_binary {
+    name: "fmconfig",
+
+    srcs: [
+        "main.c",
+        "fmhalcmds.c",
+        "fmconfig_cherokee.c",
+    ],
+
+    shared_libs: ["libcutils"],
+
+    proprietary: true,
+    owner: "qti",
+}

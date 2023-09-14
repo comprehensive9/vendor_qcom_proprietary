@@ -1,0 +1,46 @@
+/*********************************************************************
+ Copyright (c) 2020 Qualcomm Technologies, Inc.
+ All Rights Reserved.
+ Confidential and Proprietary - Qualcomm Technologies, Inc.
+**********************************************************************/
+
+package com.qualcomm.qti.uceservice@2.3;
+
+import @2.1::IPresenceListener;
+import @2.0::PresRlmiInfo;
+
+interface IPresenceListener extends @2.1::IPresenceListener {
+
+    /**
+     * Callback function to be invoked to inform the client when the response for a SIP message,
+     * such as PUBLISH or SUBSCRIBE, has been received.
+     * @param sipResponse   @2.3::PresSipResponse object which carries network
+     *                      response received for the request placed.
+     *
+     */
+    oneway onSipResponseReceived_2_3(PresSipResponse sipResponse);
+
+    /**
+     * Callback function to be invoked to inform the client when the NOTIFY message carrying a
+     * single contact's capabilities information is received.
+     * @param presentityUri     URI of the remote entity the request was placed.
+     *                          This will be either a SIP URI or Tel URI as supported on network.
+     * @param tupleinfoArr      array of @2.3::PresTubleInfo which carries
+     *                          capability information the remote entity supports.
+     *
+     */
+    oneway onCapInfoReceived_2_3(string presentityUri,
+                                 vec<PresTupleInfo> tupleinfoArr);
+
+    /**
+     * Callback function to be invoked to inform the client when the NOTIFY message carrying
+     * contact's capabilities information is received.
+     * @param rlmiInfo      resource infomation received from network.
+     * @param resInfoArr    array of @2.3::PresResInfo which carries
+     *                      capabilities received from network for the list of
+     *                      remore URI.
+     */
+    oneway onListCapInfoReceived_2_3(PresRlmiInfo rlmiInfo,
+                                     vec<PresResInfo> resInfoArr);
+
+};

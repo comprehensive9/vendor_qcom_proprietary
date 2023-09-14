@@ -1,0 +1,12 @@
+
+cc_library_headers {
+
+    name: "liblocationservice_headers",
+    vendor: true,
+    export_include_dirs: [
+        "adapter",
+        "geofence",
+        "lcp/izat-provider-service/inc",
+        "lcp/izat-provider-service/inc/internal"
+    ],
+}

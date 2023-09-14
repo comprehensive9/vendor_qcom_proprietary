@@ -1,0 +1,31 @@
+cc_library_shared {
+    name: "libsns_fastRPC_util",
+    srcs: [
+        "src/sns_fastRPC_utils.cpp",
+    ],
+    local_include_dirs: ["inc"],
+    cflags: [
+        "-Wall",
+        "-Wno-unused-parameter",
+        "-fexceptions",
+    ],
+    shared_libs: [
+        "libdl",
+        "liblog",
+        "libc",
+        "libutils",
+        "libcutils",
+    ],
+    header_libs: [
+        "libfastrpcshippable_headers",
+    ],
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_library_headers {
+    name: "libsnsfastRPCUtils_headers",
+    export_include_dirs: ["inc"],
+    owner: "qti",
+    proprietary: true,
+}

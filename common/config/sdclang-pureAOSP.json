@@ -1,0 +1,48 @@
+{
+    "default": {
+        "FORCE_SDCLANG_OFF": false,
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/8.0/bin",
+        "SDCLANG_FLAGS": ""
+    },
+    "qssi": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/8.0/bin",
+        "SDCLANG_FLAGS": ""
+    },
+    "lito": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/8.0/bin",
+        "SDCLANG_FLAGS": ""
+    },
+    "sm6150": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/8.0/bin",
+        "SDCLANG_FLAGS": ""
+    },
+    "msmnile": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/8.0/bin",
+        "SDCLANG_FLAGS": ""
+    },
+    "sdm845": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/8.0/bin",
+        "SDCLANG_FLAGS": ""
+    },
+    "sdm710": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/8.0/bin",
+        "SDCLANG_FLAGS": ""
+    },
+    "msm8998": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/8.0/bin",
+        "SDCLANG_FLAGS": ""
+    },
+    "msm8996": {
+        "SDCLANG": false,
+        "SDCLANG_PATH": "vendor/qcom/proprietary/llvm-arm-toolchain-ship/8.0/bin",
+        "SDCLANG_FLAGS": ""
+    }
+}

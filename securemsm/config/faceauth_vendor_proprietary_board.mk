@@ -1,0 +1,1 @@
+TARGET_USES_FACEAUTH := true

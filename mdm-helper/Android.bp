@@ -1,0 +1,100 @@
+cc_library_shared {
+    name: "libmdmdetect",
+
+    srcs: ["libmdmdetect/*.c"],
+
+    shared_libs: [
+        "libcutils",
+        "libutils",
+        "liblog",
+    ],
+
+    header_libs: ["libmdmdetect_headers"],
+    export_header_lib_headers: ["libmdmdetect_headers"],
+
+    cflags: ["-Wall"],
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_library_shared {
+    name: "libmdmimgload",
+
+    srcs: ["libmdmimgload/*.c"],
+
+    header_libs: ["libmdmdetect_headers", "libmdmimgload_headers"],
+    export_header_lib_headers: ["libmdmimgload_headers"],
+
+    shared_libs: [
+        "libcutils",
+        "libutils",
+        "liblog",
+    ],
+
+    cflags: ["-Wall"],
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_binary {
+    name: "mdm_helper",
+
+    proprietary: true,
+
+    header_libs: ["qti_kernel_headers"],
+
+    local_include_dirs: [
+        "esoc/mdm9k",
+    ],
+
+    srcs: ["mdm_helper.c"] + ["esoc/**/*.c"],
+
+    shared_libs: [
+        "libcutils",
+        "libutils",
+        "liblog",
+        "libmdmdetect",
+        "libmdmimgload",
+    ],
+
+    cflags: ["-Wall"],
+    owner: "qti",
+}
+
+cc_binary {
+    name: "mdm_helper_proxy",
+    proprietary: true,
+
+    header_libs: ["qti_kernel_headers"],
+
+    local_include_dirs: [
+        "esoc/mdm9k",
+    ],
+
+    srcs: ["mdm_helper.c"] + ["esoc/**/*.c"],
+
+    shared_libs: [
+        "libcutils",
+        "libutils",
+        "liblog",
+        "libmdmdetect",
+        "libmdmimgload",
+    ],
+
+    cflags: [
+        "-Wall",
+        "-DMDM_HELPER_PROXY",
+    ],
+    owner: "qti",
+}
+
+cc_binary {
+    name: "qcat_unbuffered",
+
+    cflags: ["-Wall"],
+    srcs: ["qcat_unbuf/qcat_unbuffered.c"],
+
+    shared_libs: ["liblog"],
+    owner: "qti",
+    proprietary: true,
+}

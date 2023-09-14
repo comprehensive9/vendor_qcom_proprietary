@@ -1,0 +1,16 @@
+
+android_app {
+    name: "ModemTestMode",
+
+    srcs: ["src/**/*.java"],
+
+    certificate: "platform",
+    libs: [
+        "qcrilhook",
+        "telephony-common",
+        "qti-telephony-utils",
+    ],
+    platform_apis: true,
+    system_ext_specific: true,
+
+}

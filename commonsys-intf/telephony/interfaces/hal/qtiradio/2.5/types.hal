@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ */
+
+package vendor.qti.hardware.radio.qtiradio@2.5;
+
+enum Status: int32_t {
+    INVALID = -1,
+    FAILURE =  0,
+    SUCCESS =  1,
+};
+
+enum NrConfig: int32_t {
+    NR_CONFIG_INVALID = -1,
+    NR_CONFIG_COMBINED_SA_NSA = 0,
+    NR_CONFIG_NSA = 1,
+    NR_CONFIG_SA= 2,
+};

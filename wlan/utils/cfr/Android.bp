@@ -1,0 +1,44 @@
+
+HIDL_INTERFACE_VERSION = "1.0"
+LOCAL_INCLUDES = ["",]
+LOCAL_INCLUDES += ["hidl/" + HIDL_INTERFACE_VERSION]
+
+//#######################
+cc_binary {
+    name: "wificfrtool",
+
+    proprietary: true,
+    cppflags: [
+        "-Wall",
+        "-Werror",
+    ],
+    cflags: [
+        "-Wall",
+        "-Werror",
+        "-Wno-unused-parameter",
+        "-Wno-int-to-pointer-cast",
+        "-Wno-maybe-uninitialized",
+        "-Wno-parentheses",
+    ],
+    local_include_dirs: LOCAL_INCLUDES,
+    srcs: [
+        "cfrtool.c",
+        "hidl/" + HIDL_INTERFACE_VERSION + "/hidl.cpp",
+        "hidl/" + HIDL_INTERFACE_VERSION + "/wificfr.cpp",
+    ],
+    shared_libs: [
+        "vendor.qti.hardware.wifi.wificfr@1.0",
+        "libbase",
+        "libhidlbase",
+        "libutils",
+        "liblog",
+        "libc",
+        "libnl",
+    ],
+    init_rc: ["vendor.qti.hardware.wifi.wificfr@1.0-service.rc"],
+    vintf_fragments: ["vendor.qti.hardware.wifi.wificfr@1.0-service.xml"],
+    sanitize: {
+	integer_overflow: true,
+    },
+
+}

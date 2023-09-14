@@ -1,0 +1,7 @@
+on boot && property:ro.boot.product.vendor.sku=lahaina
+    start vendor.identity
+service vendor.identity /vendor/bin/hw/android.hardware.identity-service-qti
+    disabled
+    class hal
+    user system
+    group system

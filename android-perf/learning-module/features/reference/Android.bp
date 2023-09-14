@@ -1,0 +1,45 @@
+
+
+cc_library_shared {
+    name: "libreffeature",
+
+    header_libs: ["libutils_headers"],
+
+    srcs: [
+        "ReferenceFeature.cpp",
+        "ReferenceMetaMeter.cpp",
+        "ReferenceAlgo.cpp",
+        "ReferenceAction.cpp",
+    ],
+
+    shared_libs: [
+        "liblog",
+        "libc",
+        "libcutils",
+        "liblearningmodule",
+        "libmeters",
+        "libsqlite",
+    ],
+
+    cppflags: [
+        "-fexceptions",
+    ],
+
+    include_dirs: [
+        "vendor/qcom/proprietary/android-perf/learning-module/framework/inc/core",
+        "vendor/qcom/proprietary/android-perf/learning-module/framework/inc/metameters",
+        "vendor/qcom/proprietary/android-perf/learning-module/framework/inc/utils",
+        "vendor/qcom/proprietary/android-perf/learning-module/framework/inc/database",
+        "vendor/qcom/proprietary/android-perf/learning-module/meters/reference",
+        "vendor/qcom/proprietary/android-perf/mp-ctl",
+        "vendor/qcom/proprietary/android-perf/perf-hal",
+        "external/tinyxml2",
+        "external/sqlite/dist",
+    ],
+
+    compile_multilib: "first",
+
+    owner: "qti",
+
+    proprietary: true,
+}

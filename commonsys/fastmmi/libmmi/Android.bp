@@ -1,0 +1,61 @@
+cc_library_headers {
+     name: "libmmi_headers",
+     export_include_dirs: ["."],
+     system_ext_specific: true,
+}
+
+cc_library_shared {
+    name: "libmmi",
+
+    owner: "qti",
+
+    srcs: [
+        "util_comm.cpp",
+        "util_string.cpp",
+        "util_system.cpp",
+        "util_ui.cpp",
+        "textview.cpp",
+        "button.cpp",
+        "listview.cpp",
+        "layout.cpp",
+        "nv.cpp",
+        "events.cpp",
+        "xmlparse.cpp",
+        "lang.cpp",
+        "board.cpp",
+        "mmi_log.cpp",
+        "interface.cpp",
+    ],
+
+    include_dirs: [
+        "external/libcxx/include",
+        "external/libxml2/include",
+        "frameworks/base/libs/androidfw/include",
+        "frameworks/native/libs/nativewindow/include",
+    ],
+
+    cflags: ["-Wall"] + ["-DANDROID_WEARABLES"] + ["-DANDROID"],
+
+    shared_libs: [
+        "libcutils",
+        "liblog",
+        "libdiag_system",
+        "libft2",
+        "libutils",
+        "libxml2",
+        "libc",
+        "libui",
+        "libbinder",
+        "libgui",
+        "libhwui",
+        "libc++",
+    ],
+
+    header_libs: [
+        "vendor_common_inc",
+        "libdiag_headers_system",
+    ],
+
+    clang: true,
+    system_ext_specific: true,
+}

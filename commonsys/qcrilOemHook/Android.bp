@@ -1,0 +1,80 @@
+//###############################################################################
+// @file  Android.bp
+// @brief Rules for compiling the source files
+//###############################################################################
+
+// ==========================================================================
+java_library {
+    name: "qcrilhook",
+    installable: true,
+
+    libs: [
+        "qti-telephony-utils",
+        "qti-telephony-hidl-wrapper",
+    ],
+
+    srcs: ["src/com/qualcomm/qcrilhook/**/*.java"] +
+            ["src/com/qualcomm/qcrilhook/IOemHookCallback.aidl"] +
+            ["src/com/qualcomm/qcrilmsgtunnel/IQcrilMsgTunnel.aidl"],
+    sdk_version: "system_current",
+    system_ext_specific: true,
+
+}
+
+// ==========================================================================
+java_library {
+    name: "qcrilhook-static",
+
+    libs: [
+        "qti-telephony-utils",
+        "qti-telephony-hidl-wrapper",
+    ],
+
+    srcs: ["src/com/qualcomm/qcrilhook/**/*.java"] +
+            ["src/com/qualcomm/qcrilhook/IOemHookCallback.aidl"] +
+            ["src/com/qualcomm/qcrilmsgtunnel/IQcrilMsgTunnel.aidl"],
+    sdk_version: "system_current",
+    system_ext_specific: true,
+
+}
+
+// ==========================================================================
+prebuilt_etc {
+
+    name: "qcrilhook.xml",
+
+    // This will install the file in /system_ext/etc/permissions
+    //
+
+    src: "qcrilhook.xml",
+    sub_dir: "permissions",
+    system_ext_specific: true,
+
+}
+
+// ==========================================================================
+android_app {
+    name: "qcrilmsgtunnel",
+
+    libs: [
+        "qti-telephony-utils",
+        "qti-telephony-hidl-wrapper",
+        "PlatformProperties",
+    ],
+    static_libs: ["vendor.qti.hardware.radio.qcrilhook-V1.0-java"],
+
+    privileged: true,
+
+    srcs: ["src/com/qualcomm/qcrilmsgtunnel/**/*.java"] +
+            ["src/com/qualcomm/qcrilhook/IOemHookCallback.aidl"] +
+            ["src/com/qualcomm/qcrilmsgtunnel/IQcrilMsgTunnel.aidl"],
+
+    certificate: "platform",
+
+    optimize: {
+        enabled: false,
+    },
+    platform_apis: true,
+    system_ext_specific: true,
+
+}

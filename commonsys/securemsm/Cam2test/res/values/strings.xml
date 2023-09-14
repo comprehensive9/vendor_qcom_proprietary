@@ -1,0 +1,106 @@
+<!--=============================================================================
+Copyright (c) 2020 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+=============================================================================-->
+<resources>
+    <string name="app_name">Cam2test</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="choose_config">Choose a config to customize: </string>
+    <string name="camera_choice">Camera: </string>
+    <string name="format_choice">Format: </string>
+    <string name="resolution_choice">Resolution: </string>
+    <string name="initial_choice_format">Select Camera First</string>
+    <string name="initial_choice_resolution">Select Format First</string>
+
+    <string name="log_tag">SecCamTest</string>
+    <string name="front_cam_name">Front Camera</string>
+    <string name="back_cam_name">Back Camera</string>
+    <string name="mono_cam_name">Mono Camera</string>
+    <string name="private_format">Private</string>
+    <string name="yuv_format">YUV_420_888</string>
+    <string name="raw_format">RAW (Sensor)</string>
+
+    <string name="mode_secure_capture">Secure Capture</string>
+    <string name="mode_secure_preview">Secure Preview</string>
+    <string name="mode_capture">Non-Secure Capture</string>
+    <string name="mode_preview">Non-Secure Preview</string>
+
+    <string name="start_capture">Start</string>
+    <string name="stop_capture">Stop</string>
+
+    <string name="heading_camera_1">Configuration 1</string>
+    <string name="heading_camera_2">Configuration 2</string>
+
+    <string name="select_camera">Camera</string>
+    <string name="key_select_camera_1">key_select_camera_1</string>
+    <string name="key_select_camera_2">key_select_camera_2</string>
+    <string name="select_camera_title">Camera</string>
+
+    <string name="select_mode">Mode</string>
+    <string name="key_select_mode_1">key_select_mode_1</string>
+    <string name="key_select_mode_2">key_select_mode_2</string>
+    <string name="select_mode_title">Mode</string>
+    <string name="default_mode_1">Secure Capture</string>
+    <string name="default_mode_2">Non-Secure Preview</string>
+
+    <string name="select_config">Select Configuration</string>
+    <string name="key_select_config">key_select_config</string>
+    <string name="select_config_title">Select Configuration to customize</string>
+    <string name="default_config_choice">0</string>
+    <string name="config_1">Configuration 1</string>
+    <string name="config_2">Configuration 2</string>
+
+    <string name="category_1">Category 1</string>
+    <string name="category_2">Category 2</string>
+
+    <string name="select_format">Format</string>
+    <string name="key_select_format_1">key_select_format_1</string>
+    <string name="key_select_format_2">key_select_format_2</string>
+    <string name="select_format_title">Format</string>
+
+    <string name="select_resolution">Resolution</string>
+    <string name="key_select_resolution_1">key_select_resolution_1</string>
+    <string name="key_select_resolution_2">key_select_resolution_2</string>
+    <string name="select_resolution_title">Resolution</string>
+
+    <string name="select_usecaseID">Usecase Identifier</string>
+    <string name="key_select_usecaseID_1">key_select_usecaseID_1</string>
+    <string name="key_select_usecaseID_2">key_select_usecaseID_2</string>
+    <string name="select_usecaseID_title">Usecase Identifier</string>
+    <string name="default_usecaseID">seccamdemo64</string>
+
+    <string name="select_destination">Destination</string>
+    <string name="key_select_destination_1">key_select_destination_1</string>
+    <string name="key_select_destination_2">key_select_destination_2</string>
+    <string name="select_destination_title">Destination</string>
+    <string name="default_destination">qti-tee</string>
+
+    <string name="select_timestamp">Timestamp Exchange</string>
+    <string name="key_timestamp_1">key_timestamp_1</string>
+    <string name="key_timestamp_2">key_timestamp_2</string>
+
+    <string name="select_fps">FPS</string>
+    <string name="key_select_fps_1">key_select_fps_1</string>
+    <string name="key_select_fps_2">key_select_fps_2</string>
+    <string name="select_fps_title">FPS</string>
+
+    <string name="preview_fps">Preview FPS: %1$d</string>
+    <string name="capture_fps">Capture FPS: %1$d</string>
+    <string name="secure_capture_fps">Secure Capture FPS: %1$d</string>
+
+    <string name="timestamp_text">Timestamp: %1$s</string>
+    <string name="ta_timestamp_text">TA Timestamp: %1$s</string>
+    <string name="exchange_timestamp">Exchange Timestamp</string>
+
+    <string name="select_preview_format">Simultaneous Preview Format</string>
+    <string name="key_select_preview_format">key_select_preview_format</string>
+    <string name="key_select_preview_resolution">key_select_preview_resolution</string>
+    <string name="select_preview_resolution">Simultaneous Preview Resolution</string>
+    <string name="both_preview_and_capture">If Preview and Capture With Same Sensor</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_config">ConfigActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+</resources>

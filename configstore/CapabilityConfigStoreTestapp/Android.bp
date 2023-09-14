@@ -1,0 +1,21 @@
+
+
+cc_binary {
+    name: "capabilityconfigstoretest",
+    proprietary: true,
+    relative_install_path: "hw",
+    owner: "qti",
+    srcs: ["capabilitytest.cpp"],
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libdl",
+        "libbase",
+        "libutils",
+        "libhardware",
+        "libhidlbase",
+        "libutils",
+        "vendor.qti.hardware.capabilityconfigstore@1.0",
+    ],
+
+}

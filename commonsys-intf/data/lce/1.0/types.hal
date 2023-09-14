@@ -1,0 +1,70 @@
+/*
+ * Copyright (c) 2021 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.hardware.data.lce@1.0;
+
+/**
+ * Return values for ILatencyService requests.
+ */
+enum StatusCode : uint64_t {
+    OK,
+    INVALID_ARGUMENTS,
+    INVALID_STATE,
+    REPORTING_CRITERIA_NOT_SET,
+    REPORTING_CRITERIA_TYPE_MISMATCH,
+    UNKNOWN_ERROR
+};
+
+/**
+ * Return values for direction for the link estimate.
+ */
+enum LinkDirection : int32_t {
+    UP,
+    DOWN
+};
+
+/**
+ * Return values for direction for the link estimate.
+ */
+enum Action : int32_t {
+    STOP,
+    START
+};
+
+/**
+ * Access network for which the api from ILceService should apply to.
+ */
+enum AccessNetwork : int32_t {
+    NONE = 0,
+    WCDMA = 1,
+    LTE = 2,
+    NR5G = 3
+};
+
+enum ReportType : int32_t {
+    INDICATION,
+    QUERY
+};
+
+/**
+ * Data structure passed to linkEstimation().
+ * @field accessNetwork The network type for the estimation report.
+ * @field rate Rate in kbps.
+ * @field level Level of accuracy at which the throughput information is generated on a scale
+ *   of 0 through 7. 0 indicates the least
+ * @field dir LinkDirection.
+ * @field queueSize Uplink queue size in bytes.
+ * @field type If the report came from setLinkCapacityReportingCriteria() or
+ *   getLastEstimationReport().
+ */
+struct Report {
+    AccessNetwork accessNetwork;
+    uint32_t rate;
+    uint32_t level;
+    LinkDirection dir;
+    uint32_t queueSize;
+    ReportType type;
+};

@@ -1,0 +1,78 @@
+{
+    "config":{
+        "hw_platform": ["QRD"],
+        "soc_id": ["356", "455", "496", "548"]
+    },
+
+    "default_sensors": {
+        "owner": "suid",
+        ".accel": {
+            "owner": "suid",
+            ".attr_0": {
+                "owner": "suid",
+                "id": { "type": "int", "ver": "0", "data": "19" },
+                "val": { "type": "int", "ver": "0", "data": "0" }
+            }
+        },
+
+        ".gyro": {
+            "owner": "suid",
+            ".attr_0": {
+                "owner": "suid",
+                "id": { "type": "int", "ver": "0", "data": "19" },
+                "val": { "type": "int", "ver": "0", "data": "0" }
+            }
+        },
+
+        ".motion_detect": {
+            "owner": "suid",
+            ".attr_0": {
+                "owner": "suid",
+                "id": { "type": "int", "ver": "0", "data": "19" },
+                "val": { "type": "int", "ver": "0", "data": "0" }
+            }
+        },
+
+        ".sensor_temperature": {
+            "owner": "suid",
+            ".attr_0": {
+                "owner": "suid",
+                "id": { "type": "int", "ver": "0", "data": "19" },
+                "val": { "type": "int", "ver": "0", "data": "0" }
+            },
+            ".attr_1": {
+                "owner": "suid",
+                "id": { "type": "int", "ver": "0", "data": "0" },
+                "val": { "type": "str", "ver": "0", "data": "icm4x6xx" }
+            }
+        },
+
+        ".accel_cal": {
+            "owner": "suid",
+            ".attr_0": {
+                "owner": "suid",
+                "id": { "type": "int", "ver": "0", "data": "19" },
+                "val": { "type": "int", "ver": "0", "data": "0" }
+            }
+        },
+
+        ".gyro_cal": {
+            "owner": "suid",
+            ".attr_0": {
+                "owner": "suid",
+                "id": { "type": "int", "ver": "0", "data": "19" },
+                "val": { "type": "int", "ver": "0", "data": "0" }
+            }
+        },
+
+        ".amd": {
+            "owner": "suid",
+            ".attr_0": {
+                "owner": "suid",
+                "id": { "type": "int", "ver": "0", "data": "19" },
+                "val": { "type": "int", "ver": "0", "data": "0" }
+            }
+        }
+    }
+}
+

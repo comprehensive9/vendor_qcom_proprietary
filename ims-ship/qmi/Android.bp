@@ -1,0 +1,33 @@
+cc_library_headers {
+    name: "libimsqmiservices_headers",
+    vendor: true,
+    host_supported: true,
+    export_include_dirs: ["."],
+}
+
+cc_library_static {
+    name: "libimsqmiservices",
+
+    header_libs: ["libimsqmiservices_headers",
+                  "libqmi_cci_headers" ],
+
+    export_header_lib_headers: ["libimsqmiservices_headers"],
+
+    // Including Local c Includes for now
+    local_include_dirs: ["."],
+
+    shared_libs: ["libidl"],
+
+    srcs: ["qmi_ims_vt_v01.c",
+           "ip_multimedia_subsystem_video_telephony_v01.c",
+           "ip_multimedia_subsystem_presence_v01.c",
+           "ip_multimedia_subsystem_settings_v01.c",
+           "ip_multimedia_subsystem_application_v01.c",
+           "ip_multimedia_subsystem_rtp_v01.c",
+           "ip_multimedia_subsystem_ims_common_v01.c"],
+
+
+    owner: "qti",
+    proprietary: true,
+
+}

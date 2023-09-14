@@ -1,0 +1,28 @@
+
+
+// =================================
+// copy header
+// =================================
+cc_library_headers {
+
+    name: "libqti-utils_headers",
+    export_include_dirs: ["."],
+    proprietary: true,
+}
+
+// =================================
+// libqti-utils.a and libqti-utils.so
+// =================================
+
+cc_library {
+    name: "libqti-utils",
+
+    srcs: ["memsutils.c"],
+
+    header_libs: ["libqti-utils_headers"],
+
+    owner: "qti",
+    proprietary: true,
+    compile_multilib: "both",
+
+}

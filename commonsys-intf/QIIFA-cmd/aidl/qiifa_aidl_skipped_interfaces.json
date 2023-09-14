@@ -1,0 +1,15 @@
+{
+    "ALL":["vendor.qti.gnss",
+           "vendor.qti.hardware.display.color",
+           "vendor.qti.hardware.display.postproc",
+           "vendor.qti.hardware.display.config"],
+    "HASH_CHECK": [],
+    "VERSION_CHECK": [],
+    "TYPES_CHECK": [],
+    "VNDRAVLBLE_CHECK": [],
+    "HASDEVCHK": [],
+    "NAMESPACE_CHECK": [],
+    "STABILITY_CHECK": [],
+    "VINTF_CHECK": [],
+    "PATH_CHECK": []
+}

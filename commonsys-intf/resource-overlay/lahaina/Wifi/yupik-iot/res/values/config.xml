@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2020, 2022 Qualcomm Technologies, Inc.
+     All Rights Reserved.
+     Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+
+<resources>
+    <!-- Enable concurrent restricted connectivity + internet connectivity
+         Note: this is conditional on the device supporting dual concurrent STAs. -->
+    <bool translatable="false" name="config_wifiMultiStaRestrictedConcurrencyEnabled">true</bool>
+
+    <!-- dual sap mode is supported on this device. -->
+    <bool name="config_wifi_dual_sap_mode_enabled">true</bool>
+
+    <!-- Enable SAE (WPA3 personal) for Wifi hotspot (SAP) -->
+    <bool translatable="false" name="config_wifi_softap_sae_supported">true</bool>
+
+    <!-- Indicates whether or not the WLAN driver supports the NL80211_CMD_REG_CHANGE or
+         NL80211_CMD_WIPHY_REG_CHANGE events which indicate the current country code which is
+         being used by the WLAN driver. If the driver doesn't support these events
+         (configuration is `false`) then the driver must handle the setCountryCode request from
+         HAL as a blocking call. In such a case the country code will be applied
+         immediately after the country code is sent to the driver (if the method returns a
+         success). -->
+    <bool translatable="false" name="config_wifiDriverSupportedNl80211RegChangedEvent">true</bool>
+</resources>

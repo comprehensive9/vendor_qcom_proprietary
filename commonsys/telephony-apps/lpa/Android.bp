@@ -1,0 +1,34 @@
+///******************************************************************************
+//*@file Android.bp
+//*brief Rules for compiling the source files
+//*******************************************************************************/
+
+// Build the auto generated files into a library to be used by both the
+// app and the service
+java_library {
+
+    name: "uimlpalibrary",
+    installable: true,
+    system_ext_specific: true,
+    sdk_version: "system_current",
+    srcs: ["src/com/qualcomm/qti/lpa/IUimLpaService.aidl"] +
+            ["src/com/qualcomm/qti/lpa/IUimLpaServiceCallback.aidl"] +
+            ["src/com/qualcomm/qti/lpa/UimLpaDownloadProgress.java"] +
+            ["src/com/qualcomm/qti/lpa/UimLpaProfile.java"] +
+            ["src/com/qualcomm/qti/lpa/UimLpaConstants.java"],
+
+}
+
+// ==========================================================================
+prebuilt_etc {
+
+    name: "lpa.xml",
+    system_ext_specific: true,
+
+    // This will install the file in /system_ext/etc/permissions
+    //
+
+    src: "lpa.xml",
+    sub_dir: "permissions",
+
+}

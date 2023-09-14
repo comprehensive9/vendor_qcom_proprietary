@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ */
+
+package vendor.qti.hardware.radio.qtiradio@2.6;
+
+import @2.5::IQtiRadio;
+
+interface IQtiRadio extends @2.5::IQtiRadio {
+    /**
+     * Used to get phone radio capability.
+     *
+     * @param serial Serial number of request.
+     *
+     * Response callback is IQtiRadioResponse.getQtiRadioCapabilityResponse()
+     */
+    oneway getQtiRadioCapability(int32_t serial);
+
+};

@@ -1,0 +1,31 @@
+
+cc_library_shared {
+    name: "libimscamera_jni",
+
+    srcs: [
+        "ims_camera_jni.cpp",
+        "jni_main.cpp",
+    ],
+
+    header_libs:  ["jni_headers"],
+
+    shared_libs: [
+        "libnativehelper",
+        "libcutils",
+        "libutils",
+        "libdl",
+        "liblog",
+    ],
+
+    cflags: [
+        "-O0",
+        "-g",
+    ],
+
+    sanitize: {
+        integer_overflow: true
+    },
+
+    system_ext_specific: true,
+
+}

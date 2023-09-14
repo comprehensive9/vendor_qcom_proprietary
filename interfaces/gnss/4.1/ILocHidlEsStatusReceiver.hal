@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2021 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ */
+
+package vendor.qti.gnss@4.1;
+import ILocHidlEsStatusReceiverCallback;
+
+interface ILocHidlEsStatusReceiver {
+    setCallback(ILocHidlEsStatusReceiverCallback callback) generates (bool success);
+};
+

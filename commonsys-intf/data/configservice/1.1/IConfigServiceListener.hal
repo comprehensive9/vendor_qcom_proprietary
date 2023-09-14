@@ -1,0 +1,42 @@
+/*********************************************************************
+Copyright (c) 2021 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+**********************************************************************/
+
+package vendor.qti.ims.configservice@1.1;
+
+import @1.0::IConfigServiceListener;
+
+interface IConfigServiceListener extends @1.0::IConfigServiceListener{
+    /**
+     * Callback function to notify the clients the status of request placed.
+     *
+     * @param status     status of set requests as per v1.1 RequestStatus.
+     *        userData   user data/request ID corresponding to client request.
+     */
+    oneway onCommandStatus_1_1(RequestStatus status, uint32_t userData);
+
+    /**
+     * Callback triggered upon getting result of getSettingsValue()
+     *
+     * @param   status    v1.1 RequestStatus to indicate whether get request to
+     *                    modem was success or not
+     *          cbdata    struct corresponding to v1.1 #SettingsData, containing the
+     *                    SettingsId requested and the corresponding values from modem
+     *                    as key-value pair vector, if status is RequestStatus::OK.
+     *          userData  user data/request ID corresponding to the client request.
+     */
+    oneway onGetSettingsResponse_1_1(RequestStatus status, SettingsData cbdata, uint32_t userData);
+
+     /**
+     * Unsolicited indication received from modem to notify HAL client if value of
+     * SettingsId has been updated on modem
+     *
+     *
+     * @param   cbdata    struct corresponding to v1.1 #SettingsData, containing the SettingsId
+     *                    for which callback is registered and the corresponding values from modem
+     *                    as key-value pair vector.
+     */
+    oneway onGetUpdatedSettings_1_1(SettingsData cbdata);
+};

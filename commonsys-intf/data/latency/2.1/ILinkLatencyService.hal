@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) 2021 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.latency@2.1;
+
+import @2.0::ILinkLatencyService;
+
+/**
+ * This is the root of the HAL module and is the interface returned when
+ * loading an implementation of the IFactory HAL.
+ */
+interface ILinkLatencyService extends @2.0::ILinkLatencyService {
+    /**
+     * Called by the client to deinitialize the effect and free up
+     * all the currently allocated resources. It is recommended to close
+     * the effect on the client side as soon as it is becomes unused.
+     *
+     * @return status OK in case the success. INVALID_STATE if the effect was already closed.
+     *
+     */
+    @exit
+    close() generates (StatusCode status);
+};

@@ -1,0 +1,10 @@
+cc_library_headers {
+    name: "qtiRilUtil-headers",
+    defaults: ["qtiril_common_defaults"],
+    host_supported: true,
+    vendor: true,
+    proprietary: true,
+    export_include_dirs: [
+        "inc",
+    ],
+}

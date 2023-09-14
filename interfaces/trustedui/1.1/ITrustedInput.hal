@@ -1,0 +1,40 @@
+/*
+ * Copyright (c) 2021 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.hardware.trustedui@1.1;
+import @1.0::types;
+import @1.0::ITrustedInput;
+import @1.0::ITrustedInputCallback;
+
+/**
+ * TrustedInput HAL
+ *
+ * Interface to control a TrustedInput Device to get user input event when a secure session is in
+ * progress. These input events are further notified to the trusted Execute Environment(EE).
+ * The trusted input "data" is, however, not read through this interface.
+ * ITrustedUI HAL expects an instance of this interface, to control the selected input device.
+ */
+interface ITrustedInput extends @1.0::ITrustedInput {
+
+    /**
+     * Initialize a TrustedInput device in secure mode.
+     * @note The implementation of this method should ensure that the non-secure access to the
+     * device is removed and only the trusted EE has the right to access.
+     *
+     * @param cb Callback to notify the client of input event with optional payload
+     *
+     * @param displayType Display type that is going to used by the TUI session.
+     *
+     * @return status 0 on success.
+     *                EBUSY if the device is already initialized.
+     *                EIO   in case of errors related to power management.
+     *                or any other error.
+     *
+     * @return trustedInputID TrustedInput device identifier.
+     **/
+    @callflow(next="*")
+    init2(ITrustedInputCallback cb, string displayType) generates (Response status, uint32_t trustedInputID);
+};

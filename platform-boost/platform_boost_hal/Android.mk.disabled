@@ -1,0 +1,36 @@
+LOCAL_PATH := $(call my-dir)
+
+# Create symbolic links for boost_mode.xml
+include $(CLEAR_VARS)
+LOCAL_MODULE:= boost_mode.xml
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := xml/boostMode/boost_mode.xml
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_ETC)/platform_boost
+LOCAL_MODULE_OWNER := qti
+include $(BUILD_PREBUILT)
+
+# Create symbolic links for boost_cap.xml
+# If Platform file not exist, then use common one.
+HAS_PLATFORM_FILE := false
+HAS_PLATFORM_FILE := $(shell if [ -f $(LOCAL_PATH)/xml/boostCap/$(TARGET_BOARD_PLATFORM)/boost_cap.xml ]; then echo true; fi)
+
+ifeq ($(HAS_PLATFORM_FILE),true)
+  include $(CLEAR_VARS)
+  LOCAL_MODULE:= boost_cap.xml
+  LOCAL_MODULE_CLASS := ETC
+  LOCAL_SRC_FILES := xml/boostCap/$(TARGET_BOARD_PLATFORM)/boost_cap.xml
+  LOCAL_MODULE_TAGS := optional
+  LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_ETC)/platform_boost
+  LOCAL_MODULE_OWNER := qti
+  include $(BUILD_PREBUILT)
+else
+  include $(CLEAR_VARS)
+  LOCAL_MODULE:= boost_cap.xml
+  LOCAL_MODULE_CLASS := ETC
+  LOCAL_SRC_FILES := xml/boostCap/common/boost_cap.xml
+  LOCAL_MODULE_TAGS := optional
+  LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_ETC)/platform_boost
+  LOCAL_MODULE_OWNER := qti
+  include $(BUILD_PREBUILT)
+endif

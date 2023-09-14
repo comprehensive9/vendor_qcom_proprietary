@@ -1,0 +1,85 @@
+/*!
+ *
+ * Copyright (c) 2019-2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ */
+
+package vendor.qti.spu@1.1;
+
+/**
+ * Error codes list for SPU HAL interface
+ */
+enum SPUError : int32_t {
+    SPU_ERR_SUCCESS                =  0,
+    SPU_ERR_GENERAL                = -1,
+    SPU_ERR_INVALID_PARAM          = -2,
+    SPU_ERR_NO_CONNECTION          = -3,
+    SPU_ERR_NO_CHANNEL             = -4,
+    SPU_ERR_NO_MEMORY              = -5,
+    SPU_ERR_FAIL_LOCK_DATA         = -6,
+    SPU_ERR_FAIL_UNLOCK_DATA       = -7,
+    SPU_ERR_COMMUNICATION          = -8,
+    SPU_ERR_NOT_SUPPORTED          = -9,
+    SPU_ERR_BUSY_CHANNEL           = -10,
+    SPU_ERR_NO_PERMISSION          = -11,
+    SPU_ERR_TIMEOUT                = -12,
+    SPU_ERR_RESET                  = -13,
+    SPU_ERR_NOT_READY              = -14,
+    SPU_ERR_INVALID_STATE          = -15,
+    SPU_ERR_ION                    = -16,
+    SPU_ERR_IO                     = -17,
+    SPU_ERR_UNEXPECTED             = -18,
+    SPU_ERR_AUTHENTICATION         = -19,
+    SPU_ERR_FORMAT                 = -20,
+    SPU_ERR_OS_VERSION_MISMATCH    = -21,
+    SPU_ERR_APP_VERSION_MISMATCH   = -22,
+    SPU_ERR_APP_NO_MEMORY          = -23,
+    SPU_ERR_DDR_SMALL_SWAP_REGION  = -24,
+    SPU_ERR_APP_MANIFEST           = -25,
+    SPU_ERR_APP_ALREADY_LOADED     = -26,
+    SPU_ERR_INVALID_APP_CHANNELS   = -27,
+};
+
+/**
+ * Image type
+ */
+enum SPUImageType : uint8_t {
+    SPU_IMAGE_TYPE_UNAVAILABLE = 1,
+    SPU_IMAGE_TYPE_TEST_V1     = 2,
+    SPU_IMAGE_TYPE_TEST_V2     = 3,
+    SPU_IMAGE_TYPE_PROD_V1     = 4,
+    SPU_IMAGE_TYPE_PROD_V2     = 5,
+};
+
+/**
+ * ARI state
+ */
+enum SPUARILifecycleState : uint8_t {
+    SPU_ARI_LIFECYCLE_STATE_UNINITIALIZED = 1,
+    SPU_ARI_LIFECYCLE_STATE_TEST_MODE     = 2,
+    SPU_ARI_LIFECYCLE_STATE_OPERATIONAL   = 3,
+    SPU_ARI_LIFECYCLE_STATE_EXHAUSTED     = 4,
+    SPU_ARI_LIFECYCLE_STATE_MUTED         = 5,
+    SPU_ARI_LIFECYCLE_STATE_INVALID       = 6,
+};
+
+/**
+ *  ARI suspension state
+ */
+enum SPUARISuspensionState : uint8_t {
+    SPU_ARI_SUSPENSION_STATE_NORMAL             = 1,
+    SPU_ARI_SUSPENSION_STATE_SUSPENSION_PENDING = 2,
+    SPU_ARI_SUSPENSION_STATE_SUSPENDED          = 3,
+};
+
+/**
+ * IAR state
+ */
+enum SPUIARState : uint8_t {
+    SPU_IAR_STATE_DISABLED         = 1,
+    SPU_IAR_STATE_INITIALIZING     = 2,
+    SPU_IAR_STATE_ACTIVATED        = 3,
+    SPU_IAR_STATE_DISABLED_ARI_EOL = 4,
+};

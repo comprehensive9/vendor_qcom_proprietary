@@ -1,0 +1,34 @@
+
+cc_library_shared {
+    name: "libimsmedia_jni",
+
+    srcs: [
+        "jni_main.cpp",
+        "ims_media_jni.cpp",
+    ],
+
+    header_libs:  ["jni_headers"],
+
+    shared_libs: [
+        "libnativehelper",
+        "libcutils",
+        "libutils",
+        "libdl",
+        "libgui",
+        "libbinder",
+        "liblog",
+        "libandroid",
+    ],
+
+    cflags: [
+        "-O0",
+        "-g",
+    ],
+
+    sanitize: {
+        integer_overflow: true
+    },
+
+    system_ext_specific: true,
+
+}

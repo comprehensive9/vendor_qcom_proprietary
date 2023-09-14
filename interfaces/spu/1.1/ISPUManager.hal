@@ -1,0 +1,69 @@
+/*!
+ *
+ * Copyright (c) 2019-2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ */
+
+package vendor.qti.spu@1.1;
+
+import ISpcomServer;
+import @1.0::ISpcomClient;
+import ISPUInfo;
+import @1.0::ISpcomSSREvent;
+import @1.0::ISPUManager;
+
+interface ISPUManager extends @1.0::ISPUManager {
+
+    /**
+     * Get ISpcomServer interface impl object handle to server SPU client
+     * applications using SPCOM
+     *
+     * @param   channelName  logical channel name as defined in server
+     *                       application manifest
+     *
+     * @return  server       spu server object to handle server APIs,
+     *                       nullptr on failure
+     */
+    getSpcomServer(string channelName) generates (ISpcomServer server);
+
+    /**
+     * Get ISPUInfo to read SPU info
+     *
+     * @return  info  spu info object handle, nullptr on failure
+     */
+    getSPUInfo() generates (ISPUInfo info);
+
+    /**
+     * Add a callback to be called on SPU SSR event
+     *
+     * @param   eventCb  Callback object to be called on SPU SSR event
+     *
+     * @return  error   zero on success, nonzero otherwise (see errno.h)
+     */
+    addSSRCallback(ISpcomSSREvent eventCb) generates (int32_t error);
+
+    /**
+     * Remove SPU SSR event callback
+     *
+     * @param   eventCb  Callback object to remove
+     *
+     * @return  error   zero on success, nonzero otherwise (see errno.h)
+     */
+    rmSSRCallback(ISpcomSSREvent eventCb) generates (int32_t error);
+
+   /**
+    * Wait for SPU to be ready and finish boot applications loading
+    *
+    * Should be called before using SPU interface and after SSR to check the
+    * system readiness.
+    *
+    * @param   timeoutSec  timeout in seconds
+    *
+    * @return  isReady     zero if ready, 1 if not ready, negative
+    *                      if error occurred (see errno.h)
+    */
+    waitForSpuReady(uint32_t timeoutSec)
+        generates (int32_t isReady);
+};

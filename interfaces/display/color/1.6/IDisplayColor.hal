@@ -1,0 +1,62 @@
+/*
+ * Copyright (c) 2021 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.display.color@1.6;
+
+import @1.0::types;
+import @1.5::IDisplayColor;
+
+interface IDisplayColor extends @1.5::IDisplayColor{
+    /**
+     * Start save Qdcm mode.
+     *
+     * Clients can start to save qdcm mode procedure.
+     *
+     * @param  ctxHandle is context handle.
+     * @param  disp_id is display ID.
+     * @param  number of modes that need be saved during this procedure.
+     * @param  an index into the list of saved modes that indicates which mode is the default mode.
+     * @param  Reserved.
+     * @return result OK on success or error if any parameters are invalid.
+     */
+     @callflow(next="*")
+     startSaveQdcmMode(Handle ctxHandle,
+                       uint32_t disp_id,
+                       uint32_t num_modes,
+                       uint32_t default_mode,
+                       uint32_t flags) generates (Result result);
+
+    /**
+     * Save Qdcm mode.
+     *
+     * Clients can save qdcm mode.
+     *
+     * @param  ctxHandle is context handle.
+     * @param  disp_id is display ID.
+     * @param  color mode information.
+     * @return result OK on success or error if any parameters are invalid.
+     */
+     @callflow(next="*")
+     saveQdcmMode(Handle ctxHandle,
+                  uint32_t disp_id,
+                  ColorModeInfo color_mode_info) generates (Result result);
+
+    /**
+     * Stop save Qdcm mode.
+     *
+     * Clients can stops the procedure for saving modes.
+     *
+     * @param  ctxHandle is context handle.
+     * @param  disp_id is display ID.
+     * @param  Reserved.
+     * @return result OK on success or error if any parameters are invalid.
+     */
+     @callflow(next="*")
+     stopSaveQdcmMode(Handle ctxHandle,
+                      uint32_t disp_id,
+                      uint32_t flags) generates (Result result);
+
+};

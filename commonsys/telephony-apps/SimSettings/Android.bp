@@ -1,0 +1,17 @@
+
+android_app {
+    name: "SimSettings",
+
+    srcs: ["**/*.java"],
+
+    libs: [
+        "telephony-common",
+        "telephony-ext",
+    ],
+    static_libs: ["android-support-v4"],
+
+    certificate: "platform",
+    platform_apis: true,
+    system_ext_specific: true,
+
+}

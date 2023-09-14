@@ -1,0 +1,35 @@
+//Generate Diag library
+cc_library {
+    name: "libdiag",
+    header_libs: ["libcutils_headers", "libtime_genoff_headers", "vendor_common_inc", "libdiag_headers"],
+    export_header_lib_headers: ["libdiag_headers"],
+    srcs: [
+        "src/diag_lsm.c",
+        "src/diag_lsm_dci.c",
+        "src/ts_linux.c",
+        "src/diag_lsm_event.c",
+        "src/diag_lsm_log.c",
+        "src/msg_arrays_i.c",
+        "src/diag_lsm_msg.c",
+        "src/diag_lsm_pkt.c",
+        "src/diagsvc_malloc.c",
+        "src/diag_logger.c",
+        "src/diag_qshrink4_db_parser.c",
+        "src/diag_lsm_qdss.c",
+        "src/diag_lsm_adpl.c",
+        "src/diag_lsm_diag_id.c",
+	"src/diag_lsm_comm.c"
+    ],
+    cflags: ["-DANDROID"],
+    shared_libs: ["liblog"] + ["libc"] + ["libcutils"],
+    static_libs: ["libtime_genoff"],
+    owner: "qti",
+    proprietary: true,
+}
+
+//Generate Diag header library
+cc_library_headers {
+    name: "libdiag_headers",
+    export_include_dirs: ["src","include"],
+    vendor_available: true,
+}

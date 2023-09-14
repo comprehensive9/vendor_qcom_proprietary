@@ -1,0 +1,86 @@
+<!--
+Copyright (c) 2020 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+<resources>
+  <string name="app_name">
+Connection Manager Test App</string>
+  <string
+name="tab_text_1">
+Sub 0</string>
+  <string
+name="tab_text_2">
+Sub 1</string>
+  <string
+name="textview_mainscreen">
+CM Service Operation</string>
+  <string
+name="textview_ftselection">
+Please Select a Feature to create Connection</string>
+<string
+name="textview_regftselection">
+Please Select a Feature to perform Connection related Operations</string>
+<string
+name="button_mainscreen">
+Execute</string>
+<string
+name="button_create">
+Create Connection</string>
+<string
+name="button_go">
+Go</string>
+<string
+name="button_done">
+Back</string>
+<string
+name="cmservice_dropdown_list">
+Select Operation</string>
+  <string
+name="status_text">
+Status</string>
+  <string
+name="drpbtn_text">
+Select CM Operation</string>
+
+<string-array name="cmserviceoperations_array"
+>
+  <item>Create CM Service</item>
+  <item>Display List of FTs</item>
+  <item>Trigger Registration</item>
+
+   <item>
+     Get Configuration
+   </item>
+
+<item>
+Trigger ACS Request</item>
+
+<item>
+Method Response</item>
+
+<item>
+Trigger Deregistration</item>
+  <item>Close CM Service
+</item>
+</string-array>
+
+  <string
+name="textview_ftscreen">
+Feature Operation</string>
+
+<string-array name="ftoperations_array">
+
+<item>
+Send Message</item>
+
+<item>
+Close All Transactions</item>
+
+<item>
+Set Service Status</item>
+
+<item>
+Close Connection</item>
+</string-array>
+</resources>

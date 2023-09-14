@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.hardware.sxrhal@1.0;
+
+enum sxrCryptoEvent : uint32_t {
+    SXR_INIT = 1,
+    SXR_DEINIT = 2,
+    SXR_DECRYPT = 3,
+    SXR_ENCRYPT = 4,
+    SXR_ERROR = 5,
+};

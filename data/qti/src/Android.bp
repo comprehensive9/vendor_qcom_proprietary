@@ -1,0 +1,55 @@
+cc_binary {
+    name: "qti",
+    cflags: [
+        "-DFEATURE_DATA_LOG_QXDM",
+    ],
+
+     header_libs: [
+        "libqcmaputils_headers",
+        "vendor_common_inc",
+        "libdsutils_headers",
+        "libdiag_headers",
+        "qti_kernel_headers",
+        "libqmi_common_headers",
+        "libqmi_legacy_headers",
+        "libdataqmiservices_headers",
+        "librmnetctl_headers",
+        "libutils_headers",
+        "libcutils_headers",
+    ],
+
+     shared_libs: [
+        "libc",
+        "liblog",
+        "libdiag",
+        "libdsutils",
+        "librmnetctl",
+        "libqmi_cci",
+        "libqmiservices",
+        "libnetutils",
+        "libcutils",
+        "libqmi_client_qmux",
+        "libqmi_encdec",
+        "libqcmaputils",
+    ],
+
+    srcs: [
+        "qti_main.c",
+        "qti_rmnet_peripheral.c",
+        "qti_rmnet_modem.c",
+        "qti_rmnet_data.c",
+        "qti_rmnet_qmi.c",
+        "qti_rmnet_dpm.c",
+    ],
+
+    init_rc: ["dataqti.rc"],
+    sanitize: {
+        integer_overflow: true,
+    },
+    clang: true,
+
+    owner: "qti",
+    proprietary: true,
+
+}
+

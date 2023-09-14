@@ -1,0 +1,21 @@
+android_app {
+    name: "QtiWifiSettingsApp",
+
+    optimize: {
+        enabled: false,
+    },
+
+    srcs: ["src/**/*.java"],
+
+    resource_dirs: ["res"],
+
+    static_libs: [
+        "android-support-v13",
+        "qtiwifi_manager",
+    ],
+
+    certificate: "platform",
+    platform_apis: false,
+    sdk_version: "current",
+
+}

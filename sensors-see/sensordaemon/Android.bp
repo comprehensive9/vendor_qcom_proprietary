@@ -1,0 +1,52 @@
+cc_binary {
+    name: "sensors.qti",
+    defaults: [
+        "sns_proto_lib_name-lite",
+        "sns_wearable_target_bg",
+    ],
+    local_include_dirs: [
+        "src",
+    ],
+    srcs: [
+        "src/sensordaemon.cpp",
+        "src/aont.cpp",
+        "src/wrist_orientation_update.cpp",
+    ],
+    header_libs: [
+        "vendor_common_inc",
+        "libdiag_headers",
+        "libsensorlog_headers",
+        "libssc_headers",
+    ],
+    shared_libs: [
+        "liblog",
+        "libdiag",
+        "libssc",
+        "libsensorslog",
+        "libcutils",
+        "libsnsapi",
+    ],
+    cflags: [
+        "-Werror",
+        "-Wall",
+        "-fexceptions",
+    ],
+    proprietary: true,
+    owner: "qti",
+    init_rc: ["vendor.sensors.qti.rc"],
+}
+
+prebuilt_etc {
+    name: "init.vendor.sensors.rc",
+    src: "init.vendor.sensors.rc",
+    sub_dir: "init",
+    proprietary: true,
+}
+
+sh_binary {
+    name: "init.qcom.sensors.sh",
+    src: "init.qcom.sensors.sh",
+    vendor: true,
+    owner: "qti",
+    proprietary: true,
+}

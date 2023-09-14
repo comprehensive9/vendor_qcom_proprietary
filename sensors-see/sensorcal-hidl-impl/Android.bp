@@ -1,0 +1,60 @@
+cc_library_shared {
+    name: "vendor.qti.hardware.sensorscalibrate@1.0-impl",
+    proprietary: true,
+    relative_install_path: "hw",
+    owner: "qti",
+    local_include_dirs: ["."],
+    header_libs: [
+        "libsensors_headers",
+        "libsnshal_headers",
+    ],
+    srcs: ["SensorsCalibrate.cpp"],
+    shared_libs: [
+        "libhidlbase",
+        "libutils",
+        "libdl",
+        "liblog",
+        "libcutils",
+        "libhardware",
+        "libbase",
+        "vendor.qti.hardware.sensorscalibrate@1.0",
+        "libsensorcal",
+    ],
+}
+
+cc_binary {
+    name: "vendor.qti.hardware.sensorscalibrate@1.0-service",
+    relative_install_path: "hw",
+    proprietary: true,
+    owner: "qti",
+    srcs: ["service.cpp"],
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libdl",
+        "libbase",
+        "libutils",
+        "libhidlbase",
+        "vendor.qti.hardware.sensorscalibrate@1.0",
+    ],
+}
+
+prebuilt_etc {
+    name: "vendor-qti-hardware-sensorscalibrate.xml",
+    src: "vendor-qti-hardware-sensorscalibrate.xml",
+    sub_dir: "permissions",
+    proprietary: true,
+}
+
+prebuilt_etc {
+    name: "vendor.qti.hardware.sensorscalibrate@1.0-service.rc",
+    src: "vendor.qti.hardware.sensorscalibrate@1.0-service.rc",
+    sub_dir: "init",
+    proprietary: true,
+}
+prebuilt_etc {
+    name: "vendor.qti.hardware.sensorscalibrate@1.0-service.disable.rc",
+    src: "vendor.qti.hardware.sensorscalibrate@1.0-service.disable.rc",
+    sub_dir: "init",
+    proprietary: true,
+}

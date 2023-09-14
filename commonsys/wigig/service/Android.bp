@@ -1,0 +1,21 @@
+// Build the java code
+// ============================================================
+java_library {
+    name: "wigig-service",
+    installable: true,
+    srcs: [
+        "java/**/*.java",
+    ],
+    static_libs: ["wigig_manager"],
+    libs: [
+        "services",
+        "android.hidl.base-V1.0-java",
+        "android.hidl.manager-V1.0-java",
+        "vendor.qti.hardware.wigig.supptunnel-V1.0-java",
+        "vendor.qti.hardware.wigig.netperftuner-V1.0-java",
+        "vendor.qti.hardware.capabilityconfigstore-V1.0-java"
+    ],
+    platform_apis: true,
+    required: ["services"],
+    system_ext_specific: true,
+}

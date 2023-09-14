@@ -1,0 +1,35 @@
+cc_binary {
+    name: "nqnfcinfo",
+
+    arch: {
+        arm: {
+            instruction_set: "thumb",
+        },
+    },
+
+    srcs: ["src/main.c"],
+
+    cflags: [
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+    ],
+
+    header_libs: ["qti_kernel_headers"],
+
+    shared_libs: [
+        "libdl",
+        "libcutils",
+        "liblog",
+    ],
+
+    sanitize: {
+        cfi: true,
+        misc_undefined: ["signed-integer-overflow",
+                         "unsigned-integer-overflow"],
+    },
+
+    proprietary: true,
+    owner: "qti",
+
+}

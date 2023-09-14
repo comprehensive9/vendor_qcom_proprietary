@@ -1,0 +1,68 @@
+#!/bin/bash
+
+# Copyright (c) 2020 Qualcomm Technologies, Inc.
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+function cleanup()
+{
+  unlink ./qcrilNr_prebuilt.db
+  unlink ./upgrade
+}
+
+function err_exit()
+{
+  if [ "$2" ]; then
+    echo -e 1>&2 "\n$2, error code: $1"
+  fi
+  exit $1
+}
+
+trap cleanup SIGINT
+
+if [ "x$ANDROID_PRODUCT_OUT" == "x" ]; then
+    echo "Please configure the target by lunch cmd"
+    exit -1
+fi
+
+if [[ -z $@ ]]; then
+  echo "Run the GTests"
+
+  $ANDROID_HOST_OUT/bin/QtiMarshallingTest
+  RET=$?
+  if [ $RET -ne 0 ]; then
+    err_exit $RET "  FAILED: QtiMarshallingTest"
+  fi
+
+  $ANDROID_HOST_OUT/bin/QtiRilFwkTest
+  RET=$?
+  if [ $RET -ne 0 ]; then
+    err_exit $RET "  FAILED: QtiRilFwkTest"
+  fi
+fi
+
+echo "clean up old test logs..."
+rm -rf ./log
+mkdir ./log
+
+ln -s $ANDROID_PRODUCT_OUT/vendor/etc/qcril_database/qcrilNr.db ./qcrilNr_prebuilt.db
+ln -s $ANDROID_PRODUCT_OUT/vendor/etc/qcril_database/upgrade/ ./upgrade
+
+$ANDROID_HOST_OUT/bin/qcrilnr_utf_test.bin $@
+RET=$?
+cleanup
+
+# RIL UTF will dump the status of the test cases in the "log/test_results.txt" file.
+# The "Finished: SUCCESS" message in the "log/test_results.txt" indicates that all the
+# test cases are executed successfully.
+if grep -q 'Finished: SUCCESS' "log/test_results.txt"; then
+  echo "RIL UTF Finished: SUCCESS"
+  RET=0
+else
+  echo "RIL UTF Finished: FAILURE"
+  RET=1
+fi
+
+if [ $RET -ne 0 ]; then
+  err_exit $RET "  FAILED: qcrilnr_utf_test.bin"
+fi

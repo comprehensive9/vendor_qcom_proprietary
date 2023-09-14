@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) 2021 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.latency@2.1;
+
+import @2.0::StatusCode;
+
+/**
+ * Return values for ILatencyService requests
+ */
+enum StatusCode : @2.0::StatusCode {
+    INVALID_STATE,
+};

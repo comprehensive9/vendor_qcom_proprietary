@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.data.mwqem@1.0;
+
+/**
+ * Return values for IMwqemService requests
+ */
+enum ReturnCode : uint64_t {
+    OK,
+    INVALID_ARGUMENTS,
+    UNKNOWN_ERROR
+};
+
+/**
+ * Enum which holds the MWQEM Preference
+ * OPTIMIZE_LATENCY
+ * OPTIMIZE_TPUT
+ */
+enum Preference : uint8_t {
+    OPTIMIZE_LATENCY = 1,
+    OPTIMIZE_TPUT = 2
+};

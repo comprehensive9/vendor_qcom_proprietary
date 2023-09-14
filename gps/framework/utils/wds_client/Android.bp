@@ -1,0 +1,32 @@
+cc_library_shared {
+        name: "libloc_api_wds",
+        owner: "qti",
+        proprietary: true,
+        vendor: true,
+
+        cflags: ["-fno-short-enums"] + GNSS_CFLAGS,
+
+        shared_libs: [
+            "libgps.utils",
+            "libidl",
+            "libcutils",
+            "liblog",
+            "libutils",
+            "liblocation_api",
+            "libqmi_cci",
+            "libqmi_common_so",
+        ],
+
+        static_libs: [
+            "libdataqmiservices"
+        ],
+        header_libs: [
+            "libgps.utils_headers",
+            "libloc_pla_headers",
+            "liblocation_api_headers",
+            "libqmi_common_headers",
+            "libdataqmiservices_headers"
+        ],
+
+        srcs: ["LocQmiWds.cpp"],
+}

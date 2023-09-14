@@ -1,0 +1,20 @@
+
+android_app {
+    name: "xdivert",
+
+    optimize: {
+        enabled: false,
+    },
+
+    srcs: ["**/*.java"],
+
+    certificate: "platform",
+    libs: [
+        "telephony-common",
+        "qti-telephony-utils",
+        "qti-telephony-hidl-wrapper",
+    ],
+    platform_apis: true,
+    system_ext_specific: true,
+
+}

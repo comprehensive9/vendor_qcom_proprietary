@@ -1,0 +1,51 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.hardware.trustedui@1.1;
+import @1.0::types;
+import @1.0::ITrustedUI;
+import @1.0::ITrustedInput;
+import @1.0::ITrustedUICallback;
+import android.hidl.memory.block@1.0::MemoryBlock;
+
+
+/**
+ * Trusted UI HAL
+ *
+ * ITrustedUI provides services for handling secure user interactions for usecases such as
+ * -# secure payment
+ * -# secure confirmation
+ *
+ * ITrustedUI includes methods to create and start a secure display session and attach a secure way
+ * of delivering user input to the session. The interface provides means to configure a layout of
+ * the client's choice to be rendered on the screen, as well as a configurable way of accepting user
+ * input (touch, keyboard etc).
+ */
+interface ITrustedUI extends @1.0::ITrustedUI {
+    /**
+     * This method initializes a new session and sets up the trusted entity on the trusted Execute
+     * Engine(trustedEE) for secure execution.
+     * Client must implement ITrustedInput interface to open/close/read secure user-events and
+     * ITrustedUICallback to receive async notifications from the HAL.
+     *
+     * @param inParams Session creation parameters. Refer TUICreateParams2 in @1.1::types.hal for the
+     *                 description of the parameters.
+     *
+     * @param input ITrustedInput interface (to open/close/read secure user-events)
+     *
+     * @param cb Client Callback to report the session result on input handling complete or
+     *           on error.
+     *
+     * @return status - TUI_SUCCESS on success
+     *                - TUI_FAILURE General Failure
+     *
+     * @return sessionId Session identifier. Valid in case of success and should be
+     *                   ignored in case of an error.
+     **/
+    @callflow(next="*")
+    createSession2(TUICreateParams2 inParams, ITrustedInput input, ITrustedUICallback cb)
+        generates (Response status, uint32_t sessionId);
+};

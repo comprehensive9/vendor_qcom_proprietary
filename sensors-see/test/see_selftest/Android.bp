@@ -1,0 +1,18 @@
+cc_binary {
+    name: "see_selftest",
+    owner: "qti",
+    proprietary: true,
+    srcs: ["see_selftest.cpp"],
+    local_include_dirs: ["./"],
+    header_libs: [
+        "libseesalt_headers",
+    ],
+    cflags: [
+        "-Wno-unused-variable",
+        "-Wno-unused-parameter",
+        "-fexceptions",
+        "-g",
+    ],
+    shared_libs: ["libSEESalt"],
+}
+

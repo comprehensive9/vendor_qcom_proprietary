@@ -1,0 +1,38 @@
+cc_binary {
+    name: "dun-server",
+    system_ext_specific: true,
+
+    cflags: [
+        "-DFEATURE_DATA_LOG_ADB",
+        "-DLOG_NDDEBUG=0",
+        "-DLOG_NIDEBUG=0",
+        "-Wno-psabi",
+        "-Wno-write-strings",
+        "-DANDROID_NDK",
+        "-DTARGET_ANDROID",
+        "-DLINUX",
+        "-DQCC_OS_GROUP_POSIX",
+        "-DQCC_OS_ANDROID",
+        "-DQCC_CPU_ARM",
+        "-DANDROID",
+    ],
+
+    srcs: [
+        "portbridge_common.c",
+        "portbridge_core_SM.c",
+        "portbridge_core_xfer.c",
+        "portbridge_ext_host_mon.c",
+        "platform_call_arb_SM.c",
+        "platform_call_arb_kevents.c",
+    ],
+
+    local_include_dirs: ["."],
+
+    header_libs: ["vendor_common_inc",],
+
+    shared_libs: [
+        "libcutils",
+        "liblog",
+    ],
+
+}

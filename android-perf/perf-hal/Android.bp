@@ -1,0 +1,147 @@
+cc_library_shared {
+    name: "libperfgluelayer",
+    proprietary: true,
+
+    srcs: [
+        "PerfGlueLayer.cpp"
+    ],
+
+    cflags: [
+        "-DQC_DEBUG=0",
+    ],
+
+    header_libs: [
+        "libcutils_headers",
+    ],
+
+    shared_libs: [
+        "libutils",
+        "liblog",
+        "libcutils",
+        "libperfconfig",
+    ],
+
+    include_dirs: [
+        "vendor/qcom/proprietary/android-perf/mp-ctl",
+        "external/libxml2/include",
+        "vendor/qcom/proprietary/android-perf/perf-util",
+    ],
+}
+
+cc_library_shared {
+    name: "libperfconfig",
+    proprietary: true,
+
+    srcs: [
+        "TargetConfig.cpp",
+        "PerfConfig.cpp"
+    ],
+
+    cflags: [
+        "-DQC_DEBUG=0",
+    ],
+
+    header_libs: [
+        "libcutils_headers",
+    ],
+
+    shared_libs: [
+        "libutils",
+        "liblog",
+        "libcutils",
+        "libxml2",
+        "libqti-util",
+    ],
+
+    include_dirs: [
+        "vendor/qcom/proprietary/android-perf/mp-ctl",
+        "external/libxml2/include",
+        "vendor/qcom/proprietary/android-perf/perf-util",
+    ],
+}
+
+
+prebuilt_etc {
+    name: "init.pixel.vendor.qti.hardware.perf@2.2-service.rc",
+
+    src: "init.pixel.vendor.qti.hardware.perf@2.2-service.rc",
+
+    sub_dir: "init",
+
+    device_specific: true,
+}
+
+/* Perf_Stub.cpp will be picked when
+SOONG_CONFIG_perf_TARGET_DISABLE_QC_PERF_OPTIMIATIONS is true in <Target>.mk*/
+
+soong_config_module_type {
+    name: "perfopts_cc_defaults",
+    module_type: "cc_defaults",
+    config_namespace: "perf",
+    bool_variables: ["QMAA_ENABLE_PERF_STUB_HALS"],
+    properties: ["srcs","exclude_srcs"],
+    }
+
+perfopts_cc_defaults {
+    name: "perfopts_defaults",
+    soong_config_variables: {
+        QMAA_ENABLE_PERF_STUB_HALS: {
+            srcs: [
+                "Perf_Stub.cpp",
+            ],
+            exclude_srcs : [
+                "Perf.cpp"
+            ],
+        },
+    }
+}
+
+cc_binary {
+    name: "vendor.qti.hardware.perf@2.2-service",
+    relative_install_path: "hw",
+    proprietary: true,
+    init_rc: ["vendor.qti.hardware.perf@2.2-service.rc"],
+    defaults: ["perfopts_defaults"],
+
+    srcs: [
+        "service.cpp",
+        "Perf.cpp",
+    ],
+
+    include_dirs: [
+        "external/libxml2/include",
+        "vendor/qcom/proprietary/android-perf/perf-util",
+        "vendor/qcom/proprietary/android-perf/mp-ctl",
+        "vendor/qcom/proprietary/android-perf/mp-ctl-client",
+    ],
+
+    header_libs: ["libcutils_headers"],
+
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libdl",
+        "libbase",
+        "libutils",
+        "libhardware_legacy",
+        "libhardware",
+
+        "libhidlbase",
+        "vendor.qti.hardware.perf@2.0",
+        "vendor.qti.hardware.perf@2.1",
+        "vendor.qti.hardware.perf@2.2",
+        "libperfconfig",
+        "libperfgluelayer",
+        "libqti-perfd-client"
+    ],
+
+    cppflags: [
+        "-fexceptions",
+    ],
+
+    arch: {
+        arm: {
+            cflags: ["-DENABLE_BINDER_BUFFER_TUNING_FOR_32_BIT"],
+        },
+     },
+}

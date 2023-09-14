@@ -1,0 +1,10 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: acdloaderservice
+Description: acdbloaderservice library
+Version: @VERSION@
+Libs: -L${libdir} -lacdbloaderclient
+Cflags: -I${includedir}/acdb-loader-auto

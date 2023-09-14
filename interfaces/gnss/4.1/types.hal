@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) 2021 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.gnss@4.1;
+
+@export(name="", value_prefix="LOC_HIDL_IZAT_STREAM_")
+enum LocHidlIzatStreamType : uint32_t {
+    FUSED            = 0x1,
+    NETWORK          = 0x2,
+    GNSS             = 0x4,
+    NMEA             = 0x8,
+    DR               = 0x10,
+    GNSS_SVINFO      = 0x20,
+    DR_SVINFO        = 0x40,
+    EMERGENCY_STATUS = 0x80,
+    ALL              = 0xff
+};

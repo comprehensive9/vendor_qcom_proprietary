@@ -1,0 +1,44 @@
+/********************************:*************************************
+Copyright (c) 2021 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+**********************************************************************/
+
+package vendor.qti.ims.configservice@1.1;
+
+import @1.0::types;
+import @1.0::RequestStatus;
+import @1.0::StandaloneMessagingConfigKeys;
+import @1.0::SettingsId;
+import @1.0::KeyValuePairTypeBool;
+import @1.0::KeyValuePairTypeInt;
+import @1.0::KeyValuePairTypeString;
+
+/**
+ * Status code for client commands and APIs
+ */
+
+enum RequestStatus : @1.0::RequestStatus {
+    /** Client command retry attempts maxed out */
+    RETRY_ATTEMPTS_MAXED_OUT = 5,
+};
+
+
+enum StandaloneMessagingConfigKeys : @1.0::StandaloneMessagingConfigKeys {
+
+    /** This key expects string value **/
+    /** Comma separated list of AppID values each corresponding to an application client supports.
+    If not set, the default is ap2002 **/
+    APP_ID_KEY = 314,
+};
+
+struct SettingsValues {
+    vec<KeyValuePairTypeBool>    boolData;
+    vec<KeyValuePairTypeInt>     intData;
+    vec<KeyValuePairTypeString>  stringData;
+};
+
+struct SettingsData {
+    SettingsId settingsId;
+    SettingsValues settingsValues;
+};

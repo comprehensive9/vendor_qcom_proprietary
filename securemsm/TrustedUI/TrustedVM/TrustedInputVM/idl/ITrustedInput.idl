@@ -1,0 +1,51 @@
+/*===================================================================================
+  Copyright (c) 2020 - 2021 Qualcomm Technologies, Inc.
+  All Rights Reserved.
+  Confidential and Proprietary - Qualcomm Technologies, Inc.
+  ===================================================================================*/
+
+/*===================================================================================
+FILE:  ITrustedInput.idl
+
+DESCRIPTION:  This file contains interface for invoking the TrustedInput
+interface.
+1) To register VMClientApp Callback object.
+2) VMClientApp to call getInput with the timeout period.
+
+=====================================================================================*/
+
+include "ITrustedInputCallBack.idl"
+interface TrustedInput
+{
+    /*=======================================================
+      Error Codes
+    =========================================================*/
+    error ERROR_ACCESS_CONTROLFD;
+    error ERROR_OPEN_CONTROLFD;
+    error ERROR_OPEN_TOUCHDATAFD;
+    error ERROR_READ_DEVICENODE;
+    error ERROR_GET_DEVICENODE;
+    error ERROR_INVALID_TOUCH_DEVICENODE;
+    error ERROR_IOCTL_TOUCHDATAFD;
+    error ERROR_READ_FAILED;
+    error ERROR_REGISTER_CBO;
+    error ERROR_CREATE_THREAD;
+    error ERROR_WRITE_CONTROLFD;
+    error ERROR_WRITE_ABORTFD;
+    error ERROR_INVALID_FINGER_NUM;
+    error ERROR_POLL_IS_STILL_ACTIVE;
+    error ERROR_TOUCH_SESSION_ACTIVE;
+    error ERROR_TOUCH_SESSION_INACTIVE;
+    error ERROR_INVALID_SCREEN_X_Y_INFO;
+    error ERROR_INVALID_MAX_X_Y;
+    error ERROR_INVALID_DISPLAY_TYPE;
+
+    /*======================================================
+       Constant Codes
+    *=======================================================*/
+    const uint32 SUCCESS = 0;
+
+    method init(in TrustedInputCallBack TrustedInputCBO, in uint32 displayType, in uint32 screenX, in uint32 screenY);
+    method terminate();
+    method getInput(in int32 timeout);
+};

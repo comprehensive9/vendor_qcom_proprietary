@@ -1,0 +1,25 @@
+cc_binary {
+    name: "test_diag",
+
+    srcs: ["test_diag.c"],
+
+    header_libs: ["libdiag_headers", "vendor_common_inc",],
+
+    shared_libs: ["libdiag", "liblog",],
+
+    owner: "qti",
+    proprietary: true,
+}
+
+cc_binary {
+    name: "debug-diag",
+
+    srcs: ["debug.c"],
+
+    header_libs: ["libdiag_headers", "vendor_common_inc",],
+
+    shared_libs: ["libdiag", "liblog",],
+
+    owner: "qti",
+    proprietary: true,
+}

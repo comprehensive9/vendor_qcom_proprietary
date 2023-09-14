@@ -1,0 +1,10 @@
+build
+build/infrastructure/android/built/settings/camxoverridesettingsprivate.txt
+src/core/g_camxversion.h
+src/settings/g_camxsettings.h
+src/core/g_camxproperties.cpp
+src/core/g_camxproperties.h
+src/hwl/titan17x/g_camxtitan17xsettings.cpp
+src/hwl/titan17x/g_camxtitan17xsettings.h
+src/mapperutils/extformatutil/g_formatmapper.h
+src/settings/g_camxsettings.cpp

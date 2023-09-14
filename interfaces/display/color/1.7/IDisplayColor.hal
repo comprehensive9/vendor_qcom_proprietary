@@ -1,0 +1,38 @@
+/*
+ * Copyright (c) 2021 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.display.color@1.7;
+
+import @1.0::types;
+import @1.6::IDisplayColor;
+
+interface IDisplayColor extends @1.6::IDisplayColor{
+    /**
+     * Set spr mode.
+     *
+     * @param  ctxHandle context handle.
+     * @param  dispId display id.
+     * @param  cfg spr mode configuration.
+     * @return result OK on success or error if any parameters are invalid.
+     */
+    @callflow(next="*")
+    setSPRMode(uint64_t ctxHandle,
+               uint32_t dispId,
+               sprModeInfo info) generates (Result result);
+
+    /**
+     * Get spr mode configuration.
+     *
+     * @param  ctxHandle context handle.
+     * @param  dispId display id.
+     * @return result OK on success or BAD_VALUE if any parameters are invalid.
+     * @return info spr mode configuration.
+     */
+    @callflow(next="*")
+    getSPRMode(uint64_t ctxHandle,
+               uint32_t dispId) generates (Result result,
+                                           sprModeInfo info);
+};
